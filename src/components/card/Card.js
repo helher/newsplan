@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react'
+import './Card.css';
 
-class Card extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+function Card() {
+    return (
+        <div>
+            <p>Card</p>
+        </div>
+    )
 }
 
 export default Card;
