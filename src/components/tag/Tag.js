@@ -1,12 +1,13 @@
-import React from 'react';
-import './Tag.css';
+import React, { Component } from 'react';
 
-function Tag() {
-    return (
-        <div>
-            <p>Tag</p>
-        </div>
-    )
+class Tag extends Component {
+    render() {
+        return (
+            <div>
+                
+            </div>
+        );
+    }
 }
 
 export default Tag;

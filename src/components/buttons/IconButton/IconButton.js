@@ -1,12 +1,13 @@
-import React from 'react';
-import './IconButton.css';
+import React, { Component } from 'react';
 
-function IconButton() {
-    return (
-        <div>
-            <p>Icon Button</p>
-        </div>
-    )
+class IconButton extends Component {
+    render() {
+        return (
+            <div>
+                
+            </div>
+        );
+    }
 }
 
 export default IconButton;

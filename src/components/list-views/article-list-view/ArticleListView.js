@@ -1,12 +1,13 @@
-import React from 'react';
-import './ArticleListView.css';
+import React, { Component } from 'react';
 
-function ArticleListView() {
-    return (
-        <div>
-            <p>Article List View</p>
-        </div>
-    )
+class ArticleListView extends Component {
+    render() {
+        return (
+            <div>
+                
+            </div>
+        );
+    }
 }
 
 export default ArticleListView;
