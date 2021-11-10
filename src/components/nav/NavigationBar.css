@@ -1,4 +1,27 @@
+@import url(./../../index.css);
+
 .navigation-bar{
-    background-color: blue;
-    width: 100px;
+    background-color: var(--primary-color);
+    width: 200px;
+    color: #FFFFFF;
+    height: 100vh;
+}
+
+ul{
+    list-style-type: none;
+    padding: 20px 0 0 20px
+}
+
+li{
+    padding-top: 10px;
+}
+
+li a{
+    font-family: 'Poppins';
+    color:#FFFFFF;
+    text-decoration: none;
+}
+
+li a:hover{
+    color: var(--accented-color);
 }
