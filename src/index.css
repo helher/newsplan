@@ -1,13 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 1;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Main Headers */
+h1{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 36px;
+  color: var(--primary-color);
+}
+
+h2{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  color: var(--primary-color);
+}
+h3{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--primary-color);
+}
+h4{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--primary-color);
+}
+h5{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--primary-color);
+}
+h6{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--grey-color);
+}
+
+/* Text */
+p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--primary-color);
+}
+
+/*  */
+.column-title{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--primary-color);
+}
+
+.card-title{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--primary-color);
+}
+
+.card-identification{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 15px;
+  color: var(--primary-color);
+}
+
+.button-text{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--primary-color);
+}
+
+.calendar-days {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--primary-color);
+} 
+.calendar-days-full-screen {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 36px;
+  color: var(--primary-color);
+} 
+
+.calendar-events {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--primary-color);
+} 
+
+.calendar-hours-full-screen{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 33px;
+  color: var(--primary-color);
+}
+
+.calendar-hours{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 12px;
+  color: var(--primary-color);
+}
+
+.calendar-more-added{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 12px;
+  color: var(--primary-color);
+}
+
+.icon{
+  width: 20px;
+  height: 20px;
+  color: var(--accented-color);
+}
+
+:root{
+
+  /* Primary Color */
+  --primary-color: hsl(213, 22%, 16%);    /* #202832 */
+  --primary-color-80: hsl(213, 22%, 16%, 0.8);
+  --primary-color-60: hsl(213, 22%, 16%, 0.6);
+  --primary-color-40: hsl(213, 22%, 16%, 0.4);
+  --primary-color-20: hsl(213, 22%, 16%, 0.2);
+
+  /* Secondary Color */
+  --secondary-color: hsl(215, 22%, 51%); /* #677E9E */
+  --secondary-color-80: hsl(215, 22%, 51%, 0.8);
+  --secondary-color-60: hsl(215, 22%, 51%, 0.6);
+  --secondary-color-40: hsl(215, 22%, 51%, 0.4);
+  --secondary-color-20: hsl(215, 22%, 51%, 0.2);
+
+  /* Accented Colors */
+  --accented-color: hsl(31, 74%, 71%);  /* #ECB77E */
+  --accented-color-80: hsl(31, 74%, 71%, 0.8);
+  --accented-color-60: hsl(31, 74%, 71%, 0.6);
+  --accented-color-40: hsl(31, 74%, 71%, 0.4);
+  --accented-color-20: hsl(31, 74%, 71%, 0.2);
+  
+  /* Grey Colors */
+  --grey-color: hsl(0, 0%, 77%);        /* #C4C4C4 */ 
+  --grey-color-80: hsl(0, 0%, 77%, 0.8); 
+  --grey-color-60: hsl(0, 0%, 77%, 0.6); 
+  --grey-color-40: hsl(0, 0%, 77%, 0.4); 
+  --grey-color-20: hsl(0, 0%, 77%, 0.2); 
+
+  /* Labels */
+  --nation-color: hsl(4, 59%, 69%);     /* #DE574E */
+  --world-color: hsl(48, 84%, 64%);     /* #F0D158 */
+  --politics-color: hsl(218, 83%, 56%); /* #3478EC */
+  --business-color: hsl(257, 92%, 59%); /* #6E38F6 */
+  --regional-color: hsl(172, 46%, 58%); /* #61C5B8 */
+  --culture-color: hsl(18, 87%, 65%);   /* #F38758 */
+  --food-color: hsl(14, 61%, 75%);      /* #E6AB99 */
+  --family-color: hsl(227, 51%, 71%);   /* #8E9EDA */
+  --health-color: hsl(250, 84%, 75%);   /* #9B88F5 */
+  --weather-color: hsl(333, 74%, 75%);  /* #EF92BC */
+  --sport-color: hsl(333, 74%, 75%);    /* #92D9D6 */
+  --science-color: hsl(147, 44%, 64%);  /* #7BCCA0 */
+  --music-color: hsl(263, 68%, 68%);    /* #A177E5 */
+  --tech-color: hsl(32, 93%, 66%);      /* #F9B05A */
 }
