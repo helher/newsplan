@@ -4,8 +4,9 @@ import './IconButton.css';
 function IconButton() {
     return (
         <div>
-            <p>Icon Button</p>
+            
         </div>
+    
     )
 }
 
