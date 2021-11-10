@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './CardContainer.css';
 
-class CardContainer extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+function CardContainer() {
+    return (
+        <div>
+            <p>Card Container</p>
+        </div>
+    )
 }
 
 export default CardContainer;

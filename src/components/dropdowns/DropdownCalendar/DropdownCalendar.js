@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './DropdownCalendar.css';
 
-class DropdownCalendar extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+function DropdownCalendar() {
+    return (
+        <div>
+            <p>Dropdown Calendar</p>
+        </div>
+    )
 }
 
 export default DropdownCalendar;

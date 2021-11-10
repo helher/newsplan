@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './DropdownText.css';
 
-class DropdownText extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+function DropdownText() {
+    return (
+        <div>
+            <p>Dropdown Text</p>
+        </div>
+    )
 }
 
 export default DropdownText;

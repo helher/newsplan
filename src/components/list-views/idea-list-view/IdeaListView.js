@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './IdeaListView.css';
 
-class IdeaListView extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+function IdeaListView() {
+    return (
+        <div>
+            <p>Idea List View</p>
+        </div>
+    )
 }
 
 export default IdeaListView;

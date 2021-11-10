@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './TextButton.css';
 
-class TextButton extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+function TextButton() {
+    return (
+        <div>
+            <p>Text Button</p>
+        </div>
+    )
 }
 
 export default TextButton;
