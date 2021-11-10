@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './SearchBar.css';
 
-class SearchBar extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+function SearchBar() {
+    return (
+        <div>
+            <p>Searchbar</p>
+        </div>
+    )
 }
 
 export default SearchBar;
