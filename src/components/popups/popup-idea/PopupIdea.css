@@ -1,0 +1,25 @@
+@import url(./../../../index.css);
+
+.rich-text-toolbar{
+    width: 100%;
+    background-color: var(--primary-color);
+}
+
+.idea-section{
+    display: flex;
+    border: 1px solid black;
+    max-width: 1010px;
+    padding: 50px;
+}
+
+.test{
+    display: flex;
+}
+
+.idea-content-column{
+    
+}
+
+.comments-column{
+    flex: 2;
+}
