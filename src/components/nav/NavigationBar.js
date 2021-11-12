@@ -1,11 +1,11 @@
 import React from 'react';
 import './NavigationBar.css';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 function NavigationBar() {
     return (
         <div>
-            <nav className="navigation-bar">
+            <nav className="nav">
                 <ul>
                     <li>
                         <Link to="/">Dashboard</Link>
@@ -23,6 +23,6 @@ function NavigationBar() {
             </nav>
         </div>
     );
-}
+};
 
 export default NavigationBar;
