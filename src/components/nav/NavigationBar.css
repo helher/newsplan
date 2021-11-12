@@ -1,6 +1,6 @@
 @import url(./../../index.css);
 
-.navigation-bar{
+.nav{
     background-color: var(--primary-color);
     width: 200px;
     color: #FFFFFF;
