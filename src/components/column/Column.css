@@ -33,3 +33,7 @@
 .drag-and-drop-item:not(:last-of-type){
     margin-bottom: 0.5rem;
 }
+
+.current{
+    background-color: var(--primary-color);
+}
