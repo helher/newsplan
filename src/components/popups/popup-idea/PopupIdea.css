@@ -12,14 +12,6 @@
     padding: 50px;
 }
 
-.test{
-    display: flex;
-}
-
-.idea-content-column{
-    
-}
-
 .comments-column{
     flex: 2;
 }

@@ -1,16 +1,29 @@
 import React from 'react';
-import PopupIdea from '../components/popups/popup-idea/PopupIdea';
+import Column from '../components/column/Column';
 import './Dashboard.css';
+
+const data = [
+    {
+        title: 'group 1',
+        items: ['1', '2', '3']
+    },
+
+    {
+        title: 'group 2',
+        items: ['4', '5']
+    }
+]
 
 const Dashboard = () => {
     console.log('sup')    
     return (
         <div className="dashboard">
-            <div className="popup-idea-component">
+            {/* <div className="popup-idea-component">
                 <PopupIdea/>
-            </div>
+            </div> */}
             
             <p>Dashboard Page</p>
+            <Column data={data}/>
         </div>
     );
 };
