@@ -16,16 +16,16 @@ function NavigationBar() {
             <nav className="nav-container">
                 <ul>
                     <li>
-                        <Link to="/"><MdOutlineDashboard className = "dashboard-icon"/>Dashboard</Link>
+                        <Link to="/"><MdOutlineDashboard className = "navigation_icon"/>Dashboard</Link>
                     </li>
                     <li>
-                        <Link to="/articles"><RiArticleLine className = "articles-icon"/>Articles</Link>
+                        <Link to="/articles"><RiArticleLine className = "navigation_icon"/>Articles</Link>
                     </li>
                     <li>
-                        <Link to="/ideas"><BiBrain className = "ideas-icon"/>Ideas</Link>
+                        <Link to="/ideas"><BiBrain className = "navigation_icon"/>Ideas</Link>
                     </li>
                     <li>
-                        <Link to="/teamplan"><AiOutlineTeam className = "teamplan-icon"/>Team Plan</Link>
+                        <Link to="/teamplan"><AiOutlineTeam className = "navigation_icon"/>Team Plan</Link>
                     </li>
                 </ul>
             </nav>
