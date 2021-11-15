@@ -1,3 +1,20 @@
 .app {
-  display: flex;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 1fr 105px;
+  grid-template-areas: 
+      "nav-element main-content"
+      "footer-element footer-element";
+}
+
+.nav-container {
+  grid-area: nav-element;
+}
+
+.main-content {
+  grid-area: main-content;
+}
+
+.footer-container {
+  grid-area: footer-element;
 }

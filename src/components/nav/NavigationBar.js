@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 function NavigationBar() {
     return (
         <div>
-            <nav className="nav">
+            <nav className="nav-container">
                 <ul>
                     <li>
                         <Link to="/">Dashboard</Link>
