@@ -26,7 +26,7 @@
     color: white;
 }
 
-button:hover {
+.footer-iconbtn:hover {
     background-color: var(--white-color-40)
 }
 

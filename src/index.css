@@ -173,6 +173,7 @@ p{
   /* White Colors */ 
   --white-color: hsl(0, 0%, 100%, 100%); /* FFFFFF */
   --white-color-15: hsl(0, 0%, 100%, 15%);
+  --white-color-40: hsl(0, 0%, 100%, 40%);
   
 
   /* Grey Colors */

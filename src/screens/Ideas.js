@@ -4,6 +4,7 @@ import  { IoIosAddCircleOutline } from 'react-icons/io'
 import  { IoMdRefresh } from 'react-icons/io'
 import './Ideas.css'
 import AddJobButton from '../components/buttons/AddJobButton/AddJobButton';
+import PrimaryButton from '../components/buttons/PrimaryButton/PrimaryButton';
 
 const Ideas = () => {
     return (
@@ -13,6 +14,7 @@ const Ideas = () => {
             <FooterButton UserIcon={ IoMdRefresh } text="Load more Employees" goto="/Articles"/>
             <FooterButton UserIcon={ IoMdRefresh } text="Load more Articles" goto="/Articles"/>
             <AddJobButton text="Add Job" goto="/Dashboard"/>
+            <PrimaryButton text="Primary" goto="/Articles"/>
         </div>
     );
 };
