@@ -1,8 +1,8 @@
 @import url(./../../../index.css);
 
-.footer-iconbtn {
-    border: 2px solid white;
-    background-color: var(--white-color-15);
+.addjob-iconbtn {
+    border: none;
+    background-color: var(--primary-color);
     height: 30px;
     padding-right: 20px;
     color: white;
@@ -27,6 +27,6 @@
 }
 
 button:hover {
-    background-color: var(--white-color-40)
+    background-color: var(--primary-color-80)
 }
 

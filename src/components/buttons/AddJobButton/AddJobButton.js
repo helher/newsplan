@@ -1,10 +1,10 @@
 import React from 'react';
-import './FooterButton.css';
+import './AddJobButton.css';
 import { useNavigate } from 'react-router';
+import  { IoIosAddCircleOutline } from 'react-icons/io'
 
-const FooterButton = ({
+const AddJobButton = ({
     text,
-    UserIcon,
     goto
 }) => {
 
@@ -16,9 +16,9 @@ const FooterButton = ({
 
     return (
         <div>
-            <button className="footer-iconbtn" onClick={handleClick}>
+            <button className="addjob-iconbtn" onClick={handleClick}>
                 <div class="button-text">
-                <UserIcon className="icon"/>{text}
+                <IoIosAddCircleOutline className="icon"/>{text}
                 </div>
             </button>
         </div>
@@ -26,4 +26,4 @@ const FooterButton = ({
     )
 }
 
-export default FooterButton;
+export default AddJobButton;
