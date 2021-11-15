@@ -74,7 +74,8 @@ p{
   font-weight: 700;
   font-size: 12px;
   line-height: 18px;
-  color: var(--primary-color);
+  color: var(--white-color);
+  padding-bottom: 10px;
 }
 
 .card-identification{
@@ -82,7 +83,18 @@ p{
   font-weight: 400;
   font-size: 10px;
   line-height: 15px;
-  color: var(--primary-color);
+  color: var(--accented-color);
+  padding-bottom: 10px;
+}
+
+.card-date{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: 15px;
+  color: var(--accented-color);
+  padding-bottom: 10px;
 }
 
 .button-text{
@@ -198,7 +210,6 @@ p{
   --science-color: hsl(147, 44%, 64%);  /* #7BCCA0 */
   --music-color: hsl(263, 68%, 68%);    /* #A177E5 */
   --tech-color: hsl(32, 93%, 66%);      /* #F9B05A */
+
 }
-
-
 

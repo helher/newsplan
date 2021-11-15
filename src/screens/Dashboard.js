@@ -18,10 +18,6 @@ const Dashboard = () => {
     console.log('sup')    
     return (
         <div className="dashboard">
-            {/* <div className="popup-idea-component">
-                <PopupIdea/>
-            </div> */}
-            
             <p>Dashboard Page</p>
             <Column data={data}/>
         </div>
