@@ -3,8 +3,10 @@ import './footer.css'
 
 function Footer() {
     return (
-        <div>
-            <p>Test Footer </p>
+        <div className="footer-container">
+            <div className="footer-main">
+                <button className="footer-button">Test Button </button>
+            </div>
         </div>
     );
 }

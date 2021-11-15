@@ -1,10 +1,11 @@
 @import url(./../../index.css);
 
-.nav{
+.nav-container{
     background-color: var(--primary-color);
     width: 200px;
+    height: 795px;
     color: #FFFFFF;
-    height: 100vh;
+    text-align: left; 
 }
 
 ul{
@@ -25,3 +26,24 @@ li a{
 li a:hover{
     color: var(--accented-color);
 }
+
+.dashboard-icon{
+    padding-right: 10px; 
+    vertical-align: middle;
+}
+
+.articles-icon{
+    padding-right: 10px; 
+    vertical-align: middle;
+}
+
+.ideas-icon{
+    padding-right: 10px; 
+    vertical-align: middle;
+}
+
+.teamplan-icon{
+    padding-right: 10px; 
+    vertical-align: middle;
+}
+

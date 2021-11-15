@@ -1,0 +1,13 @@
+@import url(./../../index.css);
+
+.footer-container {
+    background-color: var(--accented-color);
+    height: 105px;
+    width: 100%;
+}
+
+.footer-main {
+    padding: 45px;
+    align-content: center;
+    justify-content: flex-start;
+}
