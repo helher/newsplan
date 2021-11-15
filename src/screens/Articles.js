@@ -1,4 +1,5 @@
 import React from 'react';
+import IdeaCard from './../components/kanban-cards/idea-card/IdeaCard';
 
 const Articles = () => {
     return (
@@ -6,6 +7,7 @@ const Articles = () => {
         <div className="article-screen">
             {console.log("I am running")}
             <p>Articles Page</p>
+            <IdeaCard />
         </div>
     );
 };

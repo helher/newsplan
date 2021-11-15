@@ -9,7 +9,7 @@ import ProceedButton from '../components/buttons/ProceedButton/ProceedButton';
 
 const Ideas = () => {
     return (
-        <div>
+        <div className="idea">
             <FooterButton UserIcon={ IoIosAddCircleOutline } text="Add Idea" goto="/Articles"/>
             <FooterButton UserIcon={ IoIosAddCircleOutline } text="Add Event" goto="/TeamPlan"/>
             <FooterButton UserIcon={ IoMdRefresh } text="Load more Employees" goto="/Articles"/>

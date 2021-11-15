@@ -3,7 +3,7 @@
 .nav-container{
     background-color: var(--primary-color);
     width: 200px;
-    height: 795px;
+    height: 100%;
     color: #FFFFFF;
     text-align: left; 
 }

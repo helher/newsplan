@@ -1,10 +1,11 @@
 .app {
   display: grid;
+  height:100vh; 
   grid-template-columns: 200px 1fr;
   grid-template-rows: 1fr 105px;
   grid-template-areas: 
       "nav-element main-content"
-      "footer-element footer-element";
+      ". footer-element";
 }
 
 .nav-container {
