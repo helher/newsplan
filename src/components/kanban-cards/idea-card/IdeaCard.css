@@ -1,0 +1,46 @@
+@import url(./../../../index.css);
+
+.idea-card{
+    width: 230px; 
+    background-color: var(--primary-color); 
+    color: #fff; 
+    padding: 15px;
+    overflow: hidden; 
+    transition: 0.3s; 
+    animation: ease-in-out;
+    text-align: left;
+    cursor:pointer; 
+}
+
+.idea-card:hover{
+    background: var(--primary-color-80); 
+}
+
+.ideacard-text{
+    color: #fff;
+    padding-bottom: 10px;  
+}
+
+.tags{
+    color: #fff;
+}
+
+.contributor-img{
+    color: #fff;
+}
+
+.id-and-date{
+    display: flex;    
+}
+
+.card-identification{
+    padding-right: 20px;
+}
+
+
+.iconCalendar{
+    padding-right: 5px;
+}
+
+
+
