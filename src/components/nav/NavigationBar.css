@@ -1,10 +1,10 @@
 @import url(./../../index.css);
 
-.nav{
+.nav-container{
     background-color: var(--primary-color);
     width: 200px;
+    height: 795px;
     color: #FFFFFF;
-    height: 100vh;
 }
 
 ul{

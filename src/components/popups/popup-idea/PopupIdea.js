@@ -3,7 +3,7 @@ import './PopupIdea.css';
 
 function PopupIdea() {
     return (
-        <section className="idea-section">
+        <section className="idea-container">
             <div className="test">
                 <div className="idea-content-column">
                     <h1>Title of Idea</h1>

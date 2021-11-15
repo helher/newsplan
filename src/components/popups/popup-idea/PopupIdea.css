@@ -5,8 +5,7 @@
     background-color: var(--primary-color);
 }
 
-.idea-section{
-    
+.idea-container{
     border: 1px solid black;
     max-width: 1010px;
     padding: 50px;
