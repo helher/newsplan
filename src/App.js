@@ -14,7 +14,7 @@ import NavigationBar from './components/nav/NavigationBar'
 function App() {
   return (
     <Router>
-      <div class="app">
+      <div className="app">
       <NavigationBar/>
         <Routes>
           <Route path="/" element={ <Dashboard /> } exact/>

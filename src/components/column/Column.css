@@ -1,0 +1,39 @@
+@import url(./../../index.css);
+
+.drag-and-drop{
+    display: grid;
+    gap: 0.5rem;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(auto-fill, 300px);
+    background-color: var(--primary-color);
+    padding: 0.5rem;
+    align-items: start;
+}
+
+.drag-and-drop-group{
+    background-color: var(--secondary-color-80);
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.drag-and-drop-group-title{
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-family: 'Poppins';
+}
+
+.drag-and-drop-item {
+    background-color: #FFFFFF;
+    color: var(--primary-color);
+    min-height: 150px;
+    border-radius: 5px;
+}
+
+.drag-and-drop-item:not(:last-of-type){
+    margin-bottom: 0.5rem;
+}
+
+.current{
+    background-color: var(--primary-color);
+}
