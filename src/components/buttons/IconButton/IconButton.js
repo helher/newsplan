@@ -1,13 +1,25 @@
 import React from 'react';
 import './IconButton.css';
-import  { IoIosAddCircleOutline } from 'react-icons/io'
+import { useNavigate } from 'react-router';
 
-function IconButton() {
+const IconButton = ({
+    text,
+    type,
+    goto,
+    UserIcon
+}) => {
+
+    let navigate = useNavigate();
+
+    function handleClick() {
+        navigate({goto})
+    }
+    
     return (
         <div class="iconbtn">
-            <button>
+            <button onClick={handleClick} type={type} navigate={navigate}>
                 <div class="button-text">
-                <IoIosAddCircleOutline class="icon"/>Add idea
+                <UserIcon class="icon"/>{text}
                 </div>
             </button>
         </div>

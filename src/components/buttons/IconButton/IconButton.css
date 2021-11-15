@@ -6,7 +6,7 @@
 
 button {
     border: 2px solid white;
-    background-color: var(--accented-color);
+    background-color: var(--white-color-15);
     height: 30px;
     padding-right: 20px;
     color: white;
