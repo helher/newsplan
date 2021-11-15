@@ -1,25 +1,24 @@
 import React from 'react';
-import './IconButton.css';
+import './FooterButton.css';
 import { useNavigate } from 'react-router';
 
-const IconButton = ({
+const FooterButton = ({
     text,
-    type,
-    goto,
-    UserIcon
+    UserIcon,
+    goto
 }) => {
 
     let navigate = useNavigate();
 
     function handleClick() {
-        navigate({goto})
+        navigate(goto)
     }
-    
+
     return (
-        <div class="iconbtn">
-            <button onClick={handleClick} type={type} navigate={navigate}>
+        <div className="iconbtn">
+            <button onClick={handleClick}>
                 <div class="button-text">
-                <UserIcon class="icon"/>{text}
+                <UserIcon className="icon"/>{text}
                 </div>
             </button>
         </div>
@@ -27,4 +26,4 @@ const IconButton = ({
     )
 }
 
-export default IconButton;
+export default FooterButton;
