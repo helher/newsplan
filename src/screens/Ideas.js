@@ -1,9 +1,11 @@
 import React from 'react';
+import IconButton from './../components/buttons/IconButton/IconButton'
+import './Ideas.css'
 
 const Ideas = () => {
     return (
         <div>
-            <p>Idea Page</p>
+            <IconButton />
         </div>
     );
 };
