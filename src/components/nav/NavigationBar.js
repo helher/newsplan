@@ -13,7 +13,7 @@ import { AiOutlineTeam } from 'react-icons/ai';
 function NavigationBar() {
     return (
         <div>
-            <nav className="nav">
+            <nav className="nav-container">
                 <ul>
                     <li>
                         <Link to="/"><MdOutlineDashboard className = "dashboard-icon"/>Dashboard</Link>

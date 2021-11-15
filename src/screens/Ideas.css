@@ -1,0 +1,5 @@
+@import url(./../index.css);
+
+body {
+    background-color: var(--accented-color);
+}

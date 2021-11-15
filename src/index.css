@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -168,7 +168,14 @@ p{
   --accented-color-60: hsl(31, 74%, 71%, 0.6);
   --accented-color-40: hsl(31, 74%, 71%, 0.4);
   --accented-color-20: hsl(31, 74%, 71%, 0.2);
+
+
+  /* White Colors */ 
+  --white-color: hsl(0, 0%, 100%, 100%); /* FFFFFF */
+  --white-color-15: hsl(0, 0%, 100%, 15%);
+  --white-color-40: hsl(0, 0%, 100%, 40%);
   
+
   /* Grey Colors */
   --grey-color: hsl(0, 0%, 77%);        /* #C4C4C4 */ 
   --grey-color-80: hsl(0, 0%, 77%, 0.8); 
@@ -192,3 +199,6 @@ p{
   --music-color: hsl(263, 68%, 68%);    /* #A177E5 */
   --tech-color: hsl(32, 93%, 66%);      /* #F9B05A */
 }
+
+
+
