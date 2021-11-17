@@ -19,9 +19,17 @@ function PopupIdea() {
                 </div>
                 <h1>Title of idea</h1>
                 <div className="rich-text-editor"><p className="placeholder-text">Rich text editor</p></div>
-                <PrimaryButton text="Save" goto="/Dashboard"/>
-                <ProceedButton text="Convert to Article" goto="/Dashboard" />
-                <DiscardButton text="Discard" goto="Dashboard" />
+                <div className="align-bottons">
+                    <DiscardButton text="Discard" goto="Dashboard" />
+                        <div className="right-buttons">
+                            <div className="convert-button">
+                                <ProceedButton text="Convert to Article" goto="/Dashboard" />
+                            </div>
+                            <PrimaryButton text="Save" goto="/Dashboard"/>
+                            
+                        </div>
+                </div>
+                
 
             </div>
 
