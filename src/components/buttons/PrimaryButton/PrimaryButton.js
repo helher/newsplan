@@ -16,7 +16,7 @@ const PrimaryButton = ({
     return (
         <div>
             <button className="primary-btn" onClick={handleClick}>
-                <div class="button-text">{text}
+                <div class="button-text-white">{text}
                 </div>
             </button>
         </div>

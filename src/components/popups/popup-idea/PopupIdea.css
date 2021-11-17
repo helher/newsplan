@@ -1,16 +1,42 @@
 @import url(./../../../index.css);
 
-.rich-text-toolbar{
-    width: 100%;
-    background-color: var(--primary-color);
+section {
+  border: 1px solid black;
+  max-width: 1010px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 30px;
+  background-color: var(--white-color);
 }
 
-.idea-container{
-    border: 1px solid black;
-    max-width: 1010px;
-    padding: 50px;
+.idea-flex-left {
+  background-color: aqua;
+  width: 649px;
 }
 
-.comments-column{
-    flex: 2;
+.idea-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.logo-and-id {
+  display: flex;
+}
+
+.idea-flex-right {
+  background-color: red;
+}
+
+.rich-text-editor {
+}
+
+.rich-text-toolbar {
+  width: 100%;
+  background-color: var(--primary-color);
+}
+
+.text-input {
+  width: auto;
 }

@@ -96,12 +96,20 @@ p {
   padding-bottom: 10px;
 }
 
-.button-text {
+.createdby-text {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
-  color: var(--primary-color);
+  color: var(--primary-color-60);
+}
+
+.button-text-white {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--white-color);
 }
 
 .calendar-days {

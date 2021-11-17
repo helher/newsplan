@@ -14,17 +14,16 @@
 .addjob-icon {
   height: 20px;
   width: 20px;
-  color: white;
+  --color: white;
   text-align: left;
   margin-right: 10px;
 }
 
-.button-text {
+.button-text-white {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-left: 5px;
-  color: white;
 }
 
 .addjob-iconbtn:hover {
