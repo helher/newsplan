@@ -18,7 +18,7 @@ const FooterButton = ({
         <div>
             <button className="footer-iconbtn" onClick={handleClick}>
                 <div class="button-text">
-                <UserIcon className="icon"/>{text}
+                <UserIcon className="footer-icon"/>{text}
                 </div>
             </button>
         </div>

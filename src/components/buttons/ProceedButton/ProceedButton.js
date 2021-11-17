@@ -18,7 +18,7 @@ const ProceedButton = ({
         <div>
             <button className="proceed-btn" onClick={handleClick}>
                 <div class="button-text">
-                {text}<IoArrowForward className="icon"/>
+                {text}<IoArrowForward className="proceed-icon"/>
                 </div>
             </button>
         </div>

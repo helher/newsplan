@@ -1,32 +1,32 @@
 @import url(./../../../index.css);
 
 .proceed-btn {
-    border: 2px solid white;
-    background-color: var(--white-color-15);
-    height: 30px;
-    padding-left: 10px;
-    color: white;
-    border-radius: 15px;
-    transition: 0.3s;
-    cursor: pointer;
+  border: 2px solid white;
+  background-color: var(--white-color-15);
+  height: 30px;
+  padding-left: 10px;
+  color: white;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-.icon {
-    size: 20;
-    color: white;
-    text-align: left;
-    padding-right: 10px;
+.proceed-icon {
+  height: 20px;
+  width: 20px;
+  color: white;
+  text-align: left;
+  margin-right: 10px;
 }
 
 .button-text {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 5px;
-    color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 5px;
+  color: white;
 }
 
 .proceed-btn:hover {
-    background-color: var(--white-color-40)
+  background-color: var(--white-color-40);
 }
-

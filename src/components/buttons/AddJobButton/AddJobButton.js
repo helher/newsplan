@@ -18,7 +18,7 @@ const AddJobButton = ({
         <div>
             <button className="addjob-iconbtn" onClick={handleClick}>
                 <div class="button-text">
-                <IoIosAddCircleOutline className="icon"/>{text}
+                <IoIosAddCircleOutline className="addjob-icon"/>{text}
                 </div>
             </button>
         </div>
