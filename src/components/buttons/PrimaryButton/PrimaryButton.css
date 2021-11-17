@@ -1,24 +1,23 @@
 @import url(./../../../index.css);
 
 .primary-btn {
-    border: none;
-    background-color: var(--primary-color);
-    height: 30px;
-    padding-right: 20px;
-    padding-left: 20px;
-    color: white;
-    border-radius: 15px;
-    transition: 0.3s;
-    cursor: pointer;
+  border: none;
+  background-color: var(--primary-color);
+  height: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+  color: var(--primary-color);
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .button-text {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .primary-btn:hover {
-    background-color: var(--primary-color-80)
+  background-color: var(--primary-color-80);
 }

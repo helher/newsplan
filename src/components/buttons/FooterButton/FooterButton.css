@@ -17,14 +17,13 @@
   color: white;
   text-align: left;
   margin-right: 10px;
+  margin-left: 5px;
 }
 
 .button-text {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 5px;
-  color: white;
 }
 
 .footer-iconbtn:hover {

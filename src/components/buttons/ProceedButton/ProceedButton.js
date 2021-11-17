@@ -17,8 +17,11 @@ const ProceedButton = ({
     return (
         <div>
             <button className="proceed-btn" onClick={handleClick}>
-                <div class="button-text-white">
-                {text}<IoArrowForward className="proceed-icon"/>
+                <div class="button-text">{text}
+                    <div className="circle">
+                        <IoArrowForward className="proceed-icon"/>
+                    </div>
+  
                 </div>
             </button>
         </div>

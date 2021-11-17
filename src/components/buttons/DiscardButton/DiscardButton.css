@@ -1,31 +1,23 @@
 @import url(./../../../index.css);
 
-.addjob-iconbtn {
-  border: none;
-  background-color: var(--primary-color);
+.discard-btn {
+  border: 2px solid var(--primary-color);
+  background-color: var(--white-color-15);
   height: 30px;
   padding-right: 20px;
+  padding-left: 20px;
   color: white;
   border-radius: 15px;
   transition: 0.3s;
   cursor: pointer;
 }
 
-.addjob-icon {
-  height: 20px;
-  width: 20px;
-  --color: white;
-  text-align: left;
-  margin-right: 10px;
-  margin-left: 5px;
-}
-
-.button-text-white {
+.button-text {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.addjob-iconbtn:hover {
+.discard-btn:hover {
   background-color: var(--primary-color-80);
 }
