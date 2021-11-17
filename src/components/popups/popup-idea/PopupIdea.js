@@ -12,14 +12,7 @@ function PopupIdea() {
                 </div>
                 
                 <h1>Title of idea</h1>
-                <div className="rich-text-editor">
-                    <div className="rich-text-toolbar">
-                        <p>Toolbox</p>
-                        <form>
-                            <input className="text-input" type="text" placeholder="Insert text here"></input>
-                        </form>
-                    </div>
-                </div>
+                <div className="rich-text-editor"><p className="placeholder-text">Rich text editor</p></div>
             </div>
 
                 <div className="idea-flex-right">

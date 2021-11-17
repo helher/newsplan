@@ -1,18 +1,27 @@
 @import url(./../../../index.css);
 
+.placeholder-text {
+  color: var(--white-color);
+  padding: 10px;
+}
+
 section {
   border: 1px solid black;
   max-width: 1010px;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  padding: 30px;
   background-color: var(--white-color);
 }
 
 .idea-flex-left {
   background-color: aqua;
   width: 649px;
+  padding: 30px;
+}
+
+.idea-flex-right {
+  background-color: red;
 }
 
 .idea-icon {
@@ -25,18 +34,8 @@ section {
   display: flex;
 }
 
-.idea-flex-right {
-  background-color: red;
-}
-
 .rich-text-editor {
-}
-
-.rich-text-toolbar {
-  width: 100%;
   background-color: var(--primary-color);
-}
-
-.text-input {
-  width: auto;
+  height: 218px;
+  width: 590px;
 }
