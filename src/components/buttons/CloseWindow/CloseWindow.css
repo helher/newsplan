@@ -1,0 +1,9 @@
+.close-button {
+  border: none;
+  background-color: transparent;
+}
+
+.closing-tag {
+  height: 20px;
+  width: 20px;
+}

@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Screens
 import TeamPlan from './screens/TeamPlan'
@@ -9,6 +8,7 @@ import Dashboard from './screens/Dashboard';
 import Ideas from './screens/Ideas';
 import Articles from './screens/Articles';
 import LoginScreen from './screens/LoginScreen';
+import PopupIdea from './components/popups/popup-idea/PopupIdea';
 
 // Components
 import NavigationBar from './components/nav/NavigationBar'
@@ -28,7 +28,11 @@ function App() {
         </Routes>
         <Footer className="footer-element"/>
     </div>
+    <main>
+    <PopupIdea trigger={true}/>
+  </main>
   </Router>
+
   );
 }
 

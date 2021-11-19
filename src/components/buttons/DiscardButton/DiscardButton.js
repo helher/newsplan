@@ -15,7 +15,7 @@ const DiscardButton = ({
 
     return (
         <div>
-            <button className="discard-btn"onClick={handleClick}>
+            <button className="discard-btn" onClick={handleClick}>
                 <div class="button-text">{text}
                 </div>
             </button>

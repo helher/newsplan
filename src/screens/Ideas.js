@@ -6,7 +6,6 @@ import './Ideas.css'
 import AddJobButton from '../components/buttons/AddJobButton/AddJobButton';
 import PrimaryButton from '../components/buttons/PrimaryButton/PrimaryButton';
 import ProceedButton from '../components/buttons/ProceedButton/ProceedButton';
-import PopupIdea from '../components/popups/popup-idea/PopupIdea';
 
 const Ideas = () => {
     return (
@@ -18,7 +17,6 @@ const Ideas = () => {
             <AddJobButton text="Add Job" goto="/Dashboard"/>
             <PrimaryButton text="Primary" goto="/Articles"/>
             <ProceedButton text="Convert to Article" goto="/Articles" />
-            <PopupIdea />
         </div>
     );
 };

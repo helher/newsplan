@@ -8,9 +8,11 @@ import { BiBrain } from 'react-icons/bi';
 import PrimaryButton from '../../buttons/PrimaryButton/PrimaryButton';
 import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
 import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
+import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 
-function PopupIdea() {
-    return (
+function PopupIdea(props) {
+    return (props.trigger) ? (
+        <div className="popup-page">
         <section className="idea-container">
             <div className="idea-flex-left">
                 <div className="logo-and-id">
@@ -26,18 +28,20 @@ function PopupIdea() {
                                 <ProceedButton text="Convert to Article" goto="/Dashboard" />
                             </div>
                             <PrimaryButton text="Save" goto="/Dashboard"/>
-                            
                         </div>
                 </div>
-                
-
             </div>
-
             <div className="idea-flex-right">
+                <div className="top-right">
+                    <CloseWindow goto="Dashboard"/>
+                </div>
+                    
                 <h3>Comments</h3>
             </div>
+            { props.children }
         </section>
-    )
+        </div>
+    ) : ""
 }
 
 export default PopupIdea;
