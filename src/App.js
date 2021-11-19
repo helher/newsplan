@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
@@ -16,6 +16,8 @@ import Footer from './components/footer/Footer';
 
 function App() {
   
+  const [showPopup, setShowpopup] = useState (false)
+
   return (
     <Router>
       <div className="app">
@@ -27,8 +29,8 @@ function App() {
           <Route path="/teamplan" element={ <TeamPlan /> } exact/>
           <Route path="/login" element={ <LoginScreen /> } exact />
         </Routes>
-        <Footer className="footer-element"/>
-        <PopupIdea />
+        <Footer className="footer-element" trigger={setShowpopup}/>
+        <PopupIdea trigger={showPopup}/>
     </div>
 
   </Router>
