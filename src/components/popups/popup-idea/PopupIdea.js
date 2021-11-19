@@ -32,14 +32,15 @@ function PopupIdea(props) {
                         </div>
                 </div>
             </div>
+            { props.children }
             <div className="idea-flex-right">
                 <div className="top-right">
-                    <CloseWindow goto="Dashboard"/>
+                    <CloseWindow onClick={() => props.setTrigger(false)}/>
                 </div>
                     
                 <h3>Comments</h3>
             </div>
-            { props.children }
+
         </section>
         </div>
         </div>

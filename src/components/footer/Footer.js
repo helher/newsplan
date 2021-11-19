@@ -7,7 +7,7 @@ import  { IoIosAddCircleOutline } from 'react-icons/io'
 function Footer() {
     return (
         <div className="footer-container">
-            <FooterButton UserIcon={ IoIosAddCircleOutline } text="Add Idea" goto="/Articles"/>
+            <FooterButton UserIcon={ IoIosAddCircleOutline } text="Add Idea"/>
         </div>
 
     );

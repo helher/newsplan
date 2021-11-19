@@ -1,22 +1,22 @@
 import React from 'react';
 import './FooterButton.css';
-import { useNavigate } from 'react-router';
+import { useState } from 'react';
 
 const FooterButton = ({
     text,
     UserIcon,
-    goto
 }) => {
 
-    let navigate = useNavigate();
+    const [buttonPopup, setButtonPopup] = useState(false)
 
-    function handleClick() {
-        navigate(goto)
+    function handleClickPopup() {
+        console.log("anita clicked the button!")
+        setButtonPopup(true)
     }
 
     return (
         <div>
-            <button className="footer-iconbtn" onClick={handleClick}>
+            <button className="footer-iconbtn" onClick={handleClickPopup} trigger={buttonPopup}>
                 <div class="button-text-white">
                 <UserIcon className="footer-icon"/>{text}
                 </div>

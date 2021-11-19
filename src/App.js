@@ -15,6 +15,7 @@ import NavigationBar from './components/nav/NavigationBar'
 import Footer from './components/footer/Footer';
 
 function App() {
+  
   return (
     <Router>
       <div className="app">
@@ -27,10 +28,9 @@ function App() {
           <Route path="/login" element={ <LoginScreen /> } exact />
         </Routes>
         <Footer className="footer-element"/>
+        <PopupIdea />
     </div>
-    <main>
-    <PopupIdea trigger={true}/>
-    </main>
+
   </Router>
 
   );
