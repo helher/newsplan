@@ -31,32 +31,61 @@ const navigate = useNavigate();
     }
 
     return(
-        <>
-      <br />
-      <br />
-      <Form>
-        <Form.Group className="mb-3" controlId="formBasicUsername">
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Enter username"
-          />
-        </Form.Group>
+      <div className="login-page">
+        <div className="image-container">
+          <img src="https://picsum.photos/200/300"/>
+        </div>
+     
+      <Form className="login-form">
+        <div className="login-form-container">
+          <div className="sign-in-container">
+            <h1> Sign In</h1>
+          </div>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-          />
+        <div className="username-input-container">
+        <Form.Group 
+          className="input-field" 
+          controlId="formBasicUsername">
+            <Form.Label>
+              <h6>Username</h6>
+            </Form.Label>
+
+            <Form.Control 
+              className="input-box"
+              type="text"
+              onChange={(e) => setUsername(e.target.value)}
+            />
         </Form.Group>
-        <Button onClick={handleLoginAttempt} variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-    </>
+        </div>
+
+        <div className="password-input-container">
+        <Form.Group 
+          className="input-field" 
+          controlId="formBasicPassword">
+            <Form.Label> 
+              <h6>Password </h6>
+            </Form.Label>
+
+            <Form.Control 
+              className ="input-box"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+        </Form.Group>
+        </div>
+        
+        <div className="submit-container">
+          <Button className="submit-button" 
+          onClick={handleLoginAttempt} 
+          variant="primary" 
+          type="submit">
+            Submit
+          </Button>
+          </div>
+
+        </div> 
+      </Form> 
+    </div> /** */
   );
 }
 

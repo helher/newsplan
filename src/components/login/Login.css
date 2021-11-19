@@ -1,0 +1,49 @@
+@import url(./../../index.css);
+
+.login-page {
+  display: flex;
+}
+
+.image-container {
+  display: flex;
+  width: 820px;
+  height: 900px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.login-form-container {
+  border: 2px solid red;
+  width: 420px;
+  height: 310px;
+}
+
+.input-field {
+  margin: 15px 0;
+}
+
+.input-box {
+  width: 370px;
+  height: 50px;
+  border: 2px solid var(--grey-color-60);
+  border-radius: 7px !important;
+}
+
+.sign-in-container {
+  margin-bottom: 40px;
+}
+
+.submit-button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border-radius: 7px;
+  cursor: pointer;
+  border: none;
+  margin: 25px 0;
+  width: 370px;
+  height: 50px;
+}
