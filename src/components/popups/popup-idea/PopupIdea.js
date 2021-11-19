@@ -13,6 +13,7 @@ import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 function PopupIdea(props) {
     return (props.trigger) ? (
         <div className="popup-page">
+            <div className="popup">
         <section className="idea-container">
             <div className="idea-flex-left">
                 <div className="logo-and-id">
@@ -40,6 +41,7 @@ function PopupIdea(props) {
             </div>
             { props.children }
         </section>
+        </div>
         </div>
     ) : ""
 }

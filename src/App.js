@@ -30,7 +30,7 @@ function App() {
     </div>
     <main>
     <PopupIdea trigger={true}/>
-  </main>
+    </main>
   </Router>
 
   );
