@@ -28,11 +28,13 @@
 .proceed-icon {
   height: 16px;
   width: 16px;
-  margin-left: 2px;
   color: white;
   text-align: left;
 }
 
 .proceed-btn:hover {
   background-color: var(--white-color-40);
+}
+
+.button-text {
 }
