@@ -1,6 +1,8 @@
 .close-button {
   border: none;
   background-color: transparent;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .closing-tag {

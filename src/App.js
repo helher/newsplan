@@ -16,7 +16,7 @@ import Footer from './components/footer/Footer';
 
 function App() {
   
-  const [showPopup, setShowpopup] = useState (false)
+  const [showPopup, setShowpopup] = useState(false)
 
   return (
     <Router>
@@ -30,7 +30,7 @@ function App() {
           <Route path="/login" element={ <LoginScreen /> } exact />
         </Routes>
         <Footer className="footer-element" trigger={setShowpopup}/>
-        <PopupIdea trigger={showPopup}/>
+        <PopupIdea trigger={showPopup} setTrigger={setShowpopup}/>
     </div>
 
   </Router>

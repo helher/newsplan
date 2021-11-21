@@ -1,22 +1,12 @@
 import React from 'react'
 import './CloseWindow.css'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
-import { useNavigate } from "react-router-dom";
 
-const CloseWindow = ({
-    goto
-}) => {
-
-    let navigate = useNavigate();
-
-    function handleClick() {
-        navigate(goto)
-    }
-
+function CloseWindow(props) {
     
     return (
-            <button className="close-button" onClick={handleClick}>
-                < IoIosCloseCircleOutline className="closing-tag"/>
+            <button className="close-button">
+                < IoIosCloseCircleOutline className="closing-tag" onClick={() => props.setTrigger(false)}/>
             </button>
     )
 }
