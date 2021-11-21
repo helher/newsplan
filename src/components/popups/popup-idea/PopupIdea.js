@@ -34,7 +34,7 @@ function PopupIdea(props) {
                     </div>
                     <div className="idea-flex-right">
                         <div className="top-right">
-                            <CloseWindow setTrigger={props.trigger}/>
+                            <CloseWindow setTrigger={props.setTrigger}/>
                         </div>
                             
                         <h3>Comments</h3>
