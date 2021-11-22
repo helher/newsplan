@@ -1,6 +1,6 @@
 @import url(./../../../index.css);
 
-.primary-btn {
+.save-btn {
   border: none;
   background-color: var(--primary-color);
   height: 30px;

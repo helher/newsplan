@@ -1,19 +1,44 @@
 import React, { useState } from 'react';
 import './PopupIdea.css';
+import Parse from 'parse';
 
 // icons
 import { BiBrain } from 'react-icons/bi';
 
 //components
-import PrimaryButton from '../../buttons/PrimaryButton/PrimaryButton';
+import SaveButton from '../../buttons/PrimaryButton/SaveButton';
 import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
 import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
 import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 import DropdownVisibility from '../../dropdowns/DropdownVisibility/DropdownVisibility';
 
 function PopupIdea(props) {
+    const [titleSelected, setTitleSelected] = useState("Title of Idea")
+    const [descriptionSelected, setDescriptionSelected] = useState("Write your description of your idea..")
     const [visibilitySelected, setVisibilitySelected] = useState("Select")
 
+    async function saveIdeaToDB(e) {
+        console.log("anita clicked the button")
+        e.preventDefault()
+        console.log("prevented default")
+
+        console.log(visibilitySelected)
+
+        const Idea = Parse.Object.extend("Idea")
+        const newIdea = new Idea()
+        newIdea.set("title", titleSelected)
+        newIdea.set("description", descriptionSelected)
+        newIdea.set("visibility", visibilitySelected)
+
+        /* newIdea.set("user", Parse.User.current()) //how uploaded the idea.. */
+        try {
+            await newIdea.save()
+            alert("Idea is creted - HURRRA!")
+        }
+        catch(error) {
+            alert(error)
+        }
+    }
 
     return (props.trigger) ? (
         <div className="popup-page">
@@ -30,7 +55,7 @@ function PopupIdea(props) {
                         <h1>Title of idea</h1>
 
                         {/* Rich-text-editor placeholder*/}
-                        <div className="rich-text-editor"><p className="placeholder-text">Rich text editor</p></div>
+                        <div className="rich-text-editor"><p className="placeholder-text">{descriptionSelected}</p></div>
                         
                         {/* Dropdowns */}
                         <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />
@@ -42,7 +67,7 @@ function PopupIdea(props) {
                                     <div className="convert-button">
                                         <ProceedButton text="Convert to Article" goto="/Dashboard" />
                                     </div>
-                                    <PrimaryButton text="Save" goto="/Dashboard"/>
+                                    <SaveButton saveAction={saveIdeaToDB}/>
                                 </div>
                         </div>
                     </div>
