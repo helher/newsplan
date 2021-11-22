@@ -33,7 +33,7 @@ function PopupIdea(props) {
                         <div className="rich-text-editor"><p className="placeholder-text">Rich text editor</p></div>
                         
                         {/* Dropdowns */}
-                        <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected}/>
+                        <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />
 
                         {/* Buttons */}
                         <div className="align-bottons">
