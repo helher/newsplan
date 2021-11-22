@@ -12,7 +12,7 @@ import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 import DropdownVisibility from '../../dropdowns/DropdownVisibility/DropdownVisibility';
 
 function PopupIdea(props) {
-    const [visibilitySelected, setVisibilitySelected] = useState("")
+    const [visibilitySelected, setVisibilitySelected] = useState("Select")
 
 
     return (props.trigger) ? (
@@ -34,7 +34,6 @@ function PopupIdea(props) {
                         
                         {/* Dropdowns */}
                         <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected}/>
-
 
                         {/* Buttons */}
                         <div className="align-bottons">

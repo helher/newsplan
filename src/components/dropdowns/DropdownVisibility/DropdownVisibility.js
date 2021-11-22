@@ -18,14 +18,14 @@ function DropdownVisibility ({visibilitySelected, setVisibilitySelected}) {
                 </div>
                 {isActive && (
                     <div className="dropdown-content">
-                        {options.map(option => ( 
+                        {options.map((option) => ( 
                             <div 
                                 onClick={(e) => {
                                     setVisibilitySelected(option)
                                     setIsActive(false)
-                                }} 
+                                }}
                                 className="dropdown-item">
-                                <h6>{option}</h6>
+                                    <h6>{option}</h6>
                             </div>
                         ))}
                     </div>
