@@ -23,8 +23,8 @@ function DropdownVisibility ({visibilitySelected, setVisibilitySelected}) {
                                 onClick={(e) => {
                                     setVisibilitySelected(option)
                                     setIsActive(false)
-                            }} 
-                            className="dropdown-item">
+                                }} 
+                                className="dropdown-item">
                                 <h6>{option}</h6>
                             </div>
                         ))}
