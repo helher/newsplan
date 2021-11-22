@@ -3,11 +3,9 @@
 .footer-container {
   background-color: var(--accented-color);
   height: 105px;
-  width: 100%;
-}
-
-.footer-main {
+  width: 100vw;
   display: flex;
-  align-content: center;
-  justify-content: flex-start;
+  justify-content: baseline;
+  align-items: center;
+  padding-left: 50px;
 }
