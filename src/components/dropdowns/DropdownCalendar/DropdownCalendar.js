@@ -32,7 +32,6 @@ const DropdownCalendar = () => {
             inputPlaceholder="Select" // placeholder
             formatInputText={formatInputValue} // format value
             inputClassName="datePicker" // custom class
-            shouldHighlightWeekends
         />
             <IoMdArrowDropdownCircle className="dropdowncalender-icon"/>
 

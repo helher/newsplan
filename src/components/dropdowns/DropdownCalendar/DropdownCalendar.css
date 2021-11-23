@@ -1,6 +1,6 @@
 @import url(./../../../index.css);
 
-/* imported CSS - customized*/
+/* imported CSS - customized a little bit*/
 
 * {
   font-family: "Poppins", sans-serif;
@@ -55,11 +55,13 @@
   animation: fadeArrowFlipped 0.3s forwards;
 }
 
+/* change where the calender is positioned */
 .DatePicker__calendarContainer {
   position: absolute;
   top: calc(100% + 20px);
-  left: 50%;
-  transform: translateX(-50%);
+  left: 44%;
+  transform: translateY(-120%);
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.05);
 }
 
 .DatePicker__calendarContainer.-top {
@@ -80,7 +82,7 @@
   direction: rtl;
 }
 
-.DatePicker__calendarArrow {
+/* .DatePicker__calendarArrow {
   position: absolute;
   width: 0;
   height: 0;
@@ -92,7 +94,7 @@
   z-index: 10;
   border-width: 0 10px 10px 10px;
   border-color: transparent transparent #fff transparent;
-}
+} */
 
 .Calendar {
   --cl-color-black: #444444;
@@ -505,7 +507,7 @@
   flex-direction: column;
   padding: 0 3.2em;
   position: absolute;
-  color: var(--cl-color-black);
+  color: var(--primary-color);
   top: 0;
   padding-top: 0.5em;
   left: 0;
@@ -583,14 +585,14 @@
 .Calendar__day:not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween):not(.-selected):hover {
   background: #eaeaea;
   border-radius: 50%;
-  color: var(--cl-color-black);
+  color: var(--primary-color);
   border-color: transparent;
 }
 
 .Calendar__day.-selected,
 .Calendar__day.-selectedStart,
 .Calendar__day.-selectedEnd {
-  background: var(--cl-color-primary);
+  background: var(--primary-color);
   color: #fff;
 }
 
@@ -606,11 +608,11 @@
   border-bottom-right-radius: 100em;
 }
 
-.Calendar__day.-selectedBetween {
+/* .Calendar__day.-selectedBetween {
   background: var(--cl-color-primary-light);
   color: var(--cl-color-primary);
   border-radius: 0;
-}
+} */
 
 .Calendar__day.-ltr.-selectedEnd {
   border-top-right-radius: 100em;
@@ -623,11 +625,11 @@
 }
 
 .Calendar__day.-weekend:not(.-selected):not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween) {
-  color: var(--cl-color-error);
+  color: var(--primary-color);
 }
 
 .Calendar__day.-weekend.-today:not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween)::after {
-  background: var(--cl-color-error);
+  background: var(--primary-color);
 }
 
 .Calendar__day.-disabled {
@@ -640,8 +642,7 @@
 }
 .Calendar__day.-today:not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween) {
   font-weight: 600;
-  color: var(--cl-color-black);
-  color: #000;
+  color: var(--primary-color);
   position: relative;
 }
 
