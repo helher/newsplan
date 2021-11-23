@@ -60,7 +60,15 @@ function PopupIdea(props) {
                         
                         {/* Dropdowns */}
                         <DropdownCalendar />
+                        <br/>
+                        <h5>Section</h5>
                         <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />
+
+                        {/* Attached articles */}
+                        <h5>Attached articles</h5>
+                        <br/>
+                        <br/>
+                        <br/>
 
                         {/* Buttons */}
                         <div className="align-bottons">

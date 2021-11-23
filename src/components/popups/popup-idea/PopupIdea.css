@@ -35,15 +35,15 @@
   flex-wrap: wrap;
   align-items: flex-start;
   background-color: var(--white-color);
-  padding: 15px;
 }
 
 /* left coloum  */
 
 .idea-flex-left {
-  background-color: aquamarine;
-  width: 649px;
+  /*   background-color: aquamarine; */
+  width: 650px;
   flex: 1;
+  padding: 30px;
 }
 
 .idea-icon {
@@ -79,9 +79,10 @@
 /* right coloum */
 
 .idea-flex-right {
-  background-color: aqua;
+  /*   background-color: aqua; */
   width: auto;
   flex: 2;
+  padding: 30px;
 }
 
 .top-right {
