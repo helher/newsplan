@@ -11,6 +11,7 @@ import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
 import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
 import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 import DropdownVisibility from '../../dropdowns/DropdownVisibility/DropdownVisibility';
+import DropdownCalendar from '../../dropdowns/DropdownCalendar/DropdownCalendar';
 
 function PopupIdea(props) {
     const [titleSelected, setTitleSelected] = useState("Title of Idea")
@@ -36,8 +37,8 @@ function PopupIdea(props) {
             alert("Idea is creted - HURRRA!")
         }
         catch(error) {
-            alert(error)
-        }
+           alert(error)
+       }
     }
 
     return (props.trigger) ? (
@@ -58,6 +59,7 @@ function PopupIdea(props) {
                         <div className="rich-text-editor"><p className="placeholder-text">{descriptionSelected}</p></div>
                         
                         {/* Dropdowns */}
+                        <DropdownCalendar />
                         <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />
 
                         {/* Buttons */}
