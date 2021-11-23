@@ -63,6 +63,10 @@
   margin-bottom: 30px;
 }
 
+.dropdowns {
+  position: absolute;
+}
+
 .align-bottons {
   display: flex;
   justify-content: space-between;
