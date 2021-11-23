@@ -2,16 +2,16 @@ import React from "react";
 import Parse from "parse";
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 
 // Styles
 import "./Login.css";
 
-function Login() {
+function Login(props) {
   const isLoggedIn = useState(false);
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   function handleLoginAttempt(e) {
     e.preventDefault();
@@ -26,7 +26,8 @@ function Login() {
 
     user.logIn().then((loggedInUser) => {
       console.log(loggedInUser);
-      navigate("/");
+      // navigate("/");
+      props.setIsLoggedIn(true)
     });
   }
 
