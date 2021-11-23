@@ -67,6 +67,7 @@ function PopupIdea(props) {
 
                         {/* Attached articles */}
                         <h5>Attached articles</h5>
+                        <p>No articles attached yet</p>
                         <br/>
                         <br/>
                         <br/>
