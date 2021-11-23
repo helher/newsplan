@@ -1,13 +1,16 @@
 @import url(./../../index.css);
+@import url(./../nav/NavigationBar.css);
+@import url(./../footer/footer.css);
 
 .login-page {
   display: flex;
+  margin: 0;
 }
 
 .image-container {
   display: flex;
   width: 820px;
-  height: 900px;
+  height: 100vh;
 }
 
 .login-form {
