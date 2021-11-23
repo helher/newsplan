@@ -1,6 +1,6 @@
 @import url(./../../../index.css);
 
-/* imported CSS - customized a little bit*/
+/* imported CSS - customized a little bit */
 
 * {
   font-family: "Poppins", sans-serif;
@@ -30,6 +30,11 @@
   font-size: 12px;
   line-height: 18px;
   position: relative;
+}
+
+.DatePicker__input:focus {
+  /* outline: 1px solid var(--accented-color); */
+  outline: none;
 }
 
 .dropdowncalender-icon {
@@ -608,11 +613,11 @@
   border-bottom-right-radius: 100em;
 }
 
-/* .Calendar__day.-selectedBetween {
+.Calendar__day.-selectedBetween {
   background: var(--cl-color-primary-light);
   color: var(--cl-color-primary);
   border-radius: 0;
-} */
+}
 
 .Calendar__day.-ltr.-selectedEnd {
   border-top-right-radius: 100em;

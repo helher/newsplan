@@ -9,8 +9,7 @@ import DatePicker from 'react-modern-calendar-datepicker';
 
 
 const DropdownCalendar = () => {
-    const [selectedDay, setSelectedDay] = useState(null);
-
+    const [selectedDay, setSelectedDay] = useState(null)
 
     const formatInputValue = () => {
       if (!selectedDay) return '';
@@ -34,7 +33,6 @@ const DropdownCalendar = () => {
             inputClassName="datePicker" // custom class
         />
             <IoMdArrowDropdownCircle className="dropdowncalender-icon"/>
-
       </div>
     );
   };

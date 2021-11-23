@@ -23,6 +23,14 @@
   padding: 10px;
 }
 
+/* .dropdown-btn:focus {
+  outline: 1px solid red;
+}
+
+.dropdown-btn:after {
+  color: var(--primary-color);
+}
+ */
 .space {
   width: 50px;
   background-color: transparent;
