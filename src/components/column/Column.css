@@ -13,7 +13,6 @@
 
 .drag-and-drop-group{
     background-color: var(--secondary-color-80);
-    border-radius: 5px;
     padding: 0.5rem;
 }
 
@@ -27,7 +26,6 @@
     background-color: #FFFFFF;
     color: var(--primary-color);
     min-height: 150px;
-    border-radius: 5px;
 }
 
 .drag-and-drop-item:not(:last-of-type){

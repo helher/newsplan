@@ -1,6 +1,7 @@
 import React from 'react';
 import Column from '../components/column/Column';
 import './Dashboard.css';
+import Idea from './../components/idea/Idea'
 
 const data = [
     {
@@ -20,6 +21,7 @@ const Dashboard = () => {
         <div className="dashboard">
             <p>Dashboard Page</p>
             <Column data={data}/>
+            <Idea/>
         </div>
     );
 };
