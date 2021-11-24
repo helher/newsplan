@@ -15,7 +15,7 @@ function IdeaCard() {
                 </div>
 
                 <p className = "ideacard-text" >I'm baby disrupt vexillologist neutra bicycle rights. Single-origin coffee pour-over selvage</p>
-                <p className = "tags">Tag1 Tag2</p>
+                <p className = "tag-placeholders">Tag1 Tag2</p>
                 <p className = "contributor-img">Contributor-img</p>
             </div>
         </div>
