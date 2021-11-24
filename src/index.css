@@ -44,6 +44,7 @@ h5 {
   font-size: 14px;
   line-height: 21px;
   color: var(--primary-color);
+  margin-bottom: 5px;
 }
 
 h6 {
@@ -51,7 +52,6 @@ h6 {
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
-  color: var(--grey-color);
 }
 
 /* Text */
@@ -60,7 +60,6 @@ p {
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
-  color: var(--primary-color);
 }
 
 /*  */
