@@ -1,10 +1,10 @@
 import React from 'react';
 import Login from '../components/login/Login';
-
-function LoginScreen(){
+// TODO: Why with the empty component?
+function LoginScreen(props){
     return (
         <div>
-            <Login />
+            <Login setIsLoggedIn={props.setIsLoggedIn}/>
         </div>
     )
 }

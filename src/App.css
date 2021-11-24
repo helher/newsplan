@@ -1,4 +1,4 @@
-.app {
+.app-content {
   display: grid;
   position: fixed;
   height: 100vh;
@@ -6,7 +6,7 @@
   grid-template-rows: 1fr 105px;
   grid-template-areas:
     "nav-element main-content"
-    ". footer-element";
+    "logout-element footer-element";
 }
 
 .nav-container {
@@ -15,6 +15,10 @@
 
 .main-content {
   grid-area: main-content;
+}
+
+.logout-container {
+  grid-area: logout-element;
 }
 
 .footer-container {
