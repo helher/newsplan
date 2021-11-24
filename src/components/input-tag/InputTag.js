@@ -1,6 +1,5 @@
 import React from 'react';
 import './InputTag.css'; 
-import './MockData.js'; 
 
 import { AiFillCloseCircle } from 'react-icons/ai';
 
