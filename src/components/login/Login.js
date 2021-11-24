@@ -7,11 +7,13 @@ import { useState } from "react";
 // Styles
 import "./Login.css";
 
+// Images
+import img from "../../images/login_image.jpg"
+
+
 function Login(props) {
-  const isLoggedIn = useState(false);
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  // const navigate = useNavigate();
 
   function handleLoginAttempt(e) {
     e.preventDefault();
@@ -26,7 +28,6 @@ function Login(props) {
 
     user.logIn().then((loggedInUser) => {
       console.log(loggedInUser);
-      // navigate("/");
       props.setIsLoggedIn(true)
     });
   }
@@ -34,7 +35,7 @@ function Login(props) {
   return (
     <div className="login-page">
       <div className="image-container">
-        <img src="https://picsum.photos/200/300" />
+        <img src={img} alt= "login-screen-image"/>
       </div>
 
       <Form className="login-form">
@@ -55,7 +56,7 @@ function Login(props) {
                 onChange={(e) => setUsername(e.target.value)}
               />
             </Form.Group>
-          </div>
+          </div> 
 
           <div className="password-input-container">
             <Form.Group className="input-field" controlId="formBasicPassword">
@@ -78,12 +79,12 @@ function Login(props) {
               variant="primary"
               type="submit"
             >
-              Submit
+              Login
             </Button>
           </div>
-        </div>
+        </div> 
       </Form>
-    </div> /** */
+    </div> /* closing login page */
   );
 }
 

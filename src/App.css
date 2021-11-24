@@ -1,16 +1,11 @@
-.app {
+.app-content {
   display: grid;
   height: 100vh;
   grid-template-columns: 200px 1fr;
   grid-template-rows: 1fr 105px;
   grid-template-areas:
     "nav-element main-content"
-    ". footer-element";
-}
-
-.login-screen {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    "logout-element footer-element";
 }
 
 .nav-container {
@@ -19,6 +14,10 @@
 
 .main-content {
   grid-area: main-content;
+}
+
+.logout-container {
+  grid-area: logout-element;
 }
 
 .footer-container {

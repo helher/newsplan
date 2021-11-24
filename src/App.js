@@ -12,6 +12,7 @@ import LoginScreen from "./screens/LoginScreen";
 // Components
 import NavigationBar from "./components/nav/NavigationBar";
 import Footer from "./components/footer/Footer";
+import Logout from "./components/logout/Logout";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,16 +21,19 @@ function App() {
   return !isLoggedIn ? (
     <LoginScreen setIsLoggedIn={setIsLoggedIn} />
   ) : (
+    <div className="app-content">
     <Router>
       <NavigationBar className="navigation-element" />
-      <Routes>
+      <Routes className ="main-content">
         <Route path="/" element={<Dashboard />} exact />
         <Route path="/articles" element={<Articles exact />} />
         <Route path="/ideas" element={<Ideas />} exact />
         <Route path="/teamplan" element={<TeamPlan exact />} />
       </Routes>
+      <Logout className ="logout-element"/>
       <Footer className="footer-element" />
     </Router>
+    </div>
   );
 }
 
