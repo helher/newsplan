@@ -21,6 +21,7 @@ h2 {
   line-height: 27px;
   color: var(--primary-color);
 }
+
 h3 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -28,6 +29,7 @@ h3 {
   line-height: 24px;
   color: var(--primary-color);
 }
+
 h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -35,6 +37,7 @@ h4 {
   line-height: 24px;
   color: var(--primary-color);
 }
+
 h5 {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -42,6 +45,7 @@ h5 {
   line-height: 21px;
   color: var(--primary-color);
 }
+
 h6 {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -171,6 +175,14 @@ p {
   width: 20px;
   height: 20px;
   color: var(--accented-color);
+}
+
+.dropdown-header {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--primary-color);
 }
 
 :root {
