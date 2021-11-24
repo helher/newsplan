@@ -6,10 +6,6 @@ import { RiArticleLine } from 'react-icons/ri';
 import { BiBrain } from 'react-icons/bi';
 import { AiOutlineTeam } from 'react-icons/ai';
 
-
-
-
-
 function NavigationBar() {
     return (
         <div>
