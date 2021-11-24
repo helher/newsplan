@@ -1,8 +1,8 @@
 import React from 'react';
-import './PrimaryButton.css';
+import './DiscardButton.css';
 import { useNavigate } from 'react-router';
 
-const PrimaryButton = ({
+const DiscardButton = ({
     text,
     goto,
 }) => {
@@ -15,8 +15,8 @@ const PrimaryButton = ({
 
     return (
         <div>
-            <button className="primary-btn" onClick={handleClick}>
-                <div class="button-text-white">{text}
+            <button className="discard-btn" onClick={handleClick}>
+                <div class="button-text">{text}
                 </div>
             </button>
         </div>
@@ -24,4 +24,4 @@ const PrimaryButton = ({
     )
 }
 
-export default PrimaryButton;
+export default DiscardButton;

@@ -1,5 +1,6 @@
 .app-content {
   display: grid;
+  position: fixed;
   height: 100vh;
   grid-template-columns: 200px 1fr;
   grid-template-rows: 1fr 105px;
