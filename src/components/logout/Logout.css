@@ -1,0 +1,11 @@
+.logout-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-button {
+  border: none;
+  cursor: pointer;
+  background-color: white;
+}

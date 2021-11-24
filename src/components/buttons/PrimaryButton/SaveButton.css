@@ -1,0 +1,24 @@
+@import url(./../../../index.css);
+
+.save-btn {
+  border: none;
+  background-color: var(--primary-color);
+  height: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+  color: var(--primary-color);
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+  min-width: 135px;
+}
+
+.button-text-white {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-color-80);
+}

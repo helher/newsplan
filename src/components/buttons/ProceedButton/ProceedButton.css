@@ -1,0 +1,37 @@
+@import url(./../../../index.css);
+
+.proceed-btn {
+  border: 2px solid var(--primary-color);
+  background-color: var(--white-color-15);
+  height: 30px;
+  padding-left: 15px;
+  color: white;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.circle {
+  background: var(--primary-color);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proceed-icon {
+  height: 16px;
+  width: 16px;
+  color: white;
+  text-align: left;
+}
+
+.proceed-btn:hover {
+  background-color: var(--white-color-40);
+}

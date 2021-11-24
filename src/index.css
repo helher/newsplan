@@ -1,155 +1,192 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-
 /* Main Headers */
-h1{
-  font-family: 'Poppins', sans-serif;
+h1 {
+  font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-size: 24px;
   line-height: 36px;
   color: var(--primary-color);
 }
 
-h2{
-  font-family: 'Poppins', sans-serif;
+h2 {
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;
   color: var(--primary-color);
 }
-h3{
-  font-family: 'Poppins', sans-serif;
+
+h3 {
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   color: var(--primary-color);
 }
-h4{
-  font-family: 'Poppins', sans-serif;
+
+h4 {
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: var(--primary-color);
 }
-h5{
-  font-family: 'Poppins', sans-serif;
+
+h5 {
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
   color: var(--primary-color);
+  margin-bottom: 5px;
 }
-h6{
-  font-family: 'Poppins', sans-serif;
+
+h6 {
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
-  color: var(--grey-color);
 }
 
 /* Text */
-p{
-  font-family: 'Poppins', sans-serif;
+p {
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
-  color: var(--primary-color);
 }
 
 /*  */
-.column-title{
-  font-family: 'Poppins', sans-serif;
+.column-title {
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 21px;
   color: var(--primary-color);
 }
 
-.card-title{
-  font-family: 'Poppins', sans-serif;
+.card-title {
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 12px;
   line-height: 18px;
-  color: var(--primary-color);
+  color: var(--white-color);
+  padding-bottom: 10px;
 }
 
-.card-identification{
-  font-family: 'Poppins', sans-serif;
+.card-identification {
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 10px;
   line-height: 15px;
-  color: var(--primary-color);
+  color: var(--accented-color);
+  padding-bottom: 10px;
 }
 
-.button-text{
-  font-family: 'Poppins', sans-serif;
+.card-date {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: 15px;
+  color: var(--accented-color);
+  padding-bottom: 10px;
+}
+
+.createdby-text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--primary-color-60);
+}
+
+.button-text {
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
   color: var(--primary-color);
+}
+
+.button-text-white {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--white-color);
 }
 
 .calendar-days {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
   color: var(--primary-color);
-} 
+}
 .calendar-days-full-screen {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 24px;
   line-height: 36px;
   color: var(--primary-color);
-} 
+}
 
 .calendar-events {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 12px;
   line-height: 18px;
   color: var(--primary-color);
-} 
+}
 
-.calendar-hours-full-screen{
-  font-family: 'Poppins', sans-serif;
+.calendar-hours-full-screen {
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 22px;
   line-height: 33px;
   color: var(--primary-color);
 }
 
-.calendar-hours{
-  font-family: 'Poppins', sans-serif;
+.calendar-hours {
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 8px;
   line-height: 12px;
   color: var(--primary-color);
 }
 
-.calendar-more-added{
-  font-family: 'Poppins', sans-serif;
+.calendar-more-added {
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 8px;
   line-height: 12px;
   color: var(--primary-color);
 }
 
-.icon{
+.icon {
   width: 20px;
   height: 20px;
   color: var(--accented-color);
 }
 
-:root{
+.dropdown-header {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--primary-color);
+}
 
+:root {
   /* Primary Color */
-  --primary-color: hsl(213, 22%, 16%);    /* #202832 */
+  --primary-color: hsl(213, 22%, 16%); /* #202832 */
   --primary-color-80: hsl(213, 22%, 16%, 0.8);
   --primary-color-60: hsl(213, 22%, 16%, 0.6);
   --primary-color-40: hsl(213, 22%, 16%, 0.4);
@@ -163,32 +200,37 @@ p{
   --secondary-color-20: hsl(215, 22%, 51%, 0.2);
 
   /* Accented Colors */
-  --accented-color: hsl(31, 74%, 71%);  /* #ECB77E */
+  --accented-color: hsl(31, 74%, 71%); /* #ECB77E */
   --accented-color-80: hsl(31, 74%, 71%, 0.8);
   --accented-color-60: hsl(31, 74%, 71%, 0.6);
   --accented-color-40: hsl(31, 74%, 71%, 0.4);
   --accented-color-20: hsl(31, 74%, 71%, 0.2);
-  
+
+  /* White Colors */
+  --white-color: hsl(0, 0%, 100%, 100%); /* FFFFFF */
+  --white-color-15: hsl(0, 0%, 100%, 15%);
+  --white-color-40: hsl(0, 0%, 100%, 40%);
+
   /* Grey Colors */
-  --grey-color: hsl(0, 0%, 77%);        /* #C4C4C4 */ 
-  --grey-color-80: hsl(0, 0%, 77%, 0.8); 
-  --grey-color-60: hsl(0, 0%, 77%, 0.6); 
-  --grey-color-40: hsl(0, 0%, 77%, 0.4); 
-  --grey-color-20: hsl(0, 0%, 77%, 0.2); 
+  --grey-color: hsl(0, 0%, 77%); /* #C4C4C4 */
+  --grey-color-80: hsl(0, 0%, 77%, 0.8);
+  --grey-color-60: hsl(0, 0%, 77%, 0.6);
+  --grey-color-40: hsl(0, 0%, 77%, 0.4);
+  --grey-color-20: hsl(0, 0%, 77%, 0.2);
 
   /* Labels */
-  --nation-color: hsl(4, 59%, 69%);     /* #DE574E */
-  --world-color: hsl(48, 84%, 64%);     /* #F0D158 */
+  --nation-color: hsl(4, 59%, 69%); /* #DE574E */
+  --world-color: hsl(48, 84%, 64%); /* #F0D158 */
   --politics-color: hsl(218, 83%, 56%); /* #3478EC */
   --business-color: hsl(257, 92%, 59%); /* #6E38F6 */
   --regional-color: hsl(172, 46%, 58%); /* #61C5B8 */
-  --culture-color: hsl(18, 87%, 65%);   /* #F38758 */
-  --food-color: hsl(14, 61%, 75%);      /* #E6AB99 */
-  --family-color: hsl(227, 51%, 71%);   /* #8E9EDA */
-  --health-color: hsl(250, 84%, 75%);   /* #9B88F5 */
-  --weather-color: hsl(333, 74%, 75%);  /* #EF92BC */
-  --sport-color: hsl(333, 74%, 75%);    /* #92D9D6 */
-  --science-color: hsl(147, 44%, 64%);  /* #7BCCA0 */
-  --music-color: hsl(263, 68%, 68%);    /* #A177E5 */
-  --tech-color: hsl(32, 93%, 66%);      /* #F9B05A */
+  --culture-color: hsl(18, 87%, 65%); /* #F38758 */
+  --food-color: hsl(14, 61%, 75%); /* #E6AB99 */
+  --family-color: hsl(227, 51%, 71%); /* #8E9EDA */
+  --health-color: hsl(250, 84%, 75%); /* #9B88F5 */
+  --weather-color: hsl(333, 74%, 75%); /* #EF92BC */
+  --sport-color: hsl(333, 74%, 75%); /* #92D9D6 */
+  --science-color: hsl(147, 44%, 64%); /* #7BCCA0 */
+  --music-color: hsl(263, 68%, 68%); /* #A177E5 */
+  --tech-color: hsl(32, 93%, 66%); /* #F9B05A */
 }

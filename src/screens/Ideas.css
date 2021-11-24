@@ -1,0 +1,5 @@
+@import url(./../index.css);
+
+.idea {
+    background-color: var(--accented-color);
+}

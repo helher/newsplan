@@ -1,0 +1,8 @@
+.rich-text-toolbar {
+  width: 100%;
+  background-color: var(--primary-color);
+}
+
+.text-input {
+  width: auto;
+}

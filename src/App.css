@@ -1,4 +1,26 @@
-.app {
-  text-align: center;
-  display: flex;
+.app-content {
+  display: grid;
+  position: fixed;
+  height: 100vh;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 1fr 105px;
+  grid-template-areas:
+    "nav-element main-content"
+    "logout-element footer-element";
+}
+
+.nav-container {
+  grid-area: nav-element;
+}
+
+.main-content {
+  grid-area: main-content;
+}
+
+.logout-container {
+  grid-area: logout-element;
+}
+
+.footer-container {
+  grid-area: footer-element;
 }

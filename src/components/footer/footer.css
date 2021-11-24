@@ -1,0 +1,11 @@
+@import url(./../../index.css);
+
+.footer-container {
+  background-color: var(--accented-color);
+  height: 105px;
+  width: 100vw;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  padding-left: 50px;
+}

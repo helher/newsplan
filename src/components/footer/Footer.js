@@ -1,11 +1,15 @@
 import React from 'react';
 import './footer.css'
 
-function Footer() {
+import FooterButton from '../buttons/FooterButton/FooterButton';
+import  { IoIosAddCircleOutline } from 'react-icons/io'
+
+function Footer(props) {
     return (
-        <div>
-            <p>Test Footer </p>
+        <div className="footer-container">
+            <FooterButton UserIcon={ IoIosAddCircleOutline } text="Add Idea" trigger={props.trigger}/>
         </div>
+
     );
 }
 

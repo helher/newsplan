@@ -1,25 +1,95 @@
 @import url(./../../../index.css);
 
-.rich-text-toolbar{
-    width: 100%;
-    background-color: var(--primary-color);
+/* this is the text in the rich-text-editor */
+.placeholder-text {
+  color: var(--white-color);
+  padding: 10px;
 }
 
-.idea-section{
-    
-    border: 1px solid black;
-    max-width: 1010px;
-    padding: 50px;
+.popup-page {
+  position: fixed;
+  top: 0px;
+  left: 200px;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(2px);
+  background-color: var(--primary-color-60);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.test{
-    display: flex;
+.popup {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-left: -200px;
 }
 
-.idea-content-column{
-    
+.idea-container {
+  border: 1px solid black;
+  max-width: 1010px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  background-color: var(--white-color);
 }
 
-.comments-column{
-    flex: 2;
+/* left coloum  */
+
+.idea-flex-left {
+  /*   background-color: aquamarine; */
+  width: 650px;
+  flex: 1;
+  padding: 30px;
+}
+
+.idea-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.logo-and-id {
+  display: flex;
+}
+
+.rich-text-editor {
+  background-color: var(--primary-color);
+  height: 218px;
+  width: 590px;
+  margin-bottom: 30px;
+}
+
+.dropdowns {
+  position: absolute;
+}
+
+.align-bottons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-buttons {
+  display: flex;
+}
+
+.convert-button {
+  margin-right: 20px;
+}
+
+/* right coloum */
+
+.idea-flex-right {
+  /*   background-color: aqua; */
+  width: auto;
+  flex: 2;
+  padding: 30px;
+}
+
+.top-right {
+  display: flex;
+  justify-content: flex-end;
 }
