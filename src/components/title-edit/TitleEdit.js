@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { RiH1 } from 'react-icons/ri'
 import './TitleEdit.css'
 
-function TitleEdit() {
+const TitleEdit = ({titleSelected, setTitleSelected}) => {
+    const [title, setTitle] = useState("Title of Idea")
 
-    function editTitle() {
-        
+    function newTitle(e) {
+        setTitle(e.target.value)
     }
 
     return (
-        <div>
-            <h1 onClick={editTitle}>Title of idea</h1>
-        </div>
+        <input 
+        className = "text-input"
+        type="text"
+        value={title}
+        onChange={newTitle}
+      />
+      
     )
 }
 

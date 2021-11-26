@@ -17,6 +17,7 @@ import DropdownCalendar from '../../dropdowns/DropdownCalendar/DropdownCalendar'
 function PopupIdea(props) {
     const [titleSelected, setTitleSelected] = useState("Title of Idea")
     const [descriptionSelected, setDescriptionSelected] = useState("Write your description of your idea..")
+    const [expirationDateSelected, setExpirationDateSelected] = useState()
     const [visibilitySelected, setVisibilitySelected] = useState("Select")
 
     async function saveIdeaToDB(e) {
@@ -54,14 +55,14 @@ function PopupIdea(props) {
                             <BiBrain className="idea-icon"/>
                             <p className="createdby-text"><b>Idea</b> created by HH</p>
                         </div>
-                        < TitleEdit />
+                        < TitleEdit setTitleSelected={setTitleSelected}/>
                         
                         {/* Rich-text-editor placeholder*/}
                         <div className="rich-text-editor"><p className="placeholder-text">{descriptionSelected}</p></div>
                         
                         {/* Dropdowns */}
                         <div className="dropdowns"></div>
-                        <DropdownCalendar />
+                        <DropdownCalendar expirationDateSelected={expirationDateSelected} setExpirationDateSelected={setExpirationDateSelected}/>
                         <br/>
                         <h5>Section</h5>
                         <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />

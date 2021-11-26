@@ -45,12 +45,12 @@
 }
 
 .idea-flex-left {
-  /*   background-color: aquamarine; */
   width: 650px;
   flex: 1;
   padding-left: 30px;
   padding-bottom: 30px;
   padding-top: 20px;
+  padding-right: 30px;
 }
 
 .idea-icon {
