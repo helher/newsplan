@@ -15,7 +15,6 @@ const TitleEdit = ({titleSelected, setTitleSelected}) => {
         value={title}
         onChange={newTitle}
       />
-      
     )
 }
 
