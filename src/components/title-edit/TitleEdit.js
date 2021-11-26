@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { RiH1 } from 'react-icons/ri'
 import './TitleEdit.css'
 
 const TitleEdit = ({titleSelected, setTitleSelected}) => {
