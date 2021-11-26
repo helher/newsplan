@@ -8,18 +8,14 @@ function InputTag() {
   const [suggestions, selectedSuggestions] = useState([])
 
   const handleChange = (text) => {
-      console.log("handlechange started")
-    selectedInputs(text.target)
-    console.log("handlechange selected input started")
+    selectedInputs(text.target.value)
     handleSuggestion();
-    console.log("handlechange handlesuggeteston started")
   };
 
   const handleKeyDown = (e) => {
     if (e.keyCode === 9) {
       e.preventDefault();
     }
-
     
     const text = suggestions.length ? suggestions[0] : input;
     if ([9, 13].includes(e.keyCode) && text) {
