@@ -1,46 +1,53 @@
 @import url(./../../index.css);
-
-.tags-user-input {
-  width: 500px;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.tags-content {
+  margin: 20px;
+  padding: 5px;
   display: flex;
   flex-wrap: wrap;
-  min-height: 15 px;
-  border: 1px solid var(--grey-color-40);
-  border-radius: 3px;
+  align-items: center;
+  border: 1px solid #000;
+  height: fit-content;
+}
+.tag {
   padding: 5px;
-}
-
-#labels {
+  border: 1px solid #000;
+  background: #e0e0e0;
   display: flex;
+  align-items: center;
+}
+
+.tag .remove-tag {
   margin: 3px;
-  padding: 0;
+  color: #ff0000;
+  cursor: pointer;
 }
 
-.single-tag {
-  padding: 3px;
-  border: 1px solid gray;
-  height: 20px;
-  border-radius: 5px;
-  font-family: Poppins;
-  font-size: 14px;
-  list-style: none;
-  align-items: center;
-  justify-content: center;
-  padding: 3px;
-  margin: 2px 5px 2px 0px;
+.tags-content input {
+  border: 0;
+  padding: 10px;
 }
 
-input {
-  outline: transparent;
-  flex: 1;
-  border: none;
-  height: 30px;
-  font-size: 14px;
-  padding: 4px 0 0 0;
-  align-items: center;
+.tags-input {
+  position: relative;
+}
+.tags-suggestions {
+  border: 1px solid;
+  padding: 5px;
+  position: absolute;
+  top: 45px;
+  bottom: 0px;
+  height: fit-content;
+  width: 100%;
 }
 
-.remove-tag-icon {
-  margin-left: 3px;
-  vertical-align: middle;
+.suggestion-item {
+  cursor: pointer;
+  margin: 5px 0;
+  padding: 5px 0;
+  background: #ececec;
 }

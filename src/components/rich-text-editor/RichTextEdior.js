@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import './RichTextEditor.css';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 function RichTextEditor() {
+
+    const [value, setValue] = useState("")
+
+    const handleOnChange = (e,editor) => {
+        const data = editor.getData()
+        setValue(data)
+    }
+
     return (
-        <div>
-            <p>Toolbox</p>
-            <form>
-                <input className="text-input" type="text" placeholder="Insert text here"></input>
-            </form>
+        <div className = "container">
+            <h1>"Hello world"</h1>
+            <CKEditor
+                editor = {ClassicEditor}
+                onChange = {handleOnChange}
+            />
+            <div>
+                {value}
+            </div>
         </div>
     ) 
 }

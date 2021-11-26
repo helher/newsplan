@@ -1,56 +1,99 @@
-import React from 'react';
-import './InputTag.css'; 
-
-import { AiFillCloseCircle } from 'react-icons/ai';
-
-
-const TagsInput = props => {
-
-     /*We use React's use state hook to create local save for the tags input components  **/ 
-    const [tags, setTags] = React.useState(["Børn", "Politik"]); 
-
-    const removeTags = indexToRemove => {
-        setTags(tags.filter((_, index) => index !== indexToRemove)); 
-    }
-
-     /*Define addTags function  **/ 
-    const addTags = event => {
-        if(event.target.value !== "") {
-            setTags([...tags, event.target.value]); 
-            props.selected([...tags, event.target.value]); 
-            event.target.value= ""; 
-        }
-    }; 
-
-    return (
-        <div className="tags-user-input">
-            <ul id="labels">
-            {
-                tags.map((tag, index) => <li key={index} className ="single-tag">
-                <span className = "tag-name">{tag}</span>
-                <i className="tag-close-icon" onClick = {() => removeTags(index)}> <AiFillCloseCircle/> </i>
-            </li>)     
-            }
-            </ul>
-                <input 
-                placeholder="Type to add labels"
-                type= "text"
-                onKeyUp= {event => (event.key === "Enter" ? addTags(event) : null)}
-            />
-    </div>
-    ); 
-}; 
-
+import React, { useState } from "react";
+import suggestData from "./labelData";
 
 function InputTag() {
 
-    const selected = tags => console.log(tags);     
+  const [tags, selectedTags] = useState([])
+  const [input, selectedInputs] = useState("")
+  const [suggestions, selectedSuggestions] = useState([])
+
+  const handleChange = (text) => {
+      console.log("handlechange started")
+    selectedInputs(text.target)
+    console.log("handlechange selected input started")
+    handleSuggestion();
+    console.log("handlechange handlesuggeteston started")
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 9) {
+      e.preventDefault();
+    }
+
+    
+    const text = suggestions.length ? suggestions[0] : input;
+    if ([9, 13].includes(e.keyCode) && text) {
+        selectedTags([...tags, text])
+        selectedInputs("")
+      };
+    }
+  
+
+  const handleSuggestion = () => {
+    const suggestFilterInput = suggestData.filter(suggest =>   
+      suggest.text.toLowerCase().includes(input.toLowerCase())
+    );
+
+    console.log("handlesucks 2");
+
+    const suggestFilterTags = suggestFilterInput.filter(
+      suggest => !tags.includes(suggest.text)
+    );
+
+    console.log("handlesucks 3");
+
+    selectedSuggestions(
+        suggestFilterTags
+      )
+
+      console.log("handlesucks 4");
+  };
+
+  const handleDelete = (i) => {
+    const newTags = tags.filter((tag, j) => i !== j);
+    selectedTags (newTags)
+
+  };
+
+  const AddTags = (text) => {
+    selectedTags ([...tags, text])
+    selectedInputs("")
+    
+  };
+
 
     return (
-        <div>
-            <div className="dropdown-header">Section labels</div>
-            <TagsInput selected= {selected}/>
+      <div className="tags-content">
+        {tags.map((tag, i) => (
+          <div key={i} className="tag">
+            {tag}
+            <div className="remove-tag" onClick={() => handleDelete(i)}>
+              ×
+            </div>
+          </div>
+        ))}
+        <div className="tags-input">
+          <input
+            type="text"
+            value = {input}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            placeholder="add new tag"
+          />
+          {input && Boolean(suggestions.length) && (
+            <div className="tags-suggestions">
+              {suggestions.map(suggest => (
+                <div
+                  className="suggestion-item"
+                  onClick={() => AddTags(suggest.text)}
+                >
+                  {suggest.text}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
+      </div>
     )
 }
 

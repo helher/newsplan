@@ -12,6 +12,7 @@ import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
 import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 import DropdownVisibility from '../../dropdowns/DropdownVisibility/DropdownVisibility';
 import DropdownCalendar from '../../dropdowns/DropdownCalendar/DropdownCalendar';
+import InputTag from '../../input-tag/InputTag'
 
 function PopupIdea(props) {
     const [titleSelected, setTitleSelected] = useState("Title of Idea")
@@ -63,6 +64,7 @@ function PopupIdea(props) {
                         <DropdownCalendar />
                         <br/>
                         <h5>Section</h5>
+                        <InputTag />
                         <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />
 
                         {/* Attached articles */}
