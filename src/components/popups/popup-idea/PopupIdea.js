@@ -6,6 +6,7 @@ import Parse from 'parse';
 import { BiBrain } from 'react-icons/bi';
 
 //components
+import TitleEdit from '../../title-edit/TitleEdit';
 import SaveButton from '../../buttons/PrimaryButton/SaveButton';
 import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
 import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
@@ -53,8 +54,8 @@ function PopupIdea(props) {
                             <BiBrain className="idea-icon"/>
                             <p className="createdby-text"><b>Idea</b> created by HH</p>
                         </div>
-                        <h1>Title of idea</h1>
-
+                        < TitleEdit />
+                        
                         {/* Rich-text-editor placeholder*/}
                         <div className="rich-text-editor"><p className="placeholder-text">{descriptionSelected}</p></div>
                         

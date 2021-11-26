@@ -12,6 +12,7 @@ h1 {
   font-size: 24px;
   line-height: 36px;
   color: var(--primary-color);
+  margin-bottom: 15px;
 }
 
 h2 {
@@ -211,12 +212,16 @@ p {
   --white-color-15: hsl(0, 0%, 100%, 15%);
   --white-color-40: hsl(0, 0%, 100%, 40%);
 
-  /* Grey Colors */
+  /* Grey Color Scala */
   --grey-color: hsl(0, 0%, 77%); /* #C4C4C4 */
   --grey-color-80: hsl(0, 0%, 77%, 0.8);
   --grey-color-60: hsl(0, 0%, 77%, 0.6);
   --grey-color-40: hsl(0, 0%, 77%, 0.4);
   --grey-color-20: hsl(0, 0%, 77%, 0.2);
+
+  /* Grey Colors */
+  --light-grey: hsl(0, 0%, 98%);
+  --dark-medium-grey: hsl(0, 0%, 56%);
 
   /* Labels */
   --nation-color: hsl(4, 59%, 69%); /* #DE574E */

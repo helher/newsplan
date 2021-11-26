@@ -39,11 +39,18 @@
 
 /* left coloum  */
 
+.createdby-text {
+  margin-bottom: 10px;
+  color: var(--dark-medium-grey);
+}
+
 .idea-flex-left {
   /*   background-color: aquamarine; */
   width: 650px;
   flex: 1;
-  padding: 30px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  padding-top: 20px;
 }
 
 .idea-icon {
@@ -83,7 +90,7 @@
 /* right coloum */
 
 .idea-flex-right {
-  /*   background-color: aqua; */
+  background-color: var(--light-grey);
   width: auto;
   flex: 2;
   padding: 30px;
