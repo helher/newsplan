@@ -1,5 +1,6 @@
 // Dependencies
 import React from 'react'
+import Parse from 'parse';
 import { Draggable } from 'react-beautiful-dnd';
 
 // Styling
@@ -16,11 +17,21 @@ async function getCardFromDatabase(objectId) {
         const id = objectId;
         const title = card.get("title");
         const description = card.get("description");
-        const date = card.get("dueDate");
+        const dueDate = card.get("dueDate");
         // consider how to get a tag
         // consider how to get persons
-    
-        console.log(`Description: ${description}`);
+
+        const ideaCard = {
+            id: id,
+            title: title,
+            description: description,
+            dueDate: dueDate,
+            tag: ["politik (hardcoded)", "penge (hardcoded)", "kultur (hardcoded)"],
+            persons: ["Helena (hardcoded)", "Anita (hardcoded)"]
+        }
+
+        return ideaCard;
+
         } catch (error) {
         alert(`FAILED to retrieve IDEA the object, with error: ${error.message}`);
     }
