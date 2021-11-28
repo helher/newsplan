@@ -2,6 +2,7 @@ import React from 'react';
 import Column from '../components/column/Column';
 import './Dashboard.css';
 import Idea from './../components/idea/Idea'
+import Board from '../components/board/Board';
 
 const data = [
     {
@@ -22,6 +23,7 @@ const Dashboard = () => {
             <p>Dashboard Page</p>
             <Column data={data}/>
             <Idea/>
+            <Board/>
         </div>
     );
 };

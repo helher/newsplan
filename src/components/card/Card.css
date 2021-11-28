@@ -1,0 +1,12 @@
+.card-element{
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 180px;
+    margin: 10px;
+    border: 1px solid red;
+}
+
+.card-element h3{
+    font-size: 1em;
+}
+
