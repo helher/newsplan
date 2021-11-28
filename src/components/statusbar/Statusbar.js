@@ -2,28 +2,20 @@ import React from 'react'
 import './Statusbar.css';
 
 const Statusbar = ({
-    color,
-    width
-}) => {
+        color,
+        width
+    }) => {
 
 
-    function Colors(props) {
+    function CW(props) {
         return (
-            <div className="colors" style={{backgroundColor: props.color}}>{props.children}</div>
-            );
+            <div className="cw" style={{backgroundColor: props.color, width: props.width}}>{props.children}</div>
+            )
         }
-
-    function Width(props) {
-        return (
-            <div className="width" style={{width: props.width}}>{props.children}</div>
-            );
-        }
-
 
     return(
         <div className = "bar">
-            <Colors color={color}></Colors>
-            <Width width={width}></Width>
+            <CW color={color} width={width}></CW>
         </div>
     )
 }

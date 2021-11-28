@@ -19,7 +19,7 @@ const Ideas = () => {
             <FooterButton UserIcon={ IoMdRefresh } text="Load more Articles" goto="/Articles"/>
             <AddJobButton text="Add Job" goto="/Dashboard"/>
             <ProceedButton text="Convert to Article" goto="/Articles" />
-            <Statusbar />
+            <Statusbar color="var(--statusbar-warning)" width="100px"/>
         </div>
     );
 };
