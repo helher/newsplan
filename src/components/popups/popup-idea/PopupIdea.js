@@ -12,6 +12,8 @@ import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
 import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 import DropdownVisibility from '../../dropdowns/DropdownVisibility/DropdownVisibility';
 import DropdownCalendar from '../../dropdowns/DropdownCalendar/DropdownCalendar';
+import InputTag from '../../input-tag/InputTag'
+import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 
 function PopupIdea(props) {
     const [titleSelected, setTitleSelected] = useState("Title of Idea")
@@ -56,13 +58,16 @@ function PopupIdea(props) {
                         <h1>Title of idea</h1>
 
                         {/* Rich-text-editor placeholder*/}
-                        <div className="rich-text-editor"><p className="placeholder-text">{descriptionSelected}</p></div>
-                        
+
+                        <p className="placeholder-text">{descriptionSelected}</p>
+                        <RichTextEditor />
+
                         {/* Dropdowns */}
                         <div className="dropdowns"></div>
                         <DropdownCalendar />
                         <br/>
                         <h5>Section</h5>
+                        <InputTag />
                         <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />
 
                         {/* Attached articles */}
