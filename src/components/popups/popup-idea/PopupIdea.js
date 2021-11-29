@@ -6,6 +6,7 @@ import Parse from 'parse';
 import { BiBrain } from 'react-icons/bi';
 
 //components
+import TitleEdit from '../../title-edit/TitleEdit';
 import SaveButton from '../../buttons/PrimaryButton/SaveButton';
 import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
 import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
@@ -18,6 +19,7 @@ import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 function PopupIdea(props) {
     const [titleSelected, setTitleSelected] = useState("Title of Idea")
     const [descriptionSelected, setDescriptionSelected] = useState("Write your description of your idea..")
+    const [expirationDateSelected, setExpirationDateSelected] = useState()
     const [visibilitySelected, setVisibilitySelected] = useState("Select")
 
     async function saveIdeaToDB(e) {
@@ -55,14 +57,14 @@ function PopupIdea(props) {
                             <BiBrain className="idea-icon"/>
                             <p className="createdby-text"><b>Idea</b> created by HH</p>
                         </div>
-                        <h1>Title of idea</h1>
-
+                        < TitleEdit setTitleSelected={setTitleSelected}/>
+                        
                         {/* Rich-text-editor placeholder*/}
                         <RichTextEditor />
 
                         {/* Dropdowns */}
                         <div className="dropdowns"></div>
-                        <DropdownCalendar />
+                        <DropdownCalendar expirationDateSelected={expirationDateSelected} setExpirationDateSelected={setExpirationDateSelected}/>
                         <br/>
                         <h5>Section</h5>
                         <InputTag />
