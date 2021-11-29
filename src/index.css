@@ -238,4 +238,11 @@ p {
   --science-color: hsl(147, 44%, 64%); /* #7BCCA0 */
   --music-color: hsl(263, 68%, 68%); /* #A177E5 */
   --tech-color: hsl(32, 93%, 66%); /* #F9B05A */
+
+  /* Statusbar */
+  --statusbar-backgroundcolor: hsl(32, 66%, 94%); /* FAF1E7 */
+  --statusbar-warning: hsl(0, 74%, 71%); /* EC7E7E */
+  --statusbar-approved: hsl(101, 63%, 70%); /* A1E382 */
+  --statusbar-neutral: hsl(31, 74%, 71%); /* ECB77E */
+  --statusbar-onhold: hsl(263, 68%, 68%); /* A177E5 */
 }

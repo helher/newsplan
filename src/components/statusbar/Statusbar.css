@@ -1,0 +1,13 @@
+@import url(./../../index.css);
+
+.bar {
+  background-color: var(--statusbar-backgroundcolor);
+  width: 200px;
+  height: 7px;
+  border-radius: 10px;
+}
+
+.cw {
+  height: 7px;
+  border-radius: 10px;
+}
