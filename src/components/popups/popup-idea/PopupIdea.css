@@ -1,14 +1,8 @@
 @import url(./../../../index.css);
 
-/* this is the text in the rich-text-editor */
-.placeholder-text {
-  color: var(--white-color);
-  padding: 10px;
-}
-
 .popup-page {
   position: fixed;
-  top: 0px;
+  top: 0%;
   left: 200px;
   width: 100%;
   height: 100vh;
@@ -17,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: auto;
 }
 
 .popup {
@@ -39,11 +34,6 @@
 
 /* left coloum  */
 
-.createdby-text {
-  margin-bottom: 10px;
-  color: var(--dark-medium-grey);
-}
-
 .idea-flex-left {
   width: 650px;
   flex: 1;
@@ -53,25 +43,11 @@
   padding-right: 30px;
 }
 
-.idea-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
-
-.logo-and-id {
-  display: flex;
-}
-
 .rich-text-editor {
   background-color: var(--primary-color);
   height: 218px;
   width: 590px;
   margin-bottom: 30px;
-}
-
-.dropdowns {
-  position: absolute;
 }
 
 .align-bottons {

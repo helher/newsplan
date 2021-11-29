@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import './PopupIdea.css';
 import Parse from 'parse';
 
-// icons
-import { BiBrain } from 'react-icons/bi';
-
 //components
 import TitleEdit from '../../title-edit/TitleEdit';
 import SaveButton from '../../buttons/PrimaryButton/SaveButton';
@@ -15,6 +12,7 @@ import DropdownVisibility from '../../dropdowns/DropdownVisibility/DropdownVisib
 import DropdownCalendar from '../../dropdowns/DropdownCalendar/DropdownCalendar';
 import InputTag from '../../input-tag/InputTag'
 import RichTextEditor from '../../rich-text-editor/RichTextEdior';
+import CreatedBy from '../../createdBy/CreatedBy';
 
 function PopupIdea(props) {
     const [titleSelected, setTitleSelected] = useState("Title of Idea")
@@ -44,29 +42,21 @@ function PopupIdea(props) {
            alert(error)
        }
     }
+    
 
     return (props.trigger) ? (
         <div className="popup-page">
             <div className="popup">
                 <section className="idea-container">
-
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        {/* Logo, id and title */}
-                        <div className="logo-and-id">
-                            <BiBrain className="idea-icon"/>
-                            <p className="createdby-text"><b>Idea</b> created by HH</p>
-                        </div>
-                        < TitleEdit setTitleSelected={setTitleSelected}/>
-                        
-                        {/* Rich-text-editor placeholder*/}
+                        <CreatedBy />
+                        <TitleEdit setTitleSelected={setTitleSelected}/>
                         <RichTextEditor />
 
                         {/* Dropdowns */}
-                        <div className="dropdowns"></div>
+
                         <DropdownCalendar expirationDateSelected={expirationDateSelected} setExpirationDateSelected={setExpirationDateSelected}/>
-                        <br/>
-                        <h5>Section</h5>
                         <InputTag />
                         <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />
 
