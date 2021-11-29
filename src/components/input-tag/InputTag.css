@@ -16,16 +16,18 @@
 }
 
 .tag {
-  padding: 5px;
-  border: 1px solid #000;
-  background: #e0e0e0;
+  padding: 3px;
+  border: none;
   display: flex;
   align-items: center;
+  font-size: 8;
+  background-color: var(--primary-color);
+  color: var(--white-color);
 }
 
 .tag .remove-tag {
   margin: 3px;
-  color: #ff0000;
+  color: var(--white-color);
   cursor: pointer;
 }
 
@@ -38,6 +40,7 @@
   position: relative;
   background-color: red;
 }
+
 .tags-suggestions {
   border: 1px solid;
   padding: 5px;

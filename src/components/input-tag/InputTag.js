@@ -54,6 +54,8 @@ function InputTag() {
 
 
     return (
+      <>
+      <h5>Section </h5>
       <div className="tags-content">
         {tags.map((tag, i) => (
           <div key={i} className="tag">
@@ -85,6 +87,7 @@ function InputTag() {
           )}
         </div>
       </div>
+      </>
     )
 }
 

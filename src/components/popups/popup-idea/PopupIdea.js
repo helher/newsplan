@@ -66,7 +66,6 @@ function PopupIdea(props) {
                         <div className="dropdowns"></div>
                         <DropdownCalendar />
                         <br/>
-                        <h5>Section</h5>
                         <InputTag />
                         <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />
 
