@@ -1,8 +1,21 @@
-.rich-text-toolbar {
-  width: 100%;
-  background-color: var(--primary-color);
+@import url(./../../index.css);
+
+.text-editor {
+  height: 218px;
+  width: 590px;
+  margin-bottom: 30px;
 }
 
-.text-input {
-  width: auto;
+.ck-editor__editable_inline {
+  height: 200px;
+}
+
+.ck .ck-editor__main > .ck-editor__editable {
+  background: #fff;
+  border: none;
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.05);
+}
+
+.ck .ck-editor__main > .ck-editor__editable.ck-read-only {
+  background: #c3c3c3;
 }

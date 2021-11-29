@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import suggestData from "./labelData";
+import suggestData from "./LabelData";
+import './InputTag.css'; 
 
 function InputTag() {
 
@@ -8,11 +9,8 @@ function InputTag() {
   const [suggestions, selectedSuggestions] = useState([])
 
   const handleChange = (text) => {
-      console.log("handlechange started")
-    selectedInputs(text.target)
-    console.log("handlechange selected input started")
+    selectedInputs(text.target.value)
     handleSuggestion();
-    console.log("handlechange handlesuggeteston started")
   };
 
   const handleKeyDown = (e) => {
@@ -34,19 +32,13 @@ function InputTag() {
       suggest.text.toLowerCase().includes(input.toLowerCase())
     );
 
-    console.log("handlesucks 2");
-
     const suggestFilterTags = suggestFilterInput.filter(
       suggest => !tags.includes(suggest.text)
     );
 
-    console.log("handlesucks 3");
-
     selectedSuggestions(
         suggestFilterTags
       )
-
-      console.log("handlesucks 4");
   };
 
   const handleDelete = (i) => {
@@ -78,7 +70,7 @@ function InputTag() {
             value = {input}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
-            placeholder="add new tag"
+            placeholder="Add a new section"
           />
           {input && Boolean(suggestions.length) && (
             <div className="tags-suggestions">
