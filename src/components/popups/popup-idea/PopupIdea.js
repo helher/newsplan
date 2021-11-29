@@ -15,25 +15,25 @@ import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import CreatedBy from '../../createdBy/CreatedBy';
 
 function PopupIdea(props) {
-    const [titleSelected, setTitleSelected] = useState("Title of Idea")
-    const [descriptionSelected, setDescriptionSelected] = useState("Write your description of your idea..")
+    const [titleSelected, setTitleSelected] = useState()
+    const [descriptionSelected, setDescriptionSelected] = useState()
     const [expirationDateSelected, setExpirationDateSelected] = useState()
-    const [visibilitySelected, setVisibilitySelected] = useState("Select")
+    const [visibilitySelected, setVisibilitySelected] = useState()
 
     async function saveIdeaToDB(e) {
         console.log("anita clicked the button")
         e.preventDefault()
         console.log("prevented default")
 
-        console.log(visibilitySelected)
+        console.log(titleSelected)
 
         const Idea = Parse.Object.extend("Idea")
         const newIdea = new Idea()
         newIdea.set("title", titleSelected)
         newIdea.set("description", descriptionSelected)
         newIdea.set("visibility", visibilitySelected)
-
-        /* newIdea.set("user", Parse.User.current()) //how uploaded the idea.. */
+        newIdea.set("user", Parse.User.current()) //how uploaded the idea.. */
+        
         try {
             await newIdea.save()
             alert("Idea is creted - HURRRA!")
@@ -51,8 +51,8 @@ function PopupIdea(props) {
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
                         <CreatedBy />
-                        <TitleEdit setTitleSelected={setTitleSelected}/>
-                        <RichTextEditor />
+                        <TitleEdit titleSelected = {titleSelected} setTitleSelected={setTitleSelected}/>
+                        <RichTextEditor descriptionSelected = {descriptionSelected} setDescriptionSelected = {setDescriptionSelected} />
 
                         {/* Dropdowns */}
 

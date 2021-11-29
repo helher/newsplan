@@ -8,4 +8,9 @@
   line-height: 36px;
   color: var(--primary-color);
   margin-bottom: 15px;
+  padding-left: 10px;
+}
+
+::placeholder {
+  color: var(--primary-color);
 }
