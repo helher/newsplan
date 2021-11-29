@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: center;
   overflow: auto;
+  padding-top: 20px;
 }
 
 .popup {
@@ -75,5 +76,5 @@
 .top-right {
   display: flex;
   justify-content: flex-end;
-  margin-top: 20px;
+  padding-top: 20px;
 }
