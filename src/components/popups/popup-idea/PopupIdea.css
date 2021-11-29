@@ -39,7 +39,6 @@
   flex: 1;
   padding-left: 30px;
   padding-bottom: 30px;
-  padding-top: 20px;
   padding-right: 30px;
 }
 
@@ -69,10 +68,12 @@
   background-color: var(--light-grey);
   width: auto;
   flex: 2;
-  padding: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .top-right {
   display: flex;
   justify-content: flex-end;
+  margin-top: 20px;
 }
