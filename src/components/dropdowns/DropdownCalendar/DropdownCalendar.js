@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './DropdownCalendar.css';
 import { IoMdArrowDropdownCircle } from 'react-icons/io'
 

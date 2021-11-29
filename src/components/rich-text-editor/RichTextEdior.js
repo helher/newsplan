@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './RichTextEditor.css';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
