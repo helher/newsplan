@@ -8,6 +8,7 @@ import ProceedButton from '../components/buttons/ProceedButton/ProceedButton';
 // Icons
 import { IoIosAddCircleOutline } from 'react-icons/io'
 import { IoMdRefresh } from 'react-icons/io'
+import StatusbarList from '../components/statusbar/StatusbarList';
 
 const Ideas = () => {
     return (
@@ -18,6 +19,7 @@ const Ideas = () => {
             <FooterButton UserIcon={ IoMdRefresh } text="Load more Articles" goto="/Articles"/>
             <AddJobButton text="Add Job" goto="/Dashboard"/>
             <ProceedButton text="Convert to Article" goto="/Articles" />
+            {StatusbarList}
         </div>
     );
 };
