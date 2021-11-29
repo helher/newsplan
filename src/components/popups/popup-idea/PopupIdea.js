@@ -58,8 +58,6 @@ function PopupIdea(props) {
                         <h1>Title of idea</h1>
 
                         {/* Rich-text-editor placeholder*/}
-
-                        <p className="placeholder-text">{descriptionSelected}</p>
                         <RichTextEditor />
 
                         {/* Dropdowns */}
