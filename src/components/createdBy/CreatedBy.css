@@ -2,6 +2,7 @@
 
 .logo-and-id {
   display: flex;
+  padding-top: 10px;
 }
 
 .createdby-text {
