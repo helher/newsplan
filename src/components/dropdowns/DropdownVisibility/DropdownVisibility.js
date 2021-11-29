@@ -12,6 +12,7 @@ function DropdownVisibility ({visibilitySelected, setVisibilitySelected}) {
             <h5>Visibility</h5>
             <div className="dropdown-select">
                 <div className="dropdown-btn" onClick={() => setIsActive(!isActive)}>
+                    {!visibilitySelected && (<p>Select</p>)}
                     <p>{visibilitySelected}</p>
                     <div className="space"></div>
                     <IoMdArrowDropdownCircle className="dropdown-icon"/>
