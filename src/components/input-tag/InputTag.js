@@ -17,7 +17,6 @@ function InputTag() {
     if (e.keyCode === 9) {
       e.preventDefault();
     }
-
     
     const text = suggestions.length ? suggestions[0] : input;
     if ([9, 13].includes(e.keyCode) && text) {
