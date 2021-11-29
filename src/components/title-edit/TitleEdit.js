@@ -2,17 +2,17 @@ import React, { useState } from 'react'
 import './TitleEdit.css'
 
 const TitleEdit = ({titleSelected, setTitleSelected}) => {
-    const [title, setTitle] = useState("Title of Idea")
 
     function newTitle(e) {
-        setTitle(e.target.value)
+        setTitleSelected(e.target.value)
     }
 
     return (
         <input 
         className = "text-input"
+        placeholder = "Add a title here.."
         type="text"
-        value={title}
+        value={titleSelected}
         onChange={newTitle}
       />
     )
