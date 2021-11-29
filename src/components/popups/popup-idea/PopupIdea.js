@@ -31,6 +31,7 @@ function PopupIdea(props) {
         const newIdea = new Idea()
         newIdea.set("title", titleSelected)
         newIdea.set("description", descriptionSelected)
+        newIdea.set("expiration", expirationDateSelected)
         newIdea.set("visibility", visibilitySelected)
         newIdea.set("user", Parse.User.current()) //how uploaded the idea.. */
         

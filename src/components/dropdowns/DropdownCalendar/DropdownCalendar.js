@@ -8,26 +8,25 @@ import DatePicker from 'react-modern-calendar-datepicker';
 
 
 
-const DropdownCalendar = () => {
-    const [selectedDay, setSelectedDay] = useState(null)
+const DropdownCalendar = ({expirationDateSelected, setExpirationDateSelected}) => {
 
     const formatInputValue = () => {
-      if (!selectedDay) return '';
+      if (!expirationDateSelected) return '';
 
-      let month = `${selectedDay.month}`
+      let month = `${expirationDateSelected.month}`
       const months = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
       let newMonth = months[month]
 
-      return `${newMonth} ${selectedDay.day}, ${selectedDay.year}`;
+      return `${newMonth} ${expirationDateSelected.day}, ${expirationDateSelected.year}`;
     }
   
     return (
         <div>
         <h5>Expiration Date</h5>
         <DatePicker
-            value={selectedDay}
-            onChange={setSelectedDay}
+            value={expirationDateSelected}
+            onChange={setExpirationDateSelected}
             inputPlaceholder="Select" // placeholder
             formatInputText={formatInputValue} // format value
             inputClassName="datePicker" // custom class
