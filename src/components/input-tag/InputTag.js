@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import suggestData from "./DataLabel";
 import './InputTag.css'; 
 
-function InputTag() {
+function InputTag({tags, selectedTags}) {
 
-  const [tags, selectedTags] = useState([])
   const [input, selectedInputs] = useState("")
   const [suggestions, selectedSuggestions] = useState([])
 
@@ -49,7 +48,6 @@ function InputTag() {
   const AddTags = (text) => {
     selectedTags ([...tags, text])
     selectedInputs("")
-    
   };
 
 

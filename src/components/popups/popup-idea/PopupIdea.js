@@ -19,21 +19,21 @@ function PopupIdea(props) {
     const [descriptionSelected, setDescriptionSelected] = useState()
     const [expirationDateSelected, setExpirationDateSelected] = useState()
     const [visibilitySelected, setVisibilitySelected] = useState()
+    const [tags, selectedTags] = useState([])
 
     async function saveIdeaToDB(e) {
-        console.log("anita clicked the button")
         e.preventDefault()
         console.log("prevented default")
 
-        console.log(titleSelected)
 
         const Idea = Parse.Object.extend("Idea")
         const newIdea = new Idea()
+        newIdea.set("user", Parse.User.current())
         newIdea.set("title", titleSelected)
         newIdea.set("description", descriptionSelected)
         newIdea.set("expiration", expirationDateSelected)
+        newIdea.set("tags", tags)
         newIdea.set("visibility", visibilitySelected)
-        newIdea.set("user", Parse.User.current()) //how uploaded the idea.. */
         
         try {
             await newIdea.save()
@@ -58,7 +58,7 @@ function PopupIdea(props) {
                         {/* Dropdowns */}
 
                         <DropdownCalendar expirationDateSelected={expirationDateSelected} setExpirationDateSelected={setExpirationDateSelected}/>
-                        <InputTag />
+                        <InputTag tags = {tags} selectedTags = {selectedTags} />
                         <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />
 
                         {/* Attached articles */}
