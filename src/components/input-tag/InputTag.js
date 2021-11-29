@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import suggestData from "./LabelData";
+import suggestData from "./DataLabel";
 import './InputTag.css'; 
 
 function InputTag() {
