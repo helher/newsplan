@@ -9,6 +9,7 @@
   color: var(--primary-color);
   margin-bottom: 15px;
   padding-left: 10px;
+  border: solid var(--grey-color-80) 1px;
 }
 
 ::placeholder {

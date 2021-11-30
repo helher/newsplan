@@ -3,7 +3,7 @@
 .text-editor {
   height: 218px;
   width: 590px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .ck-editor__editable_inline {
@@ -12,8 +12,7 @@
 
 .ck .ck-editor__main > .ck-editor__editable {
   background: #fff;
-  border: none;
-  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.05);
+  border: solid var(--grey-color-80) 1px;
 }
 
 .ck .ck-editor__main > .ck-editor__editable.ck-read-only {
