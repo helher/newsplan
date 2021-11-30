@@ -11,6 +11,7 @@ import { IoMdRefresh } from 'react-icons/io'
 
 import TitleEdit from '../components/title-edit/TitleEdit';
 import StatusbarList from '../components/statusbar/StatusbarList';
+import CreatedBy from '../components/createdBy/CreatedBy';
 
 
 const Ideas = () => {
@@ -23,6 +24,7 @@ const Ideas = () => {
             <AddJobButton text="Add Job" goto="/Dashboard"/>
             <ProceedButton text="Convert to Article" goto="/Articles" />
             < TitleEdit />
+            <CreatedBy/>
             {StatusbarList}
 
         </div>

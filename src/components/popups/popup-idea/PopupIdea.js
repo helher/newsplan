@@ -21,10 +21,10 @@ function PopupIdea(props) {
     const [visibilitySelected, setVisibilitySelected] = useState()
     const [tags, selectedTags] = useState([])
 
+
     async function saveIdeaToDB(e) {
         e.preventDefault()
         console.log("prevented default")
-
 
         const Idea = Parse.Object.extend("Idea")
         const newIdea = new Idea()
@@ -51,12 +51,11 @@ function PopupIdea(props) {
                 <section className="idea-container">
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        <CreatedBy />
+                        <CreatedBy/>
                         <TitleEdit titleSelected = {titleSelected} setTitleSelected={setTitleSelected}/>
                         <RichTextEditor descriptionSelected = {descriptionSelected} setDescriptionSelected = {setDescriptionSelected} />
 
                         {/* Dropdowns */}
-
                         <DropdownCalendar expirationDateSelected={expirationDateSelected} setExpirationDateSelected={setExpirationDateSelected}/>
                         <InputTag tags = {tags} selectedTags = {selectedTags} />
                         <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />
