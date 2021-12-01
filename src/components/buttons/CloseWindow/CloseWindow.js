@@ -2,11 +2,17 @@ import React from 'react'
 import './CloseWindow.css'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 
-function CloseWindow(props) {
+const CloseWindow = ({
+        setTrigger
+    }) => {
+    
+        function handleClickPopup() {
+            setTrigger(false)
+        }
     
     return (
             <button className="close-button">
-                < IoIosCloseCircleOutline className="closing-tag" onClick={() => props.setTrigger(false)}/>
+                < IoIosCloseCircleOutline className="closing-tag" onClick={handleClickPopup}/>
             </button>
     )
 }
