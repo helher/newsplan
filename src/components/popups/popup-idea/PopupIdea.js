@@ -4,7 +4,7 @@ import Parse from 'parse';
 
 //components
 import TitleEdit from '../../title-edit/TitleEdit';
-import SaveButton from '../../buttons/PrimaryButton/SaveButton';
+import SaveButton from '../../buttons/SaveButton/SaveButton';
 import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
 import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
 import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
@@ -13,7 +13,6 @@ import DropdownCalendar from '../../dropdowns/DropdownCalendar/DropdownCalendar'
 import InputTag from '../../input-tag/InputTag'
 import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import CreatedBy from '../../createdBy/CreatedBy';
-import { queryAllByAltText } from '@testing-library/dom';
 
 function PopupIdea(props) {
 

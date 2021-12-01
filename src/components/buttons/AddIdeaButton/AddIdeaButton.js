@@ -1,8 +1,8 @@
 import React from 'react';
-import './FooterButton.css';
+import './AddIdeaButton.css';
 import Parse from 'parse';
 
-const FooterButton = ({
+const AddIdeaButton = ({
     text,
     UserIcon,
     trigger
@@ -34,9 +34,9 @@ const FooterButton = ({
 
     return (
         <div>
-            <button className="footer-iconbtn" onClick={handleClickPopup}  >
+            <button className="addidea-iconbtn" onClick={handleClickPopup}  >
                 <div class="button-text-white">
-                <UserIcon className="footer-icon"/>{text}
+                <UserIcon className="addidea-icon"/>{text}
                 </div>
             </button>
         </div>
@@ -44,4 +44,4 @@ const FooterButton = ({
     )
 }
 
-export default FooterButton;
+export default AddIdeaButton;
