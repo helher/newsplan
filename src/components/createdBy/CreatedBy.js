@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './CreatedBy.css'
 import { BiBrain } from 'react-icons/bi';
 import Parse from 'parse';
 
 function CreatedBy() {
-    
+
     const username = (Parse.User.current()).get("username")
 
     return (

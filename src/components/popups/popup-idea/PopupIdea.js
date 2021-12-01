@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PopupIdea.css';
 import Parse from 'parse';
 
@@ -16,6 +16,14 @@ import CreatedBy from '../../createdBy/CreatedBy';
 import { queryAllByAltText } from '@testing-library/dom';
 
 function PopupIdea(props) {
+
+    // When the pop-up renders, the first thing is to create an idea object - and reads the id of the idea
+/*     useEffect(() => {
+        createIdeaInDB()
+        readIdeaIDFromDB()
+    }, []) */
+
+    const [ideaID, setIdeaID] = useState()
     const [titleSelected, setTitleSelected] = useState()
     const [descriptionSelected, setDescriptionSelected] = useState()
     const [expirationDateSelected, setExpirationDateSelected] = useState()
@@ -45,10 +53,9 @@ function PopupIdea(props) {
 
 
 
-    async function saveIdeaToDB(e) {
-        e.preventDefault()
-        console.log("prevented default")
-
+/*     function createIdeaInDB(e) {
+        console.log("createIdeaInDB function is called")
+        
         const Idea = Parse.Object.extend("Idea")
         const newIdea = new Idea()
         newIdea.set("user", Parse.User.current())
@@ -57,7 +64,44 @@ function PopupIdea(props) {
         newIdea.set("expiration", expirationDateSelected)
         newIdea.set("tags", tags)
         newIdea.set("visibility", visibilitySelected)
+
+        console.log("createIdeaInDB function is ended")
+    } */
+
+
+/*      async function readIdeaIDFromDB(objectId) {
+        console.log("readIdeaIDFromDB is called")
+        const query = new Parse.Query("Idea");
+         const id = newIdea.get("objectId"); 
+
+        try {
+            const id = await query.get(objectId);
+            console.log(id)
+            return id
+        }
+
+        catch (error) {
+        alert(`FAILED to retrieve idea-id with error: ${error.message}`);
+  
+        console.log("readIdeaIDFromDB is ended")
+        } */
+
+   
+
+    async function saveIdeaToDB(e) {
+        e.preventDefault()
+        console.log("prevented default")
+
+        const Idea = Parse.Object.extend("Idea")
+        const newIdea = new Idea()
         
+        newIdea.set("user", Parse.User.current())
+        newIdea.set("title", titleSelected)
+        newIdea.set("description", descriptionSelected)
+        newIdea.set("expiration", expirationDateSelected)
+        newIdea.set("tags", tags)
+        newIdea.set("visibility", visibilitySelected)
+
         try {
             await newIdea.save()
             alert("Idea is creted - HURRRA!")
@@ -71,9 +115,10 @@ function PopupIdea(props) {
     return (props.trigger) ? (
         <div className="popup-page">
             <div className="popup">
-                <section className="idea-container">
+                <section className="idea-container" >                
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
+                        
                         <CreatedBy/>
                         <TitleEdit titleSelected = {titleSelected} setTitleSelected={setTitleSelected}/>
                         <RichTextEditor descriptionSelected = {descriptionSelected} setDescriptionSelected = {setDescriptionSelected} />

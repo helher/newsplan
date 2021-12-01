@@ -20,6 +20,7 @@ function App() {
   //TODO: Make logout using setIsLoggedIn state hook function
   const [showPopup, setShowpopup] = useState(false);
 
+
   return !isLoggedIn ? (
     <LoginScreen setIsLoggedIn={setIsLoggedIn} />
   ) : (
