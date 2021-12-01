@@ -1,6 +1,6 @@
 @import url(./../../../index.css);
 
-.footer-iconbtn {
+.addidea-iconbtn {
   border: 2px solid white;
   background-color: var(--white-color-15);
   height: 30px;
@@ -11,7 +11,7 @@
   cursor: pointer;
 }
 
-.footer-icon {
+.addidea-icon {
   height: 20px;
   width: 20px;
   color: white;
@@ -26,6 +26,6 @@
   justify-content: space-between;
 }
 
-.footer-iconbtn:hover {
+.addidea-iconbtn:hover {
   background-color: var(--white-color-40);
 }

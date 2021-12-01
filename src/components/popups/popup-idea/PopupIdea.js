@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './PopupIdea.css';
 import Parse from 'parse';
 
 //components
 import TitleEdit from '../../title-edit/TitleEdit';
-import SaveButton from '../../buttons/PrimaryButton/SaveButton';
+import SaveButton from '../../buttons/SaveButton/SaveButton';
 import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
 import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
 import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
@@ -13,17 +13,9 @@ import DropdownCalendar from '../../dropdowns/DropdownCalendar/DropdownCalendar'
 import InputTag from '../../input-tag/InputTag'
 import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import CreatedBy from '../../createdBy/CreatedBy';
-import { queryAllByAltText } from '@testing-library/dom';
 
 function PopupIdea(props) {
 
-    // When the pop-up renders, the first thing is to create an idea object - and reads the id of the idea
-/*     useEffect(() => {
-        createIdeaInDB()
-        readIdeaIDFromDB()
-    }, []) */
-
-    const [ideaID, setIdeaID] = useState()
     const [titleSelected, setTitleSelected] = useState()
     const [descriptionSelected, setDescriptionSelected] = useState()
     const [expirationDateSelected, setExpirationDateSelected] = useState()
@@ -31,81 +23,37 @@ function PopupIdea(props) {
     const [tags, selectedTags] = useState([])
 
 
-    async function handleDiscardAttempt(objectId){
-        const Idea = new Parse.Object('Idea');
+    async function handleDiscardAttempt(objectId) {
+        const Idea = new Parse.Object('Idea')
         Idea.set('objectId', objectId);
 
         try {
-            await Idea.destroy();
-            alert('Success! To-do deleted!');
-            return true;
+            await Idea.destroy()
+            alert('Idea is deleted')
+            return true
         } catch (error) {
-            alert('Errr error');
-            return false;
+            alert("The idea couldn't be deleted: id: " + objectId + " with the error: " + error.message)
+            return false
         };
-
     }
 
+    async function saveIdeaToDB(objectId) {
+        const Idea = new Parse.Object('Idea')
 
-
-/*     function createIdeaInDB(e) {
-        console.log("createIdeaInDB function is called")
-        
-        const Idea = Parse.Object.extend("Idea")
-        const newIdea = new Idea()
-        newIdea.set("user", Parse.User.current())
-        newIdea.set("title", titleSelected)
-        newIdea.set("description", descriptionSelected)
-        newIdea.set("expiration", expirationDateSelected)
-        newIdea.set("tags", tags)
-        newIdea.set("visibility", visibilitySelected)
-
-        console.log("createIdeaInDB function is ended")
-    } */
-
-
-/*      async function readIdeaIDFromDB(objectId) {
-        console.log("readIdeaIDFromDB is called")
-        const query = new Parse.Query("Idea");
-         const id = newIdea.get("objectId"); 
-
-        try {
-            const id = await query.get(objectId);
-            console.log(id)
-            return id
-        }
-
-        catch (error) {
-        alert(`FAILED to retrieve idea-id with error: ${error.message}`);
-  
-        console.log("readIdeaIDFromDB is ended")
-        } */
-
-   
-
-    async function saveIdeaToDB(e) {
-        e.preventDefault()
-        console.log("prevented default")
-
-        const Idea = Parse.Object.extend("Idea")
-        const newIdea = new Idea()
-        
-        newIdea.set("user", Parse.User.current())
-        newIdea.set("title", titleSelected)
-        newIdea.set("description", descriptionSelected)
-        newIdea.set("expiration", expirationDateSelected)
-        newIdea.set("tags", tags)
-        newIdea.set("visibility", visibilitySelected)
-
-        try {
-            await newIdea.save()
-            alert("Idea is creted - HURRRA!")
-        }
-        catch(error) {
-        alert(error)
+        Idea.set('objectId', objectId)
+        Idea.set("user", Parse.User.current())
+        Idea.set("title", titleSelected)
+        Idea.set("description", descriptionSelected)
+        Idea.set("expiration", expirationDateSelected)
+        Idea.set("tags", tags)
+        Idea.set("visibility", visibilitySelected)
+        try{
+            let result = await Idea.save()
+            alert('Object updated with objectId: ' + result.id)
+        } catch(error) {
+            alert('Failed to update object, with error code: ' + error.message)
         }
     }
-    
 
     return (props.trigger) ? (
         <div className="popup-page">
@@ -159,4 +107,4 @@ function PopupIdea(props) {
     ) : ""
 }
 
-export default PopupIdea;
+export default PopupIdea
