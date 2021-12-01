@@ -16,13 +16,13 @@ import CreatedBy from '../../createdBy/CreatedBy';
 
 function PopupIdea(props) {
 
-    // When the op-up renders, the first thing is to create an idea object - and reads the id of the idea
-    useEffect(() => {
+    // When the pop-up renders, the first thing is to create an idea object - and reads the id of the idea
+/*     useEffect(() => {
         createIdeaInDB()
         readIdeaIDFromDB()
-    }, [])
+    }, []) */
 
-
+    const [ideaID, setIdeaID] = useState()
     const [titleSelected, setTitleSelected] = useState()
     const [descriptionSelected, setDescriptionSelected] = useState()
     const [expirationDateSelected, setExpirationDateSelected] = useState()
@@ -31,21 +31,39 @@ function PopupIdea(props) {
 
 
     function createIdeaInDB(e) {
-
+        console.log("createIdeaInDB function is called")
         const Idea = Parse.Object.extend("Idea")
         const newIdea = new Idea()
         newIdea.set("user", Parse.User.current())
-    }
-
-
-    function readIdeaIDFromDB(e) {
+        newIdea.set("title", titleSelected)
+        newIdea.set("description", descriptionSelected)
+        newIdea.set("expiration", expirationDateSelected)
+        newIdea.set("tags", tags)
+        newIdea.set("visibility", visibilitySelected)
         
-        const Idea = Parse.Object.extend("Idea")
-        Idea.get("objectId")
-        console.log(Idea.get("objectId"))
+        console.log("createIdeaInDB function is ended")
     }
 
-    
+
+    async function readIdeaIDFromDB(objectId) {
+        console.log("readIdeaIDFromDB is called")
+        const query = new Parse.Query("Idea");
+
+        try {
+            const idea = await query.get(objectId);
+            const id = objectId;
+            ideaID = {ideaID}
+            console.log(id)
+            return id
+        }
+
+        catch (error) {
+        alert(`FAILED to retrieve idea-id with error: ${error.message}`);
+  
+        console.log("readIdeaIDFromDB is ended")
+        }
+    }
+
 
     async function saveIdeaToDB(e) {
         e.preventDefault()
@@ -74,9 +92,10 @@ function PopupIdea(props) {
     return (props.trigger) ? (
         <div className="popup-page">
             <div className="popup">
-                <section className="idea-container">
+                <section className="idea-container" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
+                        <p>ID: {ideaID}</p>
                         <CreatedBy/>
                         <TitleEdit titleSelected = {titleSelected} setTitleSelected={setTitleSelected}/>
                         <RichTextEditor descriptionSelected = {descriptionSelected} setDescriptionSelected = {setDescriptionSelected} />
