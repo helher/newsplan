@@ -17,7 +17,7 @@ async function createIdeaCardsBasedOnDatabaseEntries() {
     console.log("All cards below:")
     console.log(allCards);
 
-    for(var i = 0; i < allCards.length-1; i++) {
+    for(var i = 0; i < allCards.length; i++) {
         try {
             const card = await query.get(allCards[i].id);
             const id = allCards[i].id;
@@ -36,8 +36,8 @@ async function createIdeaCardsBasedOnDatabaseEntries() {
                 persons: ["Helena (hardcoded)", "Anita (hardcoded)"]
             }
             
-            ideaCardsCollection.push(ideaCard);
-            console.log(ideaCardsCollection);
+            cardsCollection.push(ideaCard);
+            console.log(cardsCollection);
     
             } catch (error) {
             alert(`FAILED to retrieve IDEA the object, with error: ${error.message}`);
@@ -45,35 +45,10 @@ async function createIdeaCardsBasedOnDatabaseEntries() {
     }
 } 
 
-    const ideaCardsCollection = [];
-
-    // Populate this list of cards with <Card /> components
-    const cardsCollection = [
-    {
-        id: 'gary',
-        name: 'Gary Goodspeed',
-    },
-    {
-        id: 'cato',
-        name: 'Little Cato',
-    },
-    {
-        id: 'kvn',
-        name: 'KVN',
-    },
-    {
-        id: 'mooncake',
-        name: 'Mooncake',
-    },
-    {
-        id: 'quinn',
-        name: 'Quinn Ergon',
-    }
-    ]
+    const cardsCollection = [];
 
     function Board() {
     const [cards, updateCards] = useState(cardsCollection);
-    const [ideaCards, updateIdeaCards] = useState(ideaCardsCollection);
 
     function handleOnDragEnd(result) {
         if (!result.destination) return;
@@ -94,14 +69,14 @@ async function createIdeaCardsBasedOnDatabaseEntries() {
             <Droppable droppableId="characters">
                 {(provided) => (
                 <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-                    {cards.map(({id, name}, index) => {
+                    {cards.map(({id, title, description, dueDate, tag, persons}, index) => {
                     return (
                         <Draggable key={id} draggableId={id} index={index}>
                         {(provided) => (
                             <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                            <p>
-                                { name }
-                            </p>
+                                { title }
+                                { description } 
+                                { id }
                             </li>
                         )}
                         </Draggable>
