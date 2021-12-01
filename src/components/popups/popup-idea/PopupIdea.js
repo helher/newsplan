@@ -21,20 +21,30 @@ function PopupIdea(props) {
     const [visibilitySelected, setVisibilitySelected] = useState()
     const [tags, selectedTags] = useState([])
 
+    function createIdeaInDB(e) {
+        e.preventDefault()
+
+        const Idea = Parse.Object.extend("Idea")
+        const newIdea = new Idea()
+        newIdea.set("user", Parse.User.current())
+        readIdeaIDFromDB();
+    }
+
+    function readIdeaIDFromDB() {
+        
+    }
 
     async function saveIdeaToDB(e) {
         e.preventDefault()
         console.log("prevented default")
-
-        const Idea = Parse.Object.extend("Idea")
-        const newIdea = new Idea()
+        
         newIdea.set("user", Parse.User.current())
         newIdea.set("title", titleSelected)
         newIdea.set("description", descriptionSelected)
         newIdea.set("expiration", expirationDateSelected)
         newIdea.set("tags", tags)
         newIdea.set("visibility", visibilitySelected)
-        
+
         try {
             await newIdea.save()
             alert("Idea is creted - HURRRA!")
