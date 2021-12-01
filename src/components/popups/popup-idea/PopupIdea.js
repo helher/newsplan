@@ -22,6 +22,14 @@ function PopupIdea(props) {
     const [tags, selectedTags] = useState([])
 
 
+    function handleDiscardAttempt() {
+        const Idea = Parse.Object.extend("Idea")
+        const query = new Parse.Query(Idea)
+        query.get(I)
+
+    }
+
+
     async function saveIdeaToDB(e) {
         e.preventDefault()
         console.log("prevented default")
@@ -40,8 +48,8 @@ function PopupIdea(props) {
             alert("Idea is creted - HURRRA!")
         }
         catch(error) {
-           alert(error)
-       }
+        alert(error)
+        }
     }
     
 
@@ -70,6 +78,9 @@ function PopupIdea(props) {
                         {/* Buttons */}
                         <div className="align-bottons">
                             <DiscardButton text="Discard" goto="Dashboard" />
+
+                            <DiscardButton text="Discard" onClick = {handleDiscardAttempt}/>
+
                                 <div className="right-buttons">
                                     <div className="convert-button">
                                         <ProceedButton text="Convert to Article" goto="/Dashboard" />
