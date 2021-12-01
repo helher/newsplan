@@ -16,7 +16,6 @@ import CreatedBy from '../../createdBy/CreatedBy';
 
 function PopupIdea(props) {
 
-    const [ideaID, setIdeaID] = useState()
     const [titleSelected, setTitleSelected] = useState()
     const [descriptionSelected, setDescriptionSelected] = useState()
     const [expirationDateSelected, setExpirationDateSelected] = useState()
@@ -42,53 +41,29 @@ function PopupIdea(props) {
 
     } */
 
-        async function saveIdeaToDB(e) {
-            const Idea = Parse.Object.extend("Idea");
-            const idea = new Idea();
-            
-            console.log("saveidea called")
-            // Retrieve the object by id
-            idea.get("objectId")
-            .then((editIdea) => {
-              // The object was retrieved successfully and it is ready to update.
-            editIdea.set("user", Parse.User.current())
-            editIdea.set("title", titleSelected)
-            editIdea.set("description", descriptionSelected)
-            editIdea.set("expiration", expirationDateSelected)
-            editIdea.set("tags", tags)
-            editIdea.set("visibility", visibilitySelected)
-            alert("edited the idea - yay!")
-            
-            }, (error) => {
-                alert(error.message)
-              // The object was not retrieved successfully.
-            });
-        }
 
-   
+    async function saveIdeaToDB(objectId) {
+        //Retrieve your Parse Object
+        const Idea = new Parse.Object('Idea');
 
-    async function saveIdeaToDB2(e) {
-        e.preventDefault()
-        console.log("prevented default")
-
-        const Idea = Parse.Object.extend("Idea")
-        const newIdea = new Idea()
-        
-        newIdea.set("user", Parse.User.current())
-        newIdea.set("title", titleSelected)
-        newIdea.set("description", descriptionSelected)
-        newIdea.set("expiration", expirationDateSelected)
-        newIdea.set("tags", tags)
-        newIdea.set("visibility", visibilitySelected)
-
-        try {
-            await newIdea.save()
-            alert("Idea is creted - HURRRA!")
-        }
-        catch(error) {
-        alert(error)
+        //set the object
+        Idea.set('objectId', objectId);
+        //define the new values
+        Idea.set("user", Parse.User.current())
+        Idea.set("title", titleSelected)
+        Idea.set("description", descriptionSelected)
+        Idea.set("expiration", expirationDateSelected)
+        Idea.set("tags", tags)
+        Idea.set("visibility", visibilitySelected)
+        try{
+            //Save the Object
+            let result = await Idea.save();
+            alert('Object updated with objectId: ' + result.id);
+        } catch(error) {
+            alert('Failed to update object, with error code: ' + error.message);
         }
     }
+
     
 
     return (props.trigger) ? (
