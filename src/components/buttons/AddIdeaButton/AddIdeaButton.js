@@ -18,10 +18,10 @@ const AddIdeaButton = ({
         console.log("createIdea new idea")
         try {
             await newIdea.save()
-            alert("Idea is creted - HURRRA!")
+            console.log("Idea is creted - HURRRA!")
         }
         catch(error) {
-           alert(error)
+           alert("The idea couldn't be created" + error.message)
        }
 
         await newIdea.fetch().then((newIdea) => {
