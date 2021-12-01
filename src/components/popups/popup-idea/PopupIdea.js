@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PopupIdea.css';
 import Parse from 'parse';
 
@@ -15,28 +15,44 @@ import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import CreatedBy from '../../createdBy/CreatedBy';
 
 function PopupIdea(props) {
+
+    // When the op-up renders, the first thing is to create an idea object - and reads the id of the idea
+    useEffect(() => {
+        createIdeaInDB()
+        readIdeaIDFromDB()
+    }, [])
+
+
     const [titleSelected, setTitleSelected] = useState()
     const [descriptionSelected, setDescriptionSelected] = useState()
     const [expirationDateSelected, setExpirationDateSelected] = useState()
     const [visibilitySelected, setVisibilitySelected] = useState()
     const [tags, selectedTags] = useState([])
 
+
     function createIdeaInDB(e) {
-        e.preventDefault()
 
         const Idea = Parse.Object.extend("Idea")
         const newIdea = new Idea()
         newIdea.set("user", Parse.User.current())
-        readIdeaIDFromDB();
     }
 
-    function readIdeaIDFromDB() {
+
+    function readIdeaIDFromDB(e) {
         
+        const Idea = Parse.Object.extend("Idea")
+        Idea.get("objectId")
+        console.log(Idea.get("objectId"))
     }
+
+    
 
     async function saveIdeaToDB(e) {
         e.preventDefault()
         console.log("prevented default")
+
+        const Idea = Parse.Object.extend("Idea")
+        const newIdea = new Idea()
         
         newIdea.set("user", Parse.User.current())
         newIdea.set("title", titleSelected)
