@@ -29,10 +29,10 @@ function PopupIdea(props) {
 
         try {
             await Idea.destroy();
-            alert('Success! To-do deleted!');
+            alert('Idea is deleted');
             return true;
         } catch (error) {
-            alert('Errr error');
+            alert("The idea couldn't be deleted: id: " + objectId + " with the error: " + error.message);
             return false;
         };
     }
