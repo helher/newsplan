@@ -10,8 +10,6 @@ const Articles = () => {
             {console.log("I am running")}
             <p>Articles Page</p>
             <IdeaCard />
-            <InputTag/>
-            <RichTextEditor/>
         </div>
     );
 };
