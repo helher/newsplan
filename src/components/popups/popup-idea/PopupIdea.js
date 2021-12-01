@@ -23,17 +23,17 @@ function PopupIdea(props) {
     const [tags, selectedTags] = useState([])
 
 
-    async function handleDiscardAttempt(objectId) {
-        const Idea = new Parse.Object('Idea')
+    async function handleDiscardAttempt(objectId){
+        const Idea = new Parse.Object('Idea');
         Idea.set('objectId', objectId);
 
         try {
-            await Idea.destroy()
-            alert('Idea is deleted')
-            return true
+            await Idea.destroy();
+            alert('Success! Idea deleted!');
+            return true;
         } catch (error) {
-            alert("The idea couldn't be deleted: id: " + objectId + " with the error: " + error.message)
-            return false
+            alert('Errr error');
+            return false;
         };
     }
 
