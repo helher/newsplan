@@ -9,7 +9,7 @@ const AddIdeaButton = ({
 }) => {
 
 
-    async function createIdeaInDB(e) {
+    async function createIdeaInDB() {
         console.log("createIdeaInDB started")
 
         const Idea = Parse.Object.extend("Idea")

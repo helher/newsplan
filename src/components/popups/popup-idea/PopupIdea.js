@@ -24,31 +24,23 @@ function PopupIdea(props) {
 
 
     async function handleDiscardAttempt(objectId) {
-        const Idea = new Parse.Object('Idea');
+        const Idea = new Parse.Object('Idea')
         Idea.set('objectId', objectId);
 
         try {
-            await Idea.destroy();
-            alert('Idea is deleted');
-            return true;
+            await Idea.destroy()
+            alert('Idea is deleted')
+            return true
         } catch (error) {
-            alert("The idea couldn't be deleted: id: " + objectId + " with the error: " + error.message);
-            return false;
+            alert("The idea couldn't be deleted: id: " + objectId + " with the error: " + error.message)
+            return false
         };
     }
 
-/*     componentDidMount() {
-
-    } */
-
-
     async function saveIdeaToDB(objectId) {
-        //Retrieve your Parse Object
-        const Idea = new Parse.Object('Idea');
+        const Idea = new Parse.Object('Idea')
 
-        //set the object
-        Idea.set('objectId', objectId);
-        //define the new values
+        Idea.set('objectId', objectId)
         Idea.set("user", Parse.User.current())
         Idea.set("title", titleSelected)
         Idea.set("description", descriptionSelected)
@@ -56,15 +48,12 @@ function PopupIdea(props) {
         Idea.set("tags", tags)
         Idea.set("visibility", visibilitySelected)
         try{
-            //Save the Object
-            let result = await Idea.save();
-            alert('Object updated with objectId: ' + result.id);
+            let result = await Idea.save()
+            alert('Object updated with objectId: ' + result.id)
         } catch(error) {
-            alert('Failed to update object, with error code: ' + error.message);
+            alert('Failed to update object, with error code: ' + error.message)
         }
     }
-
-    
 
     return (props.trigger) ? (
         <div className="popup-page">
@@ -118,4 +107,4 @@ function PopupIdea(props) {
     ) : ""
 }
 
-export default PopupIdea;
+export default PopupIdea
