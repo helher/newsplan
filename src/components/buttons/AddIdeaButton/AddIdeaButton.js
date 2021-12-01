@@ -8,7 +8,7 @@ const AddIdeaButton = ({
     trigger
 }) => {
 
-    async function createIdeaInDB(e) {
+    async function createIdeaInDB() {
         console.log("createIdeaInDB started")
 
         const Idea = Parse.Object.extend("Idea")
@@ -34,7 +34,6 @@ const AddIdeaButton = ({
         console.log("createIdeaInDB ended")
     }
 
-
     function handleClickPopup() {
         trigger(true)
         createIdeaInDB()
@@ -53,3 +52,4 @@ const AddIdeaButton = ({
 }
 
 export default AddIdeaButton;
+
