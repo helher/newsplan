@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './CreatedBy.css'
 import { BiBrain } from 'react-icons/bi';
 import Parse from 'parse';

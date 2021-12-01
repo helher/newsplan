@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './PopupIdea.css';
 import Parse from 'parse';
 
@@ -16,12 +16,6 @@ import CreatedBy from '../../createdBy/CreatedBy';
 
 function PopupIdea(props) {
 
-    // When the pop-up renders, the first thing is to create an idea object - and reads the id of the idea
-/*     useEffect(() => {
-        createIdeaInDB()
-        readIdeaIDFromDB()
-    }, []) */
-
     const [ideaID, setIdeaID] = useState()
     const [titleSelected, setTitleSelected] = useState()
     const [descriptionSelected, setDescriptionSelected] = useState()
@@ -30,7 +24,7 @@ function PopupIdea(props) {
     const [tags, selectedTags] = useState([])
 
 
-    async function handleDiscardAttempt(objectId){
+    async function handleDiscardAttempt(objectId) {
         const Idea = new Parse.Object('Idea');
         Idea.set('objectId', objectId);
 
@@ -42,47 +36,38 @@ function PopupIdea(props) {
             alert('Errr error');
             return false;
         };
-
     }
 
+/*     componentDidMount() {
 
-
-/*     function createIdeaInDB(e) {
-        console.log("createIdeaInDB function is called")
-        
-        const Idea = Parse.Object.extend("Idea")
-        const newIdea = new Idea()
-        newIdea.set("user", Parse.User.current())
-        newIdea.set("title", titleSelected)
-        newIdea.set("description", descriptionSelected)
-        newIdea.set("expiration", expirationDateSelected)
-        newIdea.set("tags", tags)
-        newIdea.set("visibility", visibilitySelected)
-
-        console.log("createIdeaInDB function is ended")
     } */
 
-
-/*      async function readIdeaIDFromDB(objectId) {
-        console.log("readIdeaIDFromDB is called")
-        const query = new Parse.Query("Idea");
-         const id = newIdea.get("objectId"); 
-
-        try {
-            const id = await query.get(objectId);
-            console.log(id)
-            return id
+        async function saveIdeaToDB(e) {
+            const Idea = Parse.Object.extend("Idea");
+            const idea = new Idea();
+            
+            console.log("saveidea called")
+            // Retrieve the object by id
+            idea.get("objectId")
+            .then((editIdea) => {
+              // The object was retrieved successfully and it is ready to update.
+            editIdea.set("user", Parse.User.current())
+            editIdea.set("title", titleSelected)
+            editIdea.set("description", descriptionSelected)
+            editIdea.set("expiration", expirationDateSelected)
+            editIdea.set("tags", tags)
+            editIdea.set("visibility", visibilitySelected)
+            alert("edited the idea - yay!")
+            
+            }, (error) => {
+                alert(error.message)
+              // The object was not retrieved successfully.
+            });
         }
-
-        catch (error) {
-        alert(`FAILED to retrieve idea-id with error: ${error.message}`);
-  
-        console.log("readIdeaIDFromDB is ended")
-        } */
 
    
 
-    async function saveIdeaToDB(e) {
+    async function saveIdeaToDB2(e) {
         e.preventDefault()
         console.log("prevented default")
 

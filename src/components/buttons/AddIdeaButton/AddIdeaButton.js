@@ -8,13 +8,13 @@ const AddIdeaButton = ({
     trigger
 }) => {
 
+
     async function createIdeaInDB(e) {
         console.log("createIdeaInDB started")
 
         const Idea = Parse.Object.extend("Idea")
         const newIdea = new Idea()
-        
-        newIdea.set("user", Parse.User.current())
+    
         console.log("createIdea new idea")
         try {
             await newIdea.save()
@@ -23,7 +23,16 @@ const AddIdeaButton = ({
         catch(error) {
            alert(error)
        }
-       console.log("createIdeaInDB ended")
+
+        await newIdea.fetch().then((newIdea) => {
+        const id = newIdea.id
+        console.log("id " + id)
+        }, error => {
+        alert(error)
+        })
+
+        console.log("fetch ended")
+        console.log("createIdeaInDB ended")
     }
 
 
