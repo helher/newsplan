@@ -23,24 +23,32 @@ function PopupIdea(props) {
     const [tags, selectedTags] = useState([])
 
 
-    async function handleDiscardAttempt(objectId){
+    async function handleDiscardAttempt(objectId) {
+        console.log("delete started")
+        
         const Idea = new Parse.Object('Idea');
-        Idea.set('objectId', objectId);
+        const id = Idea.set('objectId', objectId);
+        
+        console.log(id)
 
         try {
-            await Idea.destroy();
-            alert('Success! Idea deleted!');
+            let result = await Idea.destroy();
+            alert('Success! Idea deleted with id: ' + result.id);
             return true;
         } catch (error) {
-            alert('Errr error');
+            alert(`Error ${error.message}`);
             return false;
         };
     }
 
     async function saveIdeaToDB(objectId) {
+        console.log("save idea started")
         const Idea = new Parse.Object('Idea')
 
-        Idea.set('objectId', objectId)
+        const id = Idea.set('objectId', objectId)
+        console.log(id)
+
+        console.log("save idea id: " + id)
         Idea.set("user", Parse.User.current())
         Idea.set("title", titleSelected)
         Idea.set("description", descriptionSelected)
