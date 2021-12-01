@@ -13,6 +13,7 @@ import DropdownCalendar from '../../dropdowns/DropdownCalendar/DropdownCalendar'
 import InputTag from '../../input-tag/InputTag'
 import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import CreatedBy from '../../createdBy/CreatedBy';
+import { queryAllByAltText } from '@testing-library/dom';
 
 function PopupIdea(props) {
     const [titleSelected, setTitleSelected] = useState()
@@ -22,12 +23,26 @@ function PopupIdea(props) {
     const [tags, selectedTags] = useState([])
 
 
-    function handleDiscardAttempt() {
-        const Idea = Parse.Object.extend("Idea")
-        const query = new Parse.Query(Idea)
-        query.get(I)
+    function handleDiscardAttempt(objectId){
+        // Create a new Todo parse object instance and set todo id
+        const Idea = new Parse.Object('Idea');
+        Idea.set('objectId', objectId);
+
+
+        // .destroy should be called to delete a parse object
+        try {
+            Idea.destroy();
+            alert('Success! To-do deleted!');
+          // Refresh to-dos list to remove this one
+            return true;
+        } catch (error) {
+          // Error can be caused by lack of Internet connection
+            alert('Errr error');
+            return false;
+        };
 
     }
+
 
 
     async function saveIdeaToDB(e) {
