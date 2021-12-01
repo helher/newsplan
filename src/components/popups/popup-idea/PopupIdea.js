@@ -137,7 +137,6 @@ function PopupIdea(props) {
 
                         {/* Buttons */}
                         <div className="align-bottons">
-                            <DiscardButton text="Discard" goto="Dashboard" />
 
                             <DiscardButton text="Discard" onClick = {handleDiscardAttempt}/>
 
