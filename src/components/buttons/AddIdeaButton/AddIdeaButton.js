@@ -23,7 +23,7 @@ const AddIdeaButton = ({
            alert(error)
        }
 
-         await newIdea.fetch().then((newIdea) => {
+        await newIdea.fetch().then((newIdea) => {
         const id = newIdea.id
         console.log("id " + id)
         }, error => {
