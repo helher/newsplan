@@ -34,7 +34,7 @@ function App() {
           <Route path="/ideas" element={<Ideas />} exact />
           <Route path="/teamplan" element={<TeamPlan exact />} />
         </Routes>
-        <Footer className="footer-element" trigger={setShowpopup} createIdeaInDB={setIdeaId}/>
+        <Footer className="footer-element" trigger={setShowpopup} setIdeaId={setIdeaId}/>
         <Logout className ="logout-element"/>
         <PopupIdea trigger={showPopup} setTrigger={setShowpopup} ideaId={ideaId}/>
       </Router>

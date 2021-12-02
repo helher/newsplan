@@ -16,6 +16,8 @@ import CreatedBy from '../../createdBy/CreatedBy';
 
 function PopupIdea(props) {
 
+    console.log(" test", props.ideaId)
+
     const [titleSelected, setTitleSelected] = useState()
     const [descriptionSelected, setDescriptionSelected] = useState()
     const [expirationDateSelected, setExpirationDateSelected] = useState()
@@ -26,15 +28,9 @@ function PopupIdea(props) {
         props.setTrigger(false)
     }
 
-      function ideaId() {
-        const objectId = {ideaId}
-        console.log("ideaid:" + objectId)
-        return objectId
-    } 
-
     async function handleDiscardAttempt() {
-        const objectId = ideaId()
-        console.log("handlediscard id: " + objectId)
+        const objectId = props.ideaId
+        console.log("handlediscard id: ", objectId)
         console.log("delete started")
         
         const Idea = new Parse.Object('Idea');
@@ -53,7 +49,8 @@ function PopupIdea(props) {
         };
     }
 
-    async function saveIdeaToDB(objectId) {
+    async function saveIdeaToDB() {
+        const objectId = props.ideaId
         console.log("save idea started")
         const Idea = new Parse.Object('Idea')
 
