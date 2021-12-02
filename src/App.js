@@ -19,6 +19,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   //TODO: Make logout using setIsLoggedIn state hook function
   const [showPopup, setShowpopup] = useState(false);
+  const [ideaId, setIdeaId] = useState()
 
 
   return !isLoggedIn ? (
@@ -33,10 +34,12 @@ function App() {
           <Route path="/ideas" element={<Ideas />} exact />
           <Route path="/teamplan" element={<TeamPlan exact />} />
         </Routes>
-        <Footer className="footer-element" trigger={setShowpopup} />
+        <Footer className="footer-element" trigger={setShowpopup} setIdeaId={setIdeaId}/>
         <Logout className ="logout-element"/>
-        <PopupIdea trigger={showPopup} setTrigger={setShowpopup} />
+        <PopupIdea trigger={showPopup} setTrigger={setShowpopup} ideaId={ideaId}/>
       </Router>
+      
+      
     </div>
   );
 }
