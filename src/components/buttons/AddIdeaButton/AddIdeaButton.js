@@ -25,9 +25,9 @@ const AddIdeaButton = ({
             let result = await newIdea.save()
             let ididea = result.id
             setIdeaId(ididea)
-/*          console.log("ideaiiiid ", ididea)
-            console.log("idea in brackets: ", (createIdeaInDB = {ididea})) */
-            alert("Idea with id: " + ididea + " is created - HURRRA!")
+            console.log("ideaid", ididea)
+            console.log("idea in brackets: ", (createIdeaInDB = {ididea}))
+/*             alert("Idea with id: " + ididea + " is created - HURRRA!") */
         }
         catch(error) {
            alert(error.message)

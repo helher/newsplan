@@ -40,7 +40,8 @@ function PopupIdea(props) {
 
         try {
             let result = await Idea.destroy();
-            alert('Success! Idea deleted with id: ' + result.id);
+/*             alert('Success! Idea deleted with id: ' + result.id); */
+            console.log('Success! Idea deleted with id: ' + result.id)
             setTrigger()
             return true;
         } catch (error) {
@@ -66,7 +67,8 @@ function PopupIdea(props) {
         Idea.set("visibility", visibilitySelected)
         try{
             let result = await Idea.save()
-            alert('Object updated with objectId: ' + result.id)
+            alert('Idea created with ID: ' + result.id)
+            console.log('Object updated with objectId: ' + result.id)
             setTrigger()
         } catch(error) {
             alert('Failed to update object, with error code: ' + error.message)
@@ -76,10 +78,10 @@ function PopupIdea(props) {
     return (props.trigger) ? (
         <div className="popup-page">
             <div className="popup">
-                <section className="idea-container" >                
+                <section className="idea-container" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        <CreatedBy setIdea/>
+                        <CreatedBy ideaId={props.ideaId}/>
                         <TitleEdit titleSelected = {titleSelected} setTitleSelected={setTitleSelected}/>
                         <RichTextEditor descriptionSelected = {descriptionSelected} setDescriptionSelected = {setDescriptionSelected} />
 
