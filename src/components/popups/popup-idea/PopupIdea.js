@@ -22,11 +22,19 @@ function PopupIdea(props) {
     const [visibilitySelected, setVisibilitySelected] = useState()
     const [tags, selectedTags] = useState([])
 
-    function setTrigger(props) {
+    function setTrigger() {
         props.setTrigger(false)
     }
 
-    async function handleDiscardAttempt(objectId) {
+      function ideaId() {
+        const objectId = {ideaId}
+        console.log("ideaid:" + objectId)
+        return objectId
+    } 
+
+    async function handleDiscardAttempt() {
+        const objectId = ideaId()
+        console.log("handlediscard id: " + objectId)
         console.log("delete started")
         
         const Idea = new Parse.Object('Idea');
@@ -37,7 +45,7 @@ function PopupIdea(props) {
         try {
             let result = await Idea.destroy();
             alert('Success! Idea deleted with id: ' + result.id);
-            setTrigger(props)
+            setTrigger()
             return true;
         } catch (error) {
             alert(`Error ${error.message}`);
@@ -62,7 +70,7 @@ function PopupIdea(props) {
         try{
             let result = await Idea.save()
             alert('Object updated with objectId: ' + result.id)
-            setTrigger(props)
+            setTrigger()
         } catch(error) {
             alert('Failed to update object, with error code: ' + error.message)
         }
@@ -74,7 +82,7 @@ function PopupIdea(props) {
                 <section className="idea-container" >                
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        <CreatedBy/>
+                        <CreatedBy setIdea/>
                         <TitleEdit titleSelected = {titleSelected} setTitleSelected={setTitleSelected}/>
                         <RichTextEditor descriptionSelected = {descriptionSelected} setDescriptionSelected = {setDescriptionSelected} />
 
@@ -107,7 +115,7 @@ function PopupIdea(props) {
                     {/* RIGHT-COLUMN */}
                     <div className="idea-flex-right">
                         <div className="top-right">
-                            <CloseWindow setTrigger={props.setTrigger}/>
+                            <CloseWindow closeAction={setTrigger}/>
                         </div>
                             
                         <h3>Comments</h3>

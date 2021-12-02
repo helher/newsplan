@@ -8,7 +8,7 @@ function Footer(props) {
     
     return (
         <div className="footer-container">
-            <AddIdeaButton UserIcon={ IoIosAddCircleOutline } text="Add Idea" trigger={props.trigger}/>
+            <AddIdeaButton UserIcon={ IoIosAddCircleOutline } text="Add Idea" trigger={props.trigger} createIdeaInDB={props.createIdeaInDB}/>
         </div>
 
     );

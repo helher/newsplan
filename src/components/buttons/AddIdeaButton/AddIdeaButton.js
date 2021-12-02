@@ -5,8 +5,14 @@ import Parse from 'parse';
 const AddIdeaButton = ({
     text,
     UserIcon,
-    trigger
+    trigger,
+    createIdeaInDB
 }) => {
+
+    function handleClickPopup() {
+        trigger(true)
+        createIdeaInDB()
+    }
 
     async function createIdeaInDB() {
         console.log("createIdeaInDB started")
@@ -16,28 +22,27 @@ const AddIdeaButton = ({
     
         console.log("createIdea new idea")
         try {
-            await newIdea.save()
-            alert("Idea is created - HURRRA!")
+            let result = await newIdea.save()
+            let ididea = result.id
+            console.log("ideaiiiid " + ididea)
+            alert("Idea with id: " + ididea + " is created - HURRRA!")
+            return ididea
         }
         catch(error) {
-           alert(error)
+           alert(error.message)
        }
 
         await newIdea.fetch().then((newIdea) => {
         const id = newIdea.id
         console.log("id " + id)
         }, error => {
-        alert(error)
+        alert(error.message)
         })
 
         console.log("fetch ended")
         console.log("createIdeaInDB ended")
     }
 
-    function handleClickPopup() {
-        trigger(true)
-        createIdeaInDB()
-    }
 
     return (
         <div>
