@@ -16,7 +16,7 @@ import CreatedBy from '../../createdBy/CreatedBy';
 
 function PopupIdea(props) {
 
-    console.log(" test", props.ideaId)
+    console.log("test", props.ideaId)
 
     const [titleSelected, setTitleSelected] = useState()
     const [descriptionSelected, setDescriptionSelected] = useState()
@@ -112,7 +112,7 @@ function PopupIdea(props) {
                     {/* RIGHT-COLUMN */}
                     <div className="idea-flex-right">
                         <div className="top-right">
-                            <CloseWindow closeAction={setTrigger}/>
+                            <CloseWindow closeAction={handleDiscardAttempt}/>
                         </div>
                             
                         <h3>Comments</h3>
