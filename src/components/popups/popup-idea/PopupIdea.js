@@ -76,10 +76,10 @@ function PopupIdea(props) {
     return (props.trigger) ? (
         <div className="popup-page">
             <div className="popup">
-                <section className="idea-container" >                
+                <section className="idea-container" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        <CreatedBy setIdea/>
+                        <CreatedBy ideaId={props.ideaId}/>
                         <TitleEdit titleSelected = {titleSelected} setTitleSelected={setTitleSelected}/>
                         <RichTextEditor descriptionSelected = {descriptionSelected} setDescriptionSelected = {setDescriptionSelected} />
 

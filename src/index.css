@@ -221,6 +221,7 @@ p {
 
   /* Grey Colors */
   --light-grey: hsl(0, 0%, 98%);
+  --medium-grey: hsl(0, 0%, 77%);
   --dark-medium-grey: hsl(0, 0%, 56%);
 
   /* Labels */
