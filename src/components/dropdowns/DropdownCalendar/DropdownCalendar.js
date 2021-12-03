@@ -31,7 +31,7 @@ const DropdownCalendar = ({expirationDateSelected, setExpirationDateSelected}) =
             formatInputText={formatInputValue} // format value
             inputClassName="datePicker" // custom class
         />
-            <IoMdArrowDropdownCircle className="dropdowncalender-icon"/>
+            {/* <IoMdArrowDropdownCircle className="dropdowncalender-icon"/> */}
       </div>
     );
   };

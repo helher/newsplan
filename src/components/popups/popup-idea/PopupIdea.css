@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: auto;
 }
 
 .popup {
@@ -20,23 +21,6 @@
   justify-content: center;
   margin-left: -200px;
 }
-
-/* .popup-page {
-  width: vw;
-  height: vh;
-  margin-left: -200px;
-  backdrop-filter: blur(2px);
-  background-color: var(--primary-color-60);
-  overflow: auto;
-}
-
-/* .popup {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-left: -200px;
-} */
 
 .idea-container {
   border: 1px solid black;
