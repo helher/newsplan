@@ -15,19 +15,26 @@
 }
 
 .tag {
-  padding: 3px;
   border: none;
   display: flex;
   align-items: center;
-  font-size: 8;
+  font-size: 12px;
   background-color: var(--primary-color);
   color: var(--white-color);
+  border-radius: 7px;
+  margin-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 8px;
 }
 
 .tag .remove-tag {
-  margin: 3px;
+  margin-left: 5px;
   color: var(--white-color);
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .tags-content input {
@@ -42,21 +49,41 @@
 
 .tags-suggestions {
   border: 1px solid;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
   position: absolute;
   top: 45px;
   bottom: 0px;
   height: fit-content;
   width: 100%;
+  background-color: var(--white-color);
 }
 
 .suggestion-item {
   cursor: pointer;
-  margin: 5px 0;
-  padding: 5px 0;
-  background: grey;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: var(--white-color);
+  font-size: 12px;
 }
 
 .placeholder {
   font-size: 12;
+}
+
+input {
+  position: relative;
+  background-color: var(--white-color);
+}
+
+::placeholder {
+  color: var(--primary-color-60);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+input:focus-visible {
+  outline: none;
 }
