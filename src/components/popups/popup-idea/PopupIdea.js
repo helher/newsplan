@@ -24,8 +24,8 @@ function PopupIdea(props) {
     const [visibilitySelected, setVisibilitySelected] = useState()
     const [tags, selectedTags] = useState([])
 
-    function setTrigger() {
-        props.setTrigger(false)
+    function setShowPopup() {
+        props.setShowPopup(false)
     }
 
     async function handleDiscardAttempt() {
@@ -42,7 +42,7 @@ function PopupIdea(props) {
             let result = await Idea.destroy();
 /*             alert('Success! Idea deleted with id: ' + result.id); */
             console.log('Success! Idea deleted with id: ' + result.id)
-            setTrigger()
+            setShowPopup()
             return true;
         } catch (error) {
             alert(`Error ${error.message}`);
@@ -69,7 +69,7 @@ function PopupIdea(props) {
             let result = await Idea.save()
             alert('Idea created with ID: ' + result.id)
             console.log('Object updated with objectId: ' + result.id)
-            setTrigger()
+            setShowPopup()
         } catch(error) {
             alert('Failed to update object, with error code: ' + error.message)
         }

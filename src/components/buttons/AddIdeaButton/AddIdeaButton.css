@@ -9,6 +9,7 @@
   border-radius: 15px;
   transition: 0.3s;
   cursor: pointer;
+  position: absolute;
 }
 
 .addidea-icon {

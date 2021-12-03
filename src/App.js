@@ -8,7 +8,6 @@ import Dashboard from "./screens/Dashboard";
 import Ideas from "./screens/Ideas";
 import Articles from "./screens/Articles";
 import LoginScreen from "./screens/LoginScreen";
-import PopupIdea from "./components/popups/popup-idea/PopupIdea";
 
 // Components
 import NavigationBar from "./components/nav/NavigationBar";
