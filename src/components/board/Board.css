@@ -5,6 +5,7 @@
 .draggable{
   padding: 10px;
   background: #2A3442;
+  overflow-y: scroll;
 }
 
 .avatar{
@@ -44,6 +45,8 @@
 .container{
   padding: 20px;
   overflow-x: scroll;
+  max-height: 80vh;
+  display: flex;
 }
 
 .list-grid{
