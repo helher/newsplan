@@ -4,7 +4,7 @@ import Parse from 'parse';
 
 //components
 import TitleEdit from '../../title-edit/TitleEdit';
-import SaveButton from '../../buttons/PrimaryButton/SaveButton';
+import SaveButton from '../../buttons/SaveButton/SaveButton';
 import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
 import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
 import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
@@ -15,43 +15,73 @@ import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import CreatedBy from '../../createdBy/CreatedBy';
 
 function PopupIdea(props) {
+
+    console.log("test", props.ideaId)
+
     const [titleSelected, setTitleSelected] = useState()
     const [descriptionSelected, setDescriptionSelected] = useState()
     const [expirationDateSelected, setExpirationDateSelected] = useState()
     const [visibilitySelected, setVisibilitySelected] = useState()
     const [tags, selectedTags] = useState([])
 
-
-    async function saveIdeaToDB(e) {
-        e.preventDefault()
-        console.log("prevented default")
-
-        const Idea = Parse.Object.extend("Idea")
-        const newIdea = new Idea()
-        newIdea.set("user", Parse.User.current())
-        newIdea.set("title", titleSelected)
-        newIdea.set("description", descriptionSelected)
-        newIdea.set("expiration", expirationDateSelected)
-        newIdea.set("tags", tags)
-        newIdea.set("visibility", visibilitySelected)
-        
-        try {
-            await newIdea.save()
-            alert("Idea is creted - HURRRA!")
-        }
-        catch(error) {
-           alert(error)
-       }
+    function setTrigger() {
+        props.setTrigger(false)
     }
-    
+
+    async function handleDiscardAttempt() {
+        const objectId = props.ideaId
+        console.log("handlediscard id: ", objectId)
+        console.log("delete started")
+        
+        const Idea = new Parse.Object('Idea');
+        const id = Idea.set('objectId', objectId);
+        
+        console.log(id)
+
+        try {
+            let result = await Idea.destroy();
+/*             alert('Success! Idea deleted with id: ' + result.id); */
+            console.log('Success! Idea deleted with id: ' + result.id)
+            setTrigger()
+            return true;
+        } catch (error) {
+            alert(`Error ${error.message}`);
+            return false;
+        };
+    }
+
+    async function saveIdeaToDB() {
+        const objectId = props.ideaId
+        console.log("save idea started")
+        const Idea = new Parse.Object('Idea')
+
+        const id = Idea.set('objectId', objectId)
+        console.log(id)
+
+        console.log("save idea id: " + id)
+        Idea.set("user", Parse.User.current())
+        Idea.set("title", titleSelected)
+        Idea.set("description", descriptionSelected)
+        Idea.set("expiration", expirationDateSelected)
+        Idea.set("tags", tags)
+        Idea.set("visibility", visibilitySelected)
+        try{
+            let result = await Idea.save()
+            alert('Idea created with ID: ' + result.id)
+            console.log('Object updated with objectId: ' + result.id)
+            setTrigger()
+        } catch(error) {
+            alert('Failed to update object, with error code: ' + error.message)
+        }
+    }
 
     return (props.trigger) ? (
         <div className="popup-page">
             <div className="popup">
-                <section className="idea-container">
+                <section className="idea-container" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        <CreatedBy/>
+                        <CreatedBy ideaId={props.ideaId}/>
                         <TitleEdit titleSelected = {titleSelected} setTitleSelected={setTitleSelected}/>
                         <RichTextEditor descriptionSelected = {descriptionSelected} setDescriptionSelected = {setDescriptionSelected} />
 
@@ -69,7 +99,9 @@ function PopupIdea(props) {
 
                         {/* Buttons */}
                         <div className="align-bottons">
-                            <DiscardButton text="Discard" goto="Dashboard" />
+
+                            <DiscardButton text="Discard" discardAction={handleDiscardAttempt}/>
+
                                 <div className="right-buttons">
                                     <div className="convert-button">
                                         <ProceedButton text="Convert to Article" goto="/Dashboard" />
@@ -82,7 +114,7 @@ function PopupIdea(props) {
                     {/* RIGHT-COLUMN */}
                     <div className="idea-flex-right">
                         <div className="top-right">
-                            <CloseWindow setTrigger={props.setTrigger}/>
+                            <CloseWindow closeAction={handleDiscardAttempt}/>
                         </div>
                             
                         <h3>Comments</h3>
@@ -94,4 +126,4 @@ function PopupIdea(props) {
     ) : ""
 }
 
-export default PopupIdea;
+export default PopupIdea
