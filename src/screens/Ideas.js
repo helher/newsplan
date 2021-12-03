@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './Ideas.css'
-import ProceedButton from '../components/buttons/ProceedButton/ProceedButton';
+import Footer from '../components/footer/Footer';
+import PopupIdea from '../components/popups/popup-idea/PopupIdea';
+import AddIdeaButton from '../components/buttons/AddIdeaButton/AddIdeaButton';
+import { IoIosAddCircleOutline } from 'react-icons/io'
 
+function Ideas(props) {
+    const [showPopup, setShowpopup] = useState(false);
+    const [ideaId, setIdeaId] = useState()
 
-import TitleEdit from '../components/title-edit/TitleEdit';
-import StatusbarList from '../components/statusbar/StatusbarList';
-import CreatedBy from '../components/createdBy/CreatedBy';
-
-
-const Ideas = () => {
     return (
-        <div className="idea">
-            <ProceedButton text="Convert to Article" goto="/Articles" />
-            <TitleEdit />
-            <CreatedBy/>
-            {StatusbarList}
-
-        </div>
-    );
-};
+        <>
+            <div className="idea">
+                
+            </div>
+            <Footer trigger={setShowpopup} setIdeaId={setIdeaId}>
+                <AddIdeaButton UserIcon={ IoIosAddCircleOutline } text="Add Idea" trigger={props.trigger} setIdeaId={props.setIdeaId}/>
+            </Footer>
+            <PopupIdea trigger={showPopup} setTrigger={setShowpopup} ideaId={ideaId}/>
+        </>
+    )
+}
 
 export default Ideas;
