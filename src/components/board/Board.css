@@ -48,6 +48,7 @@
   overflow-x: scroll;
   max-height: 80vh;
   display: flex;
+  max-width: 85vw;
 }
 
 .list-grid{
@@ -58,5 +59,9 @@
 
 .column-header{
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: 800;
+  background-color: #677E9E;
+  padding: 5px 10px 5px 10px;
 }
