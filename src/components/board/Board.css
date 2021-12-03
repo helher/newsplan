@@ -6,6 +6,7 @@
   padding: 10px;
   background: #2A3442;
   overflow-y: scroll;
+  min-width: 250px;
 }
 
 .avatar{
@@ -51,7 +52,7 @@
 
 .list-grid{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
 }
 

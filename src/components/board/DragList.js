@@ -29,7 +29,7 @@ const addToList = (list, index, element) => {
   return result;
 };
 
-const lists = ["todo", "inProgress", "done"];
+const lists = ["idea", "today", "tomorrow", "day after tomorrow", "on hold"];
 
 const generateLists = () =>
   lists.reduce(
