@@ -1,4 +1,6 @@
 import React from 'react';
+import DragList from './../components/board/DragList'
+
 import Column from '../components/column/Column';
 import './Dashboard.css';
 
@@ -19,7 +21,8 @@ const Dashboard = () => {
     return (
         <div className="dashboard">
             <p>Dashboard Page</p>
-            <Column data={data}/>
+            {/* <Column data={data}/> */}
+            <DragList/>
         </div>
     );
 };
