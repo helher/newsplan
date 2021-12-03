@@ -1,5 +1,7 @@
 @import url(./../index.css);
 
 .idea {
-  /*   background-color: var(--accented-color); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

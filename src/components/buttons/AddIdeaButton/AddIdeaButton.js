@@ -49,7 +49,7 @@ const AddIdeaButton = ({
     return (
         <button className="addidea-iconbtn" onClick={handleClickPopup}  >
             <div class="button-text-white">
-            <UserIcon className="addidea-icon"/>{text}
+                <UserIcon className="addidea-icon"/>{text}
             </div>
         </button>
     )

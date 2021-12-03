@@ -25,7 +25,7 @@ function PopupIdea(props) {
     const [tags, selectedTags] = useState([])
 
     function setShowPopup() {
-        props.setShowPopup(false)
+        setShowPopup(true)
     }
 
     async function handleDiscardAttempt() {
@@ -75,7 +75,7 @@ function PopupIdea(props) {
         }
     }
 
-    return (props.trigger) ? (
+    return (props.showPopup) ? (
         <div className="popup-page">
             <div className="popup">
                 <section className="idea-container" >

@@ -1,27 +1,21 @@
 @import url(./../../../index.css);
 
 .popup-page {
-  position: fixed;
-  left: 200px;
-  top: auto;
-  width: 100%;
-  height: 100vh;
+  width: vw;
+  height: vh;
+  margin-left: -200px;
   backdrop-filter: blur(2px);
   background-color: var(--primary-color-60);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: auto;
-  padding-top: 30px;
 }
 
-.popup {
+/* .popup {
   position: absolute;
   width: 100%;
   display: flex;
   justify-content: center;
   margin-left: -200px;
-}
+} */
 
 .idea-container {
   border: 1px solid black;
