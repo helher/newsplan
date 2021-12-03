@@ -87,3 +87,7 @@ input {
 input:focus-visible {
   outline: none;
 }
+
+.container {
+  padding: 0px;
+}

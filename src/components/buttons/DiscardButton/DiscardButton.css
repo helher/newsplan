@@ -13,7 +13,11 @@
   min-width: 135px;
 }
 
-.button-text {
+.discardbutton-text {
+  color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;

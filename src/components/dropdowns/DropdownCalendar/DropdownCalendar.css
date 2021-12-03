@@ -38,13 +38,10 @@
   outline: none;
 }
 
-.dropdowncalender-icon {
-  position: absolute;
+/* .dropdowncalender-icon {
   width: 10px;
   height: 10px;
-  top: 0;
-  right: 0;
-}
+} */
 
 .DatePicker__input.-rtl {
   direction: rtl;
