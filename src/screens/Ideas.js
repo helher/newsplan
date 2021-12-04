@@ -7,16 +7,16 @@ import AddIdeaButton from '../components/buttons/AddIdeaButton/AddIdeaButton';
 import { IoIosAddCircleOutline } from 'react-icons/io'
 
 function Ideas() {
-    const [showPopup, setShowpopup] = useState(false);
+    const [popup, setPopup] = useState(false);
     const [ideaId, setIdeaId] = useState()
 
     return (
         <>
             <div className="idea">
-                <PopupIdea showPopup={showPopup} setShowPopup={setShowpopup} ideaId={ideaId}/>
+                <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId}/>
             </div>
              <div className="footer-container">
-                <AddIdeaButton UserIcon={ IoIosAddCircleOutline } text="Add Idea" showPopup={showPopup} setShowPopup={setShowpopup} setIdeaId={setIdeaId}/>
+                <AddIdeaButton UserIcon={ IoIosAddCircleOutline } text="Add Idea" popup={popup} setPopup={setPopup} setIdeaId={setIdeaId}/>
                 <Footer />
             </div>
         </>

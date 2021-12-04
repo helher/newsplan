@@ -3,7 +3,7 @@ import './DropdownVisibility.css';
 import { IoMdArrowDropdownCircle } from 'react-icons/io'
 
 
-function DropdownVisibility ({visibilitySelected, setVisibilitySelected}) {
+function DropdownVisibility ({visibility, setVisibility}) {
     const [isActive, setIsActive] = useState(false)
     const options = ['Me Only', 'Editors and myself', 'Everyone']
 
@@ -12,8 +12,8 @@ function DropdownVisibility ({visibilitySelected, setVisibilitySelected}) {
             <h5>Visibility</h5>
             <div className="dropdown-select">
                 <div className="dropdown-btn" onClick={() => setIsActive(!isActive)}>
-                    {!visibilitySelected && (<p>Select</p>)}
-                    <p>{visibilitySelected}</p>
+                    {!visibility && (<p>Select</p>)}
+                    <p>{visibility}</p>
                     <div className="space"></div>
                     <IoMdArrowDropdownCircle className="dropdown-icon"/>
                 </div>
@@ -22,7 +22,7 @@ function DropdownVisibility ({visibilitySelected, setVisibilitySelected}) {
                         {options.map((option) => ( 
                             <div 
                                 onClick={(e) => {
-                                    setVisibilitySelected(option)
+                                    setVisibility(option)
                                     setIsActive(false)
                                 }}
                                 className="dropdown-item">

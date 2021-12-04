@@ -5,13 +5,13 @@ import Parse from 'parse';
 const AddIdeaButton = ({
     text,
     UserIcon,
-    setShowPopup,
+    setPopup,
     setIdeaId
 }) => {
 
     function handleClickPopup() {
         console.log("bt clicked!")
-        setShowPopup(true)
+        setPopup(true)
         createIdeaInDB()
     }
 

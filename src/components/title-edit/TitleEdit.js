@@ -1,10 +1,10 @@
 import React from 'react'
 import './TitleEdit.css'
 
-const TitleEdit = ({titleSelected, setTitleSelected}) => {
+const TitleEdit = ({title, setTitle}) => {
 
     function newTitle(e) {
-        setTitleSelected(e.target.value)
+        setTitle(e.target.value)
     }
 
     return (
@@ -12,7 +12,7 @@ const TitleEdit = ({titleSelected, setTitleSelected}) => {
         className = "text-input"
         placeholder = "Add a title here.."
         type="text"
-        value={titleSelected}
+        value={title}
         onChange={newTitle}
       />
     )

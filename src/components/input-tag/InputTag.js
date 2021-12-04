@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import suggestData from "./DataLabel";
 import './InputTag.css'; 
 
-function InputTag({tags, selectedTags}) {
+function InputTag({tags, setTags}) {
 
-  const [input, selectedInputs] = useState("")
-  const [suggestions, selectedSuggestions] = useState([])
+  const [input, setInputs] = useState("")
+  const [suggestions, setSuggestions] = useState([])
 
   const handleChange = (text) => {
-    selectedInputs(text.target.value)
+    setInputs(text.target.value)
     handleSuggestion();
   };
 
@@ -19,8 +19,8 @@ function InputTag({tags, selectedTags}) {
     
     const text = suggestions.length ? suggestions[0] : input;
     if ([9, 13].includes(e.keyCode) && text) {
-        selectedTags([...tags, text])
-        selectedInputs("")
+        setTags([...tags, text])
+        setInputs("")
       };
     }
   
@@ -34,20 +34,20 @@ function InputTag({tags, selectedTags}) {
       suggest => !tags.includes(suggest.text)
     );
 
-    selectedSuggestions(
+    setSuggestions(
         suggestFilterTags
       )
   };
 
   const handleDelete = (i) => {
     const newTags = tags.filter((tag, j) => i !== j);
-    selectedTags (newTags)
+    setTags (newTags)
 
   };
 
   const AddTags = (text) => {
-    selectedTags ([...tags, text])
-    selectedInputs("")
+    setTags ([...tags, text])
+    setInputs("")
   };
 
 
