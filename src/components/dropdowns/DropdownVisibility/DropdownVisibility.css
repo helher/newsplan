@@ -42,7 +42,8 @@
   border-radius: 6px;
   margin-top: 10px;
   background-color: var(--white-color);
-  z-index: auto;
+  position: absolute;
+  width: 590px;
 }
 
 .dropdown-item {
