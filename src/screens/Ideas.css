@@ -1,10 +1,7 @@
 @import url(./../index.css);
 
-.idea {
-}
-
 .footeridea-btns {
   display: flex;
   justify-content: space-between;
-  width: 45%;
+  width: 47%;
 }

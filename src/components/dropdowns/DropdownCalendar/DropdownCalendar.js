@@ -1,6 +1,5 @@
 import React from 'react';
 import './DropdownCalendar.css';
-import { IoMdArrowDropdownCircle } from 'react-icons/io'
 
 // Calender
 import DatePicker from 'react-modern-calendar-datepicker';
