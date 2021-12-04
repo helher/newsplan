@@ -24,5 +24,5 @@
 }
 
 .discard-btn:hover {
-  background-color: var(--primary-color-80);
+  color: var(--primary-color-80);
 }
