@@ -5,6 +5,7 @@ import Footer from '../components/footer/Footer';
 import PopupIdea from '../components/popups/popup-idea/PopupIdea';
 import AddIdeaButton from '../components/buttons/AddIdeaButton/AddIdeaButton';
 import LoadButton from '../components/buttons/LoadButton/LoadButton';
+import SectionList from '../components/sections/SectionList';
 
 
 function Ideas() {
@@ -15,6 +16,7 @@ function Ideas() {
         <>
             <div className="idea">
                 <p>Idea page</p>
+                {SectionList}
                 <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId}/>
             </div>
              <div className="footer-container">
