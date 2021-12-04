@@ -1,10 +1,10 @@
 import React from 'react';
 import './AddIdeaButton.css';
 import Parse from 'parse';
+import { IoIosAddCircleOutline } from 'react-icons/io'
 
 const AddIdeaButton = ({
     text,
-    UserIcon,
     setPopup,
     setIdeaId
 }) => {
@@ -49,7 +49,7 @@ const AddIdeaButton = ({
     return (
         <button className="addidea-iconbtn" onClick={handleClickPopup}  >
             <div class="button-text-white">
-                <UserIcon className="addidea-icon"/>{text}
+                <IoIosAddCircleOutline className="addidea-icon"/>{text}
             </div>
         </button>
     )

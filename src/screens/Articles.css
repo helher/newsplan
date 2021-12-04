@@ -1,0 +1,10 @@
+@import url(./../index.css);
+
+.article {
+}
+
+.footerarticle-btns {
+  display: flex;
+  justify-content: center;
+  width: 77%;
+}

@@ -1,9 +1,9 @@
 @import url(./../index.css);
 
-.idea {
+.teamplan {
 }
 
-.footeridea-btns {
+.footerteamplan-btns {
   display: flex;
   justify-content: space-between;
   width: 45%;
