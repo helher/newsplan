@@ -27,7 +27,7 @@
   justify-content: space-between;
   padding-left: 10px;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 12px;
   line-height: 18px;
   position: relative;
@@ -586,7 +586,7 @@
 }
 
 .Calendar__day:not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween):not(.-selected):hover {
-  background: #eaeaea;
+  background: var(--accented-color-40);
   border-radius: 50%;
   color: var(--primary-color);
   border-color: transparent;

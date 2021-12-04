@@ -69,7 +69,7 @@ function InputTag({tags, setTags}) {
             value = {input}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
-            placeholder="Select"
+            placeholder="Search"
           />
           {input && Boolean(suggestions.length) && (
             <div className="tags-suggestions">
