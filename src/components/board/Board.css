@@ -5,6 +5,8 @@
 .draggable{
   padding: 10px;
   background: #2A3442;
+  overflow-y: scroll;
+  min-width: 250px;
 }
 
 .avatar{
@@ -44,15 +46,22 @@
 .container{
   padding: 20px;
   overflow-x: scroll;
+  max-height: 80vh;
+  display: flex;
+  max-width: 85vw;
 }
 
 .list-grid{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
 }
 
 .column-header{
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: 800;
+  background-color: #677E9E;
+  padding: 5px 10px 5px 10px;
 }
