@@ -5,24 +5,6 @@ import Parse from 'parse';
 
 
 
-/* async function retrieveUserImages() {
-    const query = new Parse.Query("User")
-    let results = await query.find()
-
-    try {
-
-        for(let i = 0; i < results.length; i++) {
-            let thisObject = results[i]
-            console.log(JSON.stringify(thisObject.get('userimage')))
-        }
-    } catch (error) {
-        alert(`Error ${error.message}`);
-    return false;
-    }
-} */ 
-
-
-
 function BottomAvatar() {
 
 const user = Parse.User.current(); 
