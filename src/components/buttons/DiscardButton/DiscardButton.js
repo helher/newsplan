@@ -9,7 +9,7 @@ const DiscardButton = ({
     return (
         <div>
             <button className="discard-btn" onClick ={discardAction}>
-                <div class="button-text">{text}
+                <div class="discardbutton-text">{text}
                 </div>
             </button>
         </div>

@@ -31,7 +31,3 @@
   color: white;
   text-align: left;
 }
-
-.proceed-btn:hover {
-  background-color: var(--white-color-40);
-}

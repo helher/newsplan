@@ -16,16 +16,21 @@ import CreatedBy from '../../createdBy/CreatedBy';
 
 function PopupIdea(props) {
 
-    console.log("test", props.ideaId)
+    console.log("ideaid", props.ideaId)
+    console.log("popup", props.popup)
 
-    const [titleSelected, setTitleSelected] = useState()
-    const [descriptionSelected, setDescriptionSelected] = useState()
-    const [expirationDateSelected, setExpirationDateSelected] = useState()
-    const [visibilitySelected, setVisibilitySelected] = useState()
-    const [tags, selectedTags] = useState([])
+    const [title, setTitle] = useState()
+    const [description, setDescription] = useState()
+    const [expirationDate, setExpirationDate] = useState()
+    const [visibility, setVisibility] = useState()
+    const [tags, setTags] = useState([])
 
-    function setTrigger() {
-        props.setTrigger(false)
+    function clearPopup() {
+        setTitle('')
+        setDescription('')
+        setExpirationDate(null)
+        setVisibility('')
+        setTags([])
     }
 
     async function handleDiscardAttempt() {
@@ -42,7 +47,8 @@ function PopupIdea(props) {
             let result = await Idea.destroy();
 /*             alert('Success! Idea deleted with id: ' + result.id); */
             console.log('Success! Idea deleted with id: ' + result.id)
-            setTrigger()
+            props.setPopup(false)
+            clearPopup()
             return true;
         } catch (error) {
             alert(`Error ${error.message}`);
@@ -60,35 +66,36 @@ function PopupIdea(props) {
 
         console.log("save idea id: " + id)
         Idea.set("user", Parse.User.current())
-        Idea.set("title", titleSelected)
-        Idea.set("description", descriptionSelected)
-        Idea.set("expiration", expirationDateSelected)
+        Idea.set("title", title)
+        Idea.set("description", description)
+        Idea.set("expiration", expirationDate)
         Idea.set("tags", tags)
-        Idea.set("visibility", visibilitySelected)
+        Idea.set("visibility", visibility)
         try{
             let result = await Idea.save()
             alert('Idea created with ID: ' + result.id)
             console.log('Object updated with objectId: ' + result.id)
-            setTrigger()
+            props.setPopup(false)
+            clearPopup()
         } catch(error) {
             alert('Failed to update object, with error code: ' + error.message)
         }
     }
 
-    return (props.trigger) ? (
+    return (props.popup) ? (
         <div className="popup-page">
             <div className="popup">
                 <section className="idea-container" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
                         <CreatedBy ideaId={props.ideaId}/>
-                        <TitleEdit titleSelected = {titleSelected} setTitleSelected={setTitleSelected}/>
-                        <RichTextEditor descriptionSelected = {descriptionSelected} setDescriptionSelected = {setDescriptionSelected} />
+                        <TitleEdit title = {title} setTitle={setTitle}/>
+                        <RichTextEditor description = {description} setDescription = {setDescription} />
 
                         {/* Dropdowns */}
-                        <DropdownCalendar expirationDateSelected={expirationDateSelected} setExpirationDateSelected={setExpirationDateSelected}/>
-                        <InputTag tags = {tags} selectedTags = {selectedTags} />
-                        <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />
+                        <DropdownCalendar expirationDate={expirationDate} setExpirationDate={setExpirationDate}/>
+                        <InputTag tags = {tags} setTags = {setTags} />
+                        <DropdownVisibility visibility={visibility} setVisibility={setVisibility} />
 
                         {/* Attached articles */}
                         <h5>Attached articles</h5>

@@ -42,6 +42,8 @@
   border-radius: 6px;
   margin-top: 10px;
   background-color: var(--white-color);
+  position: absolute;
+  width: 590px;
 }
 
 .dropdown-item {
@@ -55,4 +57,12 @@
 .dropdown-item:hover {
   background-color: var(--accented-color-40);
   cursor: pointer;
+}
+
+.selected-visibility {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: black;
 }

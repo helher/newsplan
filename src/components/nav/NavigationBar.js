@@ -8,24 +8,22 @@ import { AiOutlineTeam } from 'react-icons/ai';
 
 function NavigationBar() {
     return (
-        <div>
-            <nav className="nav-container">
-                <ul>
-                    <li>
-                        <Link to="/"><MdOutlineDashboard className = "navigation_icon"/>Dashboard</Link>
-                    </li>
-                    <li>
-                        <Link to="/articles"><RiArticleLine className = "navigation_icon"/>Articles</Link>
-                    </li>
-                    <li>
-                        <Link to="/ideas"><BiBrain className = "navigation_icon"/>Ideas</Link>
-                    </li>
-                    <li>
-                        <Link to="/teamplan"><AiOutlineTeam className = "navigation_icon"/>Team Plan</Link>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <nav className="nav-container">
+            <ul>
+                <li>
+                    <Link to="/"><MdOutlineDashboard className = "navigation_icon"/>Dashboard</Link>
+                </li>
+                <li>
+                    <Link to="/articles"><RiArticleLine className = "navigation_icon"/>Articles</Link>
+                </li>
+                <li>
+                    <Link to="/ideas"><BiBrain className = "navigation_icon"/>Ideas</Link>
+                </li>
+                <li>
+                    <Link to="/teamplan"><AiOutlineTeam className = "navigation_icon"/>Team Plan</Link>
+                </li>
+            </ul>
+        </nav>
     );
 };
 

@@ -1,6 +1,6 @@
 @import url(./../../../index.css);
 
-.addidea-iconbtn {
+.load-iconbtn {
   border: 2px solid white;
   background-color: var(--white-color-15);
   height: 30px;
@@ -12,9 +12,9 @@
   min-width: fit-content;
 }
 
-.addidea-icon {
-  height: 20px;
-  width: 20px;
+.load-icon {
+  height: 16px;
+  width: 16px;
   color: white;
   text-align: left;
   margin-right: 10px;
@@ -27,6 +27,6 @@
   justify-content: space-between;
 }
 
-.addidea-iconbtn:hover {
+.loadideas-iconbtn:hover {
   background-color: var(--white-color-40);
 }
