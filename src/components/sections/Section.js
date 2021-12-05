@@ -1,5 +1,6 @@
 import React from 'react'
 import './Section.css'
+import Parse from 'parse'
 
 
 const Section = ({

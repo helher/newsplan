@@ -1,6 +1,7 @@
 import React from 'react';
 import DragList from './../components/board/DragList'
 
+
 import Column from '../components/column/Column';
 import './Dashboard.css';
 import Footer from '../components/footer/Footer';
@@ -26,7 +27,9 @@ const Dashboard = () => {
             {/* <Column data={data}/> */}
             <DragList/>
         </div>
-        <Footer/>
+        <div className="footer-container">
+                <Footer/>
+            </div>
         </>
     );
 };
