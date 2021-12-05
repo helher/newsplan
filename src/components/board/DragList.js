@@ -2,18 +2,40 @@
 import React, { useEffect } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import DraggableElement from "./DraggableElement";
+import Parse from "parse";
 
 // Styling
 import './Board.css';
 
+const objectIdArray = [];
+
+read();
+
+async function read() {
+  Parse.initialize(
+    "IzWYeFjb4qsVpl2vqItLt4pm02I8DwqZNW8pQwZ1", 
+    "dFQhdajG0EVpkTAvP7qjuXSHYwP0zyIjrni7od4Z"
+  );
+  
+  Parse.serverURL = "https://parseapi.back4app.com/";
+
+  const GetBoardData = new Parse.Query('Idea');
+  let allIds = await GetBoardData.find();
+    try {
+      allIds.forEach(entry => {
+        objectIdArray.push(entry.id);
+    });
+    } catch(error) {
+      console.log(error.code);
+    }
+}
 // Random Data Generator - Will be updated with real data when connected to the database
 const getItems = (count, prefix) =>
-  Array.from({ length: count }, (v, k) => k).map((k) => {
-    const randomId = Math.floor(Math.random() * 1000);
+  objectIdArray.map(entry => {
     return {
-      id: `item-${randomId}`,
+      id: `item-${entry}`,
       prefix,
-      content: `item ${randomId}`
+      content: `item ${entry}`
     };
   });
 
@@ -39,6 +61,7 @@ const generateLists = () =>
 
 function DragList() {
   const [elements, setElements] = React.useState(generateLists());
+  console.log("debug here...")
 
   useEffect(() => {
     setElements(generateLists());

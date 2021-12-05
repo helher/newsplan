@@ -8,37 +8,9 @@ import Parse from "parse";
 import './Board.css';
 
 const lorem = new LoremIpsum();
-const objectIdArray = [];
 const cardArray = [];
 
-read();
 
-async function read() {
-  // DELETE THIS, IF IT WORKS IN DEVELOP BRANCH!
-  // Parse.initialize(
-  //   "IzWYeFjb4qsVpl2vqItLt4pm02I8DwqZNW8pQwZ1", 
-  //   "dFQhdajG0EVpkTAvP7qjuXSHYwP0zyIjrni7od4Z"
-  // );
-  
-  // Parse.serverURL = "https://parseapi.back4app.com/";
-
-  const GetBoardData = new Parse.Query('Idea');
-  let allIds = await GetBoardData.find();
-    try {
-      allIds.forEach(entry => {
-        objectIdArray.push(entry.id);
-    });
-    } catch(error) {
-      console.log(error.code);
-    }
-
-  objectIdArray.forEach(id => {
-    makeCards(id);
-  })
-
-  console.log("CARDS:");
-  console.log(cardArray);
-}
 
 async function makeCards(id) {
   const query = new Parse.Query('Idea');
@@ -65,17 +37,20 @@ async function makeCards(id) {
 
 const ListItem = ({ item, index }) => {
   const randomHeader = useMemo(() => lorem.generateWords(5), []);
+  
 
   return (
     <Draggable draggableId={item.id} index={index}>
       {(provided, snapshot) => {
         return (
+
           <section className="drag-item"
             ref={provided.innerRef}
             snapshot={snapshot}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
           >
+
             <div className="card-header">{randomHeader}</div>
             
             <span>Content</span>
@@ -87,6 +62,7 @@ const ListItem = ({ item, index }) => {
                   {item.id}
                 </div>
             </div>
+
           </section>
         );
       }}
