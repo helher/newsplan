@@ -1,8 +1,8 @@
 import React from 'react'
-import './Labels.css'
+import './IdLabel.css'
 
 
-const Labels = ({
+const IdLabel = ({
         text,
         color
     }) => {
@@ -18,4 +18,4 @@ const Labels = ({
     )
 }
 
-export default Labels
+export default IdLabel
