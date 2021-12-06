@@ -21,8 +21,8 @@ function Ideas() {
             </div>
              <div className="footer-container">
                 <div className="footeridea-btns">
-                <AddIdeaButton text="Add Idea" popup={popup} setPopup={setPopup} setIdeaId={setIdeaId}/>
-                <LoadButton text="Load more Ideas" />
+                    <AddIdeaButton text="Add Idea" popup={popup} setPopup={setPopup} setIdeaId={setIdeaId}/>
+                    <LoadButton text="Load more Ideas" />
                 </div>
                 <Footer/>
             </div>

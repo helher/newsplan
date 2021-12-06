@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DragList from './../components/board/DragList'
 
 
 import Column from '../components/column/Column';
 import './Dashboard.css';
 import Footer from '../components/footer/Footer';
+import AddIdeaButton from '../components/buttons/AddIdeaButton/AddIdeaButton';
+import PopupIdea from '../components/popups/popup-idea/PopupIdea';
+
 
 const data = [
     {
@@ -19,17 +22,25 @@ const data = [
 ]
 
 const Dashboard = () => {
-    console.log('sup')    
+    console.log('sup')
+
+    const [popup, setPopup] = useState(false);
+    const [ideaId, setIdeaId] = useState()
+
     return (
         <>
         <div className="dashboard">
             <p>Dashboard Page</p>
             {/* <Column data={data}/> */}
             <DragList/>
+            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId}/>
         </div>
         <div className="footer-container">
-                <Footer/>
+            <div className="footeridea-btns">
+                <AddIdeaButton text="Add Idea" popup={popup} setPopup={setPopup} setIdeaId={setIdeaId}/>
             </div>
+            <Footer/>
+        </div>
         </>
     );
 };
