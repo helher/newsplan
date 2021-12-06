@@ -1,16 +1,17 @@
 import React from 'react';
 import './AddIdeaButton.css';
 import Parse from 'parse';
+import { IoIosAddCircleOutline } from 'react-icons/io'
 
 const AddIdeaButton = ({
     text,
-    UserIcon,
-    trigger,
+    setPopup,
     setIdeaId
 }) => {
 
     function handleClickPopup() {
-        trigger(true)
+        console.log("bt clicked!")
+        setPopup(true)
         createIdeaInDB()
     }
 
@@ -27,7 +28,7 @@ const AddIdeaButton = ({
             setIdeaId(ididea)
             console.log("ideaid", ididea)
             console.log("idea in brackets: ", (createIdeaInDB = {ididea}))
-/*             alert("Idea with id: " + ididea + " is created - HURRRA!") */
+/*          alert("Idea with id: " + ididea + " is created - HURRRA!") */
         }
         catch(error) {
            alert(error.message)
@@ -46,14 +47,11 @@ const AddIdeaButton = ({
 
 
     return (
-        <div>
-            <button className="addidea-iconbtn" onClick={handleClickPopup}  >
-                <div class="button-text-white">
-                <UserIcon className="addidea-icon"/>{text}
-                </div>
-            </button>
-        </div>
-    
+        <button className="addidea-iconbtn" onClick={handleClickPopup}  >
+            <div class="button-text-white">
+                <IoIosAddCircleOutline className="addidea-icon"/>{text}
+            </div>
+        </button>
     )
 }
 

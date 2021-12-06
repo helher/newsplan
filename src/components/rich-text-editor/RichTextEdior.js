@@ -5,7 +5,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
-function RichTextEditor({descriptionSeleted,setDescriptionSelected}) {
+function RichTextEditor({description,setDescription}) {
 
 
     return (
@@ -14,10 +14,10 @@ function RichTextEditor({descriptionSeleted,setDescriptionSelected}) {
             <CKEditor
             editor={ClassicEditor}
             config={{placeholder: "Describe your idea..."}} 
-            data= {descriptionSeleted}
+            data= {description}
             onChange={(event, editor) => {
                     const data = editor.getData()
-                    setDescriptionSelected(data)    
+                    setDescription(data)    
                 }}
             
             />

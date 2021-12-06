@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './Ideas.css'
-import ProceedButton from '../components/buttons/ProceedButton/ProceedButton';
+import Footer from '../components/footer/Footer';
+import PopupIdea from '../components/popups/popup-idea/PopupIdea';
+import AddIdeaButton from '../components/buttons/AddIdeaButton/AddIdeaButton';
+import LoadButton from '../components/buttons/LoadButton/LoadButton';
+import SectionList from '../components/sections/SectionList';
 
 
-import TitleEdit from '../components/title-edit/TitleEdit';
-import StatusbarList from '../components/statusbar/StatusbarList';
-import CreatedBy from '../components/createdBy/CreatedBy';
+function Ideas() {
+    const [popup, setPopup] = useState(false);
+    const [ideaId, setIdeaId] = useState()
 
-
-const Ideas = () => {
     return (
-        <div className="idea">
-            <ProceedButton text="Convert to Article" goto="/Articles" />
-            <TitleEdit />
-            <CreatedBy/>
-            {StatusbarList}
-
-        </div>
-    );
-};
+        <>
+            <div className="idea">
+                <p>Idea page</p>
+                {SectionList}
+                <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId}/>
+            </div>
+             <div className="footer-container">
+                <div className="footeridea-btns">
+                <AddIdeaButton text="Add Idea" popup={popup} setPopup={setPopup} setIdeaId={setIdeaId}/>
+                <LoadButton text="Load more Ideas" />
+                </div>
+                <Footer/>
+            </div>
+        </>
+    )
+}
 
 export default Ideas;

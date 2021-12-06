@@ -20,7 +20,3 @@
 .logout-container {
   grid-area: logout-element;
 }
-
-.footer-container {
-  grid-area: footer-element;
-}

@@ -1,8 +1,10 @@
 import React from 'react';
 import DragList from './../components/board/DragList'
 
+
 import Column from '../components/column/Column';
 import './Dashboard.css';
+import Footer from '../components/footer/Footer';
 
 const data = [
     {
@@ -19,11 +21,16 @@ const data = [
 const Dashboard = () => {
     console.log('sup')    
     return (
+        <>
         <div className="dashboard">
             <p>Dashboard Page</p>
             {/* <Column data={data}/> */}
             <DragList/>
         </div>
+        <div className="footer-container">
+                <Footer/>
+            </div>
+        </>
     );
 };
 

@@ -19,6 +19,6 @@
   justify-content: center;
 }
 
-.primary-btn:hover {
+.save-btn:hover {
   background-color: var(--primary-color-80);
 }

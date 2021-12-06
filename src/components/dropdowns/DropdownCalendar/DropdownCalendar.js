@@ -1,6 +1,5 @@
 import React from 'react';
 import './DropdownCalendar.css';
-import { IoMdArrowDropdownCircle } from 'react-icons/io'
 
 // Calender
 import DatePicker from 'react-modern-calendar-datepicker';
@@ -8,30 +7,30 @@ import DatePicker from 'react-modern-calendar-datepicker';
 
 
 
-const DropdownCalendar = ({expirationDateSelected, setExpirationDateSelected}) => {
+const DropdownCalendar = ({expirationDate, setExpirationDate}) => {
 
     const formatInputValue = () => {
-      if (!expirationDateSelected) return '';
+      if (!expirationDate) return '';
 
-      let month = `${expirationDateSelected.month}`
+      let month = `${expirationDate.month}`
       const months = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
       let newMonth = months[month]
 
-      return `${newMonth} ${expirationDateSelected.day}, ${expirationDateSelected.year}`;
+      return `${newMonth} ${expirationDate.day}, ${expirationDate.year}`;
     }
   
     return (
         <div>
         <h5>Expiration Date</h5>
         <DatePicker
-            value={expirationDateSelected}
-            onChange={setExpirationDateSelected}
+            value={expirationDate}
+            onChange={setExpirationDate}
             inputPlaceholder="Select" // placeholder
             formatInputText={formatInputValue} // format value
             inputClassName="datePicker" // custom class
         />
-            <IoMdArrowDropdownCircle className="dropdowncalender-icon"/>
+            {/* <IoMdArrowDropdownCircle className="dropdowncalender-icon"/> */}
       </div>
     );
   };

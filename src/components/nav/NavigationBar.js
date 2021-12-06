@@ -11,7 +11,7 @@ import BottomAvatar from '../bottom-avatar/BottomAvatar';
 
 function NavigationBar() {
     return (
-        <div>
+        <>
             <nav className="nav-container">
                 <ul>
                     <li>
@@ -31,7 +31,8 @@ function NavigationBar() {
                 <div>
                     <BottomAvatar className = "avatar_icon"/>
                 </div>
-        </div>
+        </>
+
     );
 };
 

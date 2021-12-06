@@ -1,6 +1,6 @@
 @import url(./../../../index.css);
 
-.addidea-iconbtn {
+.addemployee-iconbtn {
   border: 2px solid white;
   background-color: var(--white-color-15);
   height: 30px;
@@ -12,7 +12,7 @@
   min-width: fit-content;
 }
 
-.addidea-icon {
+.addemployee-icon {
   height: 20px;
   width: 20px;
   color: white;
@@ -27,6 +27,6 @@
   justify-content: space-between;
 }
 
-.addidea-iconbtn:hover {
+.addemployee-iconbtn:hover {
   background-color: var(--white-color-40);
 }
