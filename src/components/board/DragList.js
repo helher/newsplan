@@ -6,8 +6,10 @@ import Parse from "parse";
 
 // Styling
 import './Board.css';
+import { render } from "react-snapshot";
 
 const objectIdArray = [];
+const cards = [];
 
 read();
 
@@ -19,8 +21,8 @@ async function read() {
   
   Parse.serverURL = "https://parseapi.back4app.com/";
 
-  const GetBoardData = new Parse.Query('Idea');
-  let allIds = await GetBoardData.find();
+  const allObjectIds = new Parse.Query('Idea');
+  let allIds = await allObjectIds.find();
     try {
       allIds.forEach(entry => {
         objectIdArray.push(entry.id);
@@ -28,16 +30,45 @@ async function read() {
     } catch(error) {
       console.log(error.code);
     }
+    
+    if(objectIdArray.length > 0) {
+      objectIdArray.forEach(async id => await makeCards(id))
+      console.log("CONTENT OF ALL CARDS FROM DB:");
+      console.log(cards);
+    }
 }
-// Random Data Generator - Will be updated with real data when connected to the database
-const getItems = (count, prefix) =>
-  objectIdArray.map(entry => {
+// Populates lanes with cards
+const getItems = (count, laneName) =>
+  cards.map(card => {
     return {
-      id: `item-${entry}`,
-      prefix,
-      content: `item ${entry}`
+      id: `#${card.id}`,
+      prefix: laneName,
+      content: card,
     };
   });
+
+
+  async function makeCards(id) {
+    const query = new Parse.Query('Idea');
+  
+    try {
+      let idea = await query.get(id);
+  
+      let card = {
+        id: id,
+        expiration: idea.get('expiration'),
+        description: idea.get('description'),
+        author: idea.get('author'),
+        title: idea.get('title'),
+        tags: idea.get('tags'),
+        userId: idea.get('user'),
+      };
+  
+      cards.push(card);
+    } catch (error) {
+      console.log(error.code);
+    } 
+  } 
 
 const removeFromList = (list, index) => {
   const result = Array.from(list);
@@ -51,17 +82,17 @@ const addToList = (list, index, element) => {
   return result;
 };
 
-const lists = ["idea", "today", "tomorrow", "day after tomorrow", "on hold"];
+const lanes = ["idea", "today", "tomorrow", "day after tomorrow", "on hold"];
 
 const generateLists = () =>
-  lists.reduce(
-    (acc, listKey) => ({ ...acc, [listKey]: getItems(10, listKey) }),
+  lanes.reduce(
+    (acc, listKey) => ({ ...acc, [listKey]: getItems(0, listKey) }),
     {}
   );
 
 function DragList() {
   const [elements, setElements] = React.useState(generateLists());
-  console.log("debug here...")
+  console.log("Draglist debug")
 
   useEffect(() => {
     setElements(generateLists());
@@ -95,11 +126,11 @@ function DragList() {
     <section className="container">
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="list-grid">
-          {lists.map((listKey) => (
+          {lanes.map((laneName) => (
             <DraggableElement
-              elements={elements[listKey]}
-              key={listKey}
-              prefix={listKey}
+              elements={elements[laneName]}
+              key={laneName}
+              prefix={laneName}
             />
           ))}
         </div>

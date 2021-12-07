@@ -6,6 +6,8 @@ import React from "react";
 // Styling
 import './Board.css';
 
+console.log("Draggable Element debug")
+
 const DraggableElement = ({ prefix, elements }) => (
   <div className="draggable">
     <div className="column-header">{prefix}</div>
