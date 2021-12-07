@@ -11,7 +11,7 @@ console.log("Draggable Element debug")
 const DraggableElement = ({ prefix, elements }) => (
   <div className="draggable">
     <div className="column-header">{prefix}</div>
-      <Droppable droppableId={`${prefix}`}>
+      <Droppable droppableId={`${prefix + Math.random() * 100}`}>
         {(provided) => (
           <div 
             {...provided.droppableProps} 

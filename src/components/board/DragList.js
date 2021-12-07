@@ -6,7 +6,6 @@ import Parse from "parse";
 
 // Styling
 import './Board.css';
-import { render } from "react-snapshot";
 
 const objectIdArray = [];
 const cards = [];
@@ -39,10 +38,10 @@ async function read() {
 }
 // Populates lanes with cards
 const getItems = (count, laneName) =>
-  cards.map(card => {
+  cards.filter(card => card.lanetype === laneName).map(card =>  {
     return {
       id: `#${card.id}`,
-      prefix: laneName,
+      prefix: card.lanetype,
       content: card,
     };
   });
@@ -62,6 +61,7 @@ const getItems = (count, laneName) =>
         title: idea.get('title'),
         tags: idea.get('tags'),
         userId: idea.get('user'),
+        lanetype: idea.get('lane_type'),
       };
   
       cards.push(card);
@@ -123,20 +123,22 @@ function DragList() {
   };
 
   return (
-    <section className="container">
-      <DragDropContext onDragEnd={onDragEnd}>
-        <div className="list-grid">
-          {lanes.map((laneName) => (
-            <DraggableElement
-              elements={elements[laneName]}
-              key={laneName}
-              prefix={laneName}
-            />
-          ))}
-        </div>
-      </DragDropContext>
-    </section>
-  );
+  <section className="container">
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className="list-grid">
+        {lanes.map((laneName) =>
+        (
+          <DraggableElement 
+            elements={elements[laneName]}
+            key={laneName}
+            prefix={laneName}
+          />
+        ))}
+      </div>
+    </DragDropContext>
+  </section>
+);
 }
+
 
 export default DragList;
