@@ -1,0 +1,22 @@
+@import url(../../../index.css);
+
+.save-comment-btn {
+  background-color: var(--white-color);
+  display: flex;
+  outline: 0 !important;
+  align-items: center;
+  cursor: pointer;
+  height: 40px;
+  border: none;
+}
+
+.check-icon {
+  background-color: var(--white-color);
+  height: 20px;
+  margin-right: 5px;
+}
+
+.check-icon:hover {
+  height: 20px;
+  width: 20px;
+}

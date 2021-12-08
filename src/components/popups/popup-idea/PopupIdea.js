@@ -13,6 +13,7 @@ import DropdownCalendar from '../../dropdowns/DropdownCalendar/DropdownCalendar'
 import InputTag from '../../input-tag/InputTag'
 import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import CreatedBy from '../../createdBy/CreatedBy';
+import CommentForm from '../../comment-form/CommentForm';
 
 function PopupIdea(props) {
 
@@ -125,6 +126,7 @@ function PopupIdea(props) {
                         </div>
                             
                         <h3>Comments</h3>
+                        <CommentForm ideaId={props.ideaId} />
                     </div>
                 </section>
                 { props.children }
