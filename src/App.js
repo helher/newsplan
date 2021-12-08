@@ -29,7 +29,7 @@ function App() {
           <Route path="/ideas" element={<Ideas />} exact />
           <Route path="/teamplan" element={<TeamPlan exact />} />
         </Routes>
-        <Logout className ="logout-element"/>
+        <Logout className ="logout-element" setIsLoggedIn={setIsLoggedIn}/>
       </Router>
     </div>
   );

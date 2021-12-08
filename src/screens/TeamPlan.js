@@ -5,6 +5,7 @@ import './Teamplan.css'
 import Footer from '../components/footer/Footer'
 import LoadButton from '../components/buttons/LoadButton/LoadButton'
 import AddEmployeeButton from '../components/buttons/AddEmployeeButton/AddEmployeeButton'
+import CommentForm from '../components/comment-form/CommentForm'
 
 
 const TeamPlan = () => {
@@ -12,6 +13,7 @@ const TeamPlan = () => {
         <>
             <div className="teamplan">
                 <p>Teamplan</p>
+                <CommentForm />
             </div>
              <div className="footer-container">
                 <div className="footerteamplan-btns">
@@ -24,4 +26,4 @@ const TeamPlan = () => {
     )
 }
 
-export default TeamPlan
+export default TeamPlan;
