@@ -12,6 +12,7 @@
     "generate-avatar": "^1.4.10",
     "html-react-parser": "^1.4.1",
     "lorem-ipsum": "^2.0.4",
+    "moment": "^2.29.1",
     "parse": "^3.4.0",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.0",

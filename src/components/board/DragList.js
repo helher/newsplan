@@ -1,4 +1,4 @@
-// Dependencies
+/* // Dependencies
 import React, { useEffect } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import DraggableElement from "./DraggableElement";
@@ -141,4 +141,4 @@ function DragList() {
 }
 
 
-export default DragList;
+export default DragList; */

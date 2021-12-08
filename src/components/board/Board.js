@@ -1,4 +1,4 @@
-// Dependencies
+/* // Dependencies
 import DragList from "./DragList";
 
 // Styling
@@ -12,4 +12,4 @@ function Board() {
     );
 };
 
-export default Board;
+export default Board; */

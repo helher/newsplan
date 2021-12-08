@@ -3,6 +3,7 @@ import DragList from './../components/board/DragList'
 
 import Column from '../components/column/Column';
 import './Dashboard.css';
+import Card from '../components/card/Card';
 
 const data = [
     {
@@ -22,7 +23,8 @@ const Dashboard = () => {
         <div className="dashboard">
             <p>Dashboard Page</p>
             {/* <Column data={data}/> */}
-            <DragList/>
+            {/* <DragList/> */}
+            <Card/>
         </div>
     );
 };

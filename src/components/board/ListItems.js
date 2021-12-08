@@ -1,4 +1,4 @@
-// Dependencies
+/* // Dependencies
 import { Draggable } from "react-beautiful-dnd";
 import React, { useMemo } from "react";
 
@@ -33,4 +33,4 @@ const ListItem = ({ item, index }) => {
   );
 };
 
-export default ListItem;
+export default ListItem; */

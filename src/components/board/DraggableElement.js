@@ -1,4 +1,4 @@
-// Dependencies
+/* // Dependencies
 import { Droppable } from "react-beautiful-dnd";
 import ListItems from "./ListItems";
 import React from "react";
@@ -32,4 +32,4 @@ const DraggableElement = ({ prefix, elements }) => (
   
 );
 
-export default DraggableElement;
+export default DraggableElement; */
