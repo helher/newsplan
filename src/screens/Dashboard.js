@@ -26,6 +26,7 @@ const Dashboard = () => {
 
     const [popup, setPopup] = useState(false);
     const [ideaId, setIdeaId] = useState()
+    const [articleId, setArticleId] = useState()
 
     return (
         <>
