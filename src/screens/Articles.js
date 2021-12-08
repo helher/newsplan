@@ -4,7 +4,7 @@ import './Articles.css'
 
 import Footer from '../components/footer/Footer';
 import LoadButton from '../components/buttons/LoadButton/LoadButton';
-import DropdownLength from '../components/dropdowns/DropdownLength/DropdownLength';
+import PopupArticle from '../components/popups/popup-article/PopupArticle';
 
 const Articles = () => {
 
@@ -18,7 +18,7 @@ return (
             {console.log("I am running")}
             <p>Articles Page</p>
             <IdeaCard />
-            <DropdownLength length={length} setLength={setLength}/>
+            <PopupArticle/>
         </div>
         <div className="footer-container">
             <div className="footerarticle-btns">
