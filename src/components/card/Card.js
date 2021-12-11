@@ -36,6 +36,13 @@ async function retrieveCards() {
     }
 }
 
+function getDateFormat(date) {
+  let regex = /([\w]* [\w]* [\d]{2} [\d]{4})/
+  let splittedDates = date.split(regex);
+
+  return splittedDates[1];
+}
+
 async function createCards(id) {
   const query = new Parse.Query('Cards');
 
@@ -45,7 +52,11 @@ async function createCards(id) {
       id: id,
       updatedAt: specificCard.get('updatedAt'),
       description: specificCard.get('description'),
+      title: specificCard.get('title'),
+      dueDate: specificCard.get('due_date'),
     };
+
+    card.dueDate = getDateFormat(card.dueDate.toString());
 
     cards.push(card);
 
@@ -59,11 +70,11 @@ function Card() {
     <section className="card-container">
       {cards.map((card) => (
           <div className="card">
-            <h3>Title of a Card</h3>
+            <h3>{card.title}</h3>
 
             <div className="card-id">
               <small>#<small>{card.id.toString()}</small></small>
-              <small>{card.updatedAt.toString()}</small>  
+              <small>{card.dueDate.toString()}</small>  
             </div>
           
             <p>{card.description}</p>
