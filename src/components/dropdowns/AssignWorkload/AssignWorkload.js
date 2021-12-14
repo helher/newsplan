@@ -7,12 +7,7 @@ import Parse from 'parse';
 function AssignWorkload({selectedWorkload, setSelectedWorkload}) {
 
     const [isActive, setIsActive] = useState(false)
-
-
-        const workload = Parse.Object.extend("Workload"); 
-        const query = new Parse.Query(workload); 
-        const options = Array.from(query.get("duration")); 
-        console.log(options)
+    const options = ["all night", "all day", "chill amount", "unknown"];
 
 
     return (

@@ -5,16 +5,8 @@ import Parse, { User } from 'parse';
 
 
 function AssignEmployee({selectedEmployee, setSelectedEmployee}) {
-
-    //const [isActive, setIsActive] = useState(false)
-    //const options = ['ML', 'Helena', 'Aliz']
-
+    const options = ['ML', 'Helena', 'Aliz']
     const [isActive, setIsActive] = useState(false)
-
-    const user = Parse.Object.extend("User"); 
-    const query = new Parse.Query(user); 
-    const options = Array.from(query.get("username")); 
-    console.log(options)
 
     return (
         <div className = "employee-dropdown">

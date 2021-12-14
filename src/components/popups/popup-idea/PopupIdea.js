@@ -28,6 +28,7 @@ function PopupIdea(props) {
     const [expirationDate, setExpirationDate] = useState()
     const [visibility, setVisibility] = useState()
     const [tags, setTags] = useState([])
+    const [selectedEmployee, setSelectedEmployee] = useState();
 
     function clearPopup() {
         setTitle('')
@@ -135,7 +136,7 @@ function PopupIdea(props) {
                         <h3>Assign job</h3>
                             <div className = 'assign-job'>
                     
-                            <AssignEmployee/>
+                            <AssignEmployee selectedEmployee={selectedEmployee} setSelectedEmployee={setSelectedEmployee}/>
                             <AssignWorkload/>
                             </div>
                     </div>
