@@ -1,1 +1,47 @@
 @import url(../../index.css);
+
+.comment-container {
+  display: flex;
+  margin-top: 40px;
+}
+
+.test_test_img {
+  margin: 2px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.comment {
+  display: flex;
+  width: 250px;
+  height: 100px;
+  cursor: pointer;
+  border-radius: 7px;
+  color: var(--primary-color-60);
+  background-color: var(--white-color);
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.05);
+}
+
+.comment-text-container {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+}
+
+.comment-author {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.image-test {
+  margin: 2px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.comment-content {
+  align-content: flex-start;
+}

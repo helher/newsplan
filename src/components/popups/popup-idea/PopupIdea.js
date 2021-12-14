@@ -14,6 +14,7 @@ import InputTag from '../../input-tag/InputTag'
 import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import CreatedBy from '../../createdBy/CreatedBy';
 import CommentForm from '../../comment-form/CommentForm';
+import CommentList from '../../commentList/CommentList';
 
 function PopupIdea(props) {
 
@@ -25,6 +26,8 @@ function PopupIdea(props) {
     const [expirationDate, setExpirationDate] = useState()
     const [visibility, setVisibility] = useState()
     const [tags, setTags] = useState([])
+    const [commentResult, setCommentResult] = useState();
+
 
     function clearPopup() {
         setTitle('')
@@ -83,6 +86,7 @@ function PopupIdea(props) {
         }
     }
 
+
     return (props.popup) ? (
         <div className="popup-page">
             <div className="popup">
@@ -126,7 +130,8 @@ function PopupIdea(props) {
                         </div>
                             
                         <h3>Comments</h3>
-                        <CommentForm ideaId={props.ideaId} />
+                        <CommentForm ideaId={props.ideaId} setCommentResult={setCommentResult}/>
+                        <CommentList commentResult={commentResult} />
                     </div>
                 </section>
                 { props.children }

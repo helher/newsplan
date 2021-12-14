@@ -10,7 +10,6 @@ function CommentForm (props) {
     const user = Parse.User.current(); 
     const author = (Parse.User.current()).get("username");
     const image = user.get("userimage");
-
     const [activeComment, setActiveComment] = useState(false);
     const [commentInput, setCommentInput] = useState();
 
@@ -18,8 +17,23 @@ function CommentForm (props) {
         setCommentInput(e.target.value);
     }
 
-    async function addCommentToDB() {
+   const updateCommentList = async function () {
+        const query = new Parse.Query("IdeaComment");
+    
+        try {
+          query.equalTo("ideaId", props.ideaId);
+          const comments = await query.find();
+          props.setCommentResult(comments);
+    
+          return true;
+        } catch (error) {
+          alert(`Error! Is this the error?`);
+          return false;
+        }
+      };
 
+
+    async function addCommentToDB() {
         const IdeaComment = Parse.Object.extend('IdeaComment');
         const newComment = new IdeaComment();
         newComment.set('ideaId', props.ideaId);
@@ -27,12 +41,11 @@ function CommentForm (props) {
         newComment.set("author", author);
         newComment.set("userImage", image);
         newComment.set("commentText", commentInput);
-
         console.log("add comment to database has started");
-
 
         try{
             let result = await newComment.save();
+            updateCommentList();
             alert('Comment created with ID: ' + result.id);
             console.log('Comment updated with objectId: ' + result.id);
 
