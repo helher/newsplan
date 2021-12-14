@@ -16,6 +16,7 @@ import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
 import SaveButton from '../../buttons/SaveButton/SaveButton';
 import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
 import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
+import AssignEmployee from '../../dropdowns/AssignEmployee/AssignEmployee';
 
 
 
@@ -29,6 +30,7 @@ function PopupArticle(props) {
     const [expirationDate, setExpirationDate] = useState()
     const [tags, setTags] = useState([])
     const [length, setLength] = useState()
+    const [selectedEmployee, setSelectedEmployee] = useState()
 
 
     async function handleDiscardAttempt() {
@@ -68,6 +70,7 @@ function PopupArticle(props) {
                         <DropdownCalendar expirationDate={expirationDate} setExpirationDate={setExpirationDate}/>
                         <InputTag tags = {tags} setTags = {setTags} />
                         <DropdownLength length={length} setLength={setLength}/>
+                        <AssignEmployee selectedEmployee={selectedEmployee} setSelectedEmployee={setSelectedEmployee}/>
 
                         {/* Attached articles */}
                         <h5>Attached articles</h5>

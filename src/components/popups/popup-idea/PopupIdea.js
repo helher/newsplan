@@ -14,6 +14,9 @@ import InputTag from '../../input-tag/InputTag'
 import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import CreatedBy from '../../createdBy/CreatedBy';
 import CommentForm from '../../comment-form/CommentForm';
+import AssignEmployee from '../../dropdowns/AssignEmployee/AssignEmployee';
+import AssignWorkload from '../../dropdowns/AssignWorkload/AssignWorkload';
+
 
 function PopupIdea(props) {
 
@@ -126,7 +129,15 @@ function PopupIdea(props) {
                         </div>
                             
                         <h3>Comments</h3>
+                        <br></br>
                         <CommentForm ideaId={props.ideaId} />
+                        <br></br>
+                        <h3>Assign job</h3>
+                            <div className = 'assign-job'>
+                    
+                            <AssignEmployee/>
+                            <AssignWorkload/>
+                            </div>
                     </div>
                 </section>
                 { props.children }
