@@ -12,6 +12,8 @@ function AssignWorkload({selectedWorkload, setSelectedWorkload}) {
 
     return (
         <div className = "workload-dropdown">
+            <br></br>
+            <br></br>
             <h5>Workload</h5>
             <div className="dropdown-btn" onClick={() => setIsActive(!isActive)}>
                     {!selectedWorkload && (<p>Select</p>)}

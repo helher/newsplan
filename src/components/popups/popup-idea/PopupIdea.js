@@ -133,7 +133,7 @@ function PopupIdea(props) {
                         <br></br>
                         <CommentForm ideaId={props.ideaId} />
                         <br></br>
-                        <h3>Assign job</h3>
+                        <h3>Job</h3>    
                             <div className = 'assign-job'>
                     
                             <AssignEmployee selectedEmployee={selectedEmployee} setSelectedEmployee={setSelectedEmployee}/>
