@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './../Popup.css';
 import Parse from 'parse';
+import './../Popup.css';
 
 //components
 import TitleEdit from '../../title-edit/TitleEdit';
