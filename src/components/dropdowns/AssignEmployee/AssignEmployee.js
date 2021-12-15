@@ -5,7 +5,6 @@ import Parse from "parse";
 import { List } from "antd";
 
 function AssignEmployee({ selectedEmployee, setSelectedEmployee }) {
-  const options = ["ML", "Helena", "Aliz"];
   const [readResults, setReadResults] = useState([]);
   const [isActive, setIsActive] = useState(false);
 
@@ -13,12 +12,10 @@ function AssignEmployee({ selectedEmployee, setSelectedEmployee }) {
     let query = new Parse.Query("User");
     try {
       let employees = await query.find();
-      // Be aware that empty or invalid queries return as an empty array
-      // Set results to state variable
+  
       setReadResults(employees);
       return true;
     } catch (error) {
-      // Error can be caused by lack of Internet connection
       alert(`Error! ${error.message}`);
       return false;
     }
@@ -48,7 +45,7 @@ function AssignEmployee({ selectedEmployee, setSelectedEmployee }) {
                     }}
                     className="dropdown-item"
                   >
-                    <h6>{item.get("username")}</h6>
+                    <h6>{item.get("username")}, {(item.get("role"))}</h6>
                   </div>
                 </List.Item>
             )}
