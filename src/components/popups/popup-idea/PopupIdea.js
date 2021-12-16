@@ -70,6 +70,7 @@ function PopupIdea(props) {
 
         console.log("save idea id: " + id)
         Idea.set("user", Parse.User.current())
+        Idea.set("author", (Parse.User.current()).get("username"))
         Idea.set("title", title)
         Idea.set("description", description)
         Idea.set("expiration", expirationDate)
