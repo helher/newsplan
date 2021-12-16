@@ -60,7 +60,7 @@ const columns = [
 ];
 
 function getFullExpiration(params) {
-  return `${params.row.expirationday || ''}.${params.row.expirationmonth || ''}.${params.row.expirationyear || ''}`;
+  return `${params.row.expirationday}.${params.row.expirationmonth}.${params.row.expirationyear}`
 }
 
 function Ideas() {
@@ -87,7 +87,7 @@ function Ideas() {
       console.log("from readIdeas: ", ideaTable);
       return true;
     } catch (error) {
-      alert(`Error ${error.message}`);
+      alert(`Error is this errortest ${error.message}`);
       return false;
     }
   }
@@ -101,7 +101,7 @@ function Ideas() {
       expirationday: idea.get("expiration").day,
       expirationmonth: idea.get("expiration").month,
       expirationyear: idea.get("expiration").year,
-    };
+    }
   }
 
   function destructureIdeas(ideas) {

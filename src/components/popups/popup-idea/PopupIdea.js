@@ -23,7 +23,11 @@ function PopupIdea(props) {
 
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
-    const [expirationDate, setExpirationDate] = useState()
+    const [expirationDate, setExpirationDate] = useState({
+        day: 1,
+        month: 1,
+        year: 2023
+      })
     const [visibility, setVisibility] = useState()
     const [tags, setTags] = useState([])
     const [commentResult, setCommentResult] = useState();
