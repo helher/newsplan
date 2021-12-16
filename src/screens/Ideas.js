@@ -63,29 +63,6 @@ function getFullExpiration(params) {
   return `${params.row.expirationday || ''}.${params.row.expirationmonth || ''}.${params.row.expirationyear || ''}`;
 }
 
-const expirationColumn = [
-    {
-        field: "expirationday",
-        sortable: true,
-        width: 160,
-      },
-    {
-        field: "expirationmonth",
-        sortable: true,
-        width: 160,
-      },
-    
-      {
-        field: "expirationyear",
-        sortable: true,
-        width: 160,
-      },
-
-]
-
-
-
-
 function Ideas() {
   const [popup, setPopup] = useState(false);
   const [ideaId, setIdeaId] = useState();
@@ -121,7 +98,6 @@ function Ideas() {
       title: idea.get("title"),
       section: idea.get("tags"),
       author: idea.get("author"),
-/*        expiration: JSON.stringify(idea.get("expiration")) */
       expirationday: idea.get("expiration").day,
       expirationmonth: idea.get("expiration").month,
       expirationyear: idea.get("expiration").year,
