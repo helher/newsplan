@@ -7,7 +7,6 @@ import PopupIdea from "../components/popups/popup-idea/PopupIdea";
 import AddIdeaButton from "../components/buttons/AddIdeaButton/AddIdeaButton";
 import LoadButton from "../components/buttons/LoadButton/LoadButton";
 import { DataGrid } from "@mui/x-data-grid";
-import { easing } from "@mui/material";
 
 const columns = [
   {
@@ -33,8 +32,59 @@ const columns = [
     headerName: "Expiration",
     sortable: true,
     width: 160,
+    valueGetter: getFullExpiration,
+  },
+
+  {
+    field: "expirationday",
+    headerName: "Day",
+    sortable: true,
+    width: 160,
+    hide: true
+  },
+  {
+    field: "expirationmonth",
+    headerName: "Month",
+    sortable: true,
+    width: 160,
+    hide: true
+  },
+
+  {
+    field: "expirationyear",
+    headerName: "Year",
+    sortable: true,
+    width: 160,
+    hide: true
   },
 ];
+
+function getFullExpiration(params) {
+  return `${params.row.expirationday || ''}.${params.row.expirationmonth || ''}.${params.row.expirationyear || ''}`;
+}
+
+const expirationColumn = [
+    {
+        field: "expirationday",
+        sortable: true,
+        width: 160,
+      },
+    {
+        field: "expirationmonth",
+        sortable: true,
+        width: 160,
+      },
+    
+      {
+        field: "expirationyear",
+        sortable: true,
+        width: 160,
+      },
+
+]
+
+
+
 
 function Ideas() {
   const [popup, setPopup] = useState(false);
@@ -71,7 +121,10 @@ function Ideas() {
       title: idea.get("title"),
       section: idea.get("tags"),
       author: idea.get("author"),
-      //expiration: idea.expiration,
+/*        expiration: JSON.stringify(idea.get("expiration")) */
+      expirationday: idea.get("expiration").day,
+      expirationmonth: idea.get("expiration").month,
+      expirationyear: idea.get("expiration").year,
     };
   }
 
