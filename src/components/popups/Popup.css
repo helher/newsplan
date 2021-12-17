@@ -22,9 +22,19 @@
   margin-left: -200px;
 }
 
+.idea-container-new {
+  border: 1px solid black;
+  max-width: 650px;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  background-color: var(--white-color);
+}
+
 .idea-container {
   border: 1px solid black;
   max-width: 1010px;
+  max-width: 650px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -36,8 +46,14 @@
 
 .idea-flex-left {
   width: 650px;
-  flex: 1;
+  /*   flex: 1; */
   padding: 30px;
+}
+
+.idea-top-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .rich-text-editor {

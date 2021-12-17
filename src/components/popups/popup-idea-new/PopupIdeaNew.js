@@ -10,60 +10,45 @@ import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
 import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 import DropdownVisibility from '../../dropdowns/DropdownVisibility/DropdownVisibility';
 import DropdownCalendar from '../../dropdowns/DropdownCalendar/DropdownCalendar';
-import InputTag from '../../input-tag/InputTag'
 import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import CreatedBy from '../../createdBy/CreatedBy';
-import CommentForm from '../../comment-form/CommentForm';
-import CommentList from '../../commentList/CommentList';
 
-function PopupIdea(props) {
-
-    console.log("ideaid", props.ideaId)
-    console.log("popup", props.popup)
+function PopupIdeaNew(props) {
 
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
-    const [expirationDate, setExpirationDate] = useState()
+    const [expirationDate, setExpirationDate] = useState(
+        {
+            day: 1,
+            month: 1,
+            year: 2023
+        }
+    )
     const [visibility, setVisibility] = useState()
     const [tags, setTags] = useState([])
-    const [commentResult, setCommentResult] = useState();
 
     function clearPopup() {
         setTitle('')
         setDescription('')
-        setExpirationDate()
+        setExpirationDate(        {
+            day: 1,
+            month: 1,
+            year: 2023
+        })
         setVisibility('')
         setTags([])
     }
 
     // This code is from https://dev.to/sanchithasr/3-ways-to-convert-html-text-to-plain-text-52l8
-    function convertToPlain(description){
-    var temporaryText = document.createElement("div");
-    temporaryText.innerHTML = description;
-    return temporaryText.textContent || temporaryText.innerText || "";
-}
+    function convertToPlain(description) {
+        var temporaryText = document.createElement("div");
+        temporaryText.innerHTML = description;
+        return temporaryText.textContent || temporaryText.innerText || "";
+    }
 
-    async function handleDiscardAttempt() {
-        const objectId = props.ideaId
-        console.log("handlediscard id: ", objectId)
-        console.log("delete started")
-        
-        const Idea = new Parse.Object('Idea');
-        const id = Idea.set('objectId', objectId);
-        
-        console.log(id)
-
-        try {
-            let result = await Idea.destroy();
-/*             alert('Success! Idea deleted with id: ' + result.id); */
-            console.log('Success! Idea deleted with id: ' + result.id)
-            props.setPopup(false)
-            clearPopup()
-            return true;
-        } catch (error) {
-            alert(`Error ${error.message}`);
-            return false;
-        };
+    function handleDiscardAttempt() {
+        props.setPopupNew(false)
+        clearPopup()
     }
 
     async function saveIdeaToDB() {
@@ -85,50 +70,17 @@ function PopupIdea(props) {
             let result = await newIdea.save()
             alert('Idea created with ID: ' + result.id)
             console.log('Object updated with objectId: ' + result.id)
-            props.setPopup(false)
+            props.setPopupNew(false)
             clearPopup()
         } catch(error) {
             alert('Failed to update object, with error code: ' + error.message)
         }
     }
 
-
-
-    async function editIdeaToDB() {
-        const objectId = props.ideaId
-        console.log("save idea started")
-        const Idea = new Parse.Object('Idea')
-        
-        const newDate = new Date(expirationDate.year, expirationDate.month -1, expirationDate.day +1)
-
-        const id = Idea.set('objectId', objectId)
-        console.log(id)
-
-        console.log("save idea id: " + id)
-        Idea.set("user", Parse.User.current())
-        Idea.set("userimage", (Parse.User.current()).get("userimage"))
-        Idea.set("author", (Parse.User.current()).get("username"))
-        Idea.set("title", title)
-        Idea.set("description", convertToPlain(description))
-        Idea.set("expiration", newDate)
-        Idea.set("tags", tags)
-        Idea.set("visibility", visibility)
-        try{
-            let result = await Idea.save()
-            alert('Idea created with ID: ' + result.id)
-            console.log('Object updated with objectId: ' + result.id)
-            props.setPopup(false)
-            clearPopup()
-        } catch(error) {
-            alert('Failed to update object, with error code: ' + error.message)
-        }
-    }
-
-
-    return (props.popup) ? (
+    return (props.popupNew) ? (
         <div className="popup-page">
             <div className="popup">
-                <section className="idea-container" >
+                <section className="idea-container-new" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
                         <div className="idea-top-left">
@@ -163,19 +115,6 @@ function PopupIdea(props) {
                                 </div>
                         </div>
                     </div>
-
-                    {/* RIGHT-COLUMN */}
-                    <div className="idea-flex-right">
-                        <div className="top-right">
-                            <CloseWindow closeAction={handleDiscardAttempt}/>
-                        </div>
-
-                        
-                            
-                        <h3>Comments</h3>
-                        <CommentForm ideaId={props.ideaId} setCommentResult={setCommentResult}/>
-                        <CommentList commentResult={commentResult} />
-                    </div>
                 </section>
                 { props.children }
             </div>
@@ -183,4 +122,4 @@ function PopupIdea(props) {
     ) : ""
 }
 
-export default PopupIdea
+export default PopupIdeaNew

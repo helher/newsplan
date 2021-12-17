@@ -11,7 +11,6 @@ function CreatedBy(props) {
         <div className="logo-and-id">
             <BiBrain className="idea-icon"/>
             <p className="createdby-text"><b>Idea</b> created by {username}</p>
-            <div className="id-label">{props.ideaId}</div>
         </div>
     )
     
