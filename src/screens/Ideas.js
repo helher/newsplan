@@ -3,9 +3,10 @@ import Parse from "parse";
 
 import "./Ideas.css";
 import Footer from "../components/footer/Footer";
-import PopupIdea from "../components/popups/popup-idea/PopupIdea";
+
 import AddIdeaButton from "../components/buttons/AddIdeaButton/AddIdeaButton";
 import LoadButton from "../components/buttons/LoadButton/LoadButton";
+import PopupIdeaNew from "../components/popups/popup-idea-new/PopupIdeaNew";
 import { DataGrid } from "@mui/x-data-grid";
 
 
@@ -37,48 +38,16 @@ const columns = [
     editable: false,
   },
   {
-    field: "expiration",
+    field: "expirationDate",
     headerName: "EXPIRATION",
     sortable: true,
     width: 160,
-    valueGetter: getFullExpiration,
-  },
-  {
-    field: "expirationday",
-    headerName: "Day",
-    sortable: true,
-    width: 160,
-    hide: true
-  },
-  {
-    field: "expirationmonth",
-    headerName: "Month",
-    sortable: true,
-    width: 160,
-    hide: true
-  },
-
-  {
-    field: "expirationyear",
-    headerName: "Year",
-    sortable: true,
-    width: 160,
-    hide: true
   },
 ];
 
-function getFullExpiration(params) {
-  return `${params.row.expirationday}.${params.row.expirationmonth}.${params.row.expirationyear}`
-}
-
-
-
-
-
 
 function Ideas() {
-  const [popup, setPopup] = useState(false);
-  const [ideaId, setIdeaId] = useState();
+  const [popupNew, setPopupNew] = useState(false);
   const [ideaTable, setIdeaTable] = useState();
 
   // useEffects runs only once, first time the componenten renders, because we have an empty dependency!
@@ -112,14 +81,9 @@ function Ideas() {
       section: idea.get("tags"),
       author: idea.get("author"),
       userimg: idea.get("userimage").url(),
-      expirationday: idea.get("expiration").day,
-      expirationmonth: idea.get("expiration").month,
-      expirationyear: idea.get("expiration").year
+      expirationDate: idea.get("expiration").toString().substring(4,15),
     }
   }
-
-
-
 
   function destructureIdeas(ideas) {
     return ideas.map(destructure);
@@ -140,14 +104,13 @@ function Ideas() {
           />
         </div>
       </div>
-      <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId} />
+      <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
       <div className="footer-container">
         <div className="footeridea-btns">
           <AddIdeaButton
             text="Add Idea"
-            popup={popup}
-            setPopup={setPopup}
-            setIdeaId={setIdeaId}
+            popupNew={popupNew}
+            setPopupNew={setPopupNew}
           />
           <LoadButton text="Load more Ideas" />
         </div>

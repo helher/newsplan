@@ -6,7 +6,7 @@ import Column from '../components/column/Column';
 import './Dashboard.css';
 import Footer from '../components/footer/Footer';
 import AddIdeaButton from '../components/buttons/AddIdeaButton/AddIdeaButton';
-import PopupIdea from '../components/popups/popup-idea/PopupIdea';
+import PopupIdeaNew from '../components/popups/popup-idea-new/PopupIdeaNew';
 import IdeaCard from '../components/card/IdeaCard';
 ;
 const data = [
@@ -24,8 +24,7 @@ const data = [
 const Dashboard = () => {
     console.log('sup')
 
-    const [popup, setPopup] = useState(false);
-    const [ideaId, setIdeaId] = useState()
+    const [popupNew, setPopupNew] = useState(false);
     const [articleId, setArticleId] = useState()
 
     return (
@@ -34,11 +33,11 @@ const Dashboard = () => {
             <h1>Dashboard Page</h1>
             {/* <Column data={data}/> */}
             <IdeaCard/>
-            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId}/>
+            <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
         </div>
         <div className="footer-container">
             <div className="footeridea-btns">
-                <AddIdeaButton text="Add Idea" popup={popup} setPopup={setPopup} setIdeaId={setIdeaId}/>
+                <AddIdeaButton text="Add Idea" popupNew={popupNew} setPopupNew={setPopupNew}/>
             </div>
             <Footer/>
         </div>
