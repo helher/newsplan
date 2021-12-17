@@ -22,6 +22,7 @@ function CommentForm (props) {
     
         try {
           query.equalTo("ideaId", props.ideaId);
+          query.descending("createdAt");
           const comments = await query.find();
           props.setCommentResult(comments);
     
