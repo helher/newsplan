@@ -112,6 +112,7 @@ function Ideas() {
   return (
     <>
       <div className="idea">
+        <h1>Idea list</h1>
         <div className="idea-table" />
         <div style={{ height: 400, width: "100%" }}>
           <DataGrid

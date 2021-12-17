@@ -1,5 +1,11 @@
 @import url(./../index.css);
 
+.idea {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 50px;
+}
+
 .footeridea-btns {
   display: flex;
   justify-content: space-between;
@@ -8,5 +14,5 @@
 
 .idea-table {
   height: 400;
-  width: 100%;
+  width: 80%;
 }
