@@ -21,5 +21,21 @@
 
 .idea-table {
   height: 400;
-  width: 80%;
+  width: 1260px !important;
+}
+
+.css-1jbbcbn-MuiDataGrid-columnHeaderTitle {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--primary-color);
+}
+
+.css-1nytev6-MuiDataGrid-root {
+  border: none !important;
+}
+
+.element.style {
+  width: 1200px;
 }
