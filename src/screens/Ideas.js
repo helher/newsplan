@@ -21,11 +21,25 @@ const columns = [
     width: 150,
     editable: false,
   },
+/*   {
+    field: "authorimg",
+    headerName: "Author",
+    width: 110,
+    editable: false,
+    valueGetter: combineAuthorAndImg(),
+  }, */
   {
     field: "author",
     headerName: "Author",
     width: 110,
     editable: false,
+  },
+  {
+    field: "userimg",
+    headerName: "User Image",
+    width: 110,
+    editable: false,
+    renderCell: (params) => <img className="img-list" src={params.value} />,
   },
   {
     field: "expiration",
@@ -34,7 +48,6 @@ const columns = [
     width: 160,
     valueGetter: getFullExpiration,
   },
-
   {
     field: "expirationday",
     headerName: "Day",
@@ -62,6 +75,10 @@ const columns = [
 function getFullExpiration(params) {
   return `${params.row.expirationday}.${params.row.expirationmonth}.${params.row.expirationyear}`
 }
+
+/* function combineAuthorAndImg(params) {
+  return `${params.row.author}.${params.row.userimg}`
+} */
 
 function Ideas() {
   const [popup, setPopup] = useState(false);
@@ -98,11 +115,15 @@ function Ideas() {
       title: idea.get("title"),
       section: idea.get("tags"),
       author: idea.get("author"),
+      userimg: idea.get("userimage").url(),
       expirationday: idea.get("expiration").day,
       expirationmonth: idea.get("expiration").month,
-      expirationyear: idea.get("expiration").year,
+      expirationyear: idea.get("expiration").year
     }
   }
+
+
+
 
   function destructureIdeas(ideas) {
     return ideas.map(destructure);
