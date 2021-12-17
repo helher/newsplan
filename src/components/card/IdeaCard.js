@@ -21,6 +21,7 @@ function IdeaCard() {
     const query = new Parse.Query(Ideas);
     query.include("user");
     query.include("section");
+    query.descending("createdAt");
 
     try {
       const ideas = await query.find();
@@ -57,21 +58,17 @@ function IdeaCard() {
       {cardIdeaTable.map((card) => (
         <div className="card">
           <h3>{card.title}</h3>
-
           <div className="card-id">
             <small>
               #<small>{card.id}</small>
             </small>
             <small>{card.expirationDate.toString().substring(4,15)}</small>
           </div>
-
           <p>{card.description}</p>
-
           <div className="tags">
             {/* <InputTag/> */}
             <p>{card.section}</p>
           </div>
-
           <div className="assigned-people">
             <img src={card.userImage} />
           </div>

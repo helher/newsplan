@@ -7,12 +7,11 @@ import { List } from "antd";
 function AssignEmployee({ selectedEmployee, setSelectedEmployee }) {
   const [readResults, setReadResults] = useState([]);
   const [isActive, setIsActive] = useState(false);
-
+  
   const readEmployees = async function () {
     let query = new Parse.Query("User");
     try {
       let employees = await query.find();
-  
       setReadResults(employees);
       return true;
     } catch (error) {
