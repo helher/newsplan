@@ -38,39 +38,12 @@ const columns = [
     editable: false,
   },
   {
-    field: "expiration",
+    field: "expirationDate",
     headerName: "EXPIRATION",
     sortable: true,
     width: 160,
-    valueGetter: getFullExpiration,
-  },
-  {
-    field: "expirationday",
-    headerName: "Day",
-    sortable: true,
-    width: 160,
-    hide: true
-  },
-  {
-    field: "expirationmonth",
-    headerName: "Month",
-    sortable: true,
-    width: 160,
-    hide: true
-  },
-
-  {
-    field: "expirationyear",
-    headerName: "Year",
-    sortable: true,
-    width: 160,
-    hide: true
   },
 ];
-
-function getFullExpiration(params) {
-  return `${params.row.expirationday}.${params.row.expirationmonth}.${params.row.expirationyear}`
-}
 
 
 function Ideas() {
@@ -108,9 +81,7 @@ function Ideas() {
       section: idea.get("tags"),
       author: idea.get("author"),
       userimg: idea.get("userimage").url(),
-      expirationday: idea.get("expiration").day,
-      expirationmonth: idea.get("expiration").month,
-      expirationyear: idea.get("expiration").year
+      expirationDate: idea.get("expiration").toString().substring(4,15),
     }
   }
 
