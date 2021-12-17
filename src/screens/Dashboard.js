@@ -7,7 +7,7 @@ import './Dashboard.css';
 import Footer from '../components/footer/Footer';
 import AddIdeaButton from '../components/buttons/AddIdeaButton/AddIdeaButton';
 import PopupIdea from '../components/popups/popup-idea/PopupIdea';
-
+import Card from '../components/card/Card';
 
 const data = [
     {
@@ -33,7 +33,7 @@ const Dashboard = () => {
         <div className="dashboard">
             <p>Dashboard Page</p>
             {/* <Column data={data}/> */}
-            <DragList/>
+            <Card/>
             <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId}/>
         </div>
         <div className="footer-container">
