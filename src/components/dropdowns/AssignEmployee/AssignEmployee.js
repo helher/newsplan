@@ -30,7 +30,7 @@ function AssignEmployee({ selectedEmployee, setSelectedEmployee }) {
         <div className="space"></div>
         <IoMdArrowDropdownCircle className="dropdown-icon" />
       </div>
-      <div className="dropdown-content">
+      <div className="employee-dropdown-content">
       {isActive &&
         readResults !== null &&
         readResults !== undefined &&

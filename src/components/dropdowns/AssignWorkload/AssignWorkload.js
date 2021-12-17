@@ -23,13 +23,13 @@ function AssignWorkload() {
 
   return (
     <div className="workload-dropdown" onClick={readWorkload}>
-      <h5>Employee</h5>
+      <h5>Workload</h5>
       <div className="dropdown-btn" onClick={() => setIsActive(!isActive)}>
          <p>Select</p>
         <div className="space"></div>
         <IoMdArrowDropdownCircle className="dropdown-icon" />
       </div>
-      <div className="dropdown-content">
+      <div className="workload-dropdown-content">
         {isActive &&
           readResults !== null &&
           readResults !== undefined &&

@@ -30,13 +30,13 @@
   flex: 2;
 }
 
-.dropdown-content {
-  border: 1px solid var(--primary-color);
+.workload-dropdown-content {
   border-radius: 6px;
   margin-top: 10px;
   background-color: var(--white-color);
   position: absolute;
-  width: 150px;
+  width: 120px;
+  border: 1px solid #373a3c;
 }
 
 .dropdown-item {
