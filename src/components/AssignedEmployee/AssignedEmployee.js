@@ -14,7 +14,6 @@ function AssignedEmployee() {
 
     return (
             <div>
-                <h6>Journalist</h6>
             </div>
     )
 }
