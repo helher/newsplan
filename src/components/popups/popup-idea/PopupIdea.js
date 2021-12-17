@@ -10,7 +10,7 @@ import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
 import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 import DropdownVisibility from '../../dropdowns/DropdownVisibility/DropdownVisibility';
 import DropdownCalendar from '../../dropdowns/DropdownCalendar/DropdownCalendar';
-import InputTag from '../../input-tag/InputTag'
+import Section from '../../dropdowns/Section/Section';
 import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import CreatedBy from '../../createdBy/CreatedBy';
 import CommentForm from '../../comment-form/CommentForm';
@@ -25,7 +25,7 @@ function PopupIdea(props) {
     const [description, setDescription] = useState()
     const [expirationDate, setExpirationDate] = useState()
     const [visibility, setVisibility] = useState()
-    const [tags, setTags] = useState([])
+    const [selectedSection, setSelectedSection] = useState()
     const [commentResult, setCommentResult] = useState();
 
     function clearPopup() {
@@ -33,7 +33,7 @@ function PopupIdea(props) {
         setDescription('')
         setExpirationDate()
         setVisibility('')
-        setTags([])
+        setSelectedSection()
     }
 
     // This code is from https://dev.to/sanchithasr/3-ways-to-convert-html-text-to-plain-text-52l8
@@ -111,7 +111,7 @@ function PopupIdea(props) {
         Idea.set("title", title)
         Idea.set("description", convertToPlain(description))
         Idea.set("expiration", newDate)
-        Idea.set("tags", tags)
+        Idea.set("sectionTest", selectedSection)
         Idea.set("visibility", visibility)
         try{
             let result = await Idea.save()
@@ -140,7 +140,8 @@ function PopupIdea(props) {
 
                         {/* Dropdowns */}
                         <DropdownCalendar expirationDate={expirationDate} setExpirationDate={setExpirationDate}/>
-{/*                         <InputTag tags = {tags} setTags = {setTags} /> */}
+                        <Section selectedSection = {selectedSection} setSelectedSection = {setSelectedSection}/>
+
                         <DropdownVisibility visibility={visibility} setVisibility={setVisibility} />
 
                         {/* Attached articles */}
@@ -169,8 +170,6 @@ function PopupIdea(props) {
                         <div className="top-right">
                             <CloseWindow closeAction={handleDiscardAttempt}/>
                         </div>
-
-                        
                             
                         <h3>Comments</h3>
                         <CommentForm ideaId={props.ideaId} setCommentResult={setCommentResult}/>
