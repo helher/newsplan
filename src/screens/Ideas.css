@@ -6,6 +6,13 @@
   margin-top: 50px;
 }
 
+.img-list {
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  border-radius: 50%;
+}
+
 .footeridea-btns {
   display: flex;
   justify-content: space-between;

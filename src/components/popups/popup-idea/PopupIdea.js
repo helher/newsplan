@@ -36,7 +36,11 @@ function PopupIdea(props) {
     function clearPopup() {
         setTitle('')
         setDescription('')
-        setExpirationDate(null)
+        setExpirationDate({
+            day: 1,
+            month: 1,
+            year: 2023
+          })
         setVisibility('')
         setTags([])
     }
@@ -74,6 +78,7 @@ function PopupIdea(props) {
 
         console.log("save idea id: " + id)
         Idea.set("user", Parse.User.current())
+        Idea.set("userimage", (Parse.User.current()).get("userimage"))
         Idea.set("author", (Parse.User.current()).get("username"))
         Idea.set("title", title)
         Idea.set("description", description)
