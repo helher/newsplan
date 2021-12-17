@@ -23,7 +23,11 @@ function PopupIdea(props) {
 
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
-    const [expirationDate, setExpirationDate] = useState()
+    const [expirationDate, setExpirationDate] = useState({
+        day: 1,
+        month: 1,
+        year: 2023
+      })
     const [visibility, setVisibility] = useState()
     const [tags, setTags] = useState([])
     const [commentResult, setCommentResult] = useState();
@@ -70,6 +74,7 @@ function PopupIdea(props) {
 
         console.log("save idea id: " + id)
         Idea.set("user", Parse.User.current())
+        Idea.set("author", (Parse.User.current()).get("username"))
         Idea.set("title", title)
         Idea.set("description", description)
         Idea.set("expiration", expirationDate)
