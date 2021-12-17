@@ -7,6 +7,7 @@ import LoadButton from '../components/buttons/LoadButton/LoadButton'
 import AddEmployeeButton from '../components/buttons/AddEmployeeButton/AddEmployeeButton'
 import CommentForm from '../components/comment-form/CommentForm'
 import EmployeeList from '../components/test-dropdown/EmployeeList'
+import AssignedEmployee from '../components/AssignedEmployee/AssignedEmployee'
 
 
 const TeamPlan = () => {
@@ -16,6 +17,8 @@ const TeamPlan = () => {
                 <p>Teamplan</p>
                 <CommentForm />
                 <EmployeeList/>
+                <br></br>
+                <AssignedEmployee/>
             </div>
              <div className="footer-container">
                 <div className="footerteamplan-btns">
