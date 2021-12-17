@@ -3,6 +3,7 @@
 .comment-container {
   display: flex;
   margin-top: 40px;
+  margin-left: -20px;
 }
 
 .test_test_img {
@@ -25,7 +26,8 @@
 
 .comment-text-container {
   display: flex;
-  flex-direction: row;
+  margin-left: 10px;
+  flex-direction: column;
   align-content: flex-start;
 }
 
@@ -35,13 +37,18 @@
   color: var(--primary-color);
 }
 
-.image-test {
-  margin: 2px;
+.comment-image-container {
   width: 34px;
   height: 34px;
   border-radius: 50%;
 }
 
-.comment-content {
-  align-content: flex-start;
+.image-user-comment {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.comment-text {
+  margin-top: 10px;
 }

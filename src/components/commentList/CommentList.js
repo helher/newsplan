@@ -25,12 +25,22 @@ function CommentList(props) {
               <List.Item className="comment_list">
                 <div className="comment-container">
                   <div className="comment">
-                    <img className="image-test" src={item.get("userImage").url()} alt="test" />
+                    <div className="comment-image-container">
+                      <img
+                        className="image-user-comment"
+                        src={item.get("userImage").url()}
+                        alt="test"
+                      />
+                    </div>
                     <div className="comment-text-container">
                       <p className="comment-author"> {item.get("author")}</p>
-                      <p className="comment-content">
-                        {item.get("commentText")}
+                      <p className="comment-date">
+                        {" "}
+                        {item.get("createdAt").toString().substring(4, 21)}
                       </p>
+                      <h5 className="comment-text">
+                        {item.get("commentText")}
+                      </h5>
                     </div>
                   </div>
                 </div>
