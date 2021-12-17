@@ -14,8 +14,7 @@ import InputTag from '../../input-tag/InputTag'
 import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import CreatedBy from '../../createdBy/CreatedBy';
 import CommentForm from '../../comment-form/CommentForm';
-import AssignEmployee from '../../dropdowns/AssignEmployee/AssignEmployee';
-import AssignWorkload from '../../dropdowns/AssignWorkload/AssignWorkload';
+
 
 
 function PopupIdea(props) {
@@ -28,7 +27,6 @@ function PopupIdea(props) {
     const [expirationDate, setExpirationDate] = useState()
     const [visibility, setVisibility] = useState()
     const [tags, setTags] = useState([])
-    const [selectedEmployee, setSelectedEmployee] = useState();
 
     function clearPopup() {
         setTitle('')
@@ -132,13 +130,7 @@ function PopupIdea(props) {
                         <h3>Comments</h3>
                         <br></br>
                         <CommentForm ideaId={props.ideaId} />
-                        <br></br>
-                        <h3>Job</h3>    
-                            <div className = 'assign-job'>
-                    
-                            <AssignEmployee selectedEmployee={selectedEmployee} setSelectedEmployee={setSelectedEmployee}/>
-                            <AssignWorkload/>
-                            </div>
+                        
                     </div>
                 </section>
                 { props.children }
