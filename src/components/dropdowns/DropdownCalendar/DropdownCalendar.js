@@ -19,7 +19,7 @@ const DropdownCalendar = ({expirationDate, setExpirationDate}) => {
 
       return `${newMonth} ${expirationDate.day}, ${expirationDate.year}`;
     }
-  
+
     return (
         <div>
         <h5>Expiration Date</h5>

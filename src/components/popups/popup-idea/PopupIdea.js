@@ -23,24 +23,22 @@ function PopupIdea(props) {
 
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
-    const [expirationDate, setExpirationDate] = useState({
-        day: 1,
-        month: 1,
-        year: 2023
-      })
+    const [expirationDate, setExpirationDate] = useState()
     const [visibility, setVisibility] = useState()
     const [tags, setTags] = useState([])
     const [commentResult, setCommentResult] = useState();
 
+    function handleDataChange(date) {
+        const newDate = new Date(date.year, date.month -1, date.day)
+        setExpirationDate(newDate)
+        console.log("dateobject", newDate)
+        return expirationDate
+      }
 
     function clearPopup() {
         setTitle('')
         setDescription('')
-        setExpirationDate({
-            day: 1,
-            month: 1,
-            year: 2023
-          })
+        setExpirationDate()
         setVisibility('')
         setTags([])
     }
@@ -72,6 +70,8 @@ function PopupIdea(props) {
         const objectId = props.ideaId
         console.log("save idea started")
         const Idea = new Parse.Object('Idea')
+        
+        const newDate = new Date(expirationDate.year, expirationDate.month -1, expirationDate.day +1)
 
         const id = Idea.set('objectId', objectId)
         console.log(id)
@@ -82,7 +82,7 @@ function PopupIdea(props) {
         Idea.set("author", (Parse.User.current()).get("username"))
         Idea.set("title", title)
         Idea.set("description", description)
-        Idea.set("expiration", expirationDate)
+        Idea.set("expiration", newDate)
         Idea.set("tags", tags)
         Idea.set("visibility", visibility)
         try{
