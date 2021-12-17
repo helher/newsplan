@@ -2,6 +2,7 @@
 
 .comment-form-container {
   display: flex;
+  margin-bottom: 40px;
 }
 
 .comment-form {
