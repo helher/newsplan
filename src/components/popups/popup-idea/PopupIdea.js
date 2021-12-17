@@ -28,13 +28,6 @@ function PopupIdea(props) {
     const [tags, setTags] = useState([])
     const [commentResult, setCommentResult] = useState();
 
-    function handleDataChange(date) {
-        const newDate = new Date(date.year, date.month -1, date.day)
-        setExpirationDate(newDate)
-        console.log("dateobject", newDate)
-        return expirationDate
-      }
-
     function clearPopup() {
         setTitle('')
         setDescription('')
@@ -42,6 +35,13 @@ function PopupIdea(props) {
         setVisibility('')
         setTags([])
     }
+
+    // This code is from https://dev.to/sanchithasr/3-ways-to-convert-html-text-to-plain-text-52l8
+    function convertToPlain(description){
+    var temporaryText = document.createElement("div");
+    temporaryText.innerHTML = description;
+    return temporaryText.textContent || temporaryText.innerText || "";
+}
 
     async function handleDiscardAttempt() {
         const objectId = props.ideaId
@@ -81,7 +81,7 @@ function PopupIdea(props) {
         Idea.set("userimage", (Parse.User.current()).get("userimage"))
         Idea.set("author", (Parse.User.current()).get("username"))
         Idea.set("title", title)
-        Idea.set("description", description)
+        Idea.set("description", convertToPlain(description))
         Idea.set("expiration", newDate)
         Idea.set("tags", tags)
         Idea.set("visibility", visibility)

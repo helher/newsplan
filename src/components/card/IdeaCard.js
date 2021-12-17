@@ -40,6 +40,7 @@ function IdeaCard() {
       id: idea.id,
       userImage: idea.get("user").get("userimage").url(),
       title: idea.get("title"),
+      description: idea.get("description"),
       section: idea.get("section").get("name"),
       author: idea.get("author"),
       expirationDate: idea.get("expiration"),

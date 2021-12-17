@@ -1,37 +1,29 @@
-import React from 'react'
-import './Section.css'
-import Parse from 'parse'
+import React, {useState, useEffect} from "react";
+import Parse from "parse";
 
+function Section(props) {
+    const [selectedSection, setSelectedSection] = useState();
 
-const Section = ({
-        text,
-        color
-    }) => {
-
-
-    async function readSections () {
-        // Reading parse objects is done by using Parse.Query
-        const parseQuery = new Parse.Query('Section')
+    const updateChosenSection = async function () {
+        const query = new Parse.Query("Section");
+    
         try {
-            let sections = await parseQuery.find()
-            console.log(sections)
-            return true
+          const sections = await query.find();
+          props.setSelectedSection(sections);
+          return true;
         } catch (error) {
-            // Error can be caused by lack of Internet connection
-            alert(`Error! ${error.message}`)
-            return false;
+          alert(`Error! Is this the error?`);
+          return false;
         }
-    }
+      };
 
-    function Colors(props) {
-        return (
-            <div className="colors" style={{backgroundColor: props.color}}>{props.children}</div>
-            );
-        }
+  return (
+    <div>
+      <h5>Section </h5>
 
-    return (
-        <Colors color={color}>{text}</Colors>
-    )
+      </div>
+  
+  );
 }
 
-export default Section
+export default Section;
