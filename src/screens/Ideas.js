@@ -10,7 +10,6 @@ import PopupIdeaNew from "../components/popups/popup-idea-new/PopupIdeaNew";
 import { DataGrid } from "@mui/x-data-grid";
 
 
-
 const columns = [
   {
     field: "title",

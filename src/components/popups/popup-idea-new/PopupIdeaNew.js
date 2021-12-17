@@ -108,9 +108,6 @@ function PopupIdeaNew(props) {
               setVisibility={setVisibility}
             />
             {/* Attached articles */}
-            <h5>Attached articles</h5>
-            <p>No articles attached yet</p>
-            <br />
             <br />
             <br />
             {/* Buttons */}
@@ -121,9 +118,6 @@ function PopupIdeaNew(props) {
               />
 
               <div className="right-buttons">
-                <div className="convert-button">
-                  <ProceedButton text="Convert to Article" goto="/Dashboard" />
-                </div>
                 <SaveButton saveAction={saveIdeaToDB} />
               </div>
             </div>
