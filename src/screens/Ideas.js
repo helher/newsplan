@@ -3,9 +3,10 @@ import Parse from "parse";
 
 import "./Ideas.css";
 import Footer from "../components/footer/Footer";
-import PopupIdea from "../components/popups/popup-idea/PopupIdea";
+
 import AddIdeaButton from "../components/buttons/AddIdeaButton/AddIdeaButton";
 import LoadButton from "../components/buttons/LoadButton/LoadButton";
+import PopupIdeaNew from "../components/popups/popup-idea-new/PopupIdeaNew";
 import { DataGrid } from "@mui/x-data-grid";
 
 
@@ -72,13 +73,8 @@ function getFullExpiration(params) {
 }
 
 
-
-
-
-
 function Ideas() {
-  const [popup, setPopup] = useState(false);
-  const [ideaId, setIdeaId] = useState();
+  const [popupNew, setPopupNew] = useState(false);
   const [ideaTable, setIdeaTable] = useState();
 
   // useEffects runs only once, first time the componenten renders, because we have an empty dependency!
@@ -118,9 +114,6 @@ function Ideas() {
     }
   }
 
-
-
-
   function destructureIdeas(ideas) {
     return ideas.map(destructure);
   }
@@ -140,14 +133,13 @@ function Ideas() {
           />
         </div>
       </div>
-      <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId} />
+      <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
       <div className="footer-container">
         <div className="footeridea-btns">
           <AddIdeaButton
             text="Add Idea"
-            popup={popup}
-            setPopup={setPopup}
-            setIdeaId={setIdeaId}
+            popupNew={popupNew}
+            setPopupNew={setPopupNew}
           />
           <LoadButton text="Load more Ideas" />
         </div>

@@ -1,21 +1,20 @@
 import React from 'react';
 import './AddIdeaButton.css';
-import Parse from 'parse';
 import { IoIosAddCircleOutline } from 'react-icons/io'
 
 const AddIdeaButton = ({
     text,
-    setPopup,
-    setIdeaId
+    setPopupNew,
+/*     setIdeaId */
 }) => {
 
     function handleClickPopup() {
         console.log("bt clicked!")
-        setPopup(true)
-        createIdeaInDB()
+        setPopupNew(true)
+/*         createIdeaInDB() */
     }
 
-    async function createIdeaInDB() {
+/*     async function createIdeaInDB() {
         console.log("createIdeaInDB started")
 
         const Idea = Parse.Object.extend("Idea")
@@ -28,7 +27,6 @@ const AddIdeaButton = ({
             setIdeaId(ididea)
             console.log("ideaid", ididea)
             console.log("idea in brackets: ", (createIdeaInDB = {ididea}))
-/*          alert("Idea with id: " + ididea + " is created - HURRRA!") */
         }
         catch(error) {
            alert(error.message)
@@ -43,7 +41,7 @@ const AddIdeaButton = ({
 
         console.log("fetch ended")
         console.log("createIdeaInDB ended")
-    }
+    } */
 
 
     return (
