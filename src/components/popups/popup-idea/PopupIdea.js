@@ -16,7 +16,6 @@ import CreatedBy from '../../createdBy/CreatedBy';
 import CommentForm from '../../comment-form/CommentForm';
 import AssignEmployee from '../../dropdowns/AssignEmployee/AssignEmployee';
 import AssignWorkload from '../../dropdowns/AssignWorkload/AssignWorkload';
-import AssignedEmployee from '../../AssignedEmployee/AssignedEmployee';
 
 
 function PopupIdea(props) {
@@ -139,7 +138,6 @@ function PopupIdea(props) {
                     
                             <AssignEmployee selectedEmployee={selectedEmployee} setSelectedEmployee={setSelectedEmployee}/>
                             <AssignWorkload/>
-                            <AssignedEmployee/>
                             </div>
                     </div>
                 </section>
