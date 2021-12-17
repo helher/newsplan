@@ -1,0 +1,76 @@
+@import url(./../../index.css);
+
+.card-container{
+  max-width: 250px;
+  margin: 10px;
+  padding: 10px;
+  overflow-y: scroll;
+  max-height: 80vh;
+  background-color: #677E9E;
+}
+
+.card-container h3{
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  
+}
+
+.card-container p{
+  color: #FFFFFF;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 200;
+  margin: 10px 0px 0px 0px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.card{
+  margin-bottom: 10px;
+  background-color:var(--primary-color);
+  padding: 15px;
+}
+
+.card-id{
+  display: flex;
+  justify-content: space-between;
+  color: var(--accented-color); 
+}
+
+.card-id small{
+  font-weight: 400;
+  font-size: 10px;
+  
+}
+
+.card-id small:first-child{
+  margin-right: 10px;
+}
+
+.card-date{
+  display: flex;
+}
+
+.tags{
+  display: flex;
+  margin: 10px 0px 0px 0px;
+}
+
+.tags p{
+  margin: 0px 10px 0px 0px;
+}
+
+.assigned-people{
+  display: flex;
+  margin: 10px 0px 0px 0px;
+}
+
+.assigned-people img{
+  width:30px;
+  height:30px;
+  object-fit:cover;
+  border-radius:50%;
+  margin: 0px 10px 0px 0px;
+}
