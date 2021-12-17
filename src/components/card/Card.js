@@ -19,10 +19,10 @@ Parse.serverURL = "https://parseapi.back4app.com/";
 // - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 // Get all the cards in the Cards class
-let Cards = Parse.Object.extend("Cards");
+let Cards = Parse.Object.extend("Idea");
 let query = new Parse.Query(Cards);
 
-query.include("tags");
+query.include("section");
 query.include("user");
 
 query.find().then(function (results) {
@@ -31,7 +31,7 @@ query.find().then(function (results) {
     let obj = results[i];
     let cardTitle = obj.get("title");
     let cardDescription = obj.get("description");
-    let cardTags = obj.get("tags").get("name");
+    let cardTags = obj.get("section").get("name");
     let cardUser = obj.get("user").get("username");
 
     cardsArray.push({
@@ -49,7 +49,7 @@ query.find().then(function (results) {
 retrieveCards();
 
 async function retrieveCards() {
-  let cardTable = new Parse.Query('Cards');
+  let cardTable = new Parse.Query('Idea');
 
   let allIdentifiers = await cardTable.find();
     try {
@@ -74,16 +74,15 @@ function getDateFormat(date) {
 }
 
 async function createCards(id) {
-  const query = new Parse.Query('Cards');
+  const query = new Parse.Query('Idea');
 
   try {
     let specificCard = await query.get(id);
     let card = {
       id: id,
-      updatedAt: specificCard.get('updatedAt'),
-      description: specificCard.get('description'),
+      
       title: specificCard.get('title'),
-      dueDate: specificCard.get('due_date'),
+      //dueDate: specificCard.get('expiration'),
     };
 
     card.dueDate = getDateFormat(card.dueDate.toString());
