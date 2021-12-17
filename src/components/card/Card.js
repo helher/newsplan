@@ -8,13 +8,43 @@ import './Card.css';
 const cardIdentification = [];
 const cards = [];
 
-// It is only possible to retrieve data if I have the Parse.initialize here. We need to find a solution
+// Instantiates Connection to Database
 Parse.initialize(
-  "IzWYeFjb4qsVpl2vqItLt4pm02I8DwqZNW8pQwZ1", 
+  "IzWYeFjb4qsVpl2vqItLt4pm02I8DwqZNW8pQwZ1",
   "dFQhdajG0EVpkTAvP7qjuXSHYwP0zyIjrni7od4Z"
 );
-  
+
 Parse.serverURL = "https://parseapi.back4app.com/";
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+// Get all the cards in the Cards class
+let Cards = Parse.Object.extend("Cards");
+let query = new Parse.Query(Cards);
+
+query.include("tags");
+query.include("user");
+
+query.find().then(function (results) {
+  let cardsArray = new Array();
+  for (let i in results) {
+    let obj = results[i];
+    let cardTitle = obj.get("title");
+    let cardDescription = obj.get("description");
+    let cardTags = obj.get("tags").get("name");
+    let cardUser = obj.get("user").get("username");
+
+    cardsArray.push({
+      card: {
+        title: cardTitle,
+        description: cardDescription,
+        tags: cardTags,
+        user: cardUser
+      }
+    });
+  }
+  console.log(cardsArray);
+});
 
 retrieveCards();
 
@@ -64,6 +94,7 @@ async function createCards(id) {
     console.log(error.code);
   } 
 }
+
 
 function Card() {
   return (
