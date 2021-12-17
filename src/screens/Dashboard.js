@@ -7,8 +7,8 @@ import './Dashboard.css';
 import Footer from '../components/footer/Footer';
 import AddIdeaButton from '../components/buttons/AddIdeaButton/AddIdeaButton';
 import PopupIdea from '../components/popups/popup-idea/PopupIdea';
-import Card from '../components/card/Card';
-
+import IdeaCard from '../components/card/IdeaCard';
+;
 const data = [
     {
         title: 'group 1',
@@ -31,9 +31,9 @@ const Dashboard = () => {
     return (
         <>
         <div className="dashboard">
-            <p>Dashboard Page</p>
+            <h1>Dashboard Page</h1>
             {/* <Column data={data}/> */}
-            <Card/>
+            <IdeaCard/>
             <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId}/>
         </div>
         <div className="footer-container">
