@@ -4,7 +4,7 @@ import Parse from 'parse';
 // Styling
 import './Card.css';
 
-function IdeaCard() {
+function IdeaCard({ideaAction}) {
     const [cardIdeaTable, setCardIdeaTable] = useState([]);
 
     useEffect(() => {
@@ -51,12 +51,13 @@ function IdeaCard() {
     function destructureIdeas(ideas) {
     return ideas.map(destructure);
     }
+    
 
 
   return (
     <section className="card-container">
       {cardIdeaTable.map((card) => (
-        <div className="card">
+        <div className="card" onClick={ideaAction}>
           <h3>{card.title}</h3>
           <div className="card-id">
             <small>

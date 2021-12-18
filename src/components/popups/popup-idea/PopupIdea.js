@@ -78,7 +78,7 @@ function PopupIdea(props) {
         newIdea.set("title", title)
         newIdea.set("description", convertToPlain(description))
         newIdea.set("expiration", newDate)
-        newIdea.set("tags", tags)
+        newIdea.set("sectionTest", selectedSection);
         newIdea.set("visibility", visibility)
 
         try{

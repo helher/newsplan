@@ -46,7 +46,7 @@
 
 .idea-flex-left {
   width: 650px;
-  /*   flex: 1; */
+  flex: 1;
   padding: 30px;
 }
 
