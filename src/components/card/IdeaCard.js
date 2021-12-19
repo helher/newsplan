@@ -43,8 +43,8 @@ function IdeaCard({setPopup, setIdeaId}) {
     }
   }
 
-  function destructureIdeas(ideas) {
-    let eachIdea = ideas.map((idea) => ({
+  function destructure(idea) {
+    return {
       id: idea.id,
       userImage: idea.get("user").get("userimage").url(),
       title: idea.get("title"),
@@ -52,11 +52,13 @@ function IdeaCard({setPopup, setIdeaId}) {
       section: idea.get("section").get("name"),
       author: idea.get("author"),
       expirationDate: idea.get("expiration"),
-    }))
+    }
+    }
 
-    return eachIdea;
-  }
-
+    function destructureIdeas(ideas) {
+    return ideas.map(destructure);
+    }
+    
   return (
     <section className="card-container">
       {cardIdeaTable.map((card) => (
