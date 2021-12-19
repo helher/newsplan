@@ -11,7 +11,7 @@ import CloseWindow from "../../buttons/CloseWindow/CloseWindow";
 import DropdownVisibility from "../../dropdowns/DropdownVisibility/DropdownVisibility";
 import DropdownCalendar from "../../dropdowns/DropdownCalendar/DropdownCalendar";
 import RichTextEditor from "../../rich-text-editor/RichTextEdior";
-import CreatedBy from "../../createdBy/CreatedBy";
+import CreatedByNew from "../../createdBy/CreatedByNew";
 import Section from "../../dropdowns/Section/Section";
 
 function PopupIdeaNew(props) {
@@ -44,12 +44,12 @@ function PopupIdeaNew(props) {
     return temporaryText.textContent || temporaryText.innerText || "";
   }
 
-  function handleDiscardAttempt() {
+  function handlePopupIdeaNew() {
     props.setPopupNew(false);
     clearPopup();
   }
 
-  async function saveIdeaToDB() {
+  async function createIdeaInDB() {
     const Idea = Parse.Object.extend("Idea");
     const newIdea = new Idea();
 
@@ -86,8 +86,8 @@ function PopupIdeaNew(props) {
           {/* LEFT-COLUMN */}
           <div className="idea-flex-left">
             <div className="idea-top-left">
-              <CreatedBy ideaId={props.ideaId} />
-              <CloseWindow closeAction={handleDiscardAttempt} />
+              <CreatedByNew />
+              <CloseWindow closeAction={handlePopupIdeaNew} />
             </div>
             <TitleEdit title={title} setTitle={setTitle} />
             <RichTextEditor
@@ -114,11 +114,11 @@ function PopupIdeaNew(props) {
             <div className="align-bottons">
               <DiscardButton
                 text="Discard"
-                discardAction={handleDiscardAttempt}
+                discardAction={handlePopupIdeaNew}
               />
 
               <div className="right-buttons">
-                <SaveButton saveAction={saveIdeaToDB} />
+                <SaveButton saveAction={createIdeaInDB} />
               </div>
             </div>
           </div>

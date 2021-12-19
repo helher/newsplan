@@ -66,6 +66,10 @@ function PopupIdea(props) {
         };
     }
 
+    function handlePopupIdea() {
+        props.setPopup(false);
+      }
+
     async function saveIdeaToDB() {
         const Idea = Parse.Object.extend("Idea")
         const newIdea = new Idea()
@@ -91,8 +95,6 @@ function PopupIdea(props) {
             alert('Failed to update object, with error code: ' + error.message)
         }
     }
-
-
 
     async function editIdeaToDB() {
         const objectId = props.ideaId
@@ -162,7 +164,7 @@ function PopupIdea(props) {
                     {/* RIGHT-COLUMN */}
                     <div className="idea-flex-right">
                         <div className="top-right">
-                            <CloseWindow closeAction={handleDiscardAttempt}/>
+                            <CloseWindow closeAction={handlePopupIdea}/>
                         </div>
                             
                         <h3>Comments</h3>
