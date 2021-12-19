@@ -30,19 +30,13 @@ const Dashboard = () => {
     const [ideaId, setIdeaId] = useState();
     const [articleId, setArticleId] = useState()
 
-    function handleClickPopup() {
-        console.log("idea card clicked!")
-        setPopup(true)
-/*      createIdeaInDB() */
-    }
-
     return (
         <>
         <div className="dashboard">
             <h1>Dashboard Page</h1>
             {/* <Column data={data}/> */}
-            <IdeaCard ideaAction={handleClickPopup} />
-            <PopupIdea popup={popup} setPopup={setPopup}/>
+            <IdeaCard setPopup={setPopup} setIdeaId={setIdeaId}/>
+            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId}/>
             <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
         </div>
         <div className="footer-container">
