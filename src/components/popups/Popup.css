@@ -34,7 +34,6 @@
 .idea-container {
   border: 1px solid black;
   max-width: 1010px;
-  max-width: 650px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;

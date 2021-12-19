@@ -131,17 +131,13 @@ function PopupIdea(props) {
                 <section className="idea-container" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        <div className="idea-top-left">
-                            <CreatedBy ideaId={props.ideaId}/>
-                            <CloseWindow closeAction={handleDiscardAttempt}/>
-                        </div>
+                        <CreatedBy ideaId={props.ideaId}/>
                         <TitleEdit title = {title} setTitle={setTitle}/>
                         <RichTextEditor description = {description} setDescription = {setDescription} />
 
                         {/* Dropdowns */}
                         <DropdownCalendar expirationDate={expirationDate} setExpirationDate={setExpirationDate}/>
                         <Section selectedSection = {selectedSection} setSelectedSection = {setSelectedSection}/>
-
                         <DropdownVisibility visibility={visibility} setVisibility={setVisibility} />
 
                         {/* Attached articles */}
@@ -153,9 +149,7 @@ function PopupIdea(props) {
 
                         {/* Buttons */}
                         <div className="align-bottons">
-
                             <DiscardButton text="Discard" discardAction={handleDiscardAttempt}/>
-
                                 <div className="right-buttons">
                                     <div className="convert-button">
                                         <ProceedButton text="Convert to Article" goto="/Dashboard" />
