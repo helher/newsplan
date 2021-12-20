@@ -28,6 +28,8 @@ const Dashboard = () => {
     const [popupNew, setPopupNew] = useState(false);
     const [popup, setPopup] = useState(false);
     const [ideaId, setIdeaId] = useState();
+    const [cardIdeaTable, setCardIdeaTable] = useState([]);
+    const [cardObject, setCardObject] = useState();
     const [articleId, setArticleId] = useState()
 
     return (
@@ -35,8 +37,8 @@ const Dashboard = () => {
         <div className="dashboard">
             <h1>Dashboard Page</h1>
             {/* <Column data={data}/> */}
-            <IdeaCard setPopup={setPopup} setIdeaId={setIdeaId}/>
-            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId}/>
+            <IdeaCard setPopup={setPopup} setIdeaId={setIdeaId} cardIdeaTable={cardIdeaTable} setCardIdeaTable={setCardIdeaTable} setCardObject={setCardObject}/>
+            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId} cardObject={cardObject} />
             <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
         </div>
         <div className="footer-container">

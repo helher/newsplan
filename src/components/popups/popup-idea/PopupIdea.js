@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Parse from 'parse';
 import './../Popup.css';
 
@@ -18,8 +18,8 @@ import CommentList from '../../commentList/CommentList';
 
 function PopupIdea(props) {
 
-    console.log("ideaid", props.ideaId)
-    console.log("popup", props.popup)
+/*     console.log("ideaid", props.ideaId) */
+/*     console.log("popup", props.popup) */
 
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
@@ -27,6 +27,16 @@ function PopupIdea(props) {
     const [visibility, setVisibility] = useState()
     const [selectedSection, setSelectedSection] = useState()
     const [commentResult, setCommentResult] = useState();
+
+     useEffect(() => {
+         props.cardObject && setIdeaInfo()
+      }, [props]);
+
+/*       useEffect(() => {
+        console.log("from useEffect in popup: ", props.cardObject);
+      }, [props.cardObject]) */
+
+    
 
     function clearPopup() {
         setTitle('')
@@ -42,6 +52,7 @@ function PopupIdea(props) {
     temporaryText.innerHTML = description;
     return temporaryText.textContent || temporaryText.innerText || "";
 }
+    
 
     async function handleDiscardAttempt() {
         const objectId = props.ideaId
@@ -70,6 +81,20 @@ function PopupIdea(props) {
         props.setPopup(false);
       }
 
+
+    async function setIdeaInfo() {
+        setTitle(props.cardObject.title) 
+        setDescription(props.cardObject.description)
+        setSelectedSection(props.cardObject.section)
+        setVisibility(props.cardObject.visibility)
+        console.log("setter: ", props.cardObject)
+
+/*         setExpirationDate(props.cardObject.expirationDate) */
+/*         setTitle(props.cardObject.title) */
+/*          */
+        
+    }
+
     async function saveIdeaToDB() {
         const Idea = Parse.Object.extend("Idea")
         const newIdea = new Idea()
@@ -96,7 +121,7 @@ function PopupIdea(props) {
         }
     }
 
-    async function editIdeaToDB() {
+/*     async function editIdeaToDB() {
         const objectId = props.ideaId
         console.log("save idea started")
         const Idea = new Parse.Object('Idea')
@@ -124,7 +149,7 @@ function PopupIdea(props) {
         } catch(error) {
             alert('Failed to update object, with error code: ' + error.message)
         }
-    }
+    } */
 
 
     return (props.popup) ? (
@@ -134,7 +159,7 @@ function PopupIdea(props) {
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
                         <CreatedBy ideaId={props.ideaId}/>
-                        <TitleEdit title = {title} setTitle={setTitle}/>
+                        <TitleEdit title={title} setTitle={setTitle}/>
                         <RichTextEditor description = {description} setDescription = {setDescription} />
 
                         {/* Dropdowns */}

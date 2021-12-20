@@ -40,8 +40,8 @@ function Section({selectedSection, setSelectedSection}) {
       <div className="section-dropdown">
       <h5>Section</h5>
       <div className="dropdown-btn" onClick={() => setIsActive(!isActive)}>
-        {!selectedSection && (<p>Select</p>)}
-        <div className="selected-section">{selectedSection}</div>
+        {!selectedSection ? (<p>Select</p>) : 
+        <p className="selected-section">{selectedSection}</p>}
         <div className="space"></div>
         <IoMdArrowDropdownCircle className="dropdown-icon" />
       </div>

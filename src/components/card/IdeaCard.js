@@ -4,24 +4,24 @@ import Parse from "parse";
 // Styling
 import "./Card.css";
 
-function IdeaCard({setPopup, setIdeaId}) {
-  const [cardIdeaTable, setCardIdeaTable] = useState([]);
+function IdeaCard(props) {
 
   function handleClickIdeaPopup(card) {
     console.log("idea card clicked!")
-    setPopup(true)
+    props.setPopup(true)
     console.log("is this the id of the card?", card.id)
-    setIdeaId(card.id)
-
+    props.setIdeaId(card.id)
+    props.setCardObject(card)
+    console.log("this is the card: ", card)
 }
 
   useEffect(() => {
     getIdeaCard();
   }, []);
 
-  useEffect(() => {
+/*   useEffect(() => {
     console.log("from useEffect: ", cardIdeaTable);
-  }, [cardIdeaTable]);
+  }, [cardIdeaTable]); */
 
   async function getIdeaCard() {
     const Ideas = Parse.Object.extend("Idea");
@@ -34,8 +34,8 @@ function IdeaCard({setPopup, setIdeaId}) {
       const ideas = await query.find();
       console.log("Parse Objects: ", ideas);
       const destructuredIdeas = destructureIdeas(ideas);
-      setCardIdeaTable(destructuredIdeas);
-      console.log("from readIdeas: ", cardIdeaTable);
+      props.setCardIdeaTable(destructuredIdeas);
+      console.log("from readIdeas: ", props.cardIdeaTable);
       return true;
     } catch (error) {
       alert(`getIdeaCard Error Message ${error.message}`);
@@ -49,9 +49,10 @@ function IdeaCard({setPopup, setIdeaId}) {
       userImage: idea.get("user").get("userimage").url(),
       title: idea.get("title"),
       description: idea.get("description"),
-      section: idea.get("section").get("name"),
+      section: idea.get("section"),
       author: idea.get("author"),
       expirationDate: idea.get("expiration"),
+      visibility: idea.get("visibility")
     }
     }
 
@@ -61,7 +62,7 @@ function IdeaCard({setPopup, setIdeaId}) {
     
   return (
     <section className="card-container">
-      {cardIdeaTable.map((card) => (
+      {props.cardIdeaTable.map((card) => (
         <div className="card" onClick={() => handleClickIdeaPopup(card)}>
           <h3>{card.title}</h3>
           <div className="card-id">
