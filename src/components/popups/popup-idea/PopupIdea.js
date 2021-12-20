@@ -82,20 +82,26 @@ function PopupIdea(props) {
       }
 
 
+      function convertDateToObjectDate(newDate) {
+        const objectDate = {
+            year: newDate.getFullYear(),
+            month: newDate.getMonth() + 1,
+            day: newDate.getDate()
+        }
+        return objectDate
+    }
+
+
     async function setIdeaInfo() {
         setTitle(props.cardObject.title) 
         setDescription(props.cardObject.description)
         setSelectedSection(props.cardObject.section)
         setVisibility(props.cardObject.visibility)
+        setExpirationDate(convertDateToObjectDate(props.cardObject.expirationDate))
         console.log("setter: ", props.cardObject)
-
-/*         setExpirationDate(props.cardObject.expirationDate) */
-/*         setTitle(props.cardObject.title) */
-/*          */
-        
     }
 
-    async function saveIdeaToDB() {
+/*     async function saveIdeaToDB() {
         const Idea = Parse.Object.extend("Idea")
         const newIdea = new Idea()
         
@@ -119,9 +125,9 @@ function PopupIdea(props) {
         } catch(error) {
             alert('Failed to update object, with error code: ' + error.message)
         }
-    }
+    } */
 
-/*     async function editIdeaToDB() {
+    async function updateIdeaInDB() {
         const objectId = props.ideaId
         console.log("save idea started")
         const Idea = new Parse.Object('Idea')
@@ -138,7 +144,7 @@ function PopupIdea(props) {
         Idea.set("title", title)
         Idea.set("description", convertToPlain(description))
         Idea.set("expiration", newDate)
-        Idea.set("sectionTest", selectedSection)
+        Idea.set("section", selectedSection)
         Idea.set("visibility", visibility)
         try{
             let result = await Idea.save()
@@ -149,7 +155,7 @@ function PopupIdea(props) {
         } catch(error) {
             alert('Failed to update object, with error code: ' + error.message)
         }
-    } */
+    }
 
 
     return (props.popup) ? (
@@ -181,7 +187,7 @@ function PopupIdea(props) {
                                     <div className="convert-button">
                                         <ProceedButton text="Convert to Article" goto="/Dashboard" />
                                     </div>
-                                    <SaveButton saveAction={saveIdeaToDB}/>
+                                    <SaveButton saveAction={updateIdeaInDB}/>
                                 </div>
                         </div>
                     </div>
