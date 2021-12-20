@@ -34,7 +34,6 @@
 .idea-container {
   border: 1px solid black;
   max-width: 1010px;
-  max-width: 650px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -46,7 +45,7 @@
 
 .idea-flex-left {
   width: 650px;
-  /*   flex: 1; */
+  flex: 1;
   padding: 30px;
 }
 

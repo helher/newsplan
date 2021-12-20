@@ -7,6 +7,7 @@ import './Dashboard.css';
 import Footer from '../components/footer/Footer';
 import AddIdeaButton from '../components/buttons/AddIdeaButton/AddIdeaButton';
 import PopupIdeaNew from '../components/popups/popup-idea-new/PopupIdeaNew';
+import PopupIdea from '../components/popups/popup-idea/PopupIdea'
 import IdeaCard from '../components/card/IdeaCard';
 ;
 const data = [
@@ -25,6 +26,8 @@ const Dashboard = () => {
     console.log('sup')
 
     const [popupNew, setPopupNew] = useState(false);
+    const [popup, setPopup] = useState(false);
+    const [ideaId, setIdeaId] = useState();
     const [articleId, setArticleId] = useState()
 
     return (
@@ -32,7 +35,8 @@ const Dashboard = () => {
         <div className="dashboard">
             <h1>Dashboard Page</h1>
             {/* <Column data={data}/> */}
-            <IdeaCard/>
+            <IdeaCard setPopup={setPopup} setIdeaId={setIdeaId}/>
+            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId}/>
             <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
         </div>
         <div className="footer-container">

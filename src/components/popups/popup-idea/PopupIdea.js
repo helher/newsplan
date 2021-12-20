@@ -66,6 +66,10 @@ function PopupIdea(props) {
         };
     }
 
+    function handlePopupIdea() {
+        props.setPopup(false);
+      }
+
     async function saveIdeaToDB() {
         const Idea = Parse.Object.extend("Idea")
         const newIdea = new Idea()
@@ -78,7 +82,7 @@ function PopupIdea(props) {
         newIdea.set("title", title)
         newIdea.set("description", convertToPlain(description))
         newIdea.set("expiration", newDate)
-        newIdea.set("tags", tags)
+        newIdea.set("sectionTest", selectedSection);
         newIdea.set("visibility", visibility)
 
         try{
@@ -91,8 +95,6 @@ function PopupIdea(props) {
             alert('Failed to update object, with error code: ' + error.message)
         }
     }
-
-
 
     async function editIdeaToDB() {
         const objectId = props.ideaId
@@ -131,17 +133,13 @@ function PopupIdea(props) {
                 <section className="idea-container" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        <div className="idea-top-left">
-                            <CreatedBy ideaId={props.ideaId}/>
-                            <CloseWindow closeAction={handleDiscardAttempt}/>
-                        </div>
+                        <CreatedBy ideaId={props.ideaId}/>
                         <TitleEdit title = {title} setTitle={setTitle}/>
                         <RichTextEditor description = {description} setDescription = {setDescription} />
 
                         {/* Dropdowns */}
                         <DropdownCalendar expirationDate={expirationDate} setExpirationDate={setExpirationDate}/>
                         <Section selectedSection = {selectedSection} setSelectedSection = {setSelectedSection}/>
-
                         <DropdownVisibility visibility={visibility} setVisibility={setVisibility} />
 
                         {/* Attached articles */}
@@ -153,9 +151,7 @@ function PopupIdea(props) {
 
                         {/* Buttons */}
                         <div className="align-bottons">
-
                             <DiscardButton text="Discard" discardAction={handleDiscardAttempt}/>
-
                                 <div className="right-buttons">
                                     <div className="convert-button">
                                         <ProceedButton text="Convert to Article" goto="/Dashboard" />
@@ -168,7 +164,7 @@ function PopupIdea(props) {
                     {/* RIGHT-COLUMN */}
                     <div className="idea-flex-right">
                         <div className="top-right">
-                            <CloseWindow closeAction={handleDiscardAttempt}/>
+                            <CloseWindow closeAction={handlePopupIdea}/>
                         </div>
                             
                         <h3>Comments</h3>

@@ -1,22 +1,29 @@
-import React, {useState, useEffect} from "react";
-import Parse from 'parse';
+import React, { useState, useEffect } from "react";
+import Parse from "parse";
 
 // Styling
-import './Card.css';
+import "./Card.css";
 
-function IdeaCard() {
-    const [cardIdeaTable, setCardIdeaTable] = useState([]);
+function IdeaCard({setPopup, setIdeaId}) {
+  const [cardIdeaTable, setCardIdeaTable] = useState([]);
 
-    useEffect(() => {
+  function handleClickIdeaPopup(card) {
+    console.log("idea card clicked!")
+    setPopup(true)
+    console.log("is this the id of the card?", card.id)
+    setIdeaId(card.id)
+
+}
+
+  useEffect(() => {
     getIdeaCard();
-    }, []);
+  }, []);
 
-    useEffect(() => {
+  useEffect(() => {
     console.log("from useEffect: ", cardIdeaTable);
-    }, [cardIdeaTable]);
+  }, [cardIdeaTable]);
 
-
-    async function getIdeaCard() {
+  async function getIdeaCard() {
     const Ideas = Parse.Object.extend("Idea");
     const query = new Parse.Query(Ideas);
     query.include("user");
@@ -34,9 +41,9 @@ function IdeaCard() {
       alert(`getIdeaCard Error Message ${error.message}`);
       return false;
     }
-    }
+  }
 
-    function destructure(idea) {
+  function destructure(idea) {
     return {
       id: idea.id,
       userImage: idea.get("user").get("userimage").url(),
@@ -51,18 +58,17 @@ function IdeaCard() {
     function destructureIdeas(ideas) {
     return ideas.map(destructure);
     }
-
-
+    
   return (
     <section className="card-container">
       {cardIdeaTable.map((card) => (
-        <div className="card">
+        <div className="card" onClick={() => handleClickIdeaPopup(card)}>
           <h3>{card.title}</h3>
           <div className="card-id">
             <small>
               #<small>{card.id}</small>
             </small>
-            <small>{card.expirationDate.toString().substring(4,15)}</small>
+            <small>{card.expirationDate.toString().substring(4, 15)}</small>
           </div>
           <p>{card.description}</p>
           <div className="tags">
