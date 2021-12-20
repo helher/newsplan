@@ -16,6 +16,8 @@ import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
 import SaveButton from '../../buttons/SaveButton/SaveButton';
 import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
 import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
+import AssignedJob from '../../job-list/AssignedJob';
+import AssignEmployee from '../../dropdowns/AssignEmployee/AssignEmployee';
 
 
 
@@ -29,6 +31,8 @@ function PopupArticle(props) {
     const [expirationDate, setExpirationDate] = useState()
     const [tags, setTags] = useState([])
     const [length, setLength] = useState()
+    const [jobResult, setJobResult] = useState()
+    const [selectedEmployee, setSelectedEmployee] = useState()
 
 
     async function handleDiscardAttempt() {
@@ -54,55 +58,67 @@ function PopupArticle(props) {
     }
 
 
-    return (props.popup) ? (
-        <div className="popup-page">
-            <div className="popup">
-                <section className="idea-container" >
-                    {/* LEFT-COLUMN */}
-                    <div className="idea-flex-left">
-                        <CreatedBy articleId={props.articleId}/>
-                        <TitleEdit title = {title} setTitle={setTitle}/>
-                        <RichTextEditor description = {description} setDescription = {setDescription} />
+    return props.popup ? (
+      <div className="popup-page">
+        <div className="popup">
+          <section className="idea-container">
+            {/* LEFT-COLUMN */}
+            <div className="idea-flex-left">
+              <CreatedBy articleId={props.articleId} />
+              <TitleEdit title={title} setTitle={setTitle} />
+              <RichTextEditor
+                description={description}
+                setDescription={setDescription}
+              />
 
-                        {/* Dropdowns */}
-                        <DropdownCalendar expirationDate={expirationDate} setExpirationDate={setExpirationDate}/>
-                        <InputTag tags = {tags} setTags = {setTags} />
-                        <DropdownLength length={length} setLength={setLength}/>
+              {/* Dropdowns */}
+              <DropdownCalendar
+                expirationDate={expirationDate}
+                setExpirationDate={setExpirationDate}
+              />
+              <InputTag tags={tags} setTags={setTags} />
+              <DropdownLength length={length} setLength={setLength} />
 
-                        {/* Attached articles */}
-                        <h5>Attached articles</h5>
-                        <p>No articles attached yet</p>
-                        <br/>
-                        <br/>
-                        <br/>
+              {/* Attached articles */}
+              <h5>Attached articles</h5>
+              <p>No articles attached yet</p>
+              <br />
+              <br />
+              <br />
 
-                        {/* Buttons */}
-                        <div className="align-bottons">
+              {/* Buttons */}
+              <div className="align-bottons">
+                <DiscardButton
+                  text="Discard"
+                  discardAction={handleDiscardAttempt}
+                />
 
-                            <DiscardButton text="Discard" discardAction={handleDiscardAttempt}/>
-
-                                <div className="right-buttons">
-                                    <div className="convert-button">
-                                        <ProceedButton text="Approve Article" goto="/Dashboard" />
-                                    </div>
-                                    <SaveButton />
-                                </div>
-                        </div>
-                    </div>
-
-                    {/* RIGHT-COLUMN */}
-                    <div className="idea-flex-right">
-                        <div className="top-right">
-                            <CloseWindow closeAction={handleDiscardAttempt}/>
-                        </div>
-                            
-                        <h3>Comments</h3>
-                    </div>
-                </section>
-                { props.children }
+                <div className="right-buttons">
+                  <div className="convert-button">
+                    <ProceedButton text="Approve Article" goto="/Dashboard" />
+                  </div>
+                  <SaveButton />
+                </div>
+              </div>
             </div>
+
+            {/* RIGHT-COLUMN */}
+            <div className="idea-flex-right">
+              <div className="top-right">
+                <CloseWindow closeAction={handleDiscardAttempt} />
+                <AssignedJob jobResult={jobResult} />
+                <AssignEmployee articleId = {props.articleId} JobResult={setJobResult} selectedEmployee = {selectedEmployee}/>
+              </div>
+
+              <h3>Comments</h3>
+            </div>
+          </section>
+          {props.children}
         </div>
-    ) : ""
+      </div>
+    ) : (
+      ""
+    );
 }
 
 export default PopupArticle

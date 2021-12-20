@@ -60,3 +60,15 @@
   line-height: 18px;
   color: black;
 }
+
+.job-comment-image-container {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.job-image-user-comment {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}

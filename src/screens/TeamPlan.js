@@ -7,6 +7,8 @@ import LoadButton from '../components/buttons/LoadButton/LoadButton'
 import AddEmployeeButton from '../components/buttons/AddEmployeeButton/AddEmployeeButton'
 import CommentForm from '../components/comment-form/CommentForm'
 import SectionTest from '../components/Test/SectionTest';
+import AssignedJob from '../components/job-list/AssignedJob'
+import AssignEmployee from '../components/dropdowns/AssignEmployee/AssignEmployee'
 
 
 const TeamPlan = () => {
@@ -16,6 +18,9 @@ const TeamPlan = () => {
                 <p>Teamplan</p>
                 <CommentForm />
                 <SectionTest />
+                <AssignedJob/>
+                <AssignEmployee/>
+                
             </div>
              <div className="footer-container">
                 <div className="footerteamplan-btns">
