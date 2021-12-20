@@ -85,7 +85,7 @@ function PopupIdea(props) {
       function convertDateToObjectDate(newDate) {
         const objectDate = {
             year: newDate.getFullYear(),
-            month: newDate.getMonth() + 1,
+            month: newDate.getMonth(),
             day: newDate.getDate()
         }
         return objectDate
@@ -101,38 +101,13 @@ function PopupIdea(props) {
         console.log("setter: ", props.cardObject)
     }
 
-/*     async function saveIdeaToDB() {
-        const Idea = Parse.Object.extend("Idea")
-        const newIdea = new Idea()
-        
-        const newDate = new Date(expirationDate.year, expirationDate.month -1, expirationDate.day +1)
-
-        newIdea.set("user", Parse.User.current())
-        newIdea.set("userimage", (Parse.User.current()).get("userimage"))
-        newIdea.set("author", (Parse.User.current()).get("username"))
-        newIdea.set("title", title)
-        newIdea.set("description", convertToPlain(description))
-        newIdea.set("expiration", newDate)
-        newIdea.set("sectionTest", selectedSection);
-        newIdea.set("visibility", visibility)
-
-        try{
-            let result = await newIdea.save()
-            alert('Idea created with ID: ' + result.id)
-            console.log('Object updated with objectId: ' + result.id)
-            props.setPopup(false)
-            clearPopup()
-        } catch(error) {
-            alert('Failed to update object, with error code: ' + error.message)
-        }
-    } */
 
     async function updateIdeaInDB() {
         const objectId = props.ideaId
         console.log("save idea started")
         const Idea = new Parse.Object('Idea')
         
-        const newDate = new Date(expirationDate.year, expirationDate.month -1, expirationDate.day +1)
+        const newDate = new Date(expirationDate.year, expirationDate.month, expirationDate.day)
 
         const id = Idea.set('objectId', objectId)
         console.log(id)
@@ -148,8 +123,8 @@ function PopupIdea(props) {
         Idea.set("visibility", visibility)
         try{
             let result = await Idea.save()
-            alert('Idea created with ID: ' + result.id)
-            console.log('Object updated with objectId: ' + result.id)
+            alert("Idea updated with objectId: " + result.id)
+            console.log('Idea updated with objectId: ' + result.id)
             props.setPopup(false)
             clearPopup()
         } catch(error) {
