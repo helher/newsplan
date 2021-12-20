@@ -13,7 +13,7 @@ const DropdownCalendar = ({expirationDate, setExpirationDate}) => {
       if (!expirationDate) return '';
 
       let month = `${expirationDate.month}`
-      const months = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
       let newMonth = months[month]
 

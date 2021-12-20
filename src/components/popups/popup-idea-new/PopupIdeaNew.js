@@ -5,7 +5,6 @@ import "./../Popup.css";
 //components
 import TitleEdit from "../../title-edit/TitleEdit";
 import SaveButton from "../../buttons/SaveButton/SaveButton";
-import ProceedButton from "../../buttons/ProceedButton/ProceedButton";
 import DiscardButton from "../../buttons/DiscardButton/DiscardButton";
 import CloseWindow from "../../buttons/CloseWindow/CloseWindow";
 import DropdownVisibility from "../../dropdowns/DropdownVisibility/DropdownVisibility";
@@ -23,7 +22,7 @@ function PopupIdeaNew(props) {
     year: 2023,
   });
   const [visibility, setVisibility] = useState();
-  const [selectedSection, setSelectedSection] = useState()
+  const [selectedSection, setSelectedSection] = useState();
 
   function clearPopup() {
     setTitle("");
@@ -55,8 +54,8 @@ function PopupIdeaNew(props) {
 
     const newDate = new Date(
       expirationDate.year,
-      expirationDate.month - 1,
-      expirationDate.day + 1
+      expirationDate.month,
+      expirationDate.day
     );
 
     newIdea.set("user", Parse.User.current());
@@ -64,6 +63,7 @@ function PopupIdeaNew(props) {
     newIdea.set("author", Parse.User.current().get("username"));
     newIdea.set("title", title);
     newIdea.set("description", convertToPlain(description));
+    console.log("newDate", newDate);
     newIdea.set("expiration", newDate);
     newIdea.set("section", selectedSection);
     newIdea.set("visibility", visibility);
@@ -71,7 +71,7 @@ function PopupIdeaNew(props) {
     try {
       let result = await newIdea.save();
       alert("Idea created with ID: " + result.id);
-      console.log("Object updated with objectId: " + result.id);
+      console.log("Idea created with ID: " + result.id);
       props.setPopupNew(false);
       clearPopup();
     } catch (error) {

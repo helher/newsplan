@@ -56,6 +56,7 @@ function IdeaCard(props) {
     }
     }
 
+
     function destructureIdeas(ideas) {
     return ideas.map(destructure);
     }
