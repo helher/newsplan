@@ -5,6 +5,7 @@ import './Articles.css'
 import Footer from '../components/footer/Footer';
 import LoadButton from '../components/buttons/LoadButton/LoadButton';
 import PopupArticle from '../components/popups/popup-article/PopupArticle';
+import StatusbarList from '../components/statusbar/StatusbarList'
 
 const Articles = () => {
 
@@ -17,6 +18,7 @@ return (
         <div className="article">
             {console.log("I am running")}
             <p>Articles Page</p>
+            {StatusbarList}
             <IdeaCard />
             <PopupArticle/>
         </div>

@@ -15,6 +15,7 @@ import RichTextEditor from "../../rich-text-editor/RichTextEdior";
 import CreatedBy from "../../createdBy/CreatedBy";
 import CommentForm from "../../comment-form/CommentForm";
 import CommentList from "../../commentList/CommentList";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 function PopupIdea(props) {
   /*     console.log("ideaid", props.ideaId) */
@@ -127,18 +128,18 @@ const [author, setAuthor] = useState();
     }
   }
 
-  function convertToArticle() {
+  async function createArticleInDB() {
       props.setPopup(false)
       props.setPopupArticle(true)
 
-/*     const Article = Parse.Object.extend("Article")
+    const Article = Parse.Object.extend("Article")
     const newArticle = new Article()
-
 
     try {
         let result = await newArticle.save()
         let idArticle = result.id
         props.setArticleId(idArticle)
+        console.log("id article from popupidea", idArticle)
     }
     catch(error) {
         alert(error.message)
@@ -148,9 +149,9 @@ const [author, setAuthor] = useState();
         }, error => {
         alert(error.message)
         })
-
-        console.log("createArticleInDB ended with articleId") */
   }
+
+
 
   return props.popup ? (
     <div className="popup-page">
@@ -195,7 +196,7 @@ const [author, setAuthor] = useState();
               />
               <div className="right-buttons">
                 <div className="convert-button">
-                  <ProceedButton text="Convert to Article" proceedAction={convertToArticle}/>
+                  <ProceedButton text="Convert to Article" proceedAction={createArticleInDB}/>
                 </div>
                 <SaveButton saveAction={updateIdeaInDB} />
               </div>

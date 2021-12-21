@@ -13,7 +13,7 @@ function Section({section, setSection}) {
   }, []);
 
    useEffect(() => {
-    console.log("from useEffect test results: ", readResults);
+/*     console.log("from useEffect test results: ", readResults); */
   }, [readResults]);
 
   const readSections = async function () {
@@ -26,7 +26,7 @@ function Section({section, setSection}) {
       })
       
       setReadResults(sections);
-      console.log("test output of section Parse: ",  readResults);
+/*       console.log("test output of section Parse: ",  readResults); */
       return true;
     } catch (error) {
       alert(`Error! ${error.message}`);
