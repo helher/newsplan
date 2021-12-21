@@ -22,9 +22,9 @@ function PopupIdea(props) {
 const [author, setAuthor] = useState();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
-  const [expirationDate, setExpirationDate] = useState();
+  const [date, setDate] = useState();
   const [visibility, setVisibility] = useState();
-  const [selectedSection, setSelectedSection] = useState();
+  const [section, setSection] = useState();
   const [commentResult, setCommentResult] = useState();
 
   useEffect(() => {
@@ -38,9 +38,9 @@ const [author, setAuthor] = useState();
   function clearPopup() {
     setTitle("");
     setDescription("");
-    setExpirationDate();
+    setDate();
     setVisibility("");
-    setSelectedSection();
+    setSection();
   }
 
   // This code is from https://dev.to/sanchithasr/3-ways-to-convert-html-text-to-plain-text-52l8
@@ -83,15 +83,16 @@ const [author, setAuthor] = useState();
       month: newDate.getMonth(),
       day: newDate.getDate(),
     };
+
     return objectDate;
   }
 
   async function setIdeaInfo() {
     setTitle(props.cardObject.title);
     setDescription(props.cardObject.description);
-    setSelectedSection(props.cardObject.section);
+    setSection(props.cardObject.section);
     setVisibility(props.cardObject.visibility);
-    setExpirationDate(convertDateToObjectDate(props.cardObject.expirationDate));
+    setDate(convertDateToObjectDate(props.cardObject.expirationDate));
     setAuthor(props.cardObject.author);
   }
 
@@ -101,9 +102,9 @@ const [author, setAuthor] = useState();
     const Idea = new Parse.Object("Idea");
 
     const newDate = new Date(
-      expirationDate.year,
-      expirationDate.month,
-      expirationDate.day
+      date.year,
+      date.month,
+      date.day
     );
 
     const id = Idea.set("objectId", objectId);
@@ -113,7 +114,7 @@ const [author, setAuthor] = useState();
     Idea.set("title", title);
     Idea.set("description", convertToPlain(description));
     Idea.set("expiration", newDate);
-    Idea.set("section", selectedSection);
+    Idea.set("section", section);
     Idea.set("visibility", visibility);
     try {
       let result = await Idea.save();
@@ -167,12 +168,12 @@ const [author, setAuthor] = useState();
             {/* Dropdowns */}
             <h5>Expiration Date</h5>
             <DropdownCalendar
-              expirationDate={expirationDate}
-              setExpirationDate={setExpirationDate}
+              date={date}
+              setDate={setDate}
             />
             <Section
-              selectedSection={selectedSection}
-              setSelectedSection={setSelectedSection}
+              section={section}
+              setSection={setSection}
             />
             <DropdownVisibility
               visibility={visibility}

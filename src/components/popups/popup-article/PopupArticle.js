@@ -27,9 +27,9 @@ function PopupArticle(props) {
     const [author, setAuthor] = useState()
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
-    const [deadline, setDeadline] = useState({
+    const [date, setDate] = useState({
         day: 1,
-        month: 1,
+        month: 0,
         year: 2023,
       });
     const [section, setSection] = useState()
@@ -45,8 +45,6 @@ function PopupArticle(props) {
         setTitle(props.cardObject.title);
         setDescription(props.cardObject.description);
         setSection(props.cardObject.section);
-        console.log("article card!!!!: ", props.cardObject);
-        console.log("section !!!", section)
       }
 
 
@@ -91,23 +89,28 @@ function PopupArticle(props) {
         const Article = Parse.Object.extend("Article");
         const newArticle = new Article();
     
-        const newDate = new Date(
-          deadline.year,
-          deadline.month,
-          deadline.day
+        const newDateObject = new Date(
+          date.year,
+          date.month,
+          date.day
         );
+
+        const constnewDateString = newDateObject.toString().substring(4,15)
+        
     
         newArticle.set("title", title);
         newArticle.set("description", convertToPlain(description));
-        newArticle.set("deadline", newDate);
-        newArticle.set("section", section);
-/*         newArticle.set("length", length); */
+        newArticle.set("ideaId", props.ideaId)
+        newArticle.set("deadline", constnewDateString)
+/*         newArticle.set("deadline", newDate);
+        newArticle.set("section", section); */
+/*          newArticle.set("length", length); */
     
         try {
           let result = await newArticle.save();
           alert("Article created with ID: " + result.id);
           console.log("Article created with ID: " + result.id);
-          props.setPopupNew(false);
+          props.setPopupArticle(false);
 /*           clearPopup(); */
         } catch (error) {
           alert("Failed to update object, with error code: " + error.message);
@@ -127,7 +130,7 @@ function PopupArticle(props) {
 
                         {/* Dropdowns */}
                         <h5>Deadline</h5>
-                        <DropdownCalendar deadline={deadline} setDeadline={setDeadline}/>
+                        <DropdownCalendar date={date} setDate={setDate}/>
                         <Section section={section} setSection={setSection}/>
                         <DropdownLength length={length} setLength={setLength}/>
 
