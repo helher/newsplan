@@ -7,6 +7,7 @@ import LoadButton from '../components/buttons/LoadButton/LoadButton'
 import AddEmployeeButton from '../components/buttons/AddEmployeeButton/AddEmployeeButton'
 import CommentForm from '../components/comment-form/CommentForm'
 import SectionTest from '../components/Test/SectionTest';
+import Statusbar from '../components/statusbar/Statusbar';
 
 
 const TeamPlan = () => {
@@ -16,6 +17,7 @@ const TeamPlan = () => {
                 <p>Teamplan</p>
                 <CommentForm />
                 <SectionTest />
+                <Statusbar width="160px" color="var(--statusbar-approved)"/>,
             </div>
              <div className="footer-container">
                 <div className="footerteamplan-btns">

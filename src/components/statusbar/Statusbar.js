@@ -2,6 +2,7 @@ import React from 'react'
 import './Statusbar.css';
 
 const Statusbar = ({
+        status,
         color,
         width
     }) => {
@@ -15,7 +16,7 @@ const Statusbar = ({
 
     return(
         <div className = "bar">
-            <CW color={color} width={width}></CW>
+            <CW status={status} color={color} width={width}></CW>
         </div>
     )
 }
