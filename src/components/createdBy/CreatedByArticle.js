@@ -10,7 +10,7 @@ function CreatedByArticle(props) {
     return (
         <div className="logo-and-id">
             <BiBrain className="idea-icon"/>
-            <p className="createdby-text"><b>Article</b>  from idea #{props.ideaId} created by {username}</p>
+            <p className="createdby-text"><b>Article</b>  from idea #{props.ideaId} created by FIX - (NOT RIGHT) {username}</p>
             <div className="id-label">{props.articleId}</div>
         </div>
     )

@@ -62,7 +62,7 @@ function PopupIdea(props) {
 
     try {
       let result = await Idea.destroy();
-      /*             alert('Success! Idea deleted with id: ' + result.id); */
+      /* alert('Success! Idea deleted with id: ' + result.id); */
       console.log("Success! Idea deleted with id: " + result.id);
       props.setPopup(false);
       clearPopup();
