@@ -135,9 +135,9 @@ function PopupArticle(props) {
         newArticle.set("description", convertToPlain(description));
         newArticle.set("ideaId", props.ideaId)
         newArticle.set("deadline", constnewDateString)
-        newArticle.set("deadline", constnewDateString);
         newArticle.set("section", section);
-          newArticle.set("length", length); 
+        newArticle.set("length", length); 
+
     
         try {
           let result = await newArticle.save();
