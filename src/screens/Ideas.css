@@ -20,7 +20,6 @@
 }
 
 .idea-table {
-  height: 400;
   width: 1260px !important;
 }
 
@@ -30,6 +29,10 @@
   font-size: 16px;
   line-height: 24px;
   color: var(--primary-color);
+}
+
+.css-204u17-MuiDataGrid-main {
+  width: 1360px;
 }
 
 .css-1nytev6-MuiDataGrid-root {

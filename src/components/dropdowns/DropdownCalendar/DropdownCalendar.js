@@ -21,7 +21,7 @@ const DropdownCalendar = ({date, setDate}) => {
     }
 
     return (
-        <div>
+        <>
         <DatePicker
             value={date}
             onChange={setDate}
@@ -30,7 +30,7 @@ const DropdownCalendar = ({date, setDate}) => {
             inputClassName="datePicker" // custom class
         />
             {/* <IoMdArrowDropdownCircle className="dropdowncalender-icon"/> */}
-      </div>
+            </>
     );
   };
 
