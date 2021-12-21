@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Parse from "parse";
 
+// Styles
 import "./Ideas.css";
-import Footer from "../components/footer/Footer";
 
+// Components
+import Footer from "../components/footer/Footer";
 import AddIdeaButton from "../components/buttons/AddIdeaButton/AddIdeaButton";
 import LoadButton from "../components/buttons/LoadButton/LoadButton";
 import PopupIdeaNew from "../components/popups/popup-idea-new/PopupIdeaNew";

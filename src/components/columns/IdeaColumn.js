@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import Parse from "parse";
 
 // Styling
-import "./Card.css";
+import "./IdeaColumn.css";
 
-function IdeaCard(props) {
+function IdeaColumn(props) {
 
   function handleClickIdeaPopup(card) {
     console.log("idea card clicked!")
@@ -62,15 +62,16 @@ function IdeaCard(props) {
     }
     
   return (
-    <section className="card-container">
+    <section className="idea-card-container">
+      <h2 className="column-title" >IDEAS</h2>
       {props.cardIdeaTable.map((card) => (
         <div className="card" onClick={() => handleClickIdeaPopup(card)}>
           <h3>{card.title}</h3>
           <div className="card-id">
             <small>
-              #<small>{card.id}</small>
+              <small>Expiration Date</small>
             </small>
-            <small>{card.expirationDate.toString().substring(4, 15)}</small>
+            <small>{card.expirationDate.toString().substring(4,15)}</small>
           </div>
           <p>{card.description}</p>
           <div className="tags">
@@ -86,4 +87,4 @@ function IdeaCard(props) {
   );
 }
 
-export default IdeaCard;
+export default IdeaColumn;
