@@ -41,9 +41,9 @@ const Dashboard = () => {
             <h1>Dashboard Page</h1>
             {/* <Column data={data}/> */}
             <IdeaCard setPopup={setPopup} setIdeaId={setIdeaId} cardIdeaTable={cardIdeaTable} setCardIdeaTable={setCardIdeaTable} setCardObject={setCardObject}/>
-            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId} cardObject={cardObject} setPopupArticle={setPopupArticle}/>
+            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId} cardObject={cardObject} setPopupArticle={setPopupArticle} setArticleId={setArticleId}/>
             <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
-            <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId}/>
+            <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId} articleId={articleId} cardObject={cardObject}/>
         </div>
         <div className="footer-container">
             <div className="footeridea-btns">

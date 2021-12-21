@@ -19,7 +19,7 @@ import CommentList from "../../commentList/CommentList";
 function PopupIdea(props) {
   /*     console.log("ideaid", props.ideaId) */
   /*     console.log("popup", props.popup) */
-
+const [author, setAuthor] = useState();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [expirationDate, setExpirationDate] = useState();
@@ -92,7 +92,7 @@ function PopupIdea(props) {
     setSelectedSection(props.cardObject.section);
     setVisibility(props.cardObject.visibility);
     setExpirationDate(convertDateToObjectDate(props.cardObject.expirationDate));
-    console.log("setter: ", props.cardObject);
+    setAuthor(props.cardObject.author);
   }
 
   async function updateIdeaInDB() {
@@ -110,9 +110,6 @@ function PopupIdea(props) {
     console.log(id);
 
     console.log("save idea id: " + id);
-    Idea.set("user", Parse.User.current());
-    Idea.set("userimage", Parse.User.current().get("userimage"));
-    Idea.set("author", Parse.User.current().get("username"));
     Idea.set("title", title);
     Idea.set("description", convertToPlain(description));
     Idea.set("expiration", newDate);
@@ -129,12 +126,30 @@ function PopupIdea(props) {
     }
   }
 
-  function createArticleInDB() {
+  function convertToArticle() {
       props.setPopup(false)
-    props.setPopupArticle(true)
+      props.setPopupArticle(true)
+
+/*     const Article = Parse.Object.extend("Article")
+    const newArticle = new Article()
+
+
+    try {
+        let result = await newArticle.save()
+        let idArticle = result.id
+        props.setArticleId(idArticle)
+    }
+    catch(error) {
+        alert(error.message)
+    }
+        await newArticle.fetch().then((newArticle) => {
+        const id = newArticle.id
+        }, error => {
+        alert(error.message)
+        })
+
+        console.log("createArticleInDB ended with articleId") */
   }
-
-
 
   return props.popup ? (
     <div className="popup-page">
@@ -142,7 +157,7 @@ function PopupIdea(props) {
         <section className="idea-container">
           {/* LEFT-COLUMN */}
           <div className="idea-flex-left">
-            <CreatedBy ideaId={props.ideaId} />
+            <CreatedBy ideaId={props.ideaId} author={author}/>
             <TitleEdit title={title} setTitle={setTitle} />
             <RichTextEditor
               description={description}
@@ -179,7 +194,7 @@ function PopupIdea(props) {
               />
               <div className="right-buttons">
                 <div className="convert-button">
-                  <ProceedButton text="Convert to Article" proceedAction={createArticleInDB}/>
+                  <ProceedButton text="Convert to Article" proceedAction={convertToArticle}/>
                 </div>
                 <SaveButton saveAction={updateIdeaInDB} />
               </div>
