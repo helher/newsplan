@@ -22,7 +22,6 @@ const DropdownCalendar = ({expirationDate, setExpirationDate}) => {
 
     return (
         <div>
-        <h5>Expiration Date</h5>
         <DatePicker
             value={expirationDate}
             onChange={setExpirationDate}

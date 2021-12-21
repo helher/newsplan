@@ -95,6 +95,7 @@ function PopupIdeaNew(props) {
               setDescription={setDescription}
             />
             {/* Dropdowns */}
+            <h5>Expiration Date</h5>
             <DropdownCalendar
               expirationDate={expirationDate}
               setExpirationDate={setExpirationDate}

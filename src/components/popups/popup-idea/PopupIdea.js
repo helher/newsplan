@@ -129,6 +129,13 @@ function PopupIdea(props) {
     }
   }
 
+  function createArticleInDB() {
+      props.setPopup(false)
+    props.setPopupArticle(true)
+  }
+
+
+
   return props.popup ? (
     <div className="popup-page">
       <div className="popup">
@@ -143,6 +150,7 @@ function PopupIdea(props) {
             />
 
             {/* Dropdowns */}
+            <h5>Expiration Date</h5>
             <DropdownCalendar
               expirationDate={expirationDate}
               setExpirationDate={setExpirationDate}
@@ -171,7 +179,7 @@ function PopupIdea(props) {
               />
               <div className="right-buttons">
                 <div className="convert-button">
-                  <ProceedButton text="Convert to Article" goto="/Dashboard" />
+                  <ProceedButton text="Convert to Article" proceedAction={createArticleInDB}/>
                 </div>
                 <SaveButton saveAction={updateIdeaInDB} />
               </div>

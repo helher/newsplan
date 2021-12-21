@@ -8,7 +8,7 @@ import TitleEdit from '../../title-edit/TitleEdit';
 import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import DropdownCalendar  from '../../dropdowns/DropdownCalendar/DropdownCalendar';
 import DropdownLength from './../../dropdowns/DropdownLength/DropdownLength';
-import CreatedBy from './../../createdBy/CreatedBy';
+import CreatedByArticle from './../../createdBy/CreatedByArticle';
 import InputTag from '../../input-tag/InputTag';
 
 //buttons
@@ -22,7 +22,7 @@ import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 function PopupArticle(props) {
 
     console.log("articleid", props.articleId)
-    console.log("popup", props.popup)
+    console.log("popup", props.popupArticle)
 
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
@@ -53,20 +53,25 @@ function PopupArticle(props) {
         };
     }
 
+    function approveArticle() {
+        return true
+    }
 
-    return (props.popup) ? (
+
+    return (props.popupArticle) ? (
         <div className="popup-page">
             <div className="popup">
                 <section className="idea-container" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        <CreatedBy articleId={props.articleId}/>
+                        <CreatedByArticle articleId={props.articleId} ideaId={props.ideaId}/>
                         <TitleEdit title = {title} setTitle={setTitle}/>
                         <RichTextEditor description = {description} setDescription = {setDescription} />
 
                         {/* Dropdowns */}
+                        <h5>Deadline</h5>
                         <DropdownCalendar expirationDate={expirationDate} setExpirationDate={setExpirationDate}/>
-                        <InputTag tags = {tags} setTags = {setTags} />
+{/*                         <InputTag tags = {tags} setTags = {setTags} /> */}
                         <DropdownLength length={length} setLength={setLength}/>
 
                         {/* Attached articles */}
@@ -83,7 +88,7 @@ function PopupArticle(props) {
 
                                 <div className="right-buttons">
                                     <div className="convert-button">
-                                        <ProceedButton text="Approve Article" goto="/Dashboard" />
+                                        <ProceedButton text="Approve Article" proceedAction={approveArticle} />
                                     </div>
                                     <SaveButton />
                                 </div>
