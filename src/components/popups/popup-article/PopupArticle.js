@@ -104,7 +104,7 @@ function PopupArticle(props) {
         newArticle.set("deadline", constnewDateString)
 /*         newArticle.set("deadline", newDate);
         newArticle.set("section", section); */
-/*          newArticle.set("length", length); */
+        newArticle.set("length", length);
     
         try {
           let result = await newArticle.save();
