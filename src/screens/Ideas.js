@@ -16,13 +16,13 @@ const columns = [
   {
     field: "title",
     headerName: "TITLE",
-    width: 470,
+    width: 600,
     editable: false,
   },
   {
     field: "section",
     headerName: "SECTION",
-    width: 390,
+    width: 350,
     editable: false,
   },
   {
@@ -39,7 +39,7 @@ const columns = [
     editable: false,
   },
   {
-    field: "expirationDate",
+    field: "expiration",
     headerName: "EXPIRATION",
     sortable: true,
     width: 160,
@@ -82,7 +82,7 @@ function Ideas() {
       section: idea.get("tags"),
       author: idea.get("author"),
       userimg: idea.get("userimage").url(),
-      expirationDate: idea.get("expiration").toString().substring(4,15),
+      expiration: idea.get("expiration").toString().substring(4,15),
     }
   }
 
@@ -96,14 +96,12 @@ function Ideas() {
       <div className="idea">
         <h1>Idea list</h1>
         <div className="idea-table" />
-        <div style={{ height: 400, width: "100%" }}>
           <DataGrid
             rows={ideaTable}
             columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
+            pageSize={20}
+            rowsPerPageOptions={[20]}
           />
-        </div>
       </div>
       <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
       <div className="footer-container">
