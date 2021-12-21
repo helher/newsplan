@@ -65,7 +65,7 @@ function ColumnOnHold(props)  {
             </small>
             <small>{card.deadline}</small>
           </div>
-          <p className="card-description">{card.description}</p>
+          <p>{card.description}</p>
           <div className="tags">
             {/* <InputTag/> */}
             <p>{card.section}</p>

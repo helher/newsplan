@@ -31,6 +31,8 @@
   margin: 10px 0px 0px 0px;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  max-height: 4.5em;
+  overflow: hidden;
 }
 
 .card {
@@ -62,11 +64,6 @@
 
 .card-date {
   display: flex;
-}
-
-.card-description {
-  max-height: 4.5em;
-  overflow: hidden;
 }
 
 .tags {
