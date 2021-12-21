@@ -18,7 +18,7 @@
   color: #ffffff;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .idea-card-container p {
@@ -60,6 +60,11 @@
 
 .card-date {
   display: flex;
+}
+
+.card-description {
+  max-height: 4.5em;
+  overflow: hidden;
 }
 
 .tags {

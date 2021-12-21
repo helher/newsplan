@@ -73,7 +73,7 @@ function IdeaColumn(props) {
             </small>
             <small>{card.expirationDate.toString().substring(4,15)}</small>
           </div>
-          <p>{card.description}</p>
+          <p className="card-description">{card.description}</p>
           <div className="tags">
             {/* <InputTag/> */}
             <p>{card.section}</p>
