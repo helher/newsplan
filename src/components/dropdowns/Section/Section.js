@@ -45,9 +45,8 @@ function Section({selectedSection, setSelectedSection}) {
         <div className="space"></div>
         <IoMdArrowDropdownCircle className="dropdown-icon" />
       </div>
-      <div className="section-dropdown-content">
       {isActive && (
-                    <div className="dropdown-content">
+                    <div className="section-dropdown-content">
                         {readResults.map((section) => ( 
                             <div 
                                 onClick={(e) => {
@@ -61,7 +60,6 @@ function Section({selectedSection, setSelectedSection}) {
                         ))}
                     </div>
                 )}
-        </div>
     </div>
     </div>
   );
