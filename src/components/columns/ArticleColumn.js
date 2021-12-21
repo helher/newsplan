@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Parse from 'parse';
-import './ArticleCard.css';
+import './ArticleColumn.css';
 import Loui_Avatar from './Loui_Avatar.png';
 
-function ArticleCard(props)  {
+function ArticleColumn(props)  {
 
   function handleClickIdeaPopup(card) {
     console.log("article card clicked!")
@@ -23,15 +23,14 @@ function ArticleCard(props)  {
     const articleObjects = Parse.Object.extend("Article");
     const query = new Parse.Query(articleObjects);
     query.include("workload");
-    query.descending("createdAt");
-    query.contains("deadline", props.today)
+    query.equalTo("deadline", props.date.toString().substring(4,15));
 
     try {
       const articles = await query.find();
       console.log("Parse Objects: ", articles);
       const destructuredIdeas = destructureIdeas(articles);
-      props.setCardArticleTable(destructuredIdeas);
-      console.log("from readIdeas: ", props.cardArticleTable);
+      props.setColumn(destructuredIdeas);
+      console.log("from readIdeas: ", props.column);
       return true;
     } catch (error) {
       alert(`getIdeaCard Error Message ${error.message}`);
@@ -56,15 +55,15 @@ function ArticleCard(props)  {
     
   return (
     <section className="card-container">
-        <h2 className="column-title">TODAY</h2>
-      {props.cardArticleTable.map((card) => (
+        <h2 className="column-title">{props.columnTitle}</h2>
+      {props.column.map((card) => (
         <div className="card" onClick={() => handleClickIdeaPopup(card)}>
           <h3>{card.title}</h3>
           <div className="card-id">
             <small>
               <small>Deadline</small>
             </small>
-            <small>{card.deadline.toString().substring(4, 15)}</small>
+            <small>{card.deadline}</small>
           </div>
           <p>{card.description}</p>
           <div className="tags">
@@ -80,4 +79,4 @@ function ArticleCard(props)  {
   );
 }
 
-export default ArticleCard;
+export default ArticleColumn;

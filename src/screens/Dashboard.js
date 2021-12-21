@@ -8,9 +8,9 @@ import Footer from '../components/footer/Footer';
 import AddIdeaButton from '../components/buttons/AddIdeaButton/AddIdeaButton';
 import PopupIdeaNew from '../components/popups/popup-idea-new/PopupIdeaNew';
 import PopupIdea from '../components/popups/popup-idea/PopupIdea';
-import IdeaCard from '../components/card/IdeaCard';
-import ArticleCard from '../components/card/ArticleCard';
-import { useTabContext } from '@mui/material';
+import IdeaColumn from '../components/columns/IdeaColumn';
+import ArticleColumn from '../components/columns/ArticleColumn';
+import ColumnOnHold from '../components/columns/ColumnOnHold';
 
 const Dashboard = () => {
     console.log('sup')
@@ -19,12 +19,23 @@ const Dashboard = () => {
     const [popup, setPopup] = useState(false);
     const [ideaId, setIdeaId] = useState();
     const [cardIdeaTable, setCardIdeaTable] = useState([]);
-    const [cardArticleTable, setCardArticleTable] = useState([]);
+    const [columnToday, setColumnToday] = useState([]);
+    const [columnTomorrow, setColumnTomorrow] = useState([]);
+    const [columnDATomorrow, setColumnDATomorrow] = useState([]);
+    const [columnOnHold, setColumnOnHold] = useState([]);
     const [cardObject, setCardObject] = useState();
 
-    const today = new Date().toString().substring(4,15);
-    console.log(today);
- 
+   
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    const dayAfterTomorrow = new Date(today);
+    dayAfterTomorrow.setDate(dayAfterTomorrow.getDate() + 2)
+   
+
+    console.log("today: ", today);
+    console.log("tomorrow: ", tomorrow);
+    console.log("day after tomorrow: ", dayAfterTomorrow);
 
     return (
         <>
@@ -32,8 +43,11 @@ const Dashboard = () => {
             <h1>Dashboard Page</h1>
             {/* <Column data={data}/> */}
             <div className="card-components">
-            <IdeaCard setPopup={setPopup} setIdeaId={setIdeaId} cardIdeaTable={cardIdeaTable} setCardIdeaTable={setCardIdeaTable} setCardObject={setCardObject}/>
-            <ArticleCard today={today} setPopup={setPopup} cardArticleTable={cardArticleTable} setCardArticleTable={setCardArticleTable} setCardObject={setCardObject}/>
+            <IdeaColumn setPopup={setPopup} setIdeaId={setIdeaId} cardIdeaTable={cardIdeaTable} setCardIdeaTable={setCardIdeaTable} setCardObject={setCardObject}/>
+            <ArticleColumn columnTitle="TODAY" date={today} setPopup={setPopup} column={columnToday} setColumn={setColumnToday} setCardObject={setCardObject}/>
+            <ArticleColumn columnTitle="TOMORROW" date={tomorrow} setPopup={setPopup} column={columnDATomorrow} setColumn={setColumnDATomorrow} setCardObject={setCardObject}/>
+            <ArticleColumn columnTitle="DAY AFTER TOMORROW" date={dayAfterTomorrow} setPopup={setPopup} column={columnTomorrow} setColumn={setColumnTomorrow} setCardObject={setCardObject}/>
+            <ColumnOnHold ideaId="dCpw1gH0lk" setPopup={setPopup} columnOnHold={columnOnHold} setColumnOnHold={setColumnOnHold} setCardObject={setCardObject}/>
             </div>
             <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId} cardObject={cardObject} />
             <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>

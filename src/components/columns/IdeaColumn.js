@@ -2,9 +2,9 @@ import React, {  useEffect } from "react";
 import Parse from "parse";
 
 // Styling
-import "./IdeaCard.css";
+import "./IdeaColumn.css";
 
-function IdeaCard(props) {
+function IdeaColumn(props) {
 
   function handleClickIdeaPopup(card) {
     console.log("idea card clicked!")
@@ -71,7 +71,7 @@ function IdeaCard(props) {
             <small>
               <small>Expiration Date</small>
             </small>
-            <small>{card.expirationDate.toString().substring(4, 15)}</small>
+            <small>{card.expirationDate.toString().substring(4,15)}</small>
           </div>
           <p>{card.description}</p>
           <div className="tags">
@@ -87,4 +87,4 @@ function IdeaCard(props) {
   );
 }
 
-export default IdeaCard;
+export default IdeaColumn;
