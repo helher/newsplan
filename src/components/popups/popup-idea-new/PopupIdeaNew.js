@@ -16,24 +16,24 @@ import Section from "../../dropdowns/Section/Section";
 function PopupIdeaNew(props) {
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
-  const [expirationDate, setExpirationDate] = useState({
+  const [date, setDate] = useState({
     day: 1,
     month: 1,
     year: 2023,
   });
   const [visibility, setVisibility] = useState();
-  const [selectedSection, setSelectedSection] = useState();
+  const [section, setSection] = useState();
 
   function clearPopup() {
     setTitle("");
     setDescription("");
-    setExpirationDate({
+    setDate({
       day: 1,
       month: 1,
       year: 2023,
     });
     setVisibility("");
-    setSelectedSection();
+    setSection();
   }
 
   // This code is from https://dev.to/sanchithasr/3-ways-to-convert-html-text-to-plain-text-52l8
@@ -53,9 +53,9 @@ function PopupIdeaNew(props) {
     const newIdea = new Idea();
 
     const newDate = new Date(
-      expirationDate.year,
-      expirationDate.month,
-      expirationDate.day
+      date.year,
+      date.month,
+      date.day
     );
 
     newIdea.set("user", Parse.User.current());
@@ -63,9 +63,8 @@ function PopupIdeaNew(props) {
     newIdea.set("author", Parse.User.current().get("username"));
     newIdea.set("title", title);
     newIdea.set("description", convertToPlain(description));
-    console.log("newDate", newDate);
     newIdea.set("expiration", newDate);
-    newIdea.set("section", selectedSection);
+    newIdea.set("section", section);
     newIdea.set("visibility", visibility);
 
     try {
@@ -95,13 +94,14 @@ function PopupIdeaNew(props) {
               setDescription={setDescription}
             />
             {/* Dropdowns */}
+            <h5>Expiration Date</h5>
             <DropdownCalendar
-              expirationDate={expirationDate}
-              setExpirationDate={setExpirationDate}
+              date={date}
+              setDate={setDate}
             />
             <Section
-              selectedSection={selectedSection}
-              setSelectedSection={setSelectedSection}
+              section={section}
+              setSection={setSection}
             />{" "}
             <DropdownVisibility
               visibility={visibility}

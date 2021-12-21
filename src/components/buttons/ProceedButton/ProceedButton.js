@@ -5,17 +5,12 @@ import { IoArrowForward } from 'react-icons/io5';
 
 const ProceedButton = ({
     text,
-    goto
+    proceedAction
 }) => {
 
-    let navigate = useNavigate();
-
-    function handleClick() {
-        navigate(goto)
-    }
 
     return (
-        <button className="proceed-btn" onClick={handleClick}>
+        <button className="proceed-btn" onClick={proceedAction}>
             <div class="button-text">{text}
                 <div className="circle">
                     <IoArrowForward className="proceed-icon"/>

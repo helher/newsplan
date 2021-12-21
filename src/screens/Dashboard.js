@@ -9,7 +9,9 @@ import AddIdeaButton from '../components/buttons/AddIdeaButton/AddIdeaButton';
 import PopupIdeaNew from '../components/popups/popup-idea-new/PopupIdeaNew';
 import PopupIdea from '../components/popups/popup-idea/PopupIdea'
 import IdeaCard from '../components/card/IdeaCard';
-;
+import PopupArticle from '../components/popups/popup-article/PopupArticle'
+
+
 const data = [
     {
         title: 'group 1',
@@ -27,6 +29,7 @@ const Dashboard = () => {
 
     const [popupNew, setPopupNew] = useState(false);
     const [popup, setPopup] = useState(false);
+    const [popupArticle, setPopupArticle] = useState(false);
     const [ideaId, setIdeaId] = useState();
     const [cardIdeaTable, setCardIdeaTable] = useState([]);
     const [cardObject, setCardObject] = useState();
@@ -38,8 +41,9 @@ const Dashboard = () => {
             <h1>Dashboard Page</h1>
             {/* <Column data={data}/> */}
             <IdeaCard setPopup={setPopup} setIdeaId={setIdeaId} cardIdeaTable={cardIdeaTable} setCardIdeaTable={setCardIdeaTable} setCardObject={setCardObject}/>
-            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId} cardObject={cardObject} />
+            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId} cardObject={cardObject} setPopupArticle={setPopupArticle} setArticleId={setArticleId}/>
             <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
+            <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId} articleId={articleId} cardObject={cardObject}/>
         </div>
         <div className="footer-container">
             <div className="footeridea-btns">
