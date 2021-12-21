@@ -22,8 +22,6 @@ import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 
 function PopupArticle(props) {
 
-    console.log("popup article renders!!!")
-
     const [author, setAuthor] = useState()
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
@@ -33,19 +31,92 @@ function PopupArticle(props) {
         year: 2023,
       });
     const [section, setSection] = useState()
-    const [length, setLength] = useState()
+    const [length, setLength] = useState("0-1000 words")
+    const [workload, setWorkload] = useState()
 
     useEffect(() => {
-        props.cardObject && setArticleInfoFromIdea();
-      }, [props]);
+        console.log("useffect from articlepopup is called with articleid", props.articleId)
+        props.cardObject && setArticleStateInfoFromIdea();
+      }, [props.articleId]);
 
-    async function setArticleInfoFromIdea() {
-        console.log("setArticleInfoFromIdea started")
+
+    async function setArticleStateInfoFromIdea() {
+        console.log("setArticleInfoFromIdea started..")
         setAuthor(props.cardObject.author);
         setTitle(props.cardObject.title);
         setDescription(props.cardObject.description);
         setSection(props.cardObject.section);
+        console.log("author", author)
+        console.log("title", title)
+        console.log("des", description)
+        console.log("section", section)
       }
+
+      async function updateArticleInDB() {
+/*         if () */
+        console.log("updateArticleInDB with article id: ", props.articleId)
+        const objectId = props.articleId;
+        const Article = new Parse.Object("Article");
+    
+        const newDate = new Date(
+          date.year,
+          date.month,
+          date.day
+        );
+
+        const constnewDateString = newDate.toString().substring(4,15)
+
+        Article.set("objectId", objectId);
+        Article.set("title", title);
+        Article.set("description", convertToPlain(description));
+        Article.set("ideaId", props.ideaId)
+        Article.set("deadline", constnewDateString)
+        Article.set("section", section);
+        Article.set("length", length); 
+        try {
+          let result = await Article.save();
+          console.log("Article updated with objectId: " + result.id);
+        } catch (error) {
+          alert("Failed to update article object from PopupArticle, with error code: " + error.message);
+        }
+      }
+
+/*     async function updateArticleInDB() {
+        const objectId = props.articleId;
+        console.log("save idea started");
+        const Idea = new Parse.Object("Idea");
+    
+        const newDate = new Date(
+          date.year,
+          date.month,
+          date.day
+        );
+
+        newArticle.set("title", title);
+        newArticle.set("description", convertToPlain(description));
+        newArticle.set("ideaId", props.ideaId)
+        newArticle.set("deadline", constnewDateString)
+        newArticle.set("deadline", newDate);
+        newArticle.set("section", section);
+        newArticle.set("length", length); 
+    
+    
+        console.log("save idea id: " + id);
+        Idea.set("title", title);
+        Idea.set("description", convertToPlain(description));
+        Idea.set("expiration", newDate);
+        Idea.set("section", section);
+        Idea.set("visibility", visibility);
+        try {
+          let result = await Idea.save();
+          alert("Idea updated with objectId: " + result.id);
+          console.log("Idea updated with objectId: " + result.id);
+          props.setPopup(false);
+          clearPopup();
+        } catch (error) {
+          alert("Failed to update object, with error code: " + error.message);
+        }
+      } */
 
 
     async function handleDiscardAttempt() {
@@ -85,7 +156,7 @@ function PopupArticle(props) {
     return temporaryText.textContent || temporaryText.innerText || "";
   }
 
-    async function createArticleInDB() {
+/*     async function createArticleInDB() {
         const Article = Parse.Object.extend("Article");
         const newArticle = new Article();
     
@@ -102,20 +173,20 @@ function PopupArticle(props) {
         newArticle.set("description", convertToPlain(description));
         newArticle.set("ideaId", props.ideaId)
         newArticle.set("deadline", constnewDateString)
-/*         newArticle.set("deadline", newDate);
-        newArticle.set("section", section); */
-/*          newArticle.set("length", length); */
+        newArticle.set("deadline", constnewDateString);
+        newArticle.set("section", section);
+          newArticle.set("length", length); 
     
         try {
           let result = await newArticle.save();
           alert("Article created with ID: " + result.id);
           console.log("Article created with ID: " + result.id);
           props.setPopupArticle(false);
-/*           clearPopup(); */
+/*            clearPopup();
         } catch (error) {
           alert("Failed to update object, with error code: " + error.message);
         }
-      }
+      } */
 
 
     return (props.popupArticle) ? (
@@ -150,7 +221,7 @@ function PopupArticle(props) {
                                     <div className="convert-button">
                                         <ProceedButton text="Approve Article" proceedAction={approveArticle} />
                                     </div>
-                                    <SaveButton saveAction={createArticleInDB} />
+                                    <SaveButton saveAction={updateArticleInDB} />
                                 </div>
                         </div>
                     </div>

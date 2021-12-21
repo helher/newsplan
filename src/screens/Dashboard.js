@@ -34,6 +34,7 @@ const Dashboard = () => {
     const [cardIdeaTable, setCardIdeaTable] = useState([]);
     const [cardObject, setCardObject] = useState();
     const [articleId, setArticleId] = useState()
+    const [readyToConvert, setReadyToConvert] = useState()
 
     return (
         <>
@@ -41,9 +42,9 @@ const Dashboard = () => {
             <h1>Dashboard Page</h1>
             {/* <Column data={data}/> */}
             <IdeaCard setPopup={setPopup} setIdeaId={setIdeaId} cardIdeaTable={cardIdeaTable} setCardIdeaTable={setCardIdeaTable} setCardObject={setCardObject}/>
-            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId} cardObject={cardObject} setPopupArticle={setPopupArticle} setArticleId={setArticleId}/>
+            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId} cardObject={cardObject} setPopupArticle={setPopupArticle} setArticleId={setArticleId} setReadyToConvert={setReadyToConvert} articleId={articleId}/>
             <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
-            <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId} articleId={articleId} cardObject={cardObject}/>
+            <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId} articleId={articleId} cardObject={cardObject} readyToConvert={readyToConvert}/>
         </div>
         <div className="footer-container">
             <div className="footeridea-btns">
