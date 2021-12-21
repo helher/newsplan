@@ -1,12 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoMdArrowDropdownCircle } from 'react-icons/io'; 
 import './DropdownLength.css'; 
+import Parse from 'parse'; 
+
 
 
 function DropdownLength({length, setLength}) {
 
 const [isActive, setIsActive] = useState(false)
-const options = ['0-1000 words', '2000-3000 words', '30000-4000 words', '4000-5000 words']
+const [readResults, setReadResults] = useState([])
+let lengthOptions = []
+
+useEffect(() => {
+    readWorkload();
+}, []);
+
+useEffect(() => {}, [readResults]);
+
+const readWorkload = async function () {
+    let query = new Parse.Query("Length");
+    let lengthOption = await query.find();
+
+    try {
+        lengthOption.forEach((lengthOption) => {
+        lengthOptions.push(lengthOption.get("words"));
+        });
+
+    setReadResults(lengthOptions);
+    return true; 
+}catch (error) {
+    alert(`Error! ${error.message}`);
+    return false;
+}
+}
+
 
     return (
         <div className="dropdown">
@@ -19,18 +46,19 @@ const options = ['0-1000 words', '2000-3000 words', '30000-4000 words', '4000-50
                 <IoMdArrowDropdownCircle className="dropdown-icon"/>
             </div>
             {isActive && (
-                <div className="dropdown-content">
-                    {options.map((option) => ( 
-                        <div 
-                            onClick={(e) => {
-                                setLength(option)
-                                setIsActive(false)
-                            }}
-                            className="dropdown-item">
-                                <h6>{option}</h6>
-                        </div>
-                    ))}
+            <div className="dropdown-content">
+            {readResults.map((lengthOption) => (
+                <div
+                    onClick={(e) => {
+                    setLength(lengthOption);
+                    setIsActive(false);
+                    }}
+                    className="dropdown-item"
+                >
+                    <h6>{lengthOption}</h6>
                 </div>
+                ))}
+            </div>
             )}
         </div>
     </div>
