@@ -53,7 +53,6 @@ function PopupArticle(props) {
       }
 
       async function updateArticleInDB() {
-/*         if () */
         console.log("updateArticleInDB with article id: ", props.articleId)
         const objectId = props.articleId;
         const Article = new Parse.Object("Article");
@@ -76,47 +75,11 @@ function PopupArticle(props) {
         try {
           let result = await Article.save();
           console.log("Article updated with objectId: " + result.id);
+          props.setPopupArticle(false)
         } catch (error) {
           alert("Failed to update article object from PopupArticle, with error code: " + error.message);
         }
       }
-
-/*     async function updateArticleInDB() {
-        const objectId = props.articleId;
-        console.log("save idea started");
-        const Idea = new Parse.Object("Idea");
-    
-        const newDate = new Date(
-          date.year,
-          date.month,
-          date.day
-        );
-
-        newArticle.set("title", title);
-        newArticle.set("description", convertToPlain(description));
-        newArticle.set("ideaId", props.ideaId)
-        newArticle.set("deadline", constnewDateString)
-        newArticle.set("deadline", newDate);
-        newArticle.set("section", section);
-        newArticle.set("length", length); 
-    
-    
-        console.log("save idea id: " + id);
-        Idea.set("title", title);
-        Idea.set("description", convertToPlain(description));
-        Idea.set("expiration", newDate);
-        Idea.set("section", section);
-        Idea.set("visibility", visibility);
-        try {
-          let result = await Idea.save();
-          alert("Idea updated with objectId: " + result.id);
-          console.log("Idea updated with objectId: " + result.id);
-          props.setPopup(false);
-          clearPopup();
-        } catch (error) {
-          alert("Failed to update object, with error code: " + error.message);
-        }
-      } */
 
 
     async function handleDiscardAttempt() {
@@ -149,7 +112,7 @@ function PopupArticle(props) {
         props.setPopupArticle(false)
     }
 
-      // This code is from https://dev.to/sanchithasr/3-ways-to-convert-html-text-to-plain-text-52l8
+    // This code is from https://dev.to/sanchithasr/3-ways-to-convert-html-text-to-plain-text-52l8
   function convertToPlain(description) {
     var temporaryText = document.createElement("div");
     temporaryText.innerHTML = description;
@@ -167,7 +130,6 @@ function PopupArticle(props) {
         );
 
         const constnewDateString = newDateObject.toString().substring(4,15)
-        
     
         newArticle.set("title", title);
         newArticle.set("description", convertToPlain(description));
@@ -182,7 +144,7 @@ function PopupArticle(props) {
           alert("Article created with ID: " + result.id);
           console.log("Article created with ID: " + result.id);
           props.setPopupArticle(false);
-/*            clearPopup();
+          /* clearPopup();
         } catch (error) {
           alert("Failed to update object, with error code: " + error.message);
         }
