@@ -12,11 +12,12 @@ import IdeaColumn from '../components/columns/IdeaColumn';
 import ArticleColumn from '../components/columns/ArticleColumn';
 import ColumnOnHold from '../components/columns/ColumnOnHold';
 
+
 const Dashboard = () => {
-    console.log('sup')
 
     const [popupNew, setPopupNew] = useState(false);
     const [popup, setPopup] = useState(false);
+    const [popupArticle, setPopupArticle] = useState(false);
     const [ideaId, setIdeaId] = useState();
     const [cardIdeaTable, setCardIdeaTable] = useState([]);
     const [columnToday, setColumnToday] = useState([]);
@@ -33,15 +34,12 @@ const Dashboard = () => {
     dayAfterTomorrow.setDate(dayAfterTomorrow.getDate() + 2)
    
 
-    console.log("today: ", today);
-    console.log("tomorrow: ", tomorrow);
-    console.log("day after tomorrow: ", dayAfterTomorrow);
-
     return (
         <>
         <div className="dashboard">
             <h1>Dashboard Page</h1>
             {/* <Column data={data}/> */}
+
             <div className="card-components">
             <IdeaColumn setPopup={setPopup} setIdeaId={setIdeaId} cardIdeaTable={cardIdeaTable} setCardIdeaTable={setCardIdeaTable} setCardObject={setCardObject}/>
             <ArticleColumn columnTitle="TODAY" date={today} setPopup={setPopup} column={columnToday} setColumn={setColumnToday} setCardObject={setCardObject}/>
@@ -51,6 +49,7 @@ const Dashboard = () => {
             </div>
             <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId} cardObject={cardObject} />
             <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
+            <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId} articleId={articleId} cardObject={cardObject}/>
         </div>
         <div className="footer-container">
             <div className="footeridea-btns">
