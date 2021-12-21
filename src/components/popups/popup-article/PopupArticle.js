@@ -166,10 +166,6 @@ function PopupArticle(props) {
                         <DropdownCalendar date={date} setDate={setDate}/>
                         <Section section={section} setSection={setSection}/>
                         <DropdownLength length={length} setLength={setLength}/>
-
-                        {/* Attached articles */}
-                        <h5>Attached articles</h5>
-                        <p>No articles attached yet</p>
                         <br/>
                         <br/>
                         <br/>
