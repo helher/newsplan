@@ -7,6 +7,7 @@ import './Dashboard.css';
 import Footer from '../components/footer/Footer';
 import AddIdeaButton from '../components/buttons/AddIdeaButton/AddIdeaButton';
 import PopupIdeaNew from '../components/popups/popup-idea-new/PopupIdeaNew';
+import PopupArticle from '../components/popups/popup-article/PopupArticle';
 import PopupIdea from '../components/popups/popup-idea/PopupIdea';
 import IdeaColumn from '../components/columns/IdeaColumn';
 import ArticleColumn from '../components/columns/ArticleColumn';
@@ -19,6 +20,7 @@ const Dashboard = () => {
     const [popup, setPopup] = useState(false);
     const [popupArticle, setPopupArticle] = useState(false);
     const [ideaId, setIdeaId] = useState();
+    const [articleId, setArticleId] = useState()
     const [cardIdeaTable, setCardIdeaTable] = useState([]);
     const [columnToday, setColumnToday] = useState([]);
     const [columnTomorrow, setColumnTomorrow] = useState([]);
