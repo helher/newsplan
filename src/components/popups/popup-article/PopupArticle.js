@@ -31,21 +31,21 @@ function PopupArticle(props) {
     const [workload, setWorkload] = useState()
 
     useEffect(() => {
-        props.articleCardObject && setArticleStateInfoFromIdea();
+        props.ideaCardObject && setArticleStateInfoFromIdea();
       }, [props.articleId]);
 
     async function setArticleStateInfoFromIdea() {
-        console.log("setArticleInfoFromIdea started..", props.articleCardObject)
-        setAuthor(props.articleCardObject.author);
-        setTitle(props.articleCardObject.title);
-        setDescription(props.articleCardObject.description);
-        setSection(props.articleCardObject.section);
-         setLength(props.articleCardObject.length)
-       /*  setDate(props.articleCardObject.deadline) */
+        console.log("setArticleInfoFromIdea started..", props.ideaCardObject)
+        setAuthor(props.ideaCardObject.author);
+        setTitle(props.ideaCardObject.title);
+        setDescription(props.ideaCardObject.description);
+        setSection(props.ideaCardObject.section);
+        setLength(props.articleCardObject.length)
+        setDate(convertDateStringToObject(props.articleCardObject.deadline))
       }
 
 
-      function convertObjectDateToString(date) {
+      function convertDateObjectToString(date) {
         let month = `${date.month}`
         const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
         let newMonth = months[month]
@@ -54,6 +54,28 @@ function PopupArticle(props) {
         const completeNewDateString = newDateString.substring(1, newDateString.length - 1);
     
         return completeNewDateString
+      }
+
+      function convertDateStringToObject(date) {
+        const stringArr = date.split(" ");
+    
+        const dateObject = {
+          day: stringArr[1],
+          month: stringArr[0],
+          year: stringArr[2]
+        }
+    
+        let month = `${dateObject.month}`
+        const months = ['', "Jan", 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        let newMonth = months.indexOf(month)
+    
+        const newDateObject = {
+          day: parseInt(stringArr[1]),
+          month: newMonth,
+          year: parseInt(stringArr[2])
+        }
+    
+        return newDateObject
       }
 
 
@@ -66,7 +88,7 @@ function PopupArticle(props) {
           Article.set("title", title);
           Article.set("description", convertToPlain(description));
           Article.set("ideaId", props.ideaId)
-          Article.set("deadline", convertObjectDateToString(date))
+          Article.set("deadline", convertDateObjectToString(date))
           Article.set("section", section);
           Article.set("length", length); 
 

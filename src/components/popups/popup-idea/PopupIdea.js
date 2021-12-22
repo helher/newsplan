@@ -15,7 +15,6 @@ import RichTextEditor from "../../rich-text-editor/RichTextEdior";
 import CreatedBy from "../../createdBy/CreatedBy";
 import CommentForm from "../../comment-form/CommentForm";
 import CommentList from "../../commentList/CommentList";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 function PopupIdea(props) {
   const [author, setAuthor] = useState();
@@ -29,6 +28,15 @@ function PopupIdea(props) {
   useEffect(() => {
     props.ideaCardObject && setIdeaInfo();
   }, [props]);
+
+  async function setIdeaInfo() {
+    setTitle(props.ideaCardObject.title);
+    setDescription(props.ideaCardObject.description);
+    setSection(props.ideaCardObject.section);
+    setVisibility(props.ideaCardObject.visibility);
+    setAuthor(props.ideaCardObject.author);
+    setDate(convertDateStringToObject(props.ideaCardObject.expiration))
+  }
 
 
   function clearPopup() {
@@ -46,7 +54,7 @@ function PopupIdea(props) {
     return temporaryText.textContent || temporaryText.innerText || "";
   }
 
-  function convertObjectDateToString(date) {
+  function convertDateObjectToString(date) {
     let month = `${date.month}`
     const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     let newMonth = months[month]
@@ -55,6 +63,28 @@ function PopupIdea(props) {
     const completeNewDateString = newDateString.substring(1, newDateString.length - 1);
 
     return completeNewDateString
+  }
+
+  function convertDateStringToObject(date) {
+    const stringArr = date.split(" ");
+
+    const dateObject = {
+      day: stringArr[1],
+      month: stringArr[0],
+      year: stringArr[2]
+    }
+
+    let month = `${dateObject.month}`
+    const months = ['', "Jan", 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    let newMonth = months.indexOf(month)
+
+    const newDateObject = {
+      day: parseInt(stringArr[1]),
+      month: newMonth,
+      year: parseInt(stringArr[2])
+    }
+
+    return newDateObject
   }
 
   async function handleDiscardAttempt() {
@@ -80,18 +110,6 @@ function PopupIdea(props) {
     props.setPopup(false);
   }
 
-  async function setIdeaInfo() {
-    setTitle(props.ideaCardObject.title);
-    setDescription(props.ideaCardObject.description);
-    setSection(props.ideaCardObject.section);
-    setVisibility(props.ideaCardObject.visibility);
-    setDate({
-      day: 1,
-      month: 1,
-      year: 2023,
-    })
-    setAuthor(props.ideaCardObject.author);
-  }
 
   async function updateIdeaInDB() {
     const objectId = props.ideaId;
@@ -103,7 +121,7 @@ function PopupIdea(props) {
     console.log("save idea id: " + id);
     Idea.set("title", title);
     Idea.set("description", convertToPlain(description));
-    Idea.set("expirationS", convertObjectDateToString(date));
+    Idea.set("expirationS", convertDateObjectToString(date));
     Idea.set("section", section);
     Idea.set("visibility", visibility);
     try {
@@ -135,7 +153,7 @@ function PopupIdea(props) {
     props.setArticleId(latestArticle.id)
     console.log("latest article id ", latestArticle.id)
     newArticle.set("title", title).save()
-    newArticle.set("description", description).save()
+    newArticle.set("description", convertToPlain(description)).save()
     newArticle.set("section", section).save()
 
     }, error => {
