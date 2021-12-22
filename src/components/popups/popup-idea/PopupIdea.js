@@ -18,8 +18,6 @@ import CommentList from "../../commentList/CommentList";
 import { propTypes } from "react-bootstrap/esm/Image";
 
 function PopupIdea(props) {
-  /*     console.log("ideaid", props.ideaId) */
-  /*     console.log("popup", props.popup) */
   const [author, setAuthor] = useState();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
@@ -29,12 +27,9 @@ function PopupIdea(props) {
   const [commentResult, setCommentResult] = useState();
 
   useEffect(() => {
-    props.cardObject && setIdeaInfo();
+    props.ideaCardObject && setIdeaInfo();
   }, [props]);
 
-  /*       useEffect(() => {
-        console.log("from useEffect in popup: ", props.cardObject);
-      }, [props.cardObject]) */
 
   function clearPopup() {
     setTitle("");
@@ -64,13 +59,9 @@ function PopupIdea(props) {
 
   async function handleDiscardAttempt() {
     const objectId = props.ideaId;
-    console.log("handlediscard id: ", objectId);
-    console.log("delete started");
-
     const Idea = new Parse.Object("Idea");
     const id = Idea.set("objectId", objectId);
 
-    console.log(id);
 
     try {
       let result = await Idea.destroy();
@@ -90,16 +81,16 @@ function PopupIdea(props) {
   }
 
   async function setIdeaInfo() {
-    setTitle(props.cardObject.title);
-    setDescription(props.cardObject.description);
-    setSection(props.cardObject.section);
-    setVisibility(props.cardObject.visibility);
+    setTitle(props.ideaCardObject.title);
+    setDescription(props.ideaCardObject.description);
+    setSection(props.ideaCardObject.section);
+    setVisibility(props.ideaCardObject.visibility);
     setDate({
       day: 1,
       month: 1,
       year: 2023,
     })
-    setAuthor(props.cardObject.author);
+    setAuthor(props.ideaCardObject.author);
   }
 
   async function updateIdeaInDB() {
@@ -134,7 +125,7 @@ function PopupIdea(props) {
     const newArticle = new Article()
 
     try {
-        await newArticle.save()
+      await newArticle.save()
     }
     catch(error) {
        alert(error)
@@ -150,7 +141,7 @@ function PopupIdea(props) {
     }, error => {
     alert(error)
     })
-}
+  }
 
 
   return props.popup ? (

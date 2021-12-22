@@ -7,11 +7,9 @@ function ArticleColumn(props)  {
 
   function handleClickIdeaPopup(card) {
     console.log("article card clicked!")
-    props.setPopup(true)
-    console.log("is this the id of the card?", card.id)
+    props.setPopupArticle(true)
     props.setArticleId(card.id)
-    props.setCardObject(card)
-    console.log("this is the articlecard: ", card)
+    props.setArticleCardObject(card)
 }
 
   useEffect(() => {

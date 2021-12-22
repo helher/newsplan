@@ -31,20 +31,17 @@ function PopupArticle(props) {
     const [workload, setWorkload] = useState()
 
     useEffect(() => {
-        console.log("useffect from articlepopup is called with articleid", props.articleId)
-        props.cardObject && setArticleStateInfoFromIdea();
+        props.articleCardObject && setArticleStateInfoFromIdea();
       }, [props.articleId]);
 
     async function setArticleStateInfoFromIdea() {
-        console.log("setArticleInfoFromIdea started..")
-        setAuthor(props.cardObject.author);
-        setTitle(props.cardObject.title);
-        setDescription(props.cardObject.description);
-        setSection(props.cardObject.section);
-
-
-/*         setLength(props.cardObject.length)
-        setDate(props.cardObject.deadline) */
+        console.log("setArticleInfoFromIdea started..", props.articleCardObject)
+        setAuthor(props.articleCardObject.author);
+        setTitle(props.articleCardObject.title);
+        setDescription(props.articleCardObject.description);
+        setSection(props.articleCardObject.section);
+         setLength(props.articleCardObject.length)
+       /*  setDate(props.articleCardObject.deadline) */
       }
 
 
