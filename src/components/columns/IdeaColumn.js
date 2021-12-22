@@ -51,7 +51,7 @@ function IdeaColumn(props) {
       description: idea.get("description"),
       section: idea.get("section"),
       author: idea.get("author"),
-      expirationDate: idea.get("expiration"),
+      expiration: idea.get("expirationS"),
       visibility: idea.get("visibility")
     }
     }
@@ -71,7 +71,7 @@ function IdeaColumn(props) {
             <small>
               <small>Expiration Date</small>
             </small>
-            <small>{card.expirationDate.toString().substring(4,15)}</small>
+            <small>{card.expiration}</small>
           </div>
           <p>{card.description}</p>
           <div className="tags">

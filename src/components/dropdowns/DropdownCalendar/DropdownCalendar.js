@@ -13,11 +13,11 @@ const DropdownCalendar = ({date, setDate}) => {
       if (!date) return '';
 
       let month = `${date.month}`
-      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+      const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
       let newMonth = months[month]
 
-      return `${newMonth} ${date.day}, ${date.year}`;
+      return `${newMonth} ${date.day} ${date.year}`;
     }
 
     return (
