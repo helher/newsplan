@@ -43,6 +43,17 @@ function PopupIdeaNew(props) {
     return temporaryText.textContent || temporaryText.innerText || "";
   }
 
+  function convertObjectDateToString(date) {
+    let month = `${date.month}`
+    const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    let newMonth = months[month]
+
+    const newDateString = JSON.stringify(`${newMonth} ${date.day} ${date.year}`)
+    const completeNewDateString = newDateString.substring(1, newDateString.length - 1);
+
+    return completeNewDateString
+  }
+
   function handlePopupIdeaNew() {
     props.setPopupNew(false);
     clearPopup();
@@ -52,18 +63,12 @@ function PopupIdeaNew(props) {
     const Idea = Parse.Object.extend("Idea");
     const newIdea = new Idea();
 
-    const newDate = new Date(
-      date.year,
-      date.month,
-      date.day
-    );
-
     newIdea.set("user", Parse.User.current());
     newIdea.set("userimage", Parse.User.current().get("userimage"));
     newIdea.set("author", Parse.User.current().get("username"));
     newIdea.set("title", title);
     newIdea.set("description", convertToPlain(description));
-    newIdea.set("expiration", newDate);
+    newIdea.set("expirationS", convertObjectDateToString(date));
     newIdea.set("section", section);
     newIdea.set("visibility", visibility);
 

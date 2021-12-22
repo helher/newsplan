@@ -20,7 +20,7 @@ import { propTypes } from "react-bootstrap/esm/Image";
 function PopupIdea(props) {
   /*     console.log("ideaid", props.ideaId) */
   /*     console.log("popup", props.popup) */
-const [author, setAuthor] = useState();
+  const [author, setAuthor] = useState();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [date, setDate] = useState();
@@ -51,6 +51,17 @@ const [author, setAuthor] = useState();
     return temporaryText.textContent || temporaryText.innerText || "";
   }
 
+  function convertObjectDateToString(date) {
+    let month = `${date.month}`
+    const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    let newMonth = months[month]
+
+    const newDateString = JSON.stringify(`${newMonth} ${date.day} ${date.year}`)
+    const completeNewDateString = newDateString.substring(1, newDateString.length - 1);
+
+    return completeNewDateString
+  }
+
   async function handleDiscardAttempt() {
     const objectId = props.ideaId;
     console.log("handlediscard id: ", objectId);
@@ -63,7 +74,6 @@ const [author, setAuthor] = useState();
 
     try {
       let result = await Idea.destroy();
-      /* alert('Success! Idea deleted with id: ' + result.id); */
       console.log("Success! Idea deleted with id: " + result.id);
       props.setPopup(false);
       clearPopup();
@@ -78,35 +88,17 @@ const [author, setAuthor] = useState();
     props.setPopup(false);
   }
 
-  function convertDateToObjectDate(newDate) {
-    const objectDate = {
-      year: newDate.getFullYear(),
-      month: newDate.getMonth(),
-      day: newDate.getDate(),
-    };
-
-    return objectDate;
-  }
-
   async function setIdeaInfo() {
     setTitle(props.cardObject.title);
     setDescription(props.cardObject.description);
     setSection(props.cardObject.section);
     setVisibility(props.cardObject.visibility);
-    setDate(convertDateToObjectDate(props.cardObject.expirationDate));
     setAuthor(props.cardObject.author);
   }
 
   async function updateIdeaInDB() {
     const objectId = props.ideaId;
-    console.log("save idea started");
     const Idea = new Parse.Object("Idea");
-
-    const newDate = new Date(
-      date.year,
-      date.month,
-      date.day
-    );
 
     const id = Idea.set("objectId", objectId);
     console.log(id);
@@ -114,7 +106,7 @@ const [author, setAuthor] = useState();
     console.log("save idea id: " + id);
     Idea.set("title", title);
     Idea.set("description", convertToPlain(description));
-    Idea.set("expiration", newDate);
+    Idea.set("expirationS", convertObjectDateToString(date));
     Idea.set("section", section);
     Idea.set("visibility", visibility);
     try {
