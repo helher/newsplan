@@ -4,7 +4,7 @@ import { IoMdArrowDropdownCircle } from "react-icons/io";
 import Parse from "parse";
 import { List } from "antd";
 
-function AssignWorkload() {
+function AssignWorkload(props) {
   const [isActive, setIsActive] = useState(false);
   const [readResults, setReadResults] = useState([]);
 
@@ -24,7 +24,7 @@ function AssignWorkload() {
   return (
     <div className="workload-dropdown" onClick={readWorkload}>
       <h5>Workload</h5>
-      <div className="dropdown-btn" onClick={() => setIsActive(!isActive)}>
+      <div className="workload-dropdown-btn" onClick={() => setIsActive(!isActive)}>
          <p>Select</p>
         <div className="space"></div>
         <IoMdArrowDropdownCircle className="dropdown-icon" />

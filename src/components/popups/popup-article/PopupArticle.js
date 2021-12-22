@@ -11,6 +11,7 @@ import DropdownLength from './../../dropdowns/DropdownLength/DropdownLength';
 import CreatedByArticle from './../../createdBy/CreatedByArticle';
 import InputTag from '../../input-tag/InputTag'; // DON'T REMOVE INCLUDE SOME CSS (WE SHOULD CHANGE THIS!)
 import Section from '../../dropdowns/Section/Section';
+import AssignEmployee from '../../dropdowns/AssignEmployee/AssignEmployee';
 
 //buttons
 import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
@@ -33,6 +34,7 @@ function PopupArticle(props) {
     const [section, setSection] = useState()
     const [length, setLength] = useState("0-1000 words")
     const [workload, setWorkload] = useState()
+    const [selectedEmployee, setSelectedEmployee] = useState(); 
 
     useEffect(() => {
         console.log("useffect from articlepopup is called with articleid", props.articleId)
@@ -193,8 +195,10 @@ function PopupArticle(props) {
                         <div className="top-right">
                             <CloseWindow closeAction={handlePopupArticle}/>
                         </div>
+                        <h3>Employee</h3>
+                        <AssignEmployee selectedEmployee={selectedEmployee}
+                        setSelectedEmployee={setSelectedEmployee}/>
                             
-                        <h3>Comments</h3>
                     </div>
                 </section>
                 { props.children }

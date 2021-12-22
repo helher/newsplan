@@ -9,7 +9,6 @@
 
 .status-dropdown-select {
   width: 180px;
-  height: 40px;
   user-select: none;
 }
 
@@ -23,6 +22,7 @@
   justify-content: space-between;
   text-align: center;
   padding: 10px;
+  width: 120px;
 }
 
 .space {
@@ -48,15 +48,26 @@
   transition: all 0.2s;
 }
 
-.status-dropdown-item:hover {
-  background-color: var(--accented-color-40);
-  cursor: pointer;
+.joblist-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 10px;
 }
 
-.selected-status {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
+.status-text {
+  padding-right: 20px;
+  font-size: 14px;
+  padding-top: 5px;
+}
+
+.employee-info-and-avatar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.selected-employee-info {
   font-size: 12px;
-  line-height: 18px;
-  color: black;
+  padding-bottom: none;
 }

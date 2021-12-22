@@ -1,1 +1,6 @@
 @import url(./../../../index.css);
+
+.assign-dropdowns {
+  display: flex;
+  align-items: center;
+}
