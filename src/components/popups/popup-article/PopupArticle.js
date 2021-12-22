@@ -27,7 +27,7 @@ function PopupArticle(props) {
     const [description, setDescription] = useState()
     const [date, setDate] = useState({
         day: 1,
-        month: 0,
+        month: 1,
         year: 2023,
       });
     const [section, setSection] = useState()
