@@ -132,23 +132,21 @@ function PopupIdea(props) {
 
     const Article = Parse.Object.extend("Article")
     const newArticle = new Article()
+    
 
     try {
-        let result = await newArticle.save()
-        let idArticle = result.id
-        props.setArticleId(idArticle)
-        console.log("id article from popupidea", idArticle)
-    }
-    catch(error) {
+        const randomId = Math.floor(Math.random() *100000)
+        newArticle.set("objectId", randomId)
+        console.log("id test", newArticle.id)
+        newArticle.set("title", title).save()
+        newArticle.set("description", description).save()
+        newArticle.set("section", section).save()
+        props.setArticleId(randomId)
+    
+      }catch(error) {
         alert(error.message)
     }
-        await newArticle.fetch().then((newArticle) => {
-        const id = newArticle.id
-        }, error => {
-        alert(error.message)
-        })
   }
-
 
 
   return props.popup ? (
