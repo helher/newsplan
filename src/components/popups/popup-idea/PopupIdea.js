@@ -84,6 +84,7 @@ function PopupIdea(props) {
     }
   }
 
+
   function handlePopupIdea() {
     props.setPopup(false);
   }
@@ -93,6 +94,11 @@ function PopupIdea(props) {
     setDescription(props.cardObject.description);
     setSection(props.cardObject.section);
     setVisibility(props.cardObject.visibility);
+    setDate({
+      day: 1,
+      month: 1,
+      year: 2023,
+    })
     setAuthor(props.cardObject.author);
   }
 
