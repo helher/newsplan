@@ -1,10 +1,11 @@
 import React , { useState, useEffect } from 'react'
-import './PopupArticle.css'
+import "./../Popup.css";
 import Parse from 'parse';
 
 
 //components
 import TitleEdit from '../../title-edit/TitleEdit';
+import AssignEmployee from '../../dropdowns/AssignEmployee/AssignEmployee';
 import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import DropdownCalendar  from '../../dropdowns/DropdownCalendar/DropdownCalendar';
 import DropdownLength from './../../dropdowns/DropdownLength/DropdownLength';
@@ -33,6 +34,8 @@ function PopupArticle(props) {
     const [section, setSection] = useState()
     const [length, setLength] = useState("0-1000 words")
     const [workload, setWorkload] = useState()
+    const [selectedEmployee, setSelectedEmployee] = useState();
+    const [assignedEmployees, setAssignedEmployees] = useState();
 
     useEffect(() => {
         console.log("useffect from articlepopup is called with articleid", props.articleId)
@@ -189,8 +192,7 @@ function PopupArticle(props) {
                         <div className="top-right">
                             <CloseWindow closeAction={handlePopupArticle}/>
                         </div>
-                            
-                        <h3>Comments</h3>
+                         <AssignEmployee selectedEmployee={selectedEmployee} setSelectedEmployee={setSelectedEmployee} setAssignedEmployees={setAssignedEmployees} articleId={props}/> 
                     </div>
                 </section>
                 { props.children }
