@@ -11,7 +11,7 @@ function ArticleColumn(props)  {
     console.log("is this the id of the card?", card.id)
     props.setArticleId(card.id)
     props.setCardObject(card)
-    console.log("this is the card: ", card)
+    console.log("this is the articlecard: ", card)
 }
 
   useEffect(() => {
@@ -45,6 +45,7 @@ function ArticleColumn(props)  {
       description: article.get("description"),
       section: article.get("section"),
       deadline: article.get("deadline"),
+      length: article.get("length")
     }
     }
 

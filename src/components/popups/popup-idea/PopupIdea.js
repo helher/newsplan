@@ -126,27 +126,31 @@ function PopupIdea(props) {
     }
   }
 
-  async function createArticleInDB() {
-      props.setPopup(false)
-      props.setPopupArticle(true)
+  async function convertToArticle() {
+    props.setPopup(false)
+    props.setPopupArticle(true)
 
     const Article = Parse.Object.extend("Article")
     const newArticle = new Article()
-    
 
     try {
-        const randomId = Math.floor(Math.random() *100000)
-        newArticle.set("objectId", randomId)
-        console.log("id test", newArticle.id)
-        newArticle.set("title", title).save()
-        newArticle.set("description", description).save()
-        newArticle.set("section", section).save()
-        props.setArticleId(randomId)
-    
-      }catch(error) {
-        alert(error.message)
+        await newArticle.save()
     }
-  }
+    catch(error) {
+       alert(error)
+   }
+
+    await newArticle.fetch().then((latestArticle) => {
+    props.setArticleId(latestArticle.id)
+    console.log("latest article id ", latestArticle.id)
+    newArticle.set("title", title).save()
+    newArticle.set("description", description).save()
+    newArticle.set("section", section).save()
+
+    }, error => {
+    alert(error)
+    })
+}
 
 
   return props.popup ? (
@@ -192,7 +196,7 @@ function PopupIdea(props) {
               />
               <div className="right-buttons">
                 <div className="convert-button">
-                  <ProceedButton text="Convert to Article" proceedAction={createArticleInDB}/>
+                  <ProceedButton text="Convert to Article" proceedAction={convertToArticle}/>
                 </div>
                 <SaveButton saveAction={updateIdeaInDB} />
               </div>

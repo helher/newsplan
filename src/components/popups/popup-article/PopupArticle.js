@@ -25,13 +25,9 @@ function PopupArticle(props) {
     const [author, setAuthor] = useState()
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
-    const [date, setDate] = useState({
-        day: 1,
-        month: 1,
-        year: 2023,
-      });
+    const [date, setDate] = useState();
     const [section, setSection] = useState()
-    const [length, setLength] = useState("0-1000 words")
+    const [length, setLength] = useState()
     const [workload, setWorkload] = useState()
 
     useEffect(() => {
@@ -45,11 +41,12 @@ function PopupArticle(props) {
         setTitle(props.cardObject.title);
         setDescription(props.cardObject.description);
         setSection(props.cardObject.section);
-        console.log("author", author)
-        console.log("title", title)
-        console.log("des", description)
-        console.log("section", section)
+
+
+/*         setLength(props.cardObject.length)
+        setDate(props.cardObject.deadline) */
       }
+
 
       function convertObjectDateToString(date) {
         let month = `${date.month}`
@@ -62,11 +59,11 @@ function PopupArticle(props) {
         return completeNewDateString
       }
 
+
       async function updateArticleInDB() {
           console.log("updateArticleInDB with article id: ", props.articleId)
           const objectId = props.articleId;
           const Article = new Parse.Object("Article");
-    
   
           Article.set("objectId", objectId);
           Article.set("title", title);
@@ -122,38 +119,6 @@ function PopupArticle(props) {
     temporaryText.innerHTML = description;
     return temporaryText.textContent || temporaryText.innerText || "";
   }
-
-/*     async function createArticleInDB() {
-        const Article = Parse.Object.extend("Article");
-        const newArticle = new Article();
-    
-        const newDateObject = new Date(
-          date.year,
-          date.month,
-          date.day
-        );
-
-        const constnewDateString = newDateObject.toString().substring(4,15)
-    
-        newArticle.set("title", title);
-        newArticle.set("description", convertToPlain(description));
-        newArticle.set("ideaId", props.ideaId)
-        newArticle.set("deadline", constnewDateString)
-        newArticle.set("section", section);
-        newArticle.set("length", length); 
-
-    
-        try {
-          let result = await newArticle.save();
-          alert("Article created with ID: " + result.id);
-          console.log("Article created with ID: " + result.id);
-          props.setPopupArticle(false);
-          /* clearPopup();
-        } catch (error) {
-          alert("Failed to update object, with error code: " + error.message);
-        }
-      } */
-
 
     return (props.popupArticle) ? (
         <div className="popup-page">
