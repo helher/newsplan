@@ -27,7 +27,7 @@ function PopupArticle(props) {
     const [description, setDescription] = useState()
     const [date, setDate] = useState({
         day: 1,
-        month: 0,
+        month: 1,
         year: 2023,
       });
     const [section, setSection] = useState()
@@ -38,7 +38,6 @@ function PopupArticle(props) {
         console.log("useffect from articlepopup is called with articleid", props.articleId)
         props.cardObject && setArticleStateInfoFromIdea();
       }, [props.articleId]);
-
 
     async function setArticleStateInfoFromIdea() {
         console.log("setArticleInfoFromIdea started..")
@@ -52,33 +51,38 @@ function PopupArticle(props) {
         console.log("section", section)
       }
 
-      async function updateArticleInDB() {
-        console.log("updateArticleInDB with article id: ", props.articleId)
-        const objectId = props.articleId;
-        const Article = new Parse.Object("Article");
+      function convertObjectDateToString(date) {
+        let month = `${date.month}`
+        const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        let newMonth = months[month]
     
-        const newDate = new Date(
-          date.year,
-          date.month,
-          date.day
-        );
+        const newDateString = JSON.stringify(`${newMonth} ${date.day} ${date.year}`)
+        const completeNewDateString = newDateString.substring(1, newDateString.length - 1);
+    
+        return completeNewDateString
+      }
 
-        const constnewDateString = newDate.toString().substring(4,15)
+      async function updateArticleInDB() {
+          console.log("updateArticleInDB with article id: ", props.articleId)
+          const objectId = props.articleId;
+          const Article = new Parse.Object("Article");
+    
+  
+          Article.set("objectId", objectId);
+          Article.set("title", title);
+          Article.set("description", convertToPlain(description));
+          Article.set("ideaId", props.ideaId)
+          Article.set("deadline", convertObjectDateToString(date))
+          Article.set("section", section);
+          Article.set("length", length); 
 
-        Article.set("objectId", objectId);
-        Article.set("title", title);
-        Article.set("description", convertToPlain(description));
-        Article.set("ideaId", props.ideaId)
-        Article.set("deadline", constnewDateString)
-        Article.set("section", section);
-        Article.set("length", length); 
-        try {
-          let result = await Article.save();
-          console.log("Article updated with objectId: " + result.id);
-          props.setPopupArticle(false)
-        } catch (error) {
-          alert("Failed to update article object from PopupArticle, with error code: " + error.message);
-        }
+          try {
+            let result = await Article.save();
+            console.log("Article updated with objectId: " + result.id);
+            props.setPopupArticle(false)
+          } catch (error) {
+            alert("Failed to update article object from PopupArticle, with error code: " + error.message);
+          }
       }
 
 
