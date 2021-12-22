@@ -29,6 +29,9 @@ const columns = [
     headerName: "STATUS",
     width: 390,
     editable: false,
+    renderCell: (params) => (
+      <Statusbar status={params.value}/>
+    ),
   },
   {
     field: "deadline",
@@ -73,8 +76,7 @@ const [articleTable, setArticleTable] = useState();
       title: article.get("title"),
       section: article.get("section"),
       deadline: article.get("deadline"),
-    status: article.get("status"),
-
+      status: article.get("status"),
     }
   }
 

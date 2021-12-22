@@ -15,9 +15,7 @@ const TeamPlan = () => {
         <>
             <div className="teamplan">
                 <p>Teamplan</p>
-                <CommentForm />
-                <SectionTest />
-                <Statusbar width="160px" color="var(--statusbar-approved)"/>,
+                <Statusbar status="planned"/>
             </div>
              <div className="footer-container">
                 <div className="footerteamplan-btns">
