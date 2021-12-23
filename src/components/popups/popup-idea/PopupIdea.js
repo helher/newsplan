@@ -75,12 +75,12 @@ function PopupIdea(props) {
     }
 
     let month = `${dateObject.month}`
-    const months = ['', "Jan", 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     let newMonth = months.indexOf(month)
 
     const newDateObject = {
       day: parseInt(stringArr[1]),
-      month: newMonth,
+      month: newMonth+1,
       year: parseInt(stringArr[2])
     }
 
