@@ -7,10 +7,10 @@ function ColumnOnHold(props)  {
 
   function handleClickIdeaPopup(card) {
     console.log("article card clicked!")
-    props.setPopup(true)
+    props.setPopupArticle(true)
     console.log("is this the id of the card?", card.id)
     props.setArticleId(card.id)
-    props.setCardObject(card)
+    props.setArticleCardObject(card)
     console.log("this is the card: ", card)
 }
 

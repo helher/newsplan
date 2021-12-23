@@ -9,10 +9,8 @@ function IdeaColumn(props) {
   function handleClickIdeaPopup(card) {
     console.log("idea card clicked!")
     props.setPopup(true)
-    console.log("is this the id of the card?", card.id)
     props.setIdeaId(card.id)
-    props.setCardObject(card)
-    console.log("this is the card: ", card)
+    props.setIdeaCardObject(card)
 }
 
   useEffect(() => {

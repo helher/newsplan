@@ -26,7 +26,8 @@ const Dashboard = () => {
     const [columnTomorrow, setColumnTomorrow] = useState([]);
     const [columnDATomorrow, setColumnDATomorrow] = useState([]);
     const [columnOnHold, setColumnOnHold] = useState([]);
-    const [cardObject, setCardObject] = useState();
+    const [ideaCardObject, setIdeaCardObject] = useState();
+    const [articleCardObject, setArticleCardObject] = useState();
 
     const today = new Date();
     const tomorrow = new Date(today);
@@ -43,16 +44,16 @@ const Dashboard = () => {
             {/* <Column data={data}/> */}
 
             <div className="card-components">
-            <IdeaColumn setPopup={setPopup} setIdeaId={setIdeaId} cardIdeaTable={cardIdeaTable} setCardIdeaTable={setCardIdeaTable} setCardObject={setCardObject}/>
-            <ArticleColumn columnTitle="TODAY" date={today} setArticleId={setArticleId} setPopup={setPopupArticle} column={columnToday} setColumn={setColumnToday} setCardObject={setCardObject}/>
-            <ArticleColumn columnTitle="TOMORROW" date={tomorrow} setArticleId={setArticleId} setPopup={setPopupArticle} column={columnDATomorrow} setColumn={setColumnDATomorrow} setCardObject={setCardObject}/>
-            <ArticleColumn columnTitle="DAY AFTER TOMORROW" date={dayAfterTomorrow} setArticleId={setArticleId} setPopup={setPopupArticle} column={columnTomorrow} setColumn={setColumnTomorrow} setCardObject={setCardObject}/>
-            <ColumnOnHold ideaId="dCpw1gH0lk" setPopup={setPopupArticle} setArticleId={setArticleId} columnOnHold={columnOnHold} setColumnOnHold={setColumnOnHold} setCardObject={setCardObject}/>
+            <IdeaColumn setPopup={setPopup} setIdeaId={setIdeaId} cardIdeaTable={cardIdeaTable} setCardIdeaTable={setCardIdeaTable} setIdeaCardObject={setIdeaCardObject}/>
+            <ArticleColumn columnTitle="TODAY" date={today} setArticleId={setArticleId} setPopupArticle={setPopupArticle} column={columnToday} setColumn={setColumnToday} setArticleCardObject={setArticleCardObject}/>
+            <ArticleColumn columnTitle="TOMORROW" date={tomorrow} setArticleId={setArticleId} setPopupArticle={setPopupArticle} column={columnDATomorrow} setColumn={setColumnDATomorrow} setArticleCardObject={setArticleCardObject}/>
+            <ArticleColumn columnTitle="DAY AFTER TOMORROW" date={dayAfterTomorrow} setArticleId={setArticleId} setPopupArticle={setPopupArticle} column={columnTomorrow} setColumn={setColumnTomorrow} setArticleCardObject={setArticleCardObject}/>
+            <ColumnOnHold ideaId="dCpw1gH0lk" setPopupArticle={setPopupArticle} setArticleId={setArticleId} columnOnHold={columnOnHold} setColumnOnHold={setColumnOnHold} setArticleCardObject={setArticleCardObject}/>
             
              </div>
-            <PopupIdea  popup={popup} setPopup={setPopup} ideaId={ideaId} cardObject={cardObject} setPopupArticle={setPopupArticle} setArticleId={setArticleId} articleId={articleId}/>
+            <PopupIdea  popup={popup} setPopup={setPopup} ideaId={ideaId} ideaCardObject={ideaCardObject} setPopupArticle={setPopupArticle} setArticleId={setArticleId} articleId={articleId}/>
             <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
-            <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId} articleId={articleId} cardObject={cardObject} />
+            <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId} articleId={articleId} ideaCardObject={ideaCardObject} articleCardObject={articleCardObject}/>
         </div>
         <div className="footer-container">
             <div className="footeridea-btns">
