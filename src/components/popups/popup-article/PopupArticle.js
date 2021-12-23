@@ -34,14 +34,25 @@ function PopupArticle(props) {
         props.ideaCardObject && setArticleStateInfoFromIdea();
       }, [props.articleId]);
 
+      useEffect(() => {
+        props.articleCardObject && setArticleState();
+      }, [props.articleCardObject]);
+
     async function setArticleStateInfoFromIdea() {
         console.log("setArticleInfoFromIdea started..", props.ideaCardObject)
         setAuthor(props.ideaCardObject.author);
         setTitle(props.ideaCardObject.title);
         setDescription(props.ideaCardObject.description);
         setSection(props.ideaCardObject.section);
-/*         setLength(props.articleCardObject.length)
-        setDate(convertDateStringToObject(props.articleCardObject.deadline)) */
+      }
+
+      async function setArticleState() {
+        setAuthor(props.articleCardObject.author);
+        setTitle(props.articleCardObject.title);
+        setDescription(props.articleCardObject.description);
+        setDate(convertDateStringToObject(props.articleCardObject.deadline))
+        setSection(props.articleCardObject.section);
+        setLength(props.articleCardObject.length)
       }
 
 
