@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Parse from 'parse';
 import './ArticleColumn.css';
 import Loui_Avatar from './Loui_Avatar.png';
+import Statusbar from '../statusbar/Statusbar';
 
 function ArticleColumn(props)  {
 
@@ -44,6 +45,7 @@ function ArticleColumn(props)  {
       section: article.get("section"),
       deadline: article.get("deadline"),
       length: article.get("length")
+      status: article.get("status")
     }
     }
 
@@ -69,6 +71,7 @@ function ArticleColumn(props)  {
             {/* <InputTag/> */}
             <p>{card.section}</p>
           </div>
+          <Statusbar status={card.status} />
           <div className="assigned-people">
             <img src={Loui_Avatar} alt="test"/>
           </div>
