@@ -53,7 +53,7 @@ const Dashboard = () => {
              </div>
             <PopupIdea  popup={popup} setPopup={setPopup} ideaId={ideaId} ideaCardObject={ideaCardObject} setPopupArticle={setPopupArticle} setArticleId={setArticleId} articleId={articleId}/>
             <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
-            <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId} articleId={articleId} articleCardObject={articleCardObject} />
+            <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId} articleId={articleId} ideaCardObject={ideaCardObject} />
         </div>
         <div className="footer-container">
             <div className="footeridea-btns">

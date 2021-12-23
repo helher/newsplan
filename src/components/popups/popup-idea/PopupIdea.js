@@ -150,11 +150,11 @@ function PopupIdea(props) {
    }
 
     await newArticle.fetch().then((latestArticle) => {
-    props.setArticleId(latestArticle.id)
     console.log("latest article id ", latestArticle.id)
     newArticle.set("title", title).save()
     newArticle.set("description", convertToPlain(description)).save()
     newArticle.set("section", section).save()
+    props.setArticleId(latestArticle.id)
 
     }, error => {
     alert(error)

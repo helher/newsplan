@@ -40,8 +40,8 @@ function PopupArticle(props) {
         setTitle(props.ideaCardObject.title);
         setDescription(props.ideaCardObject.description);
         setSection(props.ideaCardObject.section);
-        setLength(props.articleCardObject.length)
-        setDate(convertDateStringToObject(props.articleCardObject.deadline))
+/*         setLength(props.articleCardObject.length)
+        setDate(convertDateStringToObject(props.articleCardObject.deadline)) */
       }
 
 
