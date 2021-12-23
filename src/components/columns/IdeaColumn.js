@@ -53,6 +53,7 @@ function IdeaColumn(props) {
       author: idea.get("author"),
       expiration: idea.get("expirationS"),
       visibility: idea.get("visibility")
+     
     }
     }
 
