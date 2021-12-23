@@ -44,7 +44,7 @@ function ArticleColumn(props)  {
       description: article.get("description"),
       section: article.get("section"),
       deadline: article.get("deadline"),
-      length: article.get("length")
+      length: article.get("length"),
       status: article.get("status")
     }
     }
