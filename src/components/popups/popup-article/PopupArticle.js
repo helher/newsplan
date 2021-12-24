@@ -155,7 +155,7 @@ function PopupArticle(props) {
                 <section className="idea-container" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        <CreatedByArticle articleId={props.articleId} ideaId={props.ideaId} author={props.ideaCardObject.author}/>
+                        <CreatedByArticle articleId={props.articleId} ideaId={props.ideaId} author={author}/>
                         <TitleEdit title = {title} setTitle={setTitle}/>
                         <RichTextEditor description = {description} setDescription = {setDescription} />
 
