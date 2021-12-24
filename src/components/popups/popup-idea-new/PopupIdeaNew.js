@@ -74,7 +74,6 @@ function PopupIdeaNew(props) {
 
     try {
       let result = await newIdea.save();
-      alert("Idea created with ID: " + result.id);
       console.log("Idea created with ID: " + result.id);
       props.setPopupNew(false);
       clearPopup();

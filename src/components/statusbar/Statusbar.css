@@ -2,12 +2,12 @@
 
 .bar {
   background-color: var(--statusbar-backgroundcolor);
-  width: 200px;
-  height: 7px;
+  width: 170px;
+  height: 6px;
   border-radius: 10px;
 }
 
 .cw {
-  height: 7px;
+  height: 6px;
   border-radius: 10px;
 }

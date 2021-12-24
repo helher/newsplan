@@ -9,7 +9,6 @@ import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import DropdownCalendar  from '../../dropdowns/DropdownCalendar/DropdownCalendar';
 import DropdownLength from './../../dropdowns/DropdownLength/DropdownLength';
 import CreatedByArticle from './../../createdBy/CreatedByArticle';
-import InputTag from '../../input-tag/InputTag'; // DON'T REMOVE INCLUDE SOME CSS (WE SHOULD CHANGE THIS!)
 import Section from '../../dropdowns/Section/Section';
 
 //buttons
@@ -156,7 +155,7 @@ function PopupArticle(props) {
                 <section className="idea-container" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        <CreatedByArticle articleId={props.articleId} ideaId={props.ideaId} author={author}/>
+                        <CreatedByArticle articleId={props.articleId} ideaId={props.ideaId} author={props.ideaCardObject.author}/>
                         <TitleEdit title = {title} setTitle={setTitle}/>
                         <RichTextEditor description = {description} setDescription = {setDescription} />
 

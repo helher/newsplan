@@ -16,15 +16,15 @@ const Statusbar = ({status}) => {
     case "planned":
       return <div className="bar">{ColorWidth("var(--statusbar-neutral)", "50px")}</div>;
     case "approved":
-      return <div className="bar">{ColorWidth("var(--statusbar-approved)", "200px")}</div>;
+      return <div className="bar">{ColorWidth("var(--statusbar-approved)", "170px")}</div>;
     case "accepted":
       return <div className="bar">{ColorWidth("var(--statusbar-neutral)", "100px")}</div>;
     case "onhold":
-      return <div className="bar">{ColorWidth("var(--statusbar-onhold)", "50px")}</div>;
+      return <div className="bar">{ColorWidth("var(--statusbar-onhold)", "90px")}</div>;
     case "finished":
-        return <div className="bar">{ColorWidth("var(--statusbar-neutral)", "160px")}</div>;
+        return <div className="bar">{ColorWidth("var(--statusbar-neutral)", "150px")}</div>;
     case "warning":
-        return <div className="bar">{ColorWidth("var(--statusbar-warning)", "200px")}</div>;
+        return <div className="bar">{ColorWidth("var(--statusbar-warning)", "170px")}</div>;
     default:
       return null;
   }

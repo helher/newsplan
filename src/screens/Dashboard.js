@@ -51,7 +51,7 @@ const Dashboard = () => {
             <ColumnOnHold ideaId="dCpw1gH0lk" setPopupArticle={setPopupArticle} setArticleId={setArticleId} columnOnHold={columnOnHold} setColumnOnHold={setColumnOnHold} setArticleCardObject={setArticleCardObject}/>
             
              </div>
-            <PopupIdea  popup={popup} setPopup={setPopup} ideaId={ideaId} ideaCardObject={ideaCardObject} setPopupArticle={setPopupArticle} setArticleId={setArticleId} articleId={articleId}/>
+            <PopupIdea  popup={popup} setPopup={setPopup} ideaId={ideaId} ideaCardObject={ideaCardObject} setPopupArticle={setPopupArticle} setArticleId={setArticleId} articleId={articleId} date={today}/>
             <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
             <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId} articleId={articleId} ideaCardObject={ideaCardObject} articleCardObject={articleCardObject}/>
         </div>

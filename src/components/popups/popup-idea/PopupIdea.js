@@ -30,12 +30,13 @@ function PopupIdea(props) {
   }, [props]);
 
   async function setIdeaInfo() {
+
     setTitle(props.ideaCardObject.title);
     setDescription(props.ideaCardObject.description);
     setSection(props.ideaCardObject.section);
     setVisibility(props.ideaCardObject.visibility);
-    setAuthor(props.ideaCardObject.author);
     setDate(convertDateStringToObject(props.ideaCardObject.expiration))
+    setAuthor(props.ideaCardObject.author);
   }
 
 
@@ -149,11 +150,17 @@ function PopupIdea(props) {
        alert(error)
    }
 
+   const initialDeadline = props.date.toString().substring(4,15)
+   const initialLength = "0-100 words"
+
     await newArticle.fetch().then((latestArticle) => {
     console.log("latest article id ", latestArticle.id)
     newArticle.set("title", title).save()
     newArticle.set("description", convertToPlain(description)).save()
     newArticle.set("section", section).save()
+    newArticle.set("ideaId", props.ideaId).save()
+    newArticle.set("deadline", initialDeadline).save()
+    newArticle.set("length", initialLength).save()
     props.setArticleId(latestArticle.id)
 
     }, error => {

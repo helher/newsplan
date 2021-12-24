@@ -13,7 +13,7 @@ const user = Parse.User.current();
     <div style={{ display: "flex", padding: 10, size: 50 }}>
 
     <Avatar
-        style={{border: "1px non black", marginTop: -50, marginBottom: 20, marginLeft: 60
+        style={{border: "1px non black", marginTop: -50, marginBottom: 20, marginLeft: 35
         , height: 70, width: 70 }}
         alt="Profile image"
         img src= {user.get("userimage").url()}

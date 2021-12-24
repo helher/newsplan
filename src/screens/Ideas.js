@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Parse from "parse";
 
 // Styles
-import "./Ideas.css";
+import "./Lists.css";
 
 // Components
 import Footer from "../components/footer/Footer";
@@ -16,13 +16,13 @@ const columns = [
   {
     field: "title",
     headerName: "TITLE",
-    width: 600,
+    width: 650,
     editable: false,
   },
   {
     field: "section",
     headerName: "SECTION",
-    width: 350,
+    width: 200,
     editable: false,
   },
   {
@@ -42,7 +42,7 @@ const columns = [
     field: "expiration",
     headerName: "EXPIRATION",
     sortable: true,
-    width: 160,
+    width: 140,
   },
 ];
 
@@ -79,10 +79,10 @@ function Ideas() {
     return {
       id: idea.id,
       title: idea.get("title"),
-      section: idea.get("tags"),
+      section: idea.get("section"),
       author: idea.get("author"),
       userimg: idea.get("userimage").url(),
-      expiration: idea.get("expiration").toString().substring(4,15),
+      expiration: idea.get("expirationS"),
     }
   }
 
@@ -93,19 +93,19 @@ function Ideas() {
 
   return (
     <>
-      <div className="idea">
+      <div className="list">
         <h1>Idea list</h1>
-        <div className="idea-table" />
+        <div className="list-table" />
           <DataGrid
             rows={ideaTable}
             columns={columns}
-            pageSize={20}
-            rowsPerPageOptions={[20]}
+            pageSize={100}
+            rowsPerPageOptions={[100]}
           />
       </div>
       <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
       <div className="footer-container">
-        <div className="footeridea-btns">
+        <div className="footer-btns">
           <AddIdeaButton
             text="Add Idea"
             popupNew={popupNew}

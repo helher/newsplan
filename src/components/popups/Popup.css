@@ -2,7 +2,7 @@
 
 .popup-page {
   position: fixed;
-  left: 200px;
+  left: 160px;
   top: 0px;
   width: 100%;
   height: 100vh;
@@ -19,13 +19,11 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-left: -200px;
+  margin-left: -160px;
 }
 
 .idea-container-new {
   border: 1px solid black;
-  max-width: 650px;
-  width: 100%;
   flex-wrap: wrap;
   align-items: flex-start;
   background-color: var(--white-color);
@@ -33,7 +31,7 @@
 
 .idea-container {
   border: 1px solid black;
-  max-width: 1010px;
+  max-width: 900px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -44,22 +42,14 @@
 /* left coloum  */
 
 .idea-flex-left {
-  width: 650px;
   flex: 1;
-  padding: 30px;
+  padding: 25px;
 }
 
 .idea-top-left {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-}
-
-.rich-text-editor {
-  background-color: var(--primary-color);
-  height: 218px;
-  width: 590px;
-  margin-bottom: 30px;
 }
 
 .align-bottons {
@@ -72,7 +62,7 @@
 }
 
 .convert-button {
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
 /* right coloum */
@@ -81,7 +71,7 @@
   background-color: var(--light-grey);
   width: auto;
   flex: 2;
-  padding: 30px;
+  padding: 25px;
 }
 
 .top-right {
