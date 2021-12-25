@@ -30,7 +30,6 @@ function PopupIdea(props) {
   }, [props]);
 
   async function setIdeaInfo() {
-
     setTitle(props.ideaCardObject.title);
     setDescription(props.ideaCardObject.description);
     setSection(props.ideaCardObject.section);
@@ -161,6 +160,7 @@ function PopupIdea(props) {
     newArticle.set("ideaId", props.ideaId).save()
     newArticle.set("deadline", initialDeadline).save()
     newArticle.set("length", initialLength).save()
+    newArticle.set("ideaAuthor", author).save()
     props.setArticleId(latestArticle.id)
 
     }, error => {

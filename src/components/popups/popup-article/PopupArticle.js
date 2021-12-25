@@ -21,13 +21,14 @@ import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 
 function PopupArticle(props) {
 
-    const [author, setAuthor] = useState()
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
     const [date, setDate] = useState();
     const [section, setSection] = useState()
     const [length, setLength] = useState()
     const [workload, setWorkload] = useState()
+    const [ideaId, setIdeaId] = useState()
+    const [ideaAuthor, setIdeaAuthor] = useState()
 
     useEffect(() => {
         props.ideaCardObject && setArticleStateInfoFromIdea();
@@ -39,19 +40,22 @@ function PopupArticle(props) {
 
     async function setArticleStateInfoFromIdea() {
         console.log("setArticleInfoFromIdea started..", props.ideaCardObject)
-        setAuthor(props.ideaCardObject.author);
         setTitle(props.ideaCardObject.title);
         setDescription(props.ideaCardObject.description);
         setSection(props.ideaCardObject.section);
+        setIdeaId(props.ideaCardObject.ideaId);
+        setIdeaAuthor(props.ideaCardObject.author);
       }
 
       async function setArticleState() {
-        setAuthor(props.articleCardObject.author);
+        setIdeaAuthor(props.articleCardObject.author);
         setTitle(props.articleCardObject.title);
         setDescription(props.articleCardObject.description);
         setDate(convertDateStringToObject(props.articleCardObject.deadline))
         setSection(props.articleCardObject.section);
         setLength(props.articleCardObject.length)
+        setIdeaId(props.articleCardObject.ideaId)
+        setIdeaAuthor(props.articleCardObject.ideaAuthor)
       }
 
 
@@ -97,7 +101,6 @@ function PopupArticle(props) {
           Article.set("objectId", objectId);
           Article.set("title", title);
           Article.set("description", convertToPlain(description));
-          Article.set("ideaId", props.ideaId)
           Article.set("deadline", convertDateObjectToString(date))
           Article.set("section", section);
           Article.set("length", length); 
@@ -155,7 +158,7 @@ function PopupArticle(props) {
                 <section className="idea-container" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        <CreatedByArticle articleId={props.articleId} ideaId={props.ideaId} author={author}/>
+                        <CreatedByArticle articleId={props.articleId} ideaId={ideaId} ideaAuthor={ideaAuthor}/>
                         <TitleEdit title = {title} setTitle={setTitle}/>
                         <RichTextEditor description = {description} setDescription = {setDescription} />
 
