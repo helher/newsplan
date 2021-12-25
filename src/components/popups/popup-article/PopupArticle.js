@@ -43,7 +43,7 @@ function PopupArticle(props) {
         setTitle(props.ideaCardObject.title);
         setDescription(props.ideaCardObject.description);
         setSection(props.ideaCardObject.section);
-        setIdeaId(props.ideaCardObject.ideaId);
+        setIdeaId(props.ideaCardObject.id);
         setIdeaAuthor(props.ideaCardObject.author);
       }
 
