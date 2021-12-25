@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Parse from 'parse';
 
 // Styles
-import './Articles.css'
+import "./Lists.css";
 
 // Components
 import Statusbar from '../components/statusbar/Statusbar';
@@ -16,13 +16,13 @@ const columns = [
   {
     field: "title",
     headerName: "TITLE",
-    width: 470,
+    width: 650,
     editable: false,
   },
   {
     field: "section",
     headerName: "SECTION",
-    width: 390,
+    width: 200,
     editable: false,
     renderCell: (params) => (
       <Label sectionName={params.value}/>
@@ -31,7 +31,7 @@ const columns = [
    {
     field: "status",
     headerName: "STATUS",
-    width: 390,
+    width: 250,
     editable: false,
     renderCell: (params) => (
       <Statusbar status={params.value}/>
@@ -41,7 +41,7 @@ const columns = [
     field: "deadline",
     headerName: "DEADLINE",
     sortable: true,
-    width: 160,
+    width: 140,
   },
 ];
 
@@ -89,23 +89,20 @@ const [articleTable, setArticleTable] = useState();
   }
     
 return (
-
           <>
-      <div className="article">
+      <div className="list">
         <h1>Article list</h1>
-        <div className="article-table" />
-        <div style={{ height: 400, width: "100%" }}>
+        <div className="list-table" />
           <DataGrid
             rows={articleTable}
             columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
+            pageSize={100}
+            rowsPerPageOptions={[100]}
           />
-        </div>
       </div>
             <PopupArticle/>
         <div className="footer-container">
-            <div className="footerarticle-btns">
+            <div className="footer-btns">
                 <LoadButton text="Load more Articles" />
             </div>
             <Footer/>

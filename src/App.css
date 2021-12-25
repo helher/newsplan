@@ -2,8 +2,8 @@
   display: grid;
   position: fixed;
   height: 100vh;
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: 1fr 105px;
+  grid-template-columns: 160px 1fr;
+  grid-template-rows: 1fr 90px;
   grid-template-areas:
     "nav-element main-content"
     "logout-element footer-element";

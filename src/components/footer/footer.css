@@ -3,7 +3,7 @@
 .footer-container {
   grid-area: footer-element;
   background-color: var(--accented-color);
-  height: 105px;
+  height: 90px;
   width: 100vw;
   display: flex;
   justify-content: space-between;

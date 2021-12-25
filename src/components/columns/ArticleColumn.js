@@ -11,11 +11,9 @@ function ArticleColumn(props)  {
 
   function handleClickIdeaPopup(card) {
     console.log("article card clicked!")
-    props.setPopup(true)
-    console.log("is this the id of the card?", card.id)
+    props.setPopupArticle(true)
     props.setArticleId(card.id)
-    props.setCardObject(card)
-    console.log("this is the card: ", card)
+    props.setArticleCardObject(card)
 }
 
   useEffect(() => {
@@ -50,7 +48,10 @@ function ArticleColumn(props)  {
       description: article.get("description"),
       section: article.get("section"),
       deadline: article.get("deadline"),
-      status: article.get("status")
+      length: article.get("length"),
+      status: article.get("status"),
+      ideaId: article.get("ideaId"),
+      ideaAuthor: article.get("ideaAuthor")
     }
     }
 
@@ -60,8 +61,9 @@ function ArticleColumn(props)  {
     }
     
   return (
-    <section className="card-container">
-        <h2 className="column-title">{props.columnTitle}</h2>
+    <div>
+        <h2 className="article-column-title">{props.columnTitle}</h2>
+    <section className="article-card-container">
       {props.column.map((card) => (
         <div className="card" onClick={() => handleClickIdeaPopup(card)}>
           <h3>{card.title}</h3>
@@ -83,6 +85,7 @@ function ArticleColumn(props)  {
         </div>
       ))}
     </section>
+    </div>
   );
 }
 

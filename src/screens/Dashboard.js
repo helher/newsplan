@@ -26,7 +26,8 @@ const Dashboard = () => {
     const [columnTomorrow, setColumnTomorrow] = useState([]);
     const [columnDATomorrow, setColumnDATomorrow] = useState([]);
     const [columnOnHold, setColumnOnHold] = useState([]);
-    const [cardObject, setCardObject] = useState();
+    const [ideaCardObject, setIdeaCardObject] = useState();
+    const [articleCardObject, setArticleCardObject] = useState();
 
     const today = new Date();
     const tomorrow = new Date(today);
@@ -55,9 +56,9 @@ const Dashboard = () => {
             <ColumnOnHold setPopup={setPopupArticle} setArticleId={setArticleId} columnOnHold={columnOnHold} setColumnOnHold={setColumnOnHold} setCardObject={setCardObject}/>
             
              </div>
-            <PopupIdea  popup={popup} setPopup={setPopup} ideaId={ideaId} cardObject={cardObject} setPopupArticle={setPopupArticle} setArticleId={setArticleId} articleId={articleId}/>
+            <PopupIdea popup={popup} setPopup={setPopup} ideaId={ideaId} ideaCardObject={ideaCardObject} setPopupArticle={setPopupArticle} setArticleId={setArticleId} articleId={articleId} date={today}/>
             <PopupIdeaNew popupNew={popupNew} setPopupNew={setPopupNew}/>
-            <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId} articleId={articleId} cardObject={cardObject} />
+            <PopupArticle popupArticle={popupArticle} setPopupArticle={setPopupArticle} ideaId={ideaId} articleId={articleId} ideaCardObject={ideaCardObject} articleCardObject={articleCardObject}/>
         </div>
         <div className="footer-container">
             <div className="footeridea-btns">

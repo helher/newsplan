@@ -9,7 +9,6 @@ import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import DropdownCalendar  from '../../dropdowns/DropdownCalendar/DropdownCalendar';
 import DropdownLength from './../../dropdowns/DropdownLength/DropdownLength';
 import CreatedByArticle from './../../createdBy/CreatedByArticle';
-import InputTag from '../../input-tag/InputTag'; // DON'T REMOVE INCLUDE SOME CSS (WE SHOULD CHANGE THIS!)
 import Section from '../../dropdowns/Section/Section';
 
 //buttons
@@ -22,36 +21,45 @@ import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
 
 function PopupArticle(props) {
 
-    const [author, setAuthor] = useState()
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
-    const [date, setDate] = useState({
-        day: 1,
-        month: 1,
-        year: 2023,
-      });
+    const [date, setDate] = useState();
     const [section, setSection] = useState()
-    const [length, setLength] = useState("0-1000 words")
+    const [length, setLength] = useState()
     const [workload, setWorkload] = useState()
+    const [ideaId, setIdeaId] = useState()
+    const [ideaAuthor, setIdeaAuthor] = useState()
 
     useEffect(() => {
-        console.log("useffect from articlepopup is called with articleid", props.articleId)
-        props.cardObject && setArticleStateInfoFromIdea();
+        props.ideaCardObject && setArticleStateInfoFromIdea();
       }, [props.articleId]);
 
+      useEffect(() => {
+        props.articleCardObject && setArticleState();
+      }, [props.articleCardObject]);
+
     async function setArticleStateInfoFromIdea() {
-        console.log("setArticleInfoFromIdea started..")
-        setAuthor(props.cardObject.author);
-        setTitle(props.cardObject.title);
-        setDescription(props.cardObject.description);
-        setSection(props.cardObject.section);
-        console.log("author", author)
-        console.log("title", title)
-        console.log("des", description)
-        console.log("section", section)
+        console.log("setArticleInfoFromIdea started..", props.ideaCardObject)
+        setTitle(props.ideaCardObject.title);
+        setDescription(props.ideaCardObject.description);
+        setSection(props.ideaCardObject.section);
+        setIdeaId(props.ideaCardObject.ideaId);
+        setIdeaAuthor(props.ideaCardObject.author);
       }
 
-      function convertObjectDateToString(date) {
+      async function setArticleState() {
+        setIdeaAuthor(props.articleCardObject.author);
+        setTitle(props.articleCardObject.title);
+        setDescription(props.articleCardObject.description);
+        setDate(convertDateStringToObject(props.articleCardObject.deadline))
+        setSection(props.articleCardObject.section);
+        setLength(props.articleCardObject.length)
+        setIdeaId(props.articleCardObject.ideaId)
+        setIdeaAuthor(props.articleCardObject.ideaAuthor)
+      }
+
+
+      function convertDateObjectToString(date) {
         let month = `${date.month}`
         const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
         let newMonth = months[month]
@@ -62,17 +70,38 @@ function PopupArticle(props) {
         return completeNewDateString
       }
 
+      function convertDateStringToObject(date) {
+        const stringArr = date.split(" ");
+    
+        const dateObject = {
+          day: stringArr[1],
+          month: stringArr[0],
+          year: stringArr[2]
+        }
+    
+        let month = `${dateObject.month}`
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        let newMonth = months.indexOf(month)
+    
+        const newDateObject = {
+          day: parseInt(stringArr[1]),
+          month: newMonth+1,
+          year: parseInt(stringArr[2])
+        }
+    
+        return newDateObject
+      }
+
+
       async function updateArticleInDB() {
           console.log("updateArticleInDB with article id: ", props.articleId)
           const objectId = props.articleId;
           const Article = new Parse.Object("Article");
-    
   
           Article.set("objectId", objectId);
           Article.set("title", title);
           Article.set("description", convertToPlain(description));
-          Article.set("ideaId", props.ideaId)
-          Article.set("deadline", convertObjectDateToString(date))
+          Article.set("deadline", convertDateObjectToString(date))
           Article.set("section", section);
           Article.set("length", length); 
 
@@ -123,45 +152,13 @@ function PopupArticle(props) {
     return temporaryText.textContent || temporaryText.innerText || "";
   }
 
-/*     async function createArticleInDB() {
-        const Article = Parse.Object.extend("Article");
-        const newArticle = new Article();
-    
-        const newDateObject = new Date(
-          date.year,
-          date.month,
-          date.day
-        );
-
-        const constnewDateString = newDateObject.toString().substring(4,15)
-    
-        newArticle.set("title", title);
-        newArticle.set("description", convertToPlain(description));
-        newArticle.set("ideaId", props.ideaId)
-        newArticle.set("deadline", constnewDateString)
-        newArticle.set("section", section);
-        newArticle.set("length", length); 
-
-    
-        try {
-          let result = await newArticle.save();
-          alert("Article created with ID: " + result.id);
-          console.log("Article created with ID: " + result.id);
-          props.setPopupArticle(false);
-          /* clearPopup();
-        } catch (error) {
-          alert("Failed to update object, with error code: " + error.message);
-        }
-      } */
-
-
     return (props.popupArticle) ? (
         <div className="popup-page">
             <div className="popup">
                 <section className="idea-container" >
                     {/* LEFT-COLUMN */}
                     <div className="idea-flex-left">
-                        <CreatedByArticle articleId={props.articleId} ideaId={props.ideaId} author={author}/>
+                        <CreatedByArticle articleId={props.articleId} ideaId={ideaId} ideaAuthor={ideaAuthor}/>
                         <TitleEdit title = {title} setTitle={setTitle}/>
                         <RichTextEditor description = {description} setDescription = {setDescription} />
 
