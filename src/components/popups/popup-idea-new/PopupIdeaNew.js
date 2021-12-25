@@ -68,7 +68,7 @@ function PopupIdeaNew(props) {
     newIdea.set("author", Parse.User.current().get("username"));
     newIdea.set("title", title);
     newIdea.set("description", convertToPlain(description));
-    newIdea.set("expirationS", convertDateObjectToString(date));
+    newIdea.set("expiration", convertDateObjectToString(date));
     newIdea.set("section", section);
     newIdea.set("visibility", visibility);
 

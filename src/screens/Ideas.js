@@ -80,7 +80,7 @@ function Ideas() {
       title: idea.get("title"),
       section: idea.get("section"),
       author: idea.get("user"),
-      expiration: idea.get("expirationS"),
+      expiration: idea.get("expiration"),
     }
   }
 

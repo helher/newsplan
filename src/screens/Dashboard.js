@@ -39,8 +39,6 @@ const Dashboard = () => {
     console.log(tomorrow);
     console.log(dayAfterTomorrow);
 
-   
-
 
     return (
         <>

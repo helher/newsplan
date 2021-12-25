@@ -121,7 +121,7 @@ function PopupIdea(props) {
     console.log("save idea id: " + id);
     Idea.set("title", title);
     Idea.set("description", convertToPlain(description));
-    Idea.set("expirationS", convertDateObjectToString(date));
+    Idea.set("expiration", convertDateObjectToString(date));
     Idea.set("section", section);
     Idea.set("visibility", visibility);
     try {

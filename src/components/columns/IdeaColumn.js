@@ -31,10 +31,10 @@ function IdeaColumn(props) {
 
     try {
       const ideas = await query.find();
-      console.log("Parse Objects: ", ideas);
+      console.log("Parse Objects ideas: ", ideas);
       const destructuredIdeas = destructureIdeas(ideas);
       props.setCardIdeaTable(destructuredIdeas);
-      console.log("from readIdeas: ", props.cardIdeaTable);
+      console.log("from getIdeaCard: ", props.cardIdeaTable);
       return true;
     } catch (error) {
       alert(`getIdeaCard Error Message ${error.message}`);
@@ -50,7 +50,7 @@ function IdeaColumn(props) {
       description: idea.get("description"),
       section: idea.get("section"),
       author: idea.get("author"),
-      expiration: idea.get("expirationS"),
+      expiration: idea.get("expiration"),
       visibility: idea.get("visibility")
      
     }
