@@ -30,17 +30,11 @@ const columns = [
     ),
   },
   {
-    field: "userimg",
-    headerName: "IMAGE",
-    width: 125,
-    editable: false,
-    renderCell: (params) => <img className="img-list" src={params.value} />,
-  },
-  {
     field: "author",
     headerName: "AUTHOR",
     width: 125,
     editable: false,
+    renderCell: (params) => <div className="author-column"><img className="img-list" src={params.value.get("userimage").url()}/>{params.value.get("username")}  </div>
   },
   {
     field: "expiration",
@@ -66,6 +60,7 @@ function Ideas() {
 
   async function fetchIdeas() {
     const query = new Parse.Query("Idea");
+    query.include("user");
     try {
       const ideas = await query.find();
       console.log("Parse Objects: ", ideas);
@@ -84,8 +79,7 @@ function Ideas() {
       id: idea.id,
       title: idea.get("title"),
       section: idea.get("section"),
-      author: idea.get("author"),
-      userimg: idea.get("userimage").url(),
+      author: idea.get("user"),
       expiration: idea.get("expirationS"),
     }
   }
