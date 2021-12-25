@@ -2,12 +2,11 @@
 
 .section-dropdown {
   max-width: 150px;
-  margin: 0px 10px 20px 0px;
 }
 
 .dropdown-select {
-  width: 590px;
-  height: 40px;
+  width: 480px;
+  height: 37px;
   user-select: none;
 }
 
@@ -34,8 +33,10 @@
   margin-top: 10px;
   background-color: var(--white-color);
   position: absolute;
-  width: 590px;
+  width: 478px;
   border: 1px solid #373a3c;
+  overflow-y: scroll;
+  height: 180px;
 }
 
 .dropdown-item {
@@ -54,7 +55,7 @@
 .selected-section {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 18px;
   color: black;
 }

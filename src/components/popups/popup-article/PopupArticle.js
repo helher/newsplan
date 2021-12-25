@@ -9,7 +9,6 @@ import RichTextEditor from '../../rich-text-editor/RichTextEdior';
 import DropdownCalendar  from '../../dropdowns/DropdownCalendar/DropdownCalendar';
 import DropdownLength from './../../dropdowns/DropdownLength/DropdownLength';
 import CreatedByArticle from './../../createdBy/CreatedByArticle';
-import InputTag from '../../input-tag/InputTag'; // DON'T REMOVE INCLUDE SOME CSS (WE SHOULD CHANGE THIS!)
 import Section from '../../dropdowns/Section/Section';
 
 //buttons

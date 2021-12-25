@@ -55,8 +55,9 @@ function ArticleColumn(props)  {
     }
     
   return (
-    <section className="card-container">
-        <h2 className="column-title">{props.columnTitle}</h2>
+    <div>
+        <h2 className="article-column-title">{props.columnTitle}</h2>
+    <section className="article-card-container">
       {props.column.map((card) => (
         <div className="card" onClick={() => handleClickIdeaPopup(card)}>
           <h3>{card.title}</h3>
@@ -78,6 +79,7 @@ function ArticleColumn(props)  {
         </div>
       ))}
     </section>
+    </div>
   );
 }
 

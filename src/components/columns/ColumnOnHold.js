@@ -54,15 +54,14 @@ function ColumnOnHold(props)  {
     }
     
   return (
-    <section className="card-container">
-        <h2 className="column-title">ON HOLD</h2>
+    <div>
+    <h2 className="article-column-title">ON HOLD</h2>
+    <section className="article-card-container">
       {props.columnOnHold.map((card) => (
         <div className="card" onClick={() => handleClickIdeaPopup(card)}>
           <h3>{card.title}</h3>
           <div className="card-id">
-            <small>
               <small>Deadline</small>
-            </small>
             <small>{card.deadline}</small>
           </div>
           <p>{card.description}</p>
@@ -76,6 +75,7 @@ function ColumnOnHold(props)  {
         </div>
       ))}
     </section>
+    </div>
   );
 }
 

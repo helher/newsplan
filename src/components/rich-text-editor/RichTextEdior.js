@@ -9,7 +9,6 @@ function RichTextEditor({description,setDescription}) {
 
 
     return (
-    <div className = "container"> 
         <div className = "text-editor">
             <CKEditor
             editor={ClassicEditor}
@@ -22,8 +21,6 @@ function RichTextEditor({description,setDescription}) {
             
             />
         </div>
-
-    </div>
     ) 
 }
 
