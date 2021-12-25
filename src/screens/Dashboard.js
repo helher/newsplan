@@ -33,6 +33,11 @@ const Dashboard = () => {
     tomorrow.setDate(tomorrow.getDate() + 1)
     const dayAfterTomorrow = new Date(today);
     dayAfterTomorrow.setDate(dayAfterTomorrow.getDate() + 2)
+
+    console.log(today);
+    console.log(tomorrow);
+    console.log(dayAfterTomorrow);
+
    
 
 
@@ -47,7 +52,7 @@ const Dashboard = () => {
             <ArticleColumn columnTitle="TODAY" date={today} setArticleId={setArticleId} setPopup={setPopupArticle} column={columnToday} setColumn={setColumnToday} setCardObject={setCardObject}/>
             <ArticleColumn columnTitle="TOMORROW" date={tomorrow} setArticleId={setArticleId} setPopup={setPopupArticle} column={columnDATomorrow} setColumn={setColumnDATomorrow} setCardObject={setCardObject}/>
             <ArticleColumn columnTitle="DAY AFTER TOMORROW" date={dayAfterTomorrow} setArticleId={setArticleId} setPopup={setPopupArticle} column={columnTomorrow} setColumn={setColumnTomorrow} setCardObject={setCardObject}/>
-            <ColumnOnHold ideaId="dCpw1gH0lk" setPopup={setPopupArticle} setArticleId={setArticleId} columnOnHold={columnOnHold} setColumnOnHold={setColumnOnHold} setCardObject={setCardObject}/>
+            <ColumnOnHold setPopup={setPopupArticle} setArticleId={setArticleId} columnOnHold={columnOnHold} setColumnOnHold={setColumnOnHold} setCardObject={setCardObject}/>
             
              </div>
             <PopupIdea  popup={popup} setPopup={setPopup} ideaId={ideaId} cardObject={cardObject} setPopupArticle={setPopupArticle} setArticleId={setArticleId} articleId={articleId}/>

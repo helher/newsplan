@@ -3,6 +3,7 @@ import Parse from "parse";
 
 // Styling
 import "./IdeaColumn.css";
+import Label from '../label/Label';
 
 function IdeaColumn(props) {
 
@@ -75,12 +76,12 @@ function IdeaColumn(props) {
             <small>{card.expiration}</small>
           </div>
           <p>{card.description}</p>
-          <div className="tags">
-            {/* <InputTag/> */}
-            <p>{card.section}</p>
-          </div>
           <div className="assigned-people">
             <img src={card.userImage} />
+          </div>
+          <div className="tags">
+            {/* <InputTag/> */}
+            <Label sectionName={card.section}/>
           </div>
         </div>
       ))}

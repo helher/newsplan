@@ -10,6 +10,7 @@ import AddIdeaButton from "../components/buttons/AddIdeaButton/AddIdeaButton";
 import LoadButton from "../components/buttons/LoadButton/LoadButton";
 import PopupIdeaNew from "../components/popups/popup-idea-new/PopupIdeaNew";
 import { DataGrid } from "@mui/x-data-grid";
+import Label from "../components/label/Label";
 
 
 const columns = [
@@ -24,6 +25,9 @@ const columns = [
     headerName: "SECTION",
     width: 350,
     editable: false,
+    renderCell: (params) => (
+      <Label sectionName={params.value}/>
+    ),
   },
   {
     field: "userimg",

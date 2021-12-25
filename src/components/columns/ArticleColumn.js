@@ -2,7 +2,10 @@ import React, { useEffect } from 'react';
 import Parse from 'parse';
 import './ArticleColumn.css';
 import Loui_Avatar from './Loui_Avatar.png';
+
+// Components
 import Statusbar from '../statusbar/Statusbar';
+import Label from '../label/Label';
 
 function ArticleColumn(props)  {
 
@@ -25,6 +28,7 @@ function ArticleColumn(props)  {
     const query = new Parse.Query(articleObjects);
     query.include("workload");
     query.equalTo("deadline", props.date.toString().substring(4,15));
+    query.notEqualTo("status", "onhold")
 
     try {
       const articles = await query.find();
@@ -70,12 +74,12 @@ function ArticleColumn(props)  {
           <p>{card.description}</p>
           <div className="tags">
             {/* <InputTag/> */}
-            <p>{card.section}</p>
+            <Label sectionName={card.section}/>
           </div>
-          <Statusbar status={card.status} />
           <div className="assigned-people">
             <img src={Loui_Avatar} alt="test"/>
           </div>
+          <Statusbar status={card.status} />
         </div>
       ))}
     </section>

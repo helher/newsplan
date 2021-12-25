@@ -10,6 +10,7 @@ import Footer from '../components/footer/Footer';
 import LoadButton from '../components/buttons/LoadButton/LoadButton';
 import PopupArticle from '../components/popups/popup-article/PopupArticle';
 import { DataGrid } from "@mui/x-data-grid";
+import Label from '../components/label/Label';
 
 const columns = [
   {
@@ -23,6 +24,9 @@ const columns = [
     headerName: "SECTION",
     width: 390,
     editable: false,
+    renderCell: (params) => (
+      <Label sectionName={params.value}/>
+    ),
   },
    {
     field: "status",

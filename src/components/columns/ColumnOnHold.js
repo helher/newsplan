@@ -3,6 +3,10 @@ import Parse from 'parse';
 import './ArticleColumn.css';
 import Loui_Avatar from './Loui_Avatar.png';
 
+//Components
+import Statusbar from '../statusbar/Statusbar';
+import Label from '../label/Label';
+
 function ColumnOnHold(props)  {
 
   function handleClickIdeaPopup(card) {
@@ -23,7 +27,7 @@ function ColumnOnHold(props)  {
     const articleObjects = Parse.Object.extend("Article");
     const query = new Parse.Query(articleObjects);
     query.include("workload");
-    query.equalTo("ideaId", props.ideaId);
+    query.equalTo("status", "onhold");
 
     try {
       const articles = await query.find();
@@ -45,6 +49,7 @@ function ColumnOnHold(props)  {
       description: article.get("description"),
       section: article.get("section"),
       deadline: article.get("deadline"),
+      status: article.get("status")
     }
     }
 
@@ -68,11 +73,12 @@ function ColumnOnHold(props)  {
           <p>{card.description}</p>
           <div className="tags">
             {/* <InputTag/> */}
-            <p>{card.section}</p>
+            <Label sectionName={card.section}/>
           </div>
           <div className="assigned-people">
             <img src={Loui_Avatar} alt="test"/>
           </div>
+          <Statusbar status={card.status} />
         </div>
       ))}
     </section>

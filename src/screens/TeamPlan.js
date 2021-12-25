@@ -5,8 +5,6 @@ import './Teamplan.css'
 import Footer from '../components/footer/Footer'
 import LoadButton from '../components/buttons/LoadButton/LoadButton'
 import AddEmployeeButton from '../components/buttons/AddEmployeeButton/AddEmployeeButton'
-import CommentForm from '../components/comment-form/CommentForm'
-import SectionTest from '../components/Test/SectionTest';
 import Statusbar from '../components/statusbar/Statusbar';
 
 
