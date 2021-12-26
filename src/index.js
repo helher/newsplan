@@ -5,8 +5,8 @@ import App from './App';
 import Parse from 'parse';
 
 Parse.initialize(
-  "IzWYeFjb4qsVpl2vqItLt4pm02I8DwqZNW8pQwZ1", 
-  "dFQhdajG0EVpkTAvP7qjuXSHYwP0zyIjrni7od4Z"
+  "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz", 
+  "MdOxEqwSdGUH7WdyANx0klSOb1U07dUyHf0A1Qq2"
 );
 
 Parse.serverURL = "https://parseapi.back4app.com/";
