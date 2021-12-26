@@ -10,6 +10,7 @@ import DropdownCalendar  from '../../dropdowns/DropdownCalendar/DropdownCalendar
 import DropdownLength from './../../dropdowns/DropdownLength/DropdownLength';
 import CreatedByArticle from './../../createdBy/CreatedByArticle';
 import Section from '../../dropdowns/Section/Section';
+import AssignEmployee from '../../dropdowns/assign-employee/AssignEmployee';
 
 //buttons
 import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
@@ -27,6 +28,7 @@ function PopupArticle(props) {
     const [section, setSection] = useState()
     const [length, setLength] = useState()
     const [workload, setWorkload] = useState()
+    const [selectedEmployee, setSelectedEmployee] = useState()
     const [ideaId, setIdeaId] = useState()
     const [ideaAuthor, setIdeaAuthor] = useState()
 
@@ -189,9 +191,9 @@ function PopupArticle(props) {
                     <div className="idea-flex-right">
                         <div className="top-right">
                             <CloseWindow closeAction={handlePopupArticle}/>
-                        </div>
-                            
-                        <h3>Comments</h3>
+                        </div>    
+                        <h3>Job</h3>
+                        <AssignEmployee selectedEmployee={selectedEmployee} setSelectedEmployee={setSelectedEmployee}/>
                     </div>
                 </section>
                 { props.children }

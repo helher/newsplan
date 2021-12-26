@@ -1,7 +1,7 @@
 @import url(./../../index.css);
 
 .article-card-container {
-  width: 200px;
+  width: 250px;
   margin-top: 50px;
   margin-right: 10px;
   padding-left: 10px;
@@ -47,10 +47,17 @@
   color: var(--white-color);
   height: 20px;
   padding: 10px;
-  width: 200px;
+  width: 250px;
   position: fixed;
   margin-top: 10px;
   background-color: #677e9e;
+}
+
+.card {
+  background-color: var(--primary-color);
+  padding: 15px;
+  width: 220px;
+  margin-bottom: 10px;
 }
 
 .card:hover {

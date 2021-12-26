@@ -14,7 +14,7 @@ import Section from "../../dropdowns/Section/Section";
 import RichTextEditor from "../../rich-text-editor/RichTextEdior";
 import CreatedBy from "../../createdBy/CreatedBy";
 import CommentForm from "../../comment-form/CommentForm";
-import CommentList from "../../commentList/CommentList";
+import CommentList from "../../comment-list/CommentList";
 
 function PopupIdea(props) {
   const [author, setAuthor] = useState();
