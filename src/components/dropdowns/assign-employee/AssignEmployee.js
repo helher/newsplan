@@ -3,7 +3,7 @@ import "./AssignEmployee.css";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
 import Parse from "parse";
 
-function AssignEmployee({ selectedEmployee, setSelectedEmployee, setAssignedEmployees, articleId}) {
+function AssignEmployee({ selectedEmployee, setSelectedEmployee}) {
   const [readResults, setReadResults] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const employees = [];
@@ -11,22 +11,6 @@ function AssignEmployee({ selectedEmployee, setSelectedEmployee, setAssignedEmpl
    useEffect(() => {
     readEmployees();
   }, []);
-
-  /* const updateAssignedEmployeeList = async function () {
-        const query = new Parse.Query("ArticleRole");
-    
-        try {
-          query.equalTo("articleId", props.ideaId);
-          query.descending("createdAt");
-          const assignedEmployee = await query.find();
-          setAssignedEmployees(assignedEmployee);
-    
-          return true;
-        } catch (error) {
-          alert(`Error! Is this the error?`);
-          return false;
-        }
-      }; */
 
   
   const readEmployees = async function () {

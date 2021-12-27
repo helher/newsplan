@@ -11,6 +11,7 @@ import DropdownLength from './../../dropdowns/DropdownLength/DropdownLength';
 import CreatedByArticle from './../../createdBy/CreatedByArticle';
 import Section from '../../dropdowns/Section/Section';
 import AssignEmployee from '../../dropdowns/assign-employee/AssignEmployee';
+import AssignWorkload from '../../dropdowns/assign-workload/AssignWorkload';
 
 //buttons
 import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
@@ -193,7 +194,10 @@ function PopupArticle(props) {
                             <CloseWindow closeAction={handlePopupArticle}/>
                         </div>    
                         <h3>Job</h3>
+                        <div className="job-component">
                         <AssignEmployee selectedEmployee={selectedEmployee} setSelectedEmployee={setSelectedEmployee}/>
+                        <AssignWorkload workload={workload} setWorkload={setWorkload}/>
+                        </div>
                     </div>
                 </section>
                 { props.children }
