@@ -25,17 +25,17 @@ function AssignWorkload({workload, setWorkload}) {
   };
 
   return (
-    <div>
-      <div className="section-employee" onClick={readWorkLoad} >
+    <div className="workload-dropdown-container">
+      <div className="section-workload" onClick={readWorkLoad} >
       <h5>Workload</h5>
-      <div className="employee-dropdown-btn" onClick={() => setIsActive(!isActive)}>
+      <div className="workload-dropdown-btn" onClick={() => setIsActive(!isActive)}>
         {!workload ? (<p>Select</p>) : 
-        <p className="selected-employee">{workload}</p>}
+        <p className="selected-workload">{workload}</p>}
         <div className="space"></div>
           <IoMdArrowDropdownCircle className="dropdown-icon" />
         </div>
         {isActive && (
-          <div className="employee-dropdown-content">
+          <div className="workload-dropdown-content">
             {readResults.map((workload) => (
               <div
                 onClick={(e) => {

@@ -30,7 +30,7 @@ function AssignEmployee({ selectedEmployee, setSelectedEmployee}) {
   };
 
   return (
-    <div>
+    <div className="employee-dropdown-container">
       <div className="section-employee">
       <h5>Employee</h5>
       <div className="employee-dropdown-btn" onClick={() => setIsActive(!isActive)}>

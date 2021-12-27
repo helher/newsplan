@@ -5,3 +5,12 @@
   justify-content: space-between;
   width: 48%;
 }
+
+.job-dropdown-container {
+  margin-left: 20;
+}
+
+.job-form-component {
+  display: flex;
+  flex-direction: row;
+}
