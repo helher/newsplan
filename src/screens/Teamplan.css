@@ -9,8 +9,3 @@
 .job-dropdown-container {
   margin-left: 20;
 }
-
-.job-form-component {
-  display: flex;
-  flex-direction: row;
-}

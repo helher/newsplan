@@ -9,7 +9,6 @@ import Statusbar from '../components/statusbar/Statusbar'
 import WorkLoad from '../components/Test/WorkLoad'
 import AssignEmployee from '../components/dropdowns/assign-employee/AssignEmployee'
 import AssignWorkload from '../components/dropdowns/assign-workload/AssignWorkload'
-import Section from '../components/dropdowns/Section/Section'
 import JobForm from '../components/dropdowns/job-dropdown-form/JobForm'
 
 
@@ -29,8 +28,6 @@ const TeamPlan = () => {
                 <div className="footerteamplan-btns">
                     <AddEmployeeButton text="Add Employee"/>
                     <LoadButton text="Load more Employees"/>
-                    
-                    <Section/>
                 </div>
                 <Footer/>
             </div>
