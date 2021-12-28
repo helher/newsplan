@@ -3,7 +3,7 @@ import "./AssignEmployee.css";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
 import Parse from "parse";
 
-function AssignEmployee({ selectedEmployee, setSelectedEmployee}) {
+function AssignEmployee({ selectedEmployee, setSelectedEmployee, setEmployeeId}) {
   const [readResults, setReadResults] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const employees = [];
@@ -48,6 +48,7 @@ function AssignEmployee({ selectedEmployee, setSelectedEmployee}) {
 
                                     const chosenEmployeeInfo = employee.get("username") + ", " + employee.get("role")
                                     setSelectedEmployee(chosenEmployeeInfo);
+                                    setEmployeeId(employee.id);
                                     setIsActive(false)
                                 }}
                                 className="dropdown-item">
