@@ -1,0 +1,80 @@
+@import url(./../../index.css);
+
+.status-dropdown {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.status-dropdown-select {
+  width: 180px;
+  user-select: none;
+}
+
+.status-dropdown-btn {
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.05);
+  background-color: var(--white-color);
+  border-radius: 7px;
+  color: var(--primary-color-60);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 10px;
+  width: 120px;
+}
+
+.space {
+  width: 50px;
+  background-color: transparent;
+  flex: 2;
+}
+
+.status-dropdown-content {
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+  margin-top: 10px;
+  background-color: var(--white-color);
+  position: absolute;
+  width: 180px;
+}
+
+.status-dropdown-item {
+  color: var(--primary-color);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  transition: all 0.2s;
+}
+
+.joblist-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.status-text {
+  padding-right: 20px;
+  font-size: 14px;
+  padding-top: 5px;
+}
+
+.job-image-container {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.image-user-job {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.employee-info-and-avatar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

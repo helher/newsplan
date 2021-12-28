@@ -6,6 +6,7 @@ import Footer from '../components/footer/Footer'
 import LoadButton from '../components/buttons/LoadButton/LoadButton'
 import AddEmployeeButton from '../components/buttons/AddEmployeeButton/AddEmployeeButton'
 import JobForm from '../components/dropdowns/job-dropdown-form/JobForm'
+import JobList from '../components/job-list/JobList'
 
 
 const TeamPlan = () => {

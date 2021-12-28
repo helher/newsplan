@@ -19,7 +19,7 @@ function CommentList(props) {
                       <img
                         className="image-user-comment"
                         src={item.get("userImage").url()}
-                        alt="test"
+                        alt="comment author"
                       />
                     </div>
                     <div className="comment-text-container">

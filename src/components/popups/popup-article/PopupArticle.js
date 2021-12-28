@@ -10,6 +10,7 @@ import DropdownLength from "./../../dropdowns/DropdownLength/DropdownLength";
 import CreatedByArticle from "./../../createdBy/CreatedByArticle";
 import Section from "../../dropdowns/Section/Section";
 import JobForm from "../../dropdowns/job-dropdown-form/JobForm";
+import JobList from "../../job-list/JobList";
 
 //buttons
 import ProceedButton from "../../buttons/ProceedButton/ProceedButton";
@@ -27,6 +28,7 @@ function PopupArticle(props) {
   const [selectedEmployee, setSelectedEmployee] = useState();
   const [ideaId, setIdeaId] = useState();
   const [ideaAuthor, setIdeaAuthor] = useState();
+  const [jobListResult, setJobListResult] = useState();
 
   useEffect(() => {
     props.ideaCardObject && setArticleStateInfoFromIdea();
@@ -239,8 +241,11 @@ function PopupArticle(props) {
                 workload={workload}
                 setWorkload={setWorkload}
                 articleId={props.articleId}
+                setJobListResult={setJobListResult}
               />
+              <JobList jobListResult={jobListResult}/>
             </div>
+            
           </div>
         </section>
         {props.children}
