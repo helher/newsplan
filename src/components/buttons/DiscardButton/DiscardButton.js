@@ -1,20 +1,16 @@
-import React from 'react';
-import './DiscardButton.css';
+import React from "react";
 
-const DiscardButton = ({
-    text,
-    discardAction
-}) => {
+// Styles
+import "./DiscardButton.css";
 
-    return (
-        <div>
-            <button className="discard-btn" onClick ={discardAction}>
-                <div class="discardbutton-text">{text}
-                </div>
-            </button>
-        </div>
-    
-    )
-}
+const DiscardButton = ({ text, discardAction }) => {
+  return (
+    <div>
+      <button className="discard-btn" onClick={discardAction}>
+        <div class="discardbutton-text">{text}</div>
+      </button>
+    </div>
+  );
+};
 
 export default DiscardButton;

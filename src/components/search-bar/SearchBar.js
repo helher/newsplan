@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Styles
 import './SearchBar.css';
 
 function SearchBar() {

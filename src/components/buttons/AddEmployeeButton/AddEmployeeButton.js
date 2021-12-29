@@ -1,23 +1,20 @@
-import React from 'react';
-import './AddEmployeeButton.css';
-import { IoIosAddCircleOutline } from 'react-icons/io'
+import React from "react";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
-const AddEmployeeButton = ({
-    text
-}) => {
+// Styles
+import "./AddEmployeeButton.css";
 
-    function handleClickPopup() {
+const AddEmployeeButton = ({ text }) => {
+  function handleClickPopup() {}
 
-    }
-
-    return (
-        <button className="addemployee-iconbtn" onClick={handleClickPopup}  >
-            <div class="button-text-white">
-                <IoIosAddCircleOutline className="addemployee-icon"/>{text}
-            </div>
-        </button>
-    )
-}
+  return (
+    <button className="addemployee-iconbtn" onClick={handleClickPopup}>
+      <div class="button-text-white">
+        <IoIosAddCircleOutline className="addemployee-icon" />
+        {text}
+      </div>
+    </button>
+  );
+};
 
 export default AddEmployeeButton;
-

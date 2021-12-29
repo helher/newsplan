@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
-import "./CommentList.css";
+import React from "react";
 import { List } from "antd";
+
+// Styles
+import "./CommentList.css";
 
 function CommentList(props) {
 

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Parse from "parse";
+
+// Styles
 import "./../Popup.css";
 
 //components
@@ -8,11 +10,11 @@ import SaveButton from "../../buttons/SaveButton/SaveButton";
 import ProceedButton from "../../buttons/ProceedButton/ProceedButton";
 import DiscardButton from "../../buttons/DiscardButton/DiscardButton";
 import CloseWindow from "../../buttons/CloseWindow/CloseWindow";
-import DropdownVisibility from "../../dropdowns/DropdownVisibility/DropdownVisibility";
-import DropdownCalendar from "../../dropdowns/DropdownCalendar/DropdownCalendar";
-import Section from "../../dropdowns/Section/Section";
+import DropdownVisibility from "../../dropdowns/dropdown-visibility/DropdownVisibility";
+import DropdownCalendar from "../../dropdowns/dropdown-calendar/DropdownCalendar";
+import Section from "../../dropdowns/section/Section";
 import RichTextEditor from "../../rich-text-editor/RichTextEdior";
-import CreatedBy from "../../createdBy/CreatedBy";
+import CreatedBy from "../../created-by/CreatedBy";
 import CommentForm from "../../comment-form/CommentForm";
 import CommentList from "../../comment-list/CommentList";
 

@@ -1,8 +1,10 @@
 import React, {  useEffect } from "react";
 import Parse from "parse";
 
-// Styling
+// Styles
 import "./IdeaColumn.css";
+
+// Components
 import Label from '../label/Label';
 
 function IdeaColumn(props) {

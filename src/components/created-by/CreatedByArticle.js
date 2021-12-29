@@ -1,6 +1,8 @@
 import React from 'react';
-import './CreatedBy.css'
 import { BiBrain } from 'react-icons/bi';
+
+// Styles
+import './CreatedBy.css'
 
 function CreatedByArticle(props) {
 

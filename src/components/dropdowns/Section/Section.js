@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Parse from "parse";
-import "./Section.css";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
+import Parse from "parse";
+
+// Styles
+import "./Section.css";
 
 function Section({ section, setSection }) {
   const [isActive, setIsActive] = useState(false);

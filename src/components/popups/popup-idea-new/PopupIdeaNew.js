@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Parse from "parse";
+
+// Styles
 import "./../Popup.css";
 
 //components
@@ -7,11 +9,11 @@ import TitleEdit from "../../title-edit/TitleEdit";
 import SaveButton from "../../buttons/SaveButton/SaveButton";
 import DiscardButton from "../../buttons/DiscardButton/DiscardButton";
 import CloseWindow from "../../buttons/CloseWindow/CloseWindow";
-import DropdownVisibility from "../../dropdowns/DropdownVisibility/DropdownVisibility";
-import DropdownCalendar from "../../dropdowns/DropdownCalendar/DropdownCalendar";
+import DropdownVisibility from "../../dropdowns/dropdown-visibility/DropdownVisibility";
+import DropdownCalendar from "../../dropdowns/dropdown-calendar/DropdownCalendar";
 import RichTextEditor from "../../rich-text-editor/RichTextEdior";
-import CreatedByNew from "../../createdBy/CreatedByNew";
-import Section from "../../dropdowns/Section/Section";
+import CreatedByNew from "../../created-by/CreatedByNew";
+import Section from "../../dropdowns/section/Section";
 
 function PopupIdeaNew(props) {
   const [title, setTitle] = useState();

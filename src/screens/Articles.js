@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import Parse from 'parse';
+import React, { useState, useEffect } from "react";
+import Parse from "parse";
 
 // Styles
 import "./Lists.css";
 
 // Components
-import Statusbar from '../components/statusbar/Statusbar';
-import Footer from '../components/footer/Footer';
-import LoadButton from '../components/buttons/LoadButton/LoadButton';
-import PopupArticle from '../components/popups/popup-article/PopupArticle';
+import Statusbar from "../components/statusbar/Statusbar";
+import Footer from "../components/footer/Footer";
+import LoadButton from "../components/buttons/LoadButton/LoadButton";
+import PopupArticle from "../components/popups/popup-article/PopupArticle";
 import { DataGrid } from "@mui/x-data-grid";
-import Label from '../components/label/Label';
+import Label from "../components/label/Label";
 
 const columns = [
   {
@@ -24,18 +24,14 @@ const columns = [
     headerName: "SECTION",
     width: 200,
     editable: false,
-    renderCell: (params) => (
-      <Label sectionName={params.value}/>
-    ),
+    renderCell: (params) => <Label sectionName={params.value} />,
   },
-   {
+  {
     field: "status",
     headerName: "STATUS",
     width: 250,
     editable: false,
-    renderCell: (params) => (
-      <Statusbar status={params.value}/>
-    ),
+    renderCell: (params) => <Statusbar status={params.value} />,
   },
   {
     field: "deadline",
@@ -46,12 +42,11 @@ const columns = [
 ];
 
 const Articles = () => {
+  //this line is needed to test the popup on article page
+  const [length, setLength] = useState();
+  const [articleTable, setArticleTable] = useState();
 
-//this line is needed to test the popup on article page
-const [length, setLength] = useState()
-const [articleTable, setArticleTable] = useState();
-
- useEffect(() => {
+  useEffect(() => {
     fetchIdeas();
   }, []);
 
@@ -81,35 +76,34 @@ const [articleTable, setArticleTable] = useState();
       section: article.get("section"),
       deadline: article.get("deadline"),
       status: article.get("status"),
-    }
+    };
   }
 
   function destructureArticle(articles) {
     return articles.map(destructure);
   }
-    
-return (
-          <>
+
+  return (
+    <>
       <div className="list">
         <h1>Article list</h1>
         <div className="list-table" />
-          <DataGrid
-            rows={articleTable}
-            columns={columns}
-            pageSize={100}
-            rowsPerPageOptions={[100]}
-          />
+        <DataGrid
+          rows={articleTable}
+          columns={columns}
+          pageSize={100}
+          rowsPerPageOptions={[100]}
+        />
       </div>
-            <PopupArticle/>
-        <div className="footer-container">
-            <div className="footer-btns">
-                <LoadButton text="Load more Articles" />
-            </div>
-            <Footer/>
+      <PopupArticle />
+      <div className="footer-container">
+        <div className="footer-btns">
+          <LoadButton text="Load more Articles" />
         </div>
-
-        </> 
-    )
-}
+        <Footer />
+      </div>
+    </>
+  );
+};
 
 export default Articles;

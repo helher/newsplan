@@ -1,4 +1,6 @@
 import React from "react";
+
+// Styles
 import "./Label.css";
 
 const Labels = ({ sectionName }) => {

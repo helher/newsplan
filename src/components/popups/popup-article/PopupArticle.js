@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import "./PopupArticle.css";
 import Parse from "parse";
+
+// Styles
+import "./PopupArticle.css";
 
 //components
 import TitleEdit from "../../title-edit/TitleEdit";
 import RichTextEditor from "../../rich-text-editor/RichTextEdior";
-import DropdownCalendar from "../../dropdowns/DropdownCalendar/DropdownCalendar";
-import DropdownLength from "./../../dropdowns/DropdownLength/DropdownLength";
-import CreatedByArticle from "./../../createdBy/CreatedByArticle";
-import Section from "../../dropdowns/Section/Section";
+import DropdownCalendar from "../../dropdowns/dropdown-calendar/DropdownCalendar";
+import DropdownLength from "../../dropdowns/dropdown-length/DropdownLength";
+import CreatedByArticle from "./../../created-by/CreatedByArticle";
+import Section from "../../dropdowns/section/Section";
 import JobForm from "../../dropdowns/job-dropdown-form/JobForm";
 import JobList from "../../job-list/JobList";
 

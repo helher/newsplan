@@ -1,16 +1,16 @@
 import React from 'react';
-import './CreatedBy.css'
 import { BiBrain } from 'react-icons/bi';
-import Parse from 'parse';
 
-function CreatedBy() {
+// Styles
+import './CreatedBy.css'
 
-    const username = (Parse.User.current()).get("username")
+function CreatedBy(props) {
 
     return (
         <div className="logo-and-id">
             <BiBrain className="idea-icon"/>
-            <p className="createdby-text"><b>Idea</b> created by {username}</p>
+            <p className="createdby-text"><b>Idea</b> created by {props.author}</p>
+            <div className="id-label">{props.ideaId}</div>
         </div>
     )
     

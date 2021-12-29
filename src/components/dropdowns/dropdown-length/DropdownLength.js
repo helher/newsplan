@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { IoMdArrowDropdownCircle } from 'react-icons/io'; 
-import './DropdownLength.css'; 
 import Parse from 'parse'; 
+
+// Styles
+import './DropdownLength.css'; 
+
 
 
 

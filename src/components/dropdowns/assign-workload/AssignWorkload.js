@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Parse from "parse";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
+
+// Styles
 import "./AssignWorkload.css";
 
 function AssignWorkload({workload, setWorkload}) {

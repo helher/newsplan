@@ -4,7 +4,6 @@ import { Button } from "react-bootstrap";
 // Styles 
 import "./Logout.css";
 
-
 function Logout(props) {
 
   function handleLogoutAttempt(e) {

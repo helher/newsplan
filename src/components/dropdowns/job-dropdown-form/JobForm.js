@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Parse from "parse";
 
-//styles
+// Styles
 import "./JobForm.css";
 
 // Components
@@ -77,8 +77,6 @@ function JobForm({
       alert("Failed to update assigned Job, with error code: " + error.message);
     }
   }
-
-
 
 
 /*   function destructureObject(job) {

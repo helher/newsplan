@@ -1,27 +1,27 @@
-import React, { useEffect } from 'react';
-import Parse from 'parse';
-import './ArticleColumn.css';
-import Loui_Avatar from './Loui_Avatar.png';
+import React, { useEffect } from "react";
+import Parse from "parse";
+import Loui_Avatar from "./Loui_Avatar.png";
 
-//Components
-import Statusbar from '../statusbar/Statusbar';
-import Label from '../label/Label';
+// Styles
+import "./ArticleColumn.css";
 
-function ColumnOnHold(props)  {
+// Components
+import Statusbar from "../statusbar/Statusbar";
+import Label from "../label/Label";
 
+function ColumnOnHold(props) {
   function handleClickIdeaPopup(card) {
-    console.log("article card clicked!")
-    props.setPopupArticle(true)
-    console.log("is this the id of the card?", card.id)
-    props.setArticleId(card.id)
-    props.setArticleCardObject(card)
-    console.log("this is the card: ", card)
-}
+    console.log("article card clicked!");
+    props.setPopupArticle(true);
+    console.log("is this the id of the card?", card.id);
+    props.setArticleId(card.id);
+    props.setArticleCardObject(card);
+    console.log("this is the card: ", card);
+  }
 
   useEffect(() => {
     getArticleCard();
   }, []);
-
 
   async function getArticleCard() {
     const articleObjects = Parse.Object.extend("Article");
@@ -49,38 +49,37 @@ function ColumnOnHold(props)  {
       description: article.get("description"),
       section: article.get("section"),
       deadline: article.get("deadline"),
-      status: article.get("status")
-    }
-    }
+      status: article.get("status"),
+    };
+  }
 
-
-    function destructureIdeas(article) {
+  function destructureIdeas(article) {
     return article.map(destructure);
-    }
-    
+  }
+
   return (
     <div>
-    <h2 className="article-column-title">ON HOLD</h2>
-    <section className="article-card-container">
-      {props.columnOnHold.map((card) => (
-        <div className="card" onClick={() => handleClickIdeaPopup(card)}>
-          <h3>{card.title}</h3>
-          <div className="card-id">
+      <h2 className="article-column-title">ON HOLD</h2>
+      <section className="article-card-container">
+        {props.columnOnHold.map((card) => (
+          <div className="card" onClick={() => handleClickIdeaPopup(card)}>
+            <h3>{card.title}</h3>
+            <div className="card-id">
               <small>Deadline</small>
-            <small>{card.deadline}</small>
+              <small>{card.deadline}</small>
+            </div>
+            <p>{card.description}</p>
+            <div className="tags">
+              {/* <InputTag/> */}
+              <Label sectionName={card.section} />
+            </div>
+            <div className="assigned-people">
+              <img src={Loui_Avatar} alt="test" />
+            </div>
+            <Statusbar status={card.status} />
           </div>
-          <p>{card.description}</p>
-          <div className="tags">
-            {/* <InputTag/> */}
-            <Label sectionName={card.section}/>
-          </div>
-          <div className="assigned-people">
-            <img src={Loui_Avatar} alt="test"/>
-          </div>
-          <Statusbar status={card.status} />
-        </div>
-      ))}
-    </section>
+        ))}
+      </section>
     </div>
   );
 }

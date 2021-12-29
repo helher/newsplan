@@ -1,6 +1,8 @@
 import React from 'react';
+import { IoReloadOutline } from 'react-icons/io5';
+
+// Styles
 import './LoadButton.css';
-import { IoReloadOutline } from 'react-icons/io5'
 
 const LoadButton = ({
     text

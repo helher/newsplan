@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./AssignEmployee.css";
-import { IoMdArrowDropdownCircle } from "react-icons/io";
 import Parse from "parse";
+import { IoMdArrowDropdownCircle } from "react-icons/io";
+
+// Styles
+import "./AssignEmployee.css";
 
 function AssignEmployee({ selectedEmployee, setSelectedEmployee, setEmployeeId}) {
   const [readResults, setReadResults] = useState([]);

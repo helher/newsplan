@@ -1,18 +1,19 @@
-import React from 'react';
+import React from "react";
 import { FcCheckmark } from "react-icons/fc";
-import './SaveComment.css';
 
+// Styles
+import "./SaveComment.css";
 
-const SaveComment = ({saveAction}) => {
-    console.log('button clicked');
+const SaveComment = ({ saveAction }) => {
+  console.log("button clicked");
 
-    return (
-        <div >
-            <button className="save-comment-btn" onClick={saveAction}>
-                <FcCheckmark className="check-icon" />
-            </button>
-        </div>
-    )
-}
+  return (
+    <div>
+      <button className="save-comment-btn" onClick={saveAction}>
+        <FcCheckmark className="check-icon" />
+      </button>
+    </div>
+  );
+};
 
 export default SaveComment;

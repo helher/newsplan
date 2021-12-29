@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Styles
+import "./App.css";
 
 // Screens
 import TeamPlan from "./screens/TeamPlan";
@@ -29,7 +31,7 @@ function App() {
           <Route path="/ideas" element={<Ideas />} exact />
           <Route path="/teamplan" element={<TeamPlan exact />} />
         </Routes>
-        <Logout className ="logout-element" setIsLoggedIn={setIsLoggedIn}/>
+        <Logout className="logout-element" setIsLoggedIn={setIsLoggedIn} />
       </Router>
     </div>
   );

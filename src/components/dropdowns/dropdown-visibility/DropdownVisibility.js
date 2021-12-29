@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./DropdownVisibility.css";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
 import Parse from "parse";
+
+// Styles
+import "./DropdownVisibility.css";
 
 function DropdownVisibility({ visibility, setVisibility }) {
   const [isActive, setIsActive] = useState(false);

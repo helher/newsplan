@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Styles
 import './IdeaListView.css';
 
 function IdeaListView() {

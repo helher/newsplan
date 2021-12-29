@@ -1,5 +1,4 @@
 import React from "react";
-import Parse from "parse";
 import { List } from "antd";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
 import { Button } from "@material-ui/core";

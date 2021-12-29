@@ -1,21 +1,22 @@
-import React from 'react'
-import './TitleEdit.css'
+import React from "react";
 
-const TitleEdit = ({title, setTitle}) => {
+// Styles
+import "./TitleEdit.css";
 
-    function newTitle(e) {
-        setTitle(e.target.value)
-    }
+const TitleEdit = ({ title, setTitle }) => {
+  function newTitle(e) {
+    setTitle(e.target.value);
+  }
 
-    return (
-        <input 
-        className = "text-input"
-        placeholder = "Add a title here.."
-        type="text"
-        value={title}
-        onChange={newTitle}
-      />
-    )
-}
+  return (
+    <input
+      className="text-input"
+      placeholder="Add a title here.."
+      type="text"
+      value={title}
+      onChange={newTitle}
+    />
+  );
+};
 
-export default TitleEdit
+export default TitleEdit;
