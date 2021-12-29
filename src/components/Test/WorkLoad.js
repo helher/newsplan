@@ -3,21 +3,22 @@ import Parse from "parse";
 
 function WorkLoad() {
   const [readResults, setReadResults] = useState([]);
-  let durationArray = [];
+  let jobArray = [];
 
   useEffect(() => {
     readWorkLoad();
   }, []);
 
   const readWorkLoad = async function () {
-    let query = new Parse.Query("Workload");
+    let query = new Parse.Query("ArticleRole");
+    query.equalTo("articleId", "QVvucafMWC");
 
-    let workload = await query.find();
+    let job = await query.find();
     try {
-      workload.forEach((workload) => {
-        durationArray.push(workload.get("duration"));
+      job.forEach((job) => {
+        jobArray.push(job);
       });
-      setReadResults(durationArray);
+      setReadResults(jobArray);
       return true;
     } catch (error) {
       alert(`Error! ${error.message}`);
@@ -25,10 +26,12 @@ function WorkLoad() {
     }
   };
 
+  
+
   return <div>
-       {readResults.map((workload) => (
+       {readResults.map((job) => (
     
-                <h6>{workload}</h6>
+                <h6>{job.get("employee")}</h6>
  
             ))}
   </div>;

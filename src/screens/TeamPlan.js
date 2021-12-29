@@ -8,6 +8,8 @@ import Footer from "../components/footer/Footer";
 import LoadButton from "../components/buttons/LoadButton/LoadButton";
 import AddEmployeeButton from "../components/buttons/AddEmployeeButton/AddEmployeeButton";
 import JobForm from "../components/dropdowns/job-dropdown-form/JobForm";
+import WorkLoad from "../components/Test/WorkLoad";
+import JobList from "../components/job-list/JobList";
 
 const TeamPlan = () => {
   const [workload, setWorkload] = useState();
@@ -23,6 +25,8 @@ const TeamPlan = () => {
             workload={workload}
             setWorkload={setWorkload}
           />
+
+          <WorkLoad/>
         </div>
       </div>
       <div className="footer-container">

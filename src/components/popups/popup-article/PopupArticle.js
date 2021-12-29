@@ -4,6 +4,9 @@ import Parse from "parse";
 // Styles
 import "./PopupArticle.css";
 
+// Functions 
+import {readJobList} from "../../../database/ArticleRole";
+
 //components
 import TitleEdit from "../../title-edit/TitleEdit";
 import RichTextEditor from "../../rich-text-editor/RichTextEdior";
@@ -30,7 +33,10 @@ function PopupArticle(props) {
   const [selectedEmployee, setSelectedEmployee] = useState();
   const [ideaId, setIdeaId] = useState();
   const [ideaAuthor, setIdeaAuthor] = useState();
+  const [hasAssignedJobs, setHasAssignedJobs] = useState(false)
+  const [assignedJob, setAssignedJob] = useState();
   const [jobListResult, setJobListResult] = useState();
+  
 
   useEffect(() => {
     props.ideaCardObject && setArticleStateInfoFromIdea();
@@ -39,6 +45,12 @@ function PopupArticle(props) {
   useEffect(() => {
     props.articleCardObject && setArticleState();
   }, [props.articleCardObject]);
+
+  useEffect(() => {
+      readJobList(props.articleId).then((jobList) => {
+        setJobListResult(jobList); 
+      });}, [assignedJob]);
+
 
   async function setArticleStateInfoFromIdea() {
     console.log("setArticleInfoFromIdea started..", props.ideaCardObject);
@@ -186,6 +198,24 @@ function PopupArticle(props) {
     return temporaryText.textContent || temporaryText.innerText || "";
   }
 
+ /*  const updateJobList = async function () {
+    let query = new Parse.Query("ArticleRole");
+    query.include("user");
+    query.equalTo("articleId", props.articleId);
+
+    let job = await query.find();
+    try {
+      job.forEach((job) => {
+        jobArray.push(job);
+      });
+      setJobListResult(jobArray);
+      return true;
+    } catch (error) {
+      alert(`Error! ${error.message}`);
+      return false;
+    }
+  }; */
+
   return props.popupArticle ? (
     <div className="popup-page">
       <div className="popup">
@@ -243,11 +273,14 @@ function PopupArticle(props) {
                 workload={workload}
                 setWorkload={setWorkload}
                 articleId={props.articleId}
-                setJobListResult={setJobListResult}
+                setAssignedJob={setAssignedJob}
+                setHasAssignedJobs={setHasAssignedJobs}
               />
-              <JobList jobListResult={jobListResult}/>
+              {hasAssignedJobs && (
+                <JobList jobListResult={jobListResult} />
+              )}
+              
             </div>
-            
           </div>
         </section>
         {props.children}

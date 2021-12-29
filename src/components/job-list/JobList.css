@@ -1,5 +1,10 @@
 @import url(./../../index.css);
 
+.assigned-job-container {
+  margin-top: 25px;
+  border-bottom: solid 1px #c4c4c4;
+}
+
 .status-dropdown {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -62,18 +67,19 @@
 }
 
 .job-image-container {
-  width: 34px;
-  height: 34px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
+  margin-right: 10px;
 }
 
 .image-user-job {
-  width: 34px;
-  height: 34px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
 }
 
-.employee-info-and-avatar {
+.employee-info-and-image {
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Parse from "parse";
+import {readJobList} from '../../../database/ArticleRole';
 
 // Styles
 import "./JobForm.css";
@@ -15,12 +16,13 @@ function JobForm({
   selectedEmployee,
   setSelectedEmployee,
   articleId,
-  setJobListResult
-
+  setHasAssignedJobs,
+  setAssignedJob
 }) {
   const [employeeId, setEmployeeId] = useState();
+  
 
-   function saveJob() {
+  function saveJob() {
     {
       if (workload && selectedEmployee) {
         return <SaveJob saveAction={addJobToDB} />;
@@ -28,11 +30,12 @@ function JobForm({
     }
   }
 
+  
   async function updateAvailability() {
     const query = new Parse.Query("User");
 
     try {
-      const assignedEmployee = await query.get(employeeId);;
+      const assignedEmployee = await query.get(employeeId);
       if ((workload = "Full day")) {
         assignedEmployee.set("availability", "0%");
       } else if ((workload = "1/2 day"))
@@ -42,21 +45,6 @@ function JobForm({
       }
     } catch (e) {}
   }
-
-   const updateJobList = async function () {
-    const query = new Parse.Query("ArticleRole");
-
-    try {
-      query.equalTo("articleId", articleId);
-      query.descending("createdAt");
-      const assignedJobs = await query.find();
-      setJobListResult(assignedJobs);
-      return true;
-    } catch (error) {
-      alert(`Error! Is this the error?`);
-      return false;
-    }
-  };
 
   async function addJobToDB() {
     const ArticleRole = Parse.Object.extend("ArticleRole");
@@ -70,28 +58,14 @@ function JobForm({
       newRole.set("user", employeeObject);
       newRole.set("status", "planned");
       let result = await newRole.save();
+      setAssignedJob(result);
+      setHasAssignedJobs(true);
       updateAvailability();
-      updateJobList();
       alert("Job Assigned for artice with ID: " + articleId);
     } catch (error) {
       alert("Failed to update assigned Job, with error code: " + error.message);
     }
   }
-
-
-/*   function destructureObject(job) {
-    return {
-      id: job.id,
-      employeeDetail: job.get("employee"),
-      userObject: job.get("user"),
-      workload: job.get("workload"),
-      status: job.get("status"),
-    };
-  }
-
-  function destructureJob(jobs) {
-    return jobs.map(destructureObject);
-  } */
 
   return (
     <div>
