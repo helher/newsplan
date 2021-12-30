@@ -105,6 +105,7 @@ const Dashboard = () => {
           articleId={articleId}
           ideaCardObject={ideaCardObject}
           articleCardObject={articleCardObject}
+          date={today}
         />
       </div>
       <div className="footer-container">

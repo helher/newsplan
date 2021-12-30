@@ -37,7 +37,6 @@ function PopupArticle(props) {
   const [assignedJob, setAssignedJob] = useState();
   const [jobListResult, setJobListResult] = useState();
   
-
   useEffect(() => {
     props.ideaCardObject && setArticleStateInfoFromIdea();
   }, [props.articleId]);
@@ -54,11 +53,17 @@ function PopupArticle(props) {
 
   async function setArticleStateInfoFromIdea() {
     console.log("setArticleInfoFromIdea started..", props.ideaCardObject);
+
+    const initialDeadline = props.date.toString().substring(4,15)
+    const initialLength = "0-100 words"
+    
     setTitle(props.ideaCardObject.title);
     setDescription(props.ideaCardObject.description);
     setSection(props.ideaCardObject.section);
     setIdeaId(props.ideaCardObject.id);
     setIdeaAuthor(props.ideaCardObject.author);
+    setDate(convertDateStringToObject(initialDeadline))
+    setLength(initialLength)
   }
 
   async function setArticleState() {
@@ -137,6 +142,14 @@ function PopupArticle(props) {
     return newDateObject;
   }
 
+  function clearPopup() {
+    setTitle("");
+    setDescription("");
+    setDate();
+    setSection();
+    setLength();
+  }
+
   async function updateArticleInDB() {
     console.log("updateArticleInDB with article id: ", props.articleId);
     const objectId = props.articleId;
@@ -153,6 +166,7 @@ function PopupArticle(props) {
       let result = await Article.save();
       console.log("Article updated with objectId: " + result.id);
       props.setPopupArticle(false);
+      clearPopup();
     } catch (error) {
       alert(
         "Failed to update article object from PopupArticle, with error code: " +
@@ -175,7 +189,8 @@ function PopupArticle(props) {
       let result = await Article.destroy();
       /* alert('Success! Article deleted with id: ' + result.id); */
       console.log("Success! Article deleted with id: " + result.id);
-      props.setPopup(false);
+      props.setArticlePopup(false);
+      clearPopup();
       return true;
     } catch (error) {
       alert(`Error ${error.message}`);
@@ -189,6 +204,7 @@ function PopupArticle(props) {
 
   function handlePopupArticle() {
     props.setPopupArticle(false);
+    clearPopup();
   }
 
   // This code is from https://dev.to/sanchithasr/3-ways-to-convert-html-text-to-plain-text-52l8
