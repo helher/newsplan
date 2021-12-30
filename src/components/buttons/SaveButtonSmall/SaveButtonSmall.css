@@ -1,19 +1,18 @@
 @import url(../../../index.css);
 
-.save-comment-btn {
-  background-color: var(--white-color);
+.save-job-btn {
+  background-color: transparent;
   display: flex;
+  justify-content: center;
   outline: 0 !important;
   align-items: center;
   cursor: pointer;
-  height: 40px;
   border: none;
 }
 
 .check-icon {
-  background-color: var(--white-color);
-  height: 20px;
-  margin-right: 5px;
+  background-color: transparent;
+  color: #7bcca0;
 }
 
 .check-icon:hover {

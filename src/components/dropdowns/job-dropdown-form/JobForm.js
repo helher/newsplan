@@ -8,7 +8,7 @@ import "./JobForm.css";
 // Components
 import AssignEmployee from "../assign-employee/AssignEmployee";
 import AssignWorkload from "../assign-workload/AssignWorkload";
-import SaveJob from "../../buttons/SaveJob/SaveJob";
+import SaveButtonSmall from "../../buttons/SaveButtonSmall/SaveButtonSmall"
 
 function JobForm({
   workload,
@@ -25,7 +25,7 @@ function JobForm({
   function saveJob() {
     {
       if (workload && selectedEmployee) {
-        return <SaveJob saveAction={addJobToDB} />;
+        return <SaveButtonSmall saveAction={addJobToDB} />;
       }
     }
   }
@@ -68,7 +68,7 @@ function JobForm({
   }
 
   return (
-    <div>
+    <>
       <h3>Job</h3>
       <div className="job-form-component">
         <AssignEmployee
@@ -79,7 +79,7 @@ function JobForm({
         <AssignWorkload workload={workload} setWorkload={setWorkload} />
         {saveJob()}
       </div>
-    </div>
+    </>
   );
 }
 

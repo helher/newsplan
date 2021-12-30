@@ -2,13 +2,14 @@
 
 .comment-form-container {
   display: flex;
-  margin-bottom: 40px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .comment-form {
   display: flex;
-  width: 250px;
-  height: 40px;
+  width: 300px;
+  height: 38px;
   cursor: pointer;
   border-radius: 7px;
   color: var(--primary-color-60);
@@ -33,10 +34,9 @@
   width: 230px;
   padding: 10px;
   border: none;
+  border-radius: 7px;
 }
 
-.save-comment-btn {
-  align-self: flex-end;
-  outline: none;
-  border: none;
+.commentform-space {
+  margin-top: 10px;
 }

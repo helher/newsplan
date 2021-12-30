@@ -226,8 +226,6 @@ function PopupIdea(props) {
             <div className="top-right">
               <CloseWindow closeAction={handlePopupIdea} />
             </div>
-
-            <h3>Comments</h3>
             <CommentForm
               ideaId={props.ideaId}
               setCommentResult={setCommentResult}

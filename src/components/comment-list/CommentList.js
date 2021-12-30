@@ -3,6 +3,7 @@ import { List } from "antd";
 
 // Styles
 import "./CommentList.css";
+import DiscardButtonSmall from "../buttons/DiscardButtonSmall/DiscardButtonSmall";
 
 function CommentList(props) {
 
@@ -30,11 +31,12 @@ function CommentList(props) {
                         {" "}
                         {item.get("createdAt").toString().substring(4, 21)}
                       </p>
-                      <h5 className="comment-text">
+                      <h5>
                         {item.get("commentText")}
                       </h5>
                     </div>
                   </div>
+                  <DiscardButtonSmall/>
                 </div>
               </List.Item>
             )}

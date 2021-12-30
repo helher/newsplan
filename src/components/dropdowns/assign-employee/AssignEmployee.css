@@ -21,7 +21,7 @@
   justify-content: space-between;
   text-align: center;
   padding: 10px;
-  width: 120px;
+  width: 145px;
 }
 
 */ .space {
@@ -35,7 +35,7 @@
   margin-top: 10px;
   background-color: var(--white-color);
   position: absolute;
-  width: 135px;
+  width: 158px;
   border: 1px solid #373a3c;
 }
 

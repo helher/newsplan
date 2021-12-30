@@ -1,21 +1,19 @@
 import React from "react";
-import { FcCheckmark } from "react-icons/fc";
+import { GoCheck } from "react-icons/go";
 
 // Styles
-import "./SaveJob.css";
+import "./SaveButtonSmall.css";
 
-const SaveJob = ({ saveAction }) => {
+const SaveButtonSmall = ({ saveAction }) => {
   console.log("button clicked");
 
   return (
-    <div>
       <div className="job-button-container">
         <button className="save-job-btn" onClick={saveAction}>
-          <FcCheckmark className="check-icon" />
+          <GoCheck className="check-icon" />
         </button>
       </div>
-    </div>
   );
 };
 
-export default SaveJob;
+export default SaveButtonSmall;
