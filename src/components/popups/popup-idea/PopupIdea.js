@@ -12,7 +12,7 @@ import DiscardButton from "../../buttons/DiscardButton/DiscardButton";
 import CloseWindow from "../../buttons/CloseWindow/CloseWindow";
 import DropdownVisibility from "../../dropdowns/dropdown-visibility/DropdownVisibility";
 import DropdownCalendar from "../../dropdowns/dropdown-calendar/DropdownCalendar";
-import Section from "../../dropdowns/section/Section";
+import Section from "../../dropdowns/Section/Section";
 import RichTextEditor from "../../rich-text-editor/RichTextEdior";
 import CreatedBy from "../../created-by/CreatedBy";
 import CommentForm from "../../comment-form/CommentForm";

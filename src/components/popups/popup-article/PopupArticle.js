@@ -13,9 +13,11 @@ import RichTextEditor from "../../rich-text-editor/RichTextEdior";
 import DropdownCalendar from "../../dropdowns/dropdown-calendar/DropdownCalendar";
 import DropdownLength from "../../dropdowns/dropdown-length/DropdownLength";
 import CreatedByArticle from "./../../created-by/CreatedByArticle";
-import Section from "../../dropdowns/section/Section";
+import Section from "../../dropdowns/Section/Section";
 import JobForm from "../../dropdowns/job-dropdown-form/JobForm";
 import JobList from "../../job-list/JobList";
+import CommentForm from "../../comment-form/CommentForm";
+import CommentList from "../../comment-list/CommentList";
 
 //buttons
 import ProceedButton from "../../buttons/ProceedButton/ProceedButton";
@@ -36,6 +38,7 @@ function PopupArticle(props) {
   const [hasAssignedJobs, setHasAssignedJobs] = useState(false)
   const [assignedJob, setAssignedJob] = useState();
   const [jobListResult, setJobListResult] = useState();
+  const [commentResult, setCommentResult] = useState();
   
   useEffect(() => {
     props.ideaCardObject && setArticleStateInfoFromIdea();
@@ -297,6 +300,12 @@ function PopupArticle(props) {
               )}
               
             </div>
+    
+            <CommentForm
+              ideaId={props.ideaId}
+              setCommentResult={setCommentResult}
+            />
+            <CommentList commentResult={commentResult} />
           </div>
         </section>
         {props.children}

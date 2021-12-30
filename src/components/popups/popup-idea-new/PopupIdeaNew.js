@@ -13,7 +13,7 @@ import DropdownVisibility from "../../dropdowns/dropdown-visibility/DropdownVisi
 import DropdownCalendar from "../../dropdowns/dropdown-calendar/DropdownCalendar";
 import RichTextEditor from "../../rich-text-editor/RichTextEdior";
 import CreatedByNew from "../../created-by/CreatedByNew";
-import Section from "../../dropdowns/section/Section";
+import Section from "../../dropdowns/Section/Section";
 
 function PopupIdeaNew(props) {
   const [title, setTitle] = useState();

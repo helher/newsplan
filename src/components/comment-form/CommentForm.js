@@ -71,8 +71,8 @@ function CommentForm (props) {
                 value={commentInput}
                 onChange={newComment}
                 />
-                <SaveComment className="save-comment-btn" saveAction={addCommentToDB}/>
             </div>
+            <SaveComment className="save-comment-btn" saveAction={addCommentToDB}/>
         </div>
     );
 }

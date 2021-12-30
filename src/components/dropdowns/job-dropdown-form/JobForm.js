@@ -68,7 +68,7 @@ function JobForm({
   }
 
   return (
-    <div>
+    <>
       <h3>Job</h3>
       <div className="job-form-component">
         <AssignEmployee
@@ -79,7 +79,7 @@ function JobForm({
         <AssignWorkload workload={workload} setWorkload={setWorkload} />
         {saveJob()}
       </div>
-    </div>
+    </>
   );
 }
 

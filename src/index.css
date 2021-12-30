@@ -28,6 +28,7 @@ h3 {
   font-size: 14px;
   line-height: 18px;
   color: var(--primary-color);
+  margin-bottom: 5px;
 }
 
 h4 {
