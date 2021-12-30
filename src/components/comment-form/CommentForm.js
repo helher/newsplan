@@ -59,6 +59,8 @@ function CommentForm (props) {
 
 
     return (
+        <>
+        <h3>Comment</h3>
         <div className ="comment-form-container">
             <div className="comment-form" onClick={() => setActiveComment(!activeComment)}> 
                 <div className="form-image-container"> 
@@ -74,6 +76,7 @@ function CommentForm (props) {
             </div>
             <SaveComment className="save-comment-btn" saveAction={addCommentToDB}/>
         </div>
+        </>
     );
 }
 
