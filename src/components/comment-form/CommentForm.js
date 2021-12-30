@@ -5,7 +5,7 @@ import Parse from 'parse';
 import './CommentForm.css';
 
 // components
-import SaveComment from '../buttons/SaveComment/SaveComment';
+import SaveButtonSmall from '../buttons/SaveButtonSmall/SaveButtonSmall';
 
 function CommentForm (props) {
 
@@ -59,24 +59,24 @@ function CommentForm (props) {
 
 
     return (
-        <>
-        <h3>Comment</h3>
+        <div className="commentform-space">
+        <h3>Comments</h3>
         <div className ="comment-form-container">
-            <div className="comment-form" onClick={() => setActiveComment(!activeComment)}> 
-                <div className="form-image-container"> 
-                    <img className="comment-form-image" src={user.get("userimage").url()}/>
+                <div className="comment-form" onClick={() => setActiveComment(!activeComment)}> 
+                    <div className="form-image-container"> 
+                        <img className="comment-form-image" src={user.get("userimage").url()}/>
+                    </div>
+                    <input 
+                    className = "comment-content"
+                    placeholder = "Write your comment here.."
+                    type="text"
+                    value={commentInput}
+                    onChange={newComment}
+                    />
                 </div>
-                <input 
-                className = "comment-content"
-                placeholder = "Write your comment here.."
-                type="text"
-                value={commentInput}
-                onChange={newComment}
-                />
-            </div>
-            <SaveComment className="save-comment-btn" saveAction={addCommentToDB}/>
+                <SaveButtonSmall saveAction={addCommentToDB}/>
         </div>
-        </>
+        </div>
     );
 }
 

@@ -6,11 +6,12 @@ import { Button } from "@material-ui/core";
 
 //Styles
 import "./JobList.css";
+import DiscardJob from "../buttons/DiscardButtonSmall/DiscardButtonSmall";
 
 function JobList({jobListResult}) {
  
   return (
-    <div>
+    <div className="job-list">
       {jobListResult.map((job) => (
         <div className="assigned-job-container">
           <div className="employee-info-and-image">
@@ -29,20 +30,16 @@ function JobList({jobListResult}) {
             <br></br>
             <div className="status-text">Status</div>
             <div className="status-dropdown-btn">
-              <h6>Planned</h6>
+            <p className="status-text">Planned</p>
               <IoMdArrowDropdownCircle className="dropdown-icon" />
             </div>
-            <div className="status-text"></div>
-            <div className="approval-button">
-              <Button variant="contained" disabled>
-                x
-              </Button>
+            
+            < DiscardJob />
             </div>
           </div>
-        </div>
       ))}
     </div>
-  );
+  )
 }
 
 export default JobList;

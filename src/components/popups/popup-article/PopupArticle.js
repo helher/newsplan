@@ -13,7 +13,7 @@ import RichTextEditor from "../../rich-text-editor/RichTextEdior";
 import DropdownCalendar from "../../dropdowns/dropdown-calendar/DropdownCalendar";
 import DropdownLength from "../../dropdowns/dropdown-length/DropdownLength";
 import CreatedByArticle from "./../../created-by/CreatedByArticle";
-import Section from "../../dropdowns/Section/Section";
+import Section from "../../dropdowns/section/Section";
 import JobForm from "../../dropdowns/job-dropdown-form/JobForm";
 import JobList from "../../job-list/JobList";
 import CommentForm from "../../comment-form/CommentForm";
@@ -300,7 +300,6 @@ function PopupArticle(props) {
               )}
               
             </div>
-    
             <CommentForm
               ideaId={props.ideaId}
               setCommentResult={setCommentResult}

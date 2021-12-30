@@ -25,7 +25,7 @@
   justify-content: space-between;
   text-align: center;
   padding: 10px;
-  width: 90px;
+  width: 100px;
 }
 
 */ .space {
@@ -39,7 +39,7 @@
   margin-top: 10px;
   background-color: var(--white-color);
   position: absolute;
-  width: 105px;
+  width: 118px;
   border: 1px solid #373a3c;
 }
 

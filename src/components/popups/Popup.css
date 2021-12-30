@@ -44,6 +44,7 @@
 .idea-flex-left {
   flex: 1;
   padding: 25px;
+  width: 500px;
 }
 
 .idea-top-left {
@@ -70,8 +71,11 @@
 .idea-flex-right {
   background-color: var(--light-grey);
   width: auto;
+  height: relative;
   flex: 2;
   padding: 25px;
+  width: 300px;
+  height: 635px;
 }
 
 .top-right {
