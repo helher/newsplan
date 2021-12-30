@@ -38,11 +38,6 @@
   outline: none;
 }
 
-/* .dropdowncalender-icon {
-  width: 10px;
-  height: 10px;
-} */
-
 .DatePicker__input.-rtl {
   direction: rtl;
 }
