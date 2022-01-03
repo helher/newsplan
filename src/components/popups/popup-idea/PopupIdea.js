@@ -57,15 +57,41 @@ function PopupIdea(props) {
   }
 
   function convertDateObjectToString(date) {
-    let month = `${date.month}`
-    const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    let newMonth = months[month]
+    let month = `${date.month}`;
+    const months = [
+      "",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    let newMonth = months[month];
+    
+    let newDay = date.day
 
-    const newDateString = JSON.stringify(`${newMonth} ${date.day} ${date.year}`)
-    const completeNewDateString = newDateString.substring(1, newDateString.length - 1);
+    if (newDay < 10) {
+      newDay = 0 + JSON.stringify(date.day)
+    } 
 
-    return completeNewDateString
+    const newDateString = JSON.stringify(
+      `${newMonth} ${newDay} ${date.year}`
+    );
+    const completeNewDateString = newDateString.substring(
+      1,
+      newDateString.length - 1
+    );
+
+    return completeNewDateString;
   }
+
 
   function convertDateStringToObject(date) {
     const stringArr = date.split(" ");

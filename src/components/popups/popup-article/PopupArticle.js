@@ -99,9 +99,15 @@ function PopupArticle(props) {
       "Dec",
     ];
     let newMonth = months[month];
+    
+    let newDay = date.day
+
+    if (newDay < 10) {
+      newDay = 0 + JSON.stringify(date.day)
+    } 
 
     const newDateString = JSON.stringify(
-      `${newMonth} ${date.day} ${date.year}`
+      `${newMonth} ${newDay} ${date.year}`
     );
     const completeNewDateString = newDateString.substring(
       1,
