@@ -5,7 +5,7 @@ import Parse from "parse";
 import "./PopupArticle.css";
 
 // Functions 
-import {readJobList} from "../../../database/ArticleRole";
+import {readJobList} from "../../../database/articleRole";
 
 //components
 import TitleEdit from "../../title-edit/TitleEdit";

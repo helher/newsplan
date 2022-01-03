@@ -12,6 +12,9 @@ import PopupIdeaNew from "../components/popups/popup-idea-new/PopupIdeaNew";
 import { DataGrid } from "@mui/x-data-grid";
 import Label from "../components/label/Label";
 
+// import function
+import {cloudSumIdea} from "../database/cloud"
+
 const columns = [
   {
     field: "title",
@@ -49,15 +52,17 @@ const columns = [
 function Ideas() {
   const [popupNew, setPopupNew] = useState(false);
   const [ideaTable, setIdeaTable] = useState();
+  const [cloudResult, setCloudResult] = useState()
 
-  // useEffects runs only once, first time the componenten renders, because we have an empty dependency!
   useEffect(() => {
     fetchIdeas();
   }, []);
 
   useEffect(() => {
-    console.log("from useEffect: ", ideaTable);
-  }, [ideaTable]);
+    cloudSumIdea().then((sum) => {
+      setCloudResult(sum)
+    })
+  }, []);
 
   async function fetchIdeas() {
     const query = new Parse.Query("Idea");
@@ -110,6 +115,7 @@ function Ideas() {
             setPopupNew={setPopupNew}
           />
           <LoadButton text="Load more Ideas" />
+          <p>Total Ideas: {cloudResult}</p>
         </div>
         <Footer />
       </div>

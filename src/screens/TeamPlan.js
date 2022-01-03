@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Parse from "parse";
 
 // Styles
 import "./Teamplan.css";
@@ -11,9 +12,18 @@ import JobForm from "../components/dropdowns/job-dropdown-form/JobForm";
 import WorkLoad from "../components/Test/WorkLoad";
 import JobList from "../components/job-list/JobList";
 
+
 const TeamPlan = () => {
   const [workload, setWorkload] = useState();
   const [selectedEmployee, setSelectedEmployee] = useState();
+  const [cloudResult, setCloudResult] = useState()
+
+
+  async function helloCloud() {
+    let result = await Parse.Cloud.run("sum", {
+    })
+    setCloudResult(result)
+  }
 
   return (
     <>
@@ -25,6 +35,10 @@ const TeamPlan = () => {
             workload={workload}
             setWorkload={setWorkload}
           />
+
+          <button onClick={helloCloud}>knap</button>
+          <p>{cloudResult}</p>
+
 
           <WorkLoad/>
         </div>
