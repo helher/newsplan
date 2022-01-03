@@ -17,7 +17,8 @@
 .footer-btns {
   display: flex;
   justify-content: space-between;
-  width: 47%;
+  align-items: center;
+  width: 80%;
 }
 
 .list-table {
@@ -87,4 +88,8 @@
 
 .css-zylse7-MuiButtonBase-root-MuiIconButton-root.Mui-disabled {
   display: none;
+}
+
+.footer-btns p {
+  color: white;
 }

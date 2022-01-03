@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Parse from "parse";
-import {readJobList} from '../../../database/ArticleRole';
+import {readJobList} from '../../../database/articleRole';
 
 // Styles
 import "./JobForm.css";

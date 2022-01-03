@@ -12,6 +12,9 @@ import PopupArticle from "../components/popups/popup-article/PopupArticle";
 import { DataGrid } from "@mui/x-data-grid";
 import Label from "../components/label/Label";
 
+//functions
+import { cloudSumArticle } from "../database/cloud";
+
 const columns = [
   {
     field: "title",
@@ -45,14 +48,17 @@ const Articles = () => {
   //this line is needed to test the popup on article page
   const [length, setLength] = useState();
   const [articleTable, setArticleTable] = useState();
+  const [cloudResult, setCloudResult] = useState()
 
   useEffect(() => {
     fetchIdeas();
   }, []);
 
   useEffect(() => {
-    console.log("from useEffect: ", articleTable);
-  }, [articleTable]);
+    cloudSumArticle().then((sum) => {
+      setCloudResult(sum)
+    })
+  }, []);
 
   async function fetchIdeas() {
     const query = new Parse.Query("Article");
@@ -99,6 +105,7 @@ const Articles = () => {
       <div className="footer-container">
         <div className="footer-btns">
           <LoadButton text="Load more Articles" />
+          <p>Total Articles: {cloudResult}</p>
         </div>
         <Footer />
       </div>

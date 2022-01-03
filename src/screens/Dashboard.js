@@ -33,10 +33,6 @@ const Dashboard = () => {
   const dayAfterTomorrow = new Date(today);
   dayAfterTomorrow.setDate(dayAfterTomorrow.getDate() + 2);
 
-  console.log(today);
-  console.log(tomorrow);
-  console.log(dayAfterTomorrow);
-
   return (
     <>
       <div className="dashboard">
