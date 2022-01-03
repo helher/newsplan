@@ -4,6 +4,9 @@ import Parse from "parse";
 // Styles
 import "./../Popup.css";
 
+// Functions
+import {deleteIdea} from "../../../database/REST";
+
 //components
 import TitleEdit from "../../title-edit/TitleEdit";
 import SaveButton from "../../buttons/SaveButton/SaveButton";
@@ -116,20 +119,14 @@ function PopupIdea(props) {
   }
 
   async function handleDiscardAttempt() {
-    const objectId = props.ideaId;
-    const Idea = new Parse.Object("Idea");
-    const id = Idea.set("objectId", objectId);
-
-
     try {
-      let result = await Idea.destroy();
-      console.log("Success! Idea deleted with id: " + result.id);
+      await deleteIdea(props.ideaId);
+      alert("Success! Idea deleted with id: " + props.ideaId);
+      console.log("Success! Idea deleted with id: " + props.ideaId);
       props.setPopup(false);
       clearPopup();
-      return true;
     } catch (error) {
       alert(`Error ${error.message}`);
-      return false;
     }
   }
 

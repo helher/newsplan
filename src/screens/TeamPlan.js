@@ -1,56 +1,23 @@
-import React, { useState, useEffect } from "react";
-import Parse from "parse";
-import {getUser} from "../database/REST";
+import React from "react";
 
 // Styles
 import "./Teamplan.css";
+
+// Images
+import teamImage from "../images/teamplan_image.jpg";
 
 // components
 import Footer from "../components/footer/Footer";
 import LoadButton from "../components/buttons/LoadButton/LoadButton";
 import AddEmployeeButton from "../components/buttons/AddEmployeeButton/AddEmployeeButton";
-import JobForm from "../components/dropdowns/job-dropdown-form/JobForm";
-import WorkLoad from "../components/Test/WorkLoad";
-import JobList from "../components/job-list/JobList";
-
 
 const TeamPlan = () => {
-  const [workload, setWorkload] = useState();
-  const [selectedEmployee, setSelectedEmployee] = useState();
-  const [cloudResult, setCloudResult] = useState()
-  const [user, setUser] = useState();
-
- /*  useEffect(() => {
-    getUser("PqCqcQMvWC").then((user) => {
-      setUser(user)
-    })
-  }, []);
- */
-
-
-
-  async function helloCloud() {
-    let result = await Parse.Cloud.run("sum", {
-    })
-    setCloudResult(result)
-  }
-
   return (
     <>
       <div className="teamplan">
-        <div className="job-dropdown-container">
-          <JobForm
-            selectedEmployee={selectedEmployee}
-            setSelectedEmployee={setSelectedEmployee}
-            workload={workload}
-            setWorkload={setWorkload}
-          />
-
-          <button onClick={helloCloud}>knap</button>
-      {/*     <p>{user}</p> */}
-
-
-          <WorkLoad/>
+        <h1 className="teamplan-header">Under Construction</h1>
+        <div className="image-container-teamplan">
+          <img className="teamplan-image" scr={teamImage} alt="teamplan" />
         </div>
       </div>
       <div className="footer-container">
