@@ -68,7 +68,7 @@ function IdeaColumn(props) {
     <h2 className="idea-column-title" >IDEAS</h2>
     <section className="idea-card-container">
       {props.cardIdeaTable.map((card) => (
-        <div className="card" onClick={() => handleClickIdeaPopup(card)}>
+        <div className="card-idea" onClick={() => handleClickIdeaPopup(card)}>
           <h3>{card.title}</h3>
           <div className="card-id">
             <small>
@@ -77,12 +77,11 @@ function IdeaColumn(props) {
             <small>{card.expiration}</small>
           </div>
           <p>{card.description}</p>
+          <div className="tags">
+            <Label sectionName={card.section}/>
+          </div>
           <div className="assigned-people">
             <img src={card.userImage} />
-          </div>
-          <div className="tags">
-            {/* <InputTag/> */}
-            <Label sectionName={card.section}/>
           </div>
         </div>
       ))}

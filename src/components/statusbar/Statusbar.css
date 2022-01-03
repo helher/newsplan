@@ -2,7 +2,7 @@
 
 .bar {
   background-color: var(--statusbar-backgroundcolor);
-  width: 170px;
+  width: 190px;
   height: 6px;
   border-radius: 10px;
 }

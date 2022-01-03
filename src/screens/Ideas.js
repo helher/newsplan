@@ -32,7 +32,7 @@ const columns = [
   {
     field: "author",
     headerName: "AUTHOR",
-    width: 125,
+    width: 250,
     editable: false,
     renderCell: (params) => (
       <div className="author-column">

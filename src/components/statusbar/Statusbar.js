@@ -23,7 +23,7 @@ const Statusbar = ({ status }) => {
     case "approved":
       return (
         <div className="bar">
-          {ColorWidth("var(--statusbar-approved)", "170px")}
+          {ColorWidth("var(--statusbar-approved)", "190px")}
         </div>
       );
     case "accepted":
@@ -35,7 +35,7 @@ const Statusbar = ({ status }) => {
     case "onhold":
       return (
         <div className="bar">
-          {ColorWidth("var(--statusbar-onhold)", "90px")}
+          {ColorWidth("var(--statusbar-onhold)", "100px")}
         </div>
       );
     case "finished":
@@ -47,7 +47,7 @@ const Statusbar = ({ status }) => {
     case "warning":
       return (
         <div className="bar">
-          {ColorWidth("var(--statusbar-warning)", "170px")}
+          {ColorWidth("var(--statusbar-warning)", "190px")}
         </div>
       );
     default:

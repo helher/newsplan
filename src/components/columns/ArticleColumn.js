@@ -74,13 +74,14 @@ function ArticleColumn(props) {
             </div>
             <p>{card.description}</p>
             <div className="tags">
-              {/* <InputTag/> */}
               <Label sectionName={card.section} />
             </div>
             <div className="assigned-people">
               <img src={Loui_Avatar} alt="test" />
             </div>
+            <div className="statusbar">
             <Statusbar status={card.status} />
+            </div>
           </div>
         ))}
       </section>
