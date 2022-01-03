@@ -33,6 +33,10 @@
   color: var(--primary-color);
 }
 
+.css-1mi21rn {
+  border: none;
+}
+
 .author-column {
   display: flex;
   align-items: center;
@@ -92,4 +96,16 @@
 
 .footer-btns p {
   color: white;
+}
+
+.css-1chpzqh {
+  display: none;
+}
+
+.css-eozsn7 {
+  display: none;
+}
+
+.css-1wif0xq .MuiTablePagination-actions {
+  display: none;
 }
