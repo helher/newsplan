@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Parse from "parse";
+import {getUser} from "../database/REST";
 
 // Styles
 import "./Teamplan.css";
@@ -17,6 +18,15 @@ const TeamPlan = () => {
   const [workload, setWorkload] = useState();
   const [selectedEmployee, setSelectedEmployee] = useState();
   const [cloudResult, setCloudResult] = useState()
+  const [user, setUser] = useState();
+
+ /*  useEffect(() => {
+    getUser("PqCqcQMvWC").then((user) => {
+      setUser(user)
+    })
+  }, []);
+ */
+
 
 
   async function helloCloud() {
@@ -37,7 +47,7 @@ const TeamPlan = () => {
           />
 
           <button onClick={helloCloud}>knap</button>
-          <p>{cloudResult}</p>
+      {/*     <p>{user}</p> */}
 
 
           <WorkLoad/>
