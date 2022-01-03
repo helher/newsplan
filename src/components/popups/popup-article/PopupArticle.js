@@ -6,6 +6,7 @@ import "./PopupArticle.css";
 
 // Functions 
 import {readJobList} from "../../../database/articleRole";
+import {deleteArticle} from "../../../database/REST";
 
 //components
 import TitleEdit from "../../title-edit/TitleEdit";
@@ -185,25 +186,15 @@ function PopupArticle(props) {
   }
 
   async function handleDiscardAttempt() {
-    const objectId = props.articleId;
-    console.log("handlediscard id: ", objectId);
-    console.log("delete started");
-
-    const Article = new Parse.Object("Article");
-    const id = Article.set("objectId", objectId);
-
-    console.log(id);
 
     try {
-      let result = await Article.destroy();
-      /* alert('Success! Article deleted with id: ' + result.id); */
-      console.log("Success! Article deleted with id: " + result.id);
-      props.setPopupArticle(false)
+      await deleteArticle(props.articleId);
+      alert('Success! Article deleted with id: ' + props.articleId);
+      console.log("Success! Article deleted with id: " + props.articleId);
+      props.setPopupArticle(false);
       clearPopup();
-      return true;
     } catch (error) {
       alert(`Error ${error.message}`);
-      return false;
     }
   }
 
