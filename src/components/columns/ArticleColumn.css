@@ -1,7 +1,7 @@
 @import url(./../../index.css);
 
 .article-card-container {
-  width: 250px;
+  width: 220px;
   margin-top: 50px;
   margin-right: 10px;
   padding-left: 10px;
@@ -47,7 +47,7 @@
   color: var(--white-color);
   height: 20px;
   padding: 10px;
-  width: 250px;
+  width: 220px;
   position: fixed;
   margin-top: 10px;
   background-color: #677e9e;
@@ -56,7 +56,7 @@
 .card {
   background-color: var(--primary-color);
   padding: 15px;
-  width: 220px;
+  width: 190px;
   margin-bottom: 10px;
 }
 
@@ -96,7 +96,7 @@
 
 .assigned-people {
   display: flex;
-  margin: 5px 0px 5px 0px;
+  margin: 10px 0px 0px 0px;
 }
 
 .assigned-people img {
@@ -104,5 +104,8 @@
   height: 25px;
   object-fit: cover;
   border-radius: 50%;
-  margin: 0px 10px 5px 0px;
+}
+
+.statusbar {
+  margin-top: 10px;
 }
