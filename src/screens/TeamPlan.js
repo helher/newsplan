@@ -17,7 +17,7 @@ const TeamPlan = () => {
       <div className="teamplan">
         <h1 className="teamplan-header">Under Construction</h1>
         <div className="image-container-teamplan">
-          <img className="teamplan-image" scr={teamImage} alt="teamplan" />
+          <img className="teamplan-image" scr={teamImage} alt="teamplan"/>
         </div>
       </div>
       <div className="footer-container">

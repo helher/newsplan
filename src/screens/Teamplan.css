@@ -17,9 +17,11 @@
 
 .image-container-teamplan {
   display: flex;
-  height: 50vh;
-  width: 5000px;
+  flex-direction: center;
+  height: 50px;
+  width: 50px;
 }
 
 .teamplan-image {
+  height: 100vh;
 }
