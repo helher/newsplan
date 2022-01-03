@@ -98,9 +98,15 @@ function PopupArticle(props) {
       "Dec",
     ];
     let newMonth = months[month];
+    
+    let newDay = date.day
+
+    if (newDay < 10) {
+      newDay = 0 + JSON.stringify(date.day)
+    } 
 
     const newDateString = JSON.stringify(
-      `${newMonth} ${date.day} ${date.year}`
+      `${newMonth} ${newDay} ${date.year}`
     );
     const completeNewDateString = newDateString.substring(
       1,
@@ -192,7 +198,7 @@ function PopupArticle(props) {
       let result = await Article.destroy();
       /* alert('Success! Article deleted with id: ' + result.id); */
       console.log("Success! Article deleted with id: " + result.id);
-      props.setArticlePopup(false);
+      props.setPopupArticle(false)
       clearPopup();
       return true;
     } catch (error) {
