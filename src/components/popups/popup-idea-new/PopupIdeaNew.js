@@ -61,6 +61,7 @@ function PopupIdeaNew(props) {
     newIdea.set("visibility", visibility);
 
     try {
+      await createIdea()
       let result = await newIdea.save();
       console.log("Idea created with ID: " + result.id);
       props.setPopupNew(false);
