@@ -10,4 +10,5 @@
   align-items: center;
   padding-left: 50px;
   position: absolute;
+  z-index: 90;
 }
