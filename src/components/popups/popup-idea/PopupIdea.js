@@ -5,7 +5,7 @@ import Parse from "parse";
 import "./../Popup.css";
 
 // Functions
-import {deleteIdea} from "../../../database/REST";
+import { deleteIdea } from "../../../database/REST";
 import { convertDateObjectToString } from "../popupConversions";
 import { convertDateStringToObject } from "../popupConversions";
 import { convertToPlain } from "../popupConversions";
