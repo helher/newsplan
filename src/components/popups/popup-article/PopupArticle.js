@@ -4,9 +4,9 @@ import Parse from "parse";
 // Styles
 import "./PopupArticle.css";
 
-// Functions 
-import {readJobList} from "../../../database/articleRole";
-import {deleteArticle} from "../../../database/REST";
+// Functions
+import { readJobList } from "../../../database/articleRole";
+import { deleteArticle } from "../../../database/REST";
 import { convertDateObjectToString } from "../popupConversions";
 import { convertDateStringToObject } from "../popupConversions";
 import { convertToPlain } from "../popupConversions";
@@ -39,11 +39,11 @@ function PopupArticle(props) {
   const [selectedEmployee, setSelectedEmployee] = useState();
   const [ideaId, setIdeaId] = useState();
   const [ideaAuthor, setIdeaAuthor] = useState();
-  const [hasAssignedJobs, setHasAssignedJobs] = useState(false)
+  const [hasAssignedJobs, setHasAssignedJobs] = useState(false);
   const [assignedJob, setAssignedJob] = useState();
   const [jobListResult, setJobListResult] = useState();
   const [commentResult, setCommentResult] = useState();
-  
+
   useEffect(() => {
     props.ideaCardObject && setArticleStateInfoFromIdea();
   }, [props.articleId]);
@@ -53,24 +53,24 @@ function PopupArticle(props) {
   }, [props.articleCardObject]);
 
   useEffect(() => {
-      readJobList(props.articleId).then((jobList) => {
-        setJobListResult(jobList); 
-      });}, [assignedJob]);
-
+    readJobList(props.articleId).then((jobList) => {
+      setJobListResult(jobList);
+    });
+  }, [assignedJob]);
 
   async function setArticleStateInfoFromIdea() {
     console.log("setArticleInfoFromIdea started..", props.ideaCardObject);
 
-    const initialDeadline = props.date.toString().substring(4,15)
-    const initialLength = "0-100 words"
-    
+    const initialDeadline = props.date.toString().substring(4, 15);
+    const initialLength = "0-100 words";
+
     setTitle(props.ideaCardObject.title);
     setDescription(props.ideaCardObject.description);
     setSection(props.ideaCardObject.section);
     setIdeaId(props.ideaCardObject.id);
     setIdeaAuthor(props.ideaCardObject.author);
-    setDate(convertDateStringToObject(initialDeadline))
-    setLength(initialLength)
+    setDate(convertDateStringToObject(initialDeadline));
+    setLength(initialLength);
   }
 
   async function setArticleState() {
@@ -118,10 +118,9 @@ function PopupArticle(props) {
   }
 
   async function handleDiscardAttempt() {
-
     try {
       await deleteArticle(props.articleId);
-      alert('Success! Article deleted with id: ' + props.articleId);
+      alert("Success! Article deleted with id: " + props.articleId);
       console.log("Success! Article deleted with id: " + props.articleId);
       props.setPopupArticle(false);
       clearPopup();
@@ -139,9 +138,7 @@ function PopupArticle(props) {
     clearPopup();
   }
 
-
-
- /*  const updateJobList = async function () {
+  /*  const updateJobList = async function () {
     let query = new Parse.Query("ArticleRole");
     query.include("user");
     query.equalTo("articleId", props.articleId);
@@ -219,10 +216,7 @@ function PopupArticle(props) {
                 setAssignedJob={setAssignedJob}
                 setHasAssignedJobs={setHasAssignedJobs}
               />
-              {hasAssignedJobs && (
-                <JobList jobListResult={jobListResult} />
-              )}
-              
+              {hasAssignedJobs && <JobList jobListResult={jobListResult} />}
             </div>
             <CommentForm
               ideaId={props.ideaId}

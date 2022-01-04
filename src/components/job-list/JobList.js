@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Parse from "parse";
-import { List } from "antd";
+import React from "react";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
-import { Button } from "@material-ui/core";
 
 //Styles
 import "./JobList.css";
