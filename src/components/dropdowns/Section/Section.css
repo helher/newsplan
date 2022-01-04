@@ -1,0 +1,78 @@
+@import url("./../../../App.css");
+
+.section-dropdown {
+  max-width: 150px;
+}
+
+.dropdown-select {
+  width: 480px;
+  height: 37px;
+  user-select: none;
+}
+
+.dropdown-btn {
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.05);
+  background-color: var(--white-color);
+  border-radius: 7px;
+  color: var(--primary-color-60);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 10px;
+}
+
+*/ .space {
+  width: 50px;
+  background-color: transparent;
+  flex: 2;
+}
+
+.section-dropdown-content {
+  border-radius: 6px;
+  margin-top: 10px;
+  background-color: var(--white-color);
+  position: absolute;
+  width: 478px;
+  border: 1px solid #373a3c;
+  overflow-y: scroll;
+  height: 180px;
+}
+
+.dropdown-item {
+  color: var(--primary-color);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: var(--accented-color-40);
+  cursor: pointer;
+}
+
+.selected-section {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  color: black;
+}
+
+.assign-job-header {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--primary-color);
+  margin-bottom: 25px;
+}
+
+.ant-list-items {
+  padding: 0px;
+}
+
+.ant-list-item {
+  padding: 0px;
+}

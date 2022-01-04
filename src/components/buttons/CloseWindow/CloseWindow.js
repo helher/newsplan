@@ -1,14 +1,15 @@
-import React from 'react'
-import './CloseWindow.css'
-import { IoIosCloseCircleOutline } from 'react-icons/io'
+import React from "react";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
-function CloseWindow(props) {
-    
-    return (
-            <button className="close-button">
-                < IoIosCloseCircleOutline className="closing-tag" onClick={() => props.setTrigger(false)}/>
-            </button>
-    )
-}
+// Styles
+import "./CloseWindow.css";
 
-export default CloseWindow
+const CloseWindow = ({ closeAction }) => {
+  return (
+    <button className="close-button">
+      <IoIosCloseCircleOutline className="closing-tag" onClick={closeAction} />
+    </button>
+  );
+};
+
+export default CloseWindow;

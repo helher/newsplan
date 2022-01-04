@@ -1,0 +1,84 @@
+@import url("./../../index.css");
+
+.popup-page {
+  position: fixed;
+  left: 160px;
+  top: 0px;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(2px);
+  background-color: var(--primary-color-60);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.popup {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-left: -160px;
+}
+
+.idea-container-new {
+  border: 1px solid black;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  background-color: var(--white-color);
+}
+
+.idea-container {
+  border: 1px solid black;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  background-color: var(--white-color);
+}
+
+/* left coloum  */
+
+.idea-flex-left {
+  flex: 1;
+  padding: 25px;
+  width: 500px;
+}
+
+.idea-top-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.align-bottons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-buttons {
+  display: flex;
+}
+
+.convert-button {
+  margin-right: 15px;
+}
+
+/* right coloum */
+
+.idea-flex-right {
+  background-color: var(--light-grey);
+  width: auto;
+  height: relative;
+  flex: 2;
+  padding: 25px;
+  width: 300px;
+  height: 635px;
+}
+
+.top-right {
+  display: flex;
+  justify-content: flex-end;
+}

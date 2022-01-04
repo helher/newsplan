@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+
+// Styles
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Screens
 import TeamPlan from "./screens/TeamPlan";
@@ -8,17 +10,14 @@ import Dashboard from "./screens/Dashboard";
 import Ideas from "./screens/Ideas";
 import Articles from "./screens/Articles";
 import LoginScreen from "./screens/LoginScreen";
-import PopupIdea from "./components/popups/popup-idea/PopupIdea";
 
 // Components
 import NavigationBar from "./components/nav/NavigationBar";
-import Footer from "./components/footer/Footer";
 import Logout from "./components/logout/Logout";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   //TODO: Make logout using setIsLoggedIn state hook function
-  const [showPopup, setShowpopup] = useState(false);
 
   return !isLoggedIn ? (
     <LoginScreen setIsLoggedIn={setIsLoggedIn} />
@@ -32,9 +31,7 @@ function App() {
           <Route path="/ideas" element={<Ideas />} exact />
           <Route path="/teamplan" element={<TeamPlan exact />} />
         </Routes>
-        <Footer className="footer-element" trigger={setShowpopup} />
-        <Logout className ="logout-element"/>
-        <PopupIdea trigger={showPopup} setTrigger={setShowpopup} />
+        <Logout className="logout-element" setIsLoggedIn={setIsLoggedIn} />
       </Router>
     </div>
   );

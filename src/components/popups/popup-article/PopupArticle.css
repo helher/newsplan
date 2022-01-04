@@ -1,0 +1,6 @@
+@import url(./../../../index.css);
+
+.job-component {
+  display: flex;
+  flex-direction: row;
+}

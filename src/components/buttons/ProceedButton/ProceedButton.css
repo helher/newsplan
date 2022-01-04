@@ -1,9 +1,9 @@
 @import url(./../../../index.css);
 
 .proceed-btn {
-  border: 2px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
   background-color: var(--white-color-15);
-  height: 30px;
+  height: 27px;
   padding-left: 15px;
   color: white;
   border-radius: 15px;
@@ -17,8 +17,9 @@
 .circle {
   background: var(--primary-color);
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  border: 1px solid var(--primary-color);
+  width: 25px;
+  height: 25px;
   margin-left: 10px;
   display: flex;
   align-items: center;
@@ -30,8 +31,4 @@
   width: 16px;
   color: white;
   text-align: left;
-}
-
-.proceed-btn:hover {
-  background-color: var(--white-color-40);
 }

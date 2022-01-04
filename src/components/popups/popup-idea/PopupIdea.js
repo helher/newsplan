@@ -1,102 +1,267 @@
-import React, { useState } from 'react';
-import './PopupIdea.css';
-import Parse from 'parse';
+import React, { useEffect, useState } from "react";
+import Parse from "parse";
 
-// icons
-import { BiBrain } from 'react-icons/bi';
+// Styles
+import "./../Popup.css";
+
+// Functions
+import {deleteIdea} from "../../../database/REST";
 
 //components
-import SaveButton from '../../buttons/PrimaryButton/SaveButton';
-import ProceedButton from '../../buttons/ProceedButton/ProceedButton';
-import DiscardButton from '../../buttons/DiscardButton/DiscardButton';
-import CloseWindow from '../../buttons/CloseWindow/CloseWindow';
-import DropdownVisibility from '../../dropdowns/DropdownVisibility/DropdownVisibility';
-import DropdownCalendar from '../../dropdowns/DropdownCalendar/DropdownCalendar';
+import TitleEdit from "../../title-edit/TitleEdit";
+import SaveButton from "../../buttons/SaveButton/SaveButton";
+import ProceedButton from "../../buttons/ProceedButton/ProceedButton";
+import DiscardButton from "../../buttons/DiscardButton/DiscardButton";
+import CloseWindow from "../../buttons/CloseWindow/CloseWindow";
+import DropdownVisibility from "../../dropdowns/dropdown-visibility/DropdownVisibility";
+import DropdownCalendar from "../../dropdowns/dropdown-calendar/DropdownCalendar";
+import Section from "../../dropdowns/section/Section";
+import RichTextEditor from "../../rich-text-editor/RichTextEdior";
+import CreatedBy from "../../created-by/CreatedBy";
+import CommentForm from "../../comment-form/CommentForm";
+import CommentList from "../../comment-list/CommentList";
 
 function PopupIdea(props) {
-    const [titleSelected, setTitleSelected] = useState("Title of Idea")
-    const [descriptionSelected, setDescriptionSelected] = useState("Write your description of your idea..")
-    const [visibilitySelected, setVisibilitySelected] = useState("Select")
+  const [author, setAuthor] = useState();
+  const [title, setTitle] = useState();
+  const [description, setDescription] = useState();
+  const [date, setDate] = useState();
+  const [visibility, setVisibility] = useState();
+  const [section, setSection] = useState();
+  const [commentResult, setCommentResult] = useState();
 
-    async function saveIdeaToDB(e) {
-        console.log("anita clicked the button")
-        e.preventDefault()
-        console.log("prevented default")
+  useEffect(() => {
+    props.ideaCardObject && setIdeaInfo();
+  }, [props]);
 
-        console.log(visibilitySelected)
+  async function setIdeaInfo() {
+    setTitle(props.ideaCardObject.title);
+    setDescription(props.ideaCardObject.description);
+    setSection(props.ideaCardObject.section);
+    setVisibility(props.ideaCardObject.visibility);
+    setDate(convertDateStringToObject(props.ideaCardObject.expiration))
+    setAuthor(props.ideaCardObject.author);
+  }
 
-        const Idea = Parse.Object.extend("Idea")
-        const newIdea = new Idea()
-        newIdea.set("title", titleSelected)
-        newIdea.set("description", descriptionSelected)
-        newIdea.set("visibility", visibilitySelected)
 
-        /* newIdea.set("user", Parse.User.current()) //how uploaded the idea.. */
-        try {
-            await newIdea.save()
-            alert("Idea is creted - HURRRA!")
-        }
-        catch(error) {
-           alert(error)
-       }
+  function clearPopup() {
+    setTitle("");
+    setDescription("");
+    setDate();
+    setVisibility("");
+    setSection();
+  }
+
+  // This code is from https://dev.to/sanchithasr/3-ways-to-convert-html-text-to-plain-text-52l8
+  function convertToPlain(description) {
+    var temporaryText = document.createElement("div");
+    temporaryText.innerHTML = description;
+    return temporaryText.textContent || temporaryText.innerText || "";
+  }
+
+  function convertDateObjectToString(date) {
+    let month = `${date.month}`;
+    const months = [
+      "",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    let newMonth = months[month];
+    
+    let newDay = date.day
+
+    if (newDay < 10) {
+      newDay = 0 + JSON.stringify(date.day)
+    } 
+
+    const newDateString = JSON.stringify(
+      `${newMonth} ${newDay} ${date.year}`
+    );
+    const completeNewDateString = newDateString.substring(
+      1,
+      newDateString.length - 1
+    );
+
+    return completeNewDateString;
+  }
+
+
+  function convertDateStringToObject(date) {
+    const stringArr = date.split(" ");
+
+    const dateObject = {
+      day: stringArr[1],
+      month: stringArr[0],
+      year: stringArr[2]
     }
 
-    return (props.trigger) ? (
-        <div className="popup-page">
-            <div className="popup">
-                <section className="idea-container">
+    let month = `${dateObject.month}`
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    let newMonth = months.indexOf(month)
 
-                    {/* LEFT-COLUMN */}
-                    <div className="idea-flex-left">
-                        {/* Logo, id and title */}
-                        <div className="logo-and-id">
-                            <BiBrain className="idea-icon"/>
-                            <p className="createdby-text"><b>Idea</b> created by HH</p>
-                        </div>
-                        <h1>Title of idea</h1>
+    const newDateObject = {
+      day: parseInt(stringArr[1]),
+      month: newMonth+1,
+      year: parseInt(stringArr[2])
+    }
 
-                        {/* Rich-text-editor placeholder*/}
-                        <div className="rich-text-editor"><p className="placeholder-text">{descriptionSelected}</p></div>
-                        
-                        {/* Dropdowns */}
-                        <div className="dropdowns"></div>
-                        <DropdownCalendar />
-                        <br/>
-                        <h5>Section</h5>
-                        <DropdownVisibility visibilitySelected={visibilitySelected} setVisibilitySelected={setVisibilitySelected} />
+    return newDateObject
+  }
 
-                        {/* Attached articles */}
-                        <h5>Attached articles</h5>
-                        <p>No articles attached yet</p>
-                        <br/>
-                        <br/>
-                        <br/>
+  async function handleDiscardAttempt() {
+    try {
+      await deleteIdea(props.ideaId);
+      alert("Success! Idea deleted with id: " + props.ideaId);
+      console.log("Success! Idea deleted with id: " + props.ideaId);
+      props.setPopup(false);
+      clearPopup();
+    } catch (error) {
+      alert(`Error ${error.message}`);
+    }
+  }
 
-                        {/* Buttons */}
-                        <div className="align-bottons">
-                            <DiscardButton text="Discard" goto="Dashboard" />
-                                <div className="right-buttons">
-                                    <div className="convert-button">
-                                        <ProceedButton text="Convert to Article" goto="/Dashboard" />
-                                    </div>
-                                    <SaveButton saveAction={saveIdeaToDB}/>
-                                </div>
-                        </div>
-                    </div>
 
-                    {/* RIGHT-COLUMN */}
-                    <div className="idea-flex-right">
-                        <div className="top-right">
-                            <CloseWindow setTrigger={props.setTrigger}/>
-                        </div>
-                            
-                        <h3>Comments</h3>
-                    </div>
-                </section>
-                { props.children }
+  function handlePopupIdea() {
+    props.setPopup(false);
+  }
+
+
+  async function updateIdeaInDB() {
+    const objectId = props.ideaId;
+    const Idea = new Parse.Object("Idea");
+
+    const id = Idea.set("objectId", objectId);
+    console.log(id);
+
+    console.log("save idea id: " + id);
+    Idea.set("title", title);
+    Idea.set("description", convertToPlain(description));
+    Idea.set("expiration", convertDateObjectToString(date));
+    Idea.set("section", section);
+    Idea.set("visibility", visibility);
+    try {
+      let result = await Idea.save();
+      alert("Idea updated with objectId: " + result.id);
+      console.log("Idea updated with objectId: " + result.id);
+      props.setPopup(false);
+      clearPopup();
+    } catch (error) {
+      alert("Failed to update object, with error code: " + error.message);
+    }
+  }
+
+  async function convertToArticle() {
+    props.setPopup(false)
+    props.setPopupArticle(true)
+
+    const Article = Parse.Object.extend("Article")
+    const newArticle = new Article()
+
+    try {
+      await newArticle.save()
+    }
+    catch(error) {
+       alert(error)
+   }
+
+   const initialDeadline = props.date.toString().substring(4,15)
+   const initialLength = "0-100 words"
+
+    await newArticle.fetch().then((latestArticle) => {
+    console.log("latest article id ", latestArticle.id)
+    newArticle.set("title", title).save()
+    newArticle.set("description", convertToPlain(description)).save()
+    newArticle.set("section", section).save()
+    newArticle.set("ideaId", props.ideaId).save()
+    newArticle.set("deadline", initialDeadline).save()
+    newArticle.set("length", initialLength).save()
+    newArticle.set("ideaAuthor", author).save()
+    props.setArticleId(latestArticle.id)
+
+    }, error => {
+    alert(error)
+    })
+  }
+
+
+  return props.popup ? (
+    <div className="popup-page">
+      <div className="popup">
+        <section className="idea-container">
+          {/* LEFT-COLUMN */}
+          <div className="idea-flex-left">
+            <CreatedBy ideaId={props.ideaId} author={author}/>
+            <TitleEdit title={title} setTitle={setTitle} />
+            <RichTextEditor
+              description={description}
+              setDescription={setDescription}
+            />
+
+            {/* Dropdowns */}
+            <h5>Expiration Date</h5>
+            <DropdownCalendar
+              date={date}
+              setDate={setDate}
+            />
+            <Section
+              section={section}
+              setSection={setSection}
+            />
+            <DropdownVisibility
+              visibility={visibility}
+              setVisibility={setVisibility}
+            />
+
+            {/* Attached articles */}
+            <h5>Attached articles</h5>
+            <p>No articles attached yet</p>
+            <br />
+            <br />
+            <br />
+
+            {/* Buttons */}
+            <div className="align-bottons">
+              <DiscardButton
+                text="Discard"
+                discardAction={handleDiscardAttempt}
+              />
+              <div className="right-buttons">
+                <div className="convert-button">
+                  <ProceedButton text="Convert to Article" proceedAction={convertToArticle}/>
+                </div>
+                <SaveButton saveAction={updateIdeaInDB} />
+              </div>
             </div>
-        </div>
-    ) : ""
+          </div>
+
+          {/* RIGHT-COLUMN */}
+          <div className="idea-flex-right">
+            <div className="top-right">
+              <CloseWindow closeAction={handlePopupIdea} />
+            </div>
+            <CommentForm
+              ideaId={props.ideaId}
+              setCommentResult={setCommentResult}
+            />
+            <CommentList commentResult={commentResult} />
+          </div>
+        </section>
+        {props.children}
+      </div>
+    </div>
+  ) : (
+    ""
+  );
 }
 
 export default PopupIdea;

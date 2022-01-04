@@ -1,19 +1,116 @@
-import React from 'react';
-import IdeaCard from './../components/kanban-cards/idea-card/IdeaCard';
-import InputTag from './../components/input-tag/InputTag'; 
-import RichTextEditor from '../components/rich-text-editor/RichTextEdior';
+import React, { useState, useEffect } from "react";
+import Parse from "parse";
+
+// Styles
+import "./Lists.css";
+
+// Components
+import Statusbar from "../components/statusbar/Statusbar";
+import Footer from "../components/footer/Footer";
+import LoadButton from "../components/buttons/LoadButton/LoadButton";
+import PopupArticle from "../components/popups/popup-article/PopupArticle";
+import { DataGrid } from "@mui/x-data-grid";
+import Label from "../components/label/Label";
+
+//functions
+import { cloudSumArticle } from "../database/cloud";
+
+const columns = [
+  {
+    field: "title",
+    headerName: "TITLE",
+    width: 650,
+    editable: false,
+  },
+  {
+    field: "section",
+    headerName: "SECTION",
+    width: 200,
+    editable: false,
+    renderCell: (params) => <Label sectionName={params.value} />,
+  },
+  {
+    field: "status",
+    headerName: "STATUS",
+    width: 250,
+    editable: false,
+    renderCell: (params) => <Statusbar status={params.value} />,
+  },
+  {
+    field: "deadline",
+    headerName: "DEADLINE",
+    sortable: true,
+    width: 140,
+  },
+];
 
 const Articles = () => {
-    return (
-        
-        <div className="article-screen">
-            {console.log("I am running")}
-            <p>Articles Page</p>
-            <IdeaCard />
-            <InputTag/>
-            <RichTextEditor/>
+  //this line is needed to test the popup on article page
+  const [length, setLength] = useState();
+  const [articleTable, setArticleTable] = useState();
+  const [cloudResult, setCloudResult] = useState()
+
+  useEffect(() => {
+    fetchIdeas();
+  }, []);
+
+  useEffect(() => {
+    cloudSumArticle().then((sum) => {
+      setCloudResult(sum)
+    })
+  }, []);
+
+  async function fetchIdeas() {
+    const query = new Parse.Query("Article");
+    try {
+      const article = await query.find();
+      console.log("Parse Objects: ", article);
+      const destructuredArticles = destructureArticle(article);
+      setArticleTable(destructuredArticles);
+      console.log("from readIdeas: ", articleTable);
+      return true;
+    } catch (error) {
+      alert(`Error is this errortest ${error.message}`);
+      return false;
+    }
+  }
+
+  function destructure(article) {
+    return {
+      id: article.id,
+      title: article.get("title"),
+      section: article.get("section"),
+      deadline: article.get("deadline"),
+      status: article.get("status"),
+    };
+  }
+
+  function destructureArticle(articles) {
+    return articles.map(destructure);
+  }
+
+  return (
+    <>
+      <div className="list">
+        <h1>Article list</h1>
+        <div className="list-table" />
+        <DataGrid
+          rows={articleTable}
+          columns={columns}
+          pageSize={100}
+          rowsPerPageOptions={[100]}
+        />
+      </div>
+      <PopupArticle />
+      <div className="footer-container">
+        <div className="footer-btns">
+          <LoadButton text="Load more Articles" />
+          <p>Total Articles: {cloudResult}</p>
         </div>
-    );
+        <Footer />
+      </div>
+    </>
+  );
 };
 
 export default Articles;

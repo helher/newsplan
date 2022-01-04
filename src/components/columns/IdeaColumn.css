@@ -1,0 +1,100 @@
+@import url(./../../index.css);
+
+.idea-card-container {
+  max-width: 250px;
+  margin-top: 50px;
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow-y: scroll;
+  max-height: 73vh;
+  background-color: var(--accented-color);
+}
+
+.idea-column-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--white-color);
+  height: 20px;
+  padding: 10px;
+  width: 220px;
+  position: fixed;
+  margin-top: 10px;
+  background-color: var(--accented-color);
+}
+
+.idea-card-container h2 {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.idea-card-container h3 {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  line-height: 15px;
+  font-weight: 600;
+  max-height: 3em;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.idea-card-container p {
+  color: #ffffff;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 200;
+  margin: 5px 0px 0px 0px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-height: 4.5em;
+  overflow: hidden;
+}
+
+.card-idea {
+  background-color: var(--primary-color);
+  padding: 15px;
+  width: 190px;
+  margin-bottom: 10px;
+}
+
+.card-idea:hover {
+  transition: 0.3s;
+  cursor: pointer;
+  background: var(--primary-color-80);
+}
+
+.card-id {
+  display: flex;
+  justify-content: space-between;
+  color: var(--accented-color);
+}
+
+.card-id small {
+  font-weight: 400;
+  font-size: 8px;
+}
+
+.card-id small:first-child {
+  margin-right: 10px;
+}
+
+.card-date {
+  display: flex;
+}
+
+.tags {
+  display: flex;
+  margin: 10px 0px 0px 0px;
+}
+
+.tags p {
+  margin: 0px 10px 0px 0px;
+}
+
+.assigned-people {
+  display: flex;
+  margin: 5px 0px 0px 0px;
+}

@@ -1,0 +1,27 @@
+@import url(./../index.css);
+
+.footerteamplan-btns {
+  display: flex;
+  justify-content: space-between;
+  width: 48%;
+}
+
+.teamplan-header {
+  margin: 20px;
+}
+
+.teamplan {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container-teamplan {
+  display: flex;
+  flex-direction: center;
+  height: 50px;
+  width: 50px;
+}
+
+.teamplan-image {
+  height: 100vh;
+}

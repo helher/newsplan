@@ -2,7 +2,7 @@
 
 .nav-container {
   background-color: var(--primary-color);
-  width: 200px;
+  width: 160px;
   height: 100%;
   color: #ffffff;
   text-align: left;
@@ -21,6 +21,7 @@ li a {
   font-family: "Poppins";
   color: #ffffff;
   text-decoration: none;
+  font-size: 14.3px;
 }
 
 li a:hover {
@@ -28,7 +29,7 @@ li a:hover {
 }
 
 .navigation_icon {
-  width: 20px;
+  width: 18px;
   margin-right: 10px;
   vertical-align: middle;
 }

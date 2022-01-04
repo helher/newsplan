@@ -1,24 +1,28 @@
 @import url(./../../../index.css);
 
 .discard-btn {
-  border: 2px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
   background-color: var(--white-color-15);
-  height: 30px;
+  height: 27px;
   padding-right: 20px;
   padding-left: 20px;
   color: white;
   border-radius: 15px;
   transition: 0.3s;
   cursor: pointer;
-  min-width: 135px;
+  min-width: 125px;
 }
 
-.button-text {
+.discardbutton-text {
+  color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .discard-btn:hover {
-  background-color: var(--primary-color-80);
+  color: var(--primary-color-80);
 }

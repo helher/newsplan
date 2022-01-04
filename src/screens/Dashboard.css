@@ -1,3 +1,12 @@
-.dashboard{
-    width: 100%;
+@import url(./../index.css);
+
+.dashboard {
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.card-components {
+  display: flex;
 }

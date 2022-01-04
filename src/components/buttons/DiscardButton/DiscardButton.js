@@ -1,27 +1,16 @@
-import React from 'react';
-import './DiscardButton.css';
-import { useNavigate } from 'react-router';
+import React from "react";
 
-const DiscardButton = ({
-    text,
-    goto,
-}) => {
+// Styles
+import "./DiscardButton.css";
 
-    let navigate = useNavigate();
-
-    function handleClick() {
-        navigate(goto)
-    }
-
-    return (
-        <div>
-            <button className="discard-btn" onClick={handleClick}>
-                <div class="button-text">{text}
-                </div>
-            </button>
-        </div>
-    
-    )
-}
+const DiscardButton = ({ text, discardAction }) => {
+  return (
+    <div>
+      <button className="discard-btn" onClick={discardAction}>
+        <div class="discardbutton-text">{text}</div>
+      </button>
+    </div>
+  );
+};
 
 export default DiscardButton;

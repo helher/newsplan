@@ -1,10 +1,19 @@
 import React from 'react';
-import './NavigationBar.css';
 import {Link} from 'react-router-dom';
+
+// Icons
 import { MdOutlineDashboard } from 'react-icons/md';
 import { RiArticleLine } from 'react-icons/ri';
 import { BiBrain } from 'react-icons/bi';
 import { AiOutlineTeam } from 'react-icons/ai';
+
+// Styles
+import './NavigationBar.css';
+
+// Components
+import BottomAvatar from '../bottom-avatar/BottomAvatar';
+
+
 
 function NavigationBar() {
     return (
@@ -25,7 +34,11 @@ function NavigationBar() {
                     </li>
                 </ul>
             </nav>
+                <div>
+                    <BottomAvatar className = "avatar_icon"/>
+                </div>
         </div>
+
     );
 };
 

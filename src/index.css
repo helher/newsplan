@@ -9,15 +9,15 @@
 h1 {
   font-family: "Poppins", sans-serif;
   font-weight: 900;
-  font-size: 24px;
-  line-height: 36px;
+  font-size: 20px;
+  line-height: 32px;
   color: var(--primary-color);
 }
 
 h2 {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 27px;
   color: var(--primary-color);
 }
@@ -25,15 +25,15 @@ h2 {
 h3 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 18px;
   color: var(--primary-color);
 }
 
 h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   color: var(--primary-color);
 }
@@ -41,16 +41,15 @@ h4 {
 h5 {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 21px;
   color: var(--primary-color);
-  margin-bottom: 5px;
 }
 
 h6 {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 18px;
 }
 
@@ -58,18 +57,11 @@ h6 {
 p {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 11px;
+  line-height: 16px;
 }
 
 /*  */
-.column-title {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 21px;
-  color: var(--primary-color);
-}
 
 .card-title {
   font-family: "Poppins", sans-serif;
@@ -102,7 +94,7 @@ p {
 .createdby-text {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 21px;
   color: var(--primary-color-60);
 }
@@ -110,7 +102,7 @@ p {
 .button-text {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 21px;
   color: var(--primary-color);
 }
@@ -118,7 +110,7 @@ p {
 .button-text-white {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 21px;
   color: var(--white-color);
 }
@@ -211,12 +203,17 @@ p {
   --white-color-15: hsl(0, 0%, 100%, 15%);
   --white-color-40: hsl(0, 0%, 100%, 40%);
 
-  /* Grey Colors */
+  /* Grey Color Scala */
   --grey-color: hsl(0, 0%, 77%); /* #C4C4C4 */
   --grey-color-80: hsl(0, 0%, 77%, 0.8);
   --grey-color-60: hsl(0, 0%, 77%, 0.6);
   --grey-color-40: hsl(0, 0%, 77%, 0.4);
   --grey-color-20: hsl(0, 0%, 77%, 0.2);
+
+  /* Grey Colors */
+  --light-grey: hsl(0, 0%, 98%);
+  --medium-grey: hsl(0, 0%, 77%);
+  --dark-medium-grey: hsl(0, 0%, 56%);
 
   /* Labels */
   --nation-color: hsl(4, 59%, 69%); /* #DE574E */
@@ -233,4 +230,11 @@ p {
   --science-color: hsl(147, 44%, 64%); /* #7BCCA0 */
   --music-color: hsl(263, 68%, 68%); /* #A177E5 */
   --tech-color: hsl(32, 93%, 66%); /* #F9B05A */
+
+  /* Statusbar */
+  --statusbar-backgroundcolor: hsl(32, 66%, 94%); /* FAF1E7 */
+  --statusbar-warning: hsl(0, 74%, 71%); /* EC7E7E */
+  --statusbar-approved: hsl(101, 63%, 70%); /* A1E382 */
+  --statusbar-neutral: hsl(31, 74%, 71%); /* ECB77E */
+  --statusbar-onhold: hsl(263, 68%, 68%); /* A177E5 */
 }

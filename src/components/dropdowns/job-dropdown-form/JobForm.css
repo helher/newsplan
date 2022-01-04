@@ -1,0 +1,8 @@
+@import url("./../../../index.css");
+
+.job-form-component {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
