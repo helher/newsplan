@@ -7,21 +7,36 @@
 }
 
 .teamplan-header {
-  margin: 20px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.teamplan h1 {
+  font-size: 60px;
+  font-weight: 500;
+  color: white;
+}
+
+.teamplan p {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 20px;
+  text-align: center;
+  color: white;
 }
 
 .teamplan {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  background-color: var(--primary-color);
 }
 
-.image-container-teamplan {
-  display: flex;
-  flex-direction: center;
-  height: 50px;
-  width: 50px;
-}
-
-.teamplan-image {
-  height: 100vh;
+.teamplan-img {
+  width: 100vw;
+  margin-bottom: -400px;
+  transition: 0.3s ease;
+  opacity: 0.3;
+  backdrop-filter: blur(2px);
+  background-color: var(--primary-color-60);
 }
