@@ -118,7 +118,6 @@ function PopupArticle(props) {
   }
 
   async function handleDiscardAttempt() {
-
     try {
       await deleteArticle(props.articleId);
       alert('Success! Article deleted with id: ' + props.articleId);

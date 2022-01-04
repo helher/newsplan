@@ -51,21 +51,3 @@ export async function getUser(userId) {
     alert(`Error! ${error.message}`);
   }
 }
-
-
-export async function createIdea() {
-  try {
-    await fetch(
-      `https://parseapi.back4app.com/Idea/`, 
-      {
-        method: "POST",
-        headers: {
-          "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
-          "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
-        },
-      }
-    );
-  } catch (error) {
-    alert(`Error! ${error.message}`);
-  }
-}

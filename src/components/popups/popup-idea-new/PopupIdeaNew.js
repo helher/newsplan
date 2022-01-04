@@ -7,6 +7,7 @@ import "./../Popup.css";
 // functions
 import { convertDateObjectToString } from "../popupConversions";
 import { convertToPlain } from "../popupConversions";
+import { createIdea } from "../../../database/REST";
 
 //components
 import TitleEdit from "../../title-edit/TitleEdit";
@@ -47,7 +48,46 @@ function PopupIdeaNew(props) {
     clearPopup();
   }
 
+const postData = {
+    user: Parse.User.current(),
+    userimage: Parse.User.current().get("userimage"),
+    author: Parse.User.current().get("username"),
+    title: title,
+    description: convertToPlain(description),
+    expiration: convertDateObjectToString(date),
+    section: section,
+    visibility: visibility,
+  }
+
   async function createIdeaInDB() {
+    try {
+      const response = await fetch(
+        `https://parseapi.back4app.com/Idea/`, 
+        {
+          method: "PUT",
+          headers: {
+            "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
+            "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
+          },
+          body: (postData)
+        }
+      );
+    
+    if (!response.ok) {
+     const message = "Error with Status Code: " + response.status;
+     throw new Error(message);
+    }
+
+    const data = await response.json();
+    console.log(data);
+    } catch (error) {
+    console.log("Error: " + error);
+    }
+  }
+
+
+
+/*   async function createIdeaInDB() {
     const Idea = Parse.Object.extend("Idea");
     const newIdea = new Idea();
 
@@ -61,7 +101,6 @@ function PopupIdeaNew(props) {
     newIdea.set("visibility", visibility);
 
     try {
-      await createIdea()
       let result = await newIdea.save();
       console.log("Idea created with ID: " + result.id);
       props.setPopupNew(false);
@@ -69,7 +108,7 @@ function PopupIdeaNew(props) {
     } catch (error) {
       alert("Failed to update object, with error code: " + error.message);
     }
-  }
+  } */
 
   return props.popupNew ? (
     <div className="popup-page">
