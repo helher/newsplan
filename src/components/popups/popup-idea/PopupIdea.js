@@ -66,13 +66,59 @@ function PopupIdea(props) {
     }
   }
 
-
   function handlePopupIdea() {
     props.setPopup(false);
   }
 
 
+  async function updateIdea(ideaiiid) {
+    console.log("this is the date", date)
+    try {
+      const response = await fetch(
+        `https://parseapi.back4app.com/classes/Idea/${ideaiiid}`, 
+        {
+          method: "PUT",
+          headers: {
+            "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
+            "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
+          },
+          body: JSON.stringify({
+            title: title,
+            description: convertToPlain(description),
+            expiration: convertDateObjectToString(date),
+            section: section,
+            visibility: visibility
+          })
+        }
+      );
+    
+    if (!response.ok) {
+     const message = "Error with Status Code: " + response.status;
+     throw new Error(message);
+    }
+  
+    const data = await response.json();
+    console.log(data);
+    } catch (error) {
+    console.log("Error: " + error);
+    }
+  }
+
   async function updateIdeaInDB() {
+    try {
+      let id = await props.ideaId
+      console.log("propsid",id)
+      await updateIdea(id)
+      console.log("Idea updated with objectId: " + id);
+      alert("Idea updated with objectId: " + id);
+      props.setPopup(false);
+      clearPopup();
+    } catch (error) {
+      alert("Failed to update object, with error code: " + error.message);
+    }
+  }
+
+/*   async function updateIdeaInDB() {
     const objectId = props.ideaId;
     const Idea = new Parse.Object("Idea");
 
@@ -94,7 +140,7 @@ function PopupIdea(props) {
     } catch (error) {
       alert("Failed to update object, with error code: " + error.message);
     }
-  }
+  } */
 
   async function convertToArticle() {
     props.setPopup(false)
