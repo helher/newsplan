@@ -46,7 +46,6 @@ export async function updateIdea(ideaId, updateData) {
     }
 
     const data = await response.json();
-    alert("Success! You updated the idea!");
     console.log(data);
   } catch (error) {
     console.log("Error: " + error);
