@@ -165,7 +165,7 @@ function PopupIdea(props) {
     newArticle.set("deadline", initialDeadline).save()
     newArticle.set("length", initialLength).save()
     newArticle.set("ideaAuthor", author).save()
-    newArticle.set("status", "noassigned").save()
+    newArticle.set("status", "planned").save()
     props.setArticleId(latestArticle.id)
 
     }, error => {
