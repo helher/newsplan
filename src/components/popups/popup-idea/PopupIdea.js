@@ -72,7 +72,6 @@ function PopupIdea(props) {
 
 
   async function updateIdea(ideaId) {
-    console.log("this is the date", date)
     try {
       const response = await fetch(
         `https://parseapi.back4app.com/classes/Idea/${ideaId}`, 
@@ -107,9 +106,7 @@ function PopupIdea(props) {
   async function updateIdeaInDB() {
     try {
       let id = await props.ideaId
-      console.log("propsid",id)
       await updateIdea(id)
-      console.log("Idea updated with objectId: " + id);
       alert("Idea updated with objectId: " + id);
       props.setPopup(false);
       clearPopup();
