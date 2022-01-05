@@ -71,11 +71,11 @@ function PopupIdea(props) {
   }
 
 
-  async function updateIdea(ideaiiid) {
+  async function updateIdea(ideaId) {
     console.log("this is the date", date)
     try {
       const response = await fetch(
-        `https://parseapi.back4app.com/classes/Idea/${ideaiiid}`, 
+        `https://parseapi.back4app.com/classes/Idea/${ideaId}`, 
         {
           method: "PUT",
           headers: {
