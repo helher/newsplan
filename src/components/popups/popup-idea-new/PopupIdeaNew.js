@@ -48,7 +48,8 @@ function PopupIdeaNew(props) {
     clearPopup();
   }
 
-const postData = {
+
+/* const postData = {
     user: Parse.User.current(),
     userimage: Parse.User.current().get("userimage"),
     author: Parse.User.current().get("username"),
@@ -57,9 +58,9 @@ const postData = {
     expiration: convertDateObjectToString(date),
     section: section,
     visibility: visibility,
-  }
+  } */
 
-  async function createIdeaInDB() {
+/*   async function createIdeaInDB() {
     try {
       const response = await fetch(
         `https://parseapi.back4app.com/Idea/`, 
@@ -69,7 +70,7 @@ const postData = {
             "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
             "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
           },
-          body: (postData)
+          body: JSON.stringify(postData)
         }
       );
     
@@ -83,11 +84,11 @@ const postData = {
     } catch (error) {
     console.log("Error: " + error);
     }
-  }
+  } */
 
 
 
-/*   async function createIdeaInDB() {
+  async function createIdeaInDB() {
     const Idea = Parse.Object.extend("Idea");
     const newIdea = new Idea();
 
@@ -108,7 +109,7 @@ const postData = {
     } catch (error) {
       alert("Failed to update object, with error code: " + error.message);
     }
-  } */
+  }
 
   return props.popupNew ? (
     <div className="popup-page">

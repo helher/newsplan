@@ -71,8 +71,59 @@ function PopupIdea(props) {
     props.setPopup(false);
   }
 
+/*   const correctDate = convertDateObjectToString(date) */
+
+  const postData = {
+    title: title,
+    description: convertToPlain(description),
+    expiration: "Jan 05 2022",
+    section: section,
+    visibility: visibility
+  }
+
+  async function updateIdea(ideaiiid) {
+    try {
+      const response = await fetch(
+        `https://parseapi.back4app.com/classes/Idea/${ideaiiid}`, 
+        {
+          method: "PUT",
+          headers: {
+            "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
+            "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
+          },
+          body: (postData)
+        }
+      );
+    
+    if (!response.ok) {
+     const message = "Error with Status Code: " + response.status;
+     throw new Error(message);
+    }
+  
+    const data = await response.json();
+    console.log(data);
+    } catch (error) {
+    console.log("Error: " + error);
+    }
+  }
+
+
+
 
   async function updateIdeaInDB() {
+    console.log("this is the ipdateefef", props.ideaId)
+    try {
+      let result = await updateIdea(props.ideaId)
+      console.log("Idea updated with objectId: " + result.id);
+      alert("Idea updated with objectId: " + result.id);
+      props.setPopup(false);
+      clearPopup();
+    } catch (error) {
+      alert("Failed to update object, with error code: " + error.message);
+    }
+  }
+
+/*   async function updateIdeaInDB() {
     const objectId = props.ideaId;
     const Idea = new Parse.Object("Idea");
 
@@ -94,7 +145,7 @@ function PopupIdea(props) {
     } catch (error) {
       alert("Failed to update object, with error code: " + error.message);
     }
-  }
+  } */
 
   async function convertToArticle() {
     props.setPopup(false)
