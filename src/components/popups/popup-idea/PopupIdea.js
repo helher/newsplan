@@ -104,26 +104,31 @@ function PopupIdea(props) {
       alert(error);
     }
 
-    const initialDeadline = props.date.toString().substring(4, 15);
-    const initialLength = "0-100 words";
+    try {
+      await newArticle.save()
+    }
+    catch(error) {
+       alert(error)
+   }
 
-    await newArticle.fetch().then(
-      (latestArticle) => {
-        console.log("latest article id ", latestArticle.id);
-        newArticle.set("title", title).save();
-        newArticle.set("description", convertToPlain(description)).save();
-        newArticle.set("section", section).save();
-        newArticle.set("ideaId", props.ideaId).save();
-        newArticle.set("deadline", initialDeadline).save();
-        newArticle.set("length", initialLength).save();
-        newArticle.set("ideaAuthor", author).save();
-        newArticle.set("status", "noassigned").save();
-        props.setArticleId(latestArticle.id);
-      },
-      (error) => {
-        alert(error);
-      }
-    );
+   const initialDeadline = props.date.toString().substring(4,15)
+   const initialLength = "0-100 words"
+
+    await newArticle.fetch().then((latestArticle) => {
+    console.log("latest article id ", latestArticle.id)
+    newArticle.set("title", title).save()
+    newArticle.set("description", convertToPlain(description)).save()
+    newArticle.set("section", section).save()
+    newArticle.set("ideaId", props.ideaId).save()
+    newArticle.set("deadline", initialDeadline).save()
+    newArticle.set("length", initialLength).save()
+    newArticle.set("ideaAuthor", author).save()
+    newArticle.set("status", "planned").save()
+    props.setArticleId(latestArticle.id)
+
+    }, error => {
+    alert(error)
+    })
   }
 
   return props.popup ? (
