@@ -7,9 +7,9 @@ import Parse from "parse";
 import "./index.css";
 
 Parse.initialize(
-  "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
-  "MdOxEqwSdGUH7WdyANx0klSOb1U07dUyHf0A1Qq2"
-);
+  `${process.env.REACT_APP_APPLICATION_ID}`,
+  `${process.env.REACT_APP_JAVASCRIPT_KEY}`,
+)
 
 Parse.serverURL = "https://parseapi.back4app.com/";
 

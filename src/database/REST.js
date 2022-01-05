@@ -3,8 +3,8 @@ export async function deleteArticle(articleId) {
     await fetch(`https://parseapi.back4app.com/classes/Article/${articleId}`, {
       method: "DELETE",
       headers: {
-        "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
-        "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
+        "X-Parse-Application-Id": `${process.env.REACT_APP_APPLICATION_ID}`,
+        "X-Parse-REST-API-Key": `${process.env.REACT_APP_REST_API_KEY}`
       },
     });
   } catch (error) {
@@ -17,14 +17,15 @@ export async function deleteIdea(ideaId) {
     await fetch(`https://parseapi.back4app.com/classes/Idea/${ideaId}`, {
       method: "DELETE",
       headers: {
-        "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
-        "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
+        "X-Parse-Application-Id": `${process.env.REACT_APP_APPLICATION_ID}`,
+        "X-Parse-REST-API-Key": `${process.env.REACT_APP_REST_API_KEY}`
       },
     });
   } catch (error) {
     alert(`Error! ${error.message}`);
   }
 }
+
 
 export async function updateIdea(ideaId, updateData) {
   try {
@@ -33,8 +34,8 @@ export async function updateIdea(ideaId, updateData) {
       {
         method: "PUT",
         headers: {
-          "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
-          "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
+          "X-Parse-Application-Id": `${process.env.REACT_APP_APPLICATION_ID}`,
+          "X-Parse-REST-API-Key": `${process.env.REACT_APP_REST_API_KEY}`
         },
         body: JSON.stringify(updateData),
       }
@@ -58,8 +59,8 @@ export async function getUser(userId) {
     await fetch(`https://parseapi.back4app.com/User/${userId}`, {
       method: "GET",
       headers: {
-        "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
-        "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
+        "X-Parse-Application-Id": `${process.env.REACT_APP_APPLICATION_ID}`,
+        "X-Parse-REST-API-Key": `${process.env.REACT_APP_REST_API_KEY}`
       },
     });
   } catch (error) {
