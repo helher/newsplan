@@ -14,6 +14,12 @@ const Statusbar = ({ status }) => {
   }
 
   switch (status) {
+    case "noassigned":
+      return (
+        <div className="bar">
+          {ColorWidth("var(--statusbar-neutral)", "0px")}
+        </div>
+      );
     case "planned":
       return (
         <div className="bar">
