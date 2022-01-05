@@ -66,22 +66,13 @@ function PopupIdea(props) {
     }
   }
 
-
   function handlePopupIdea() {
     props.setPopup(false);
   }
 
-/*   const correctDate = convertDateObjectToString(date) */
-
-  const postData = {
-    title: title,
-    description: convertToPlain(description),
-    expiration: "Jan 05 2022",
-    section: section,
-    visibility: visibility
-  }
 
   async function updateIdea(ideaiiid) {
+    console.log("this is the date", date)
     try {
       const response = await fetch(
         `https://parseapi.back4app.com/classes/Idea/${ideaiiid}`, 
@@ -91,7 +82,13 @@ function PopupIdea(props) {
             "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
             "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
           },
-          body: (postData)
+          body: JSON.stringify({
+            title: title,
+            description: convertToPlain(description),
+            expiration: convertDateObjectToString(date),
+            section: section,
+            visibility: visibility
+          })
         }
       );
     
@@ -107,15 +104,13 @@ function PopupIdea(props) {
     }
   }
 
-
-
-
   async function updateIdeaInDB() {
-    console.log("this is the ipdateefef", props.ideaId)
     try {
-      let result = await updateIdea(props.ideaId)
-      console.log("Idea updated with objectId: " + result.id);
-      alert("Idea updated with objectId: " + result.id);
+      let id = await props.ideaId
+      console.log("propsid",id)
+      await updateIdea(id)
+      console.log("Idea updated with objectId: " + id);
+      alert("Idea updated with objectId: " + id);
       props.setPopup(false);
       clearPopup();
     } catch (error) {
