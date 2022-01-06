@@ -6,7 +6,7 @@ import Loui_Avatar from "./Loui_Avatar.png";
 import "./ArticleColumn.css";
 
 // Function
-import { readJobList } from "../../database/articleRole2";
+import { readJobList } from "../../database/articleRole";
 
 // Components
 import Statusbar from "../statusbar/Statusbar";
