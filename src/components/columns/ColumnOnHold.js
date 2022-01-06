@@ -11,12 +11,12 @@ import Label from "../label/Label";
 
 function ColumnOnHold(props) {
   function handleClickIdeaPopup(card) {
-    console.log("article card clicked!");
+/*     console.log("article card clicked!"); */
     props.setPopupArticle(true);
-    console.log("is this the id of the card?", card.id);
+/*     console.log("is this the id of the card?", card.id); */
     props.setArticleId(card.id);
     props.setArticleCardObject(card);
-    console.log("this is the card: ", card);
+/*     console.log("this is the card: ", card); */
   }
 
   useEffect(() => {
@@ -31,10 +31,10 @@ function ColumnOnHold(props) {
 
     try {
       const articles = await query.find();
-      console.log("Parse Objects: ", articles);
+/*       console.log("Parse Objects: ", articles); */
       const destructuredIdeas = destructureIdeas(articles);
       props.setColumnOnHold(destructuredIdeas);
-      console.log("from readIdeas: ", props.columnOnHold);
+/*       console.log("from readIdeas: ", props.columnOnHold); */
       return true;
     } catch (error) {
       alert(`getIdeaCard Error Message ${error.message}`);
