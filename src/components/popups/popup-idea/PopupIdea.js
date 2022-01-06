@@ -5,7 +5,11 @@ import Parse from "parse";
 import "./../Popup.css";
 
 // Functions
-import {deleteIdea} from "../../../database/REST";
+import { deleteIdea } from "../../../database/REST";
+import { convertDateObjectToString } from "../popupConversions";
+import { convertDateStringToObject } from "../popupConversions";
+import { convertToPlain } from "../popupConversions";
+import { updateIdea } from "../../../database/REST";
 
 //components
 import TitleEdit from "../../title-edit/TitleEdit";
@@ -20,6 +24,7 @@ import RichTextEditor from "../../rich-text-editor/RichTextEdior";
 import CreatedBy from "../../created-by/CreatedBy";
 import CommentForm from "../../comment-form/CommentForm";
 import CommentList from "../../comment-list/CommentList";
+import { BiAlarmExclamation } from "react-icons/bi";
 
 function PopupIdea(props) {
   const [author, setAuthor] = useState();
@@ -39,10 +44,9 @@ function PopupIdea(props) {
     setDescription(props.ideaCardObject.description);
     setSection(props.ideaCardObject.section);
     setVisibility(props.ideaCardObject.visibility);
-    setDate(convertDateStringToObject(props.ideaCardObject.expiration))
+    setDate(convertDateStringToObject(props.ideaCardObject.expiration));
     setAuthor(props.ideaCardObject.author);
   }
-
 
   function clearPopup() {
     setTitle("");
@@ -50,72 +54,6 @@ function PopupIdea(props) {
     setDate();
     setVisibility("");
     setSection();
-  }
-
-  // This code is from https://dev.to/sanchithasr/3-ways-to-convert-html-text-to-plain-text-52l8
-  function convertToPlain(description) {
-    var temporaryText = document.createElement("div");
-    temporaryText.innerHTML = description;
-    return temporaryText.textContent || temporaryText.innerText || "";
-  }
-
-  function convertDateObjectToString(date) {
-    let month = `${date.month}`;
-    const months = [
-      "",
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    let newMonth = months[month];
-    
-    let newDay = date.day
-
-    if (newDay < 10) {
-      newDay = 0 + JSON.stringify(date.day)
-    } 
-
-    const newDateString = JSON.stringify(
-      `${newMonth} ${newDay} ${date.year}`
-    );
-    const completeNewDateString = newDateString.substring(
-      1,
-      newDateString.length - 1
-    );
-
-    return completeNewDateString;
-  }
-
-
-  function convertDateStringToObject(date) {
-    const stringArr = date.split(" ");
-
-    const dateObject = {
-      day: stringArr[1],
-      month: stringArr[0],
-      year: stringArr[2]
-    }
-
-    let month = `${dateObject.month}`
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    let newMonth = months.indexOf(month)
-
-    const newDateObject = {
-      day: parseInt(stringArr[1]),
-      month: newMonth+1,
-      year: parseInt(stringArr[2])
-    }
-
-    return newDateObject
   }
 
   async function handleDiscardAttempt() {
@@ -130,29 +68,22 @@ function PopupIdea(props) {
     }
   }
 
-
   function handlePopupIdea() {
     props.setPopup(false);
   }
 
-
   async function updateIdeaInDB() {
-    const objectId = props.ideaId;
-    const Idea = new Parse.Object("Idea");
-
-    const id = Idea.set("objectId", objectId);
-    console.log(id);
-
-    console.log("save idea id: " + id);
-    Idea.set("title", title);
-    Idea.set("description", convertToPlain(description));
-    Idea.set("expiration", convertDateObjectToString(date));
-    Idea.set("section", section);
-    Idea.set("visibility", visibility);
+    const updateData = {
+      title: title,
+      description: convertToPlain(description),
+      expiration: convertDateObjectToString(date),
+      section: section,
+      visibility: visibility,
+    };
     try {
-      let result = await Idea.save();
-      alert("Idea updated with objectId: " + result.id);
-      console.log("Idea updated with objectId: " + result.id);
+      let id = await props.ideaId;
+      await updateIdea(id, updateData);
+      alert("Idea updated with objectId: " + id);
       props.setPopup(false);
       clearPopup();
     } catch (error) {
@@ -161,11 +92,17 @@ function PopupIdea(props) {
   }
 
   async function convertToArticle() {
-    props.setPopup(false)
-    props.setPopupArticle(true)
+    props.setPopup(false);
+    props.setPopupArticle(true);
 
-    const Article = Parse.Object.extend("Article")
-    const newArticle = new Article()
+    const Article = Parse.Object.extend("Article");
+    const newArticle = new Article();
+
+    try {
+      await newArticle.save();
+    } catch (error) {
+      alert(error);
+    }
 
     try {
       await newArticle.save()
@@ -186,6 +123,7 @@ function PopupIdea(props) {
     newArticle.set("deadline", initialDeadline).save()
     newArticle.set("length", initialLength).save()
     newArticle.set("ideaAuthor", author).save()
+    newArticle.set("status", "planned").save()
     props.setArticleId(latestArticle.id)
 
     }, error => {
@@ -193,14 +131,13 @@ function PopupIdea(props) {
     })
   }
 
-
   return props.popup ? (
     <div className="popup-page">
       <div className="popup">
         <section className="idea-container">
           {/* LEFT-COLUMN */}
           <div className="idea-flex-left">
-            <CreatedBy ideaId={props.ideaId} author={author}/>
+            <CreatedBy ideaId={props.ideaId} author={author} />
             <TitleEdit title={title} setTitle={setTitle} />
             <RichTextEditor
               description={description}
@@ -209,14 +146,8 @@ function PopupIdea(props) {
 
             {/* Dropdowns */}
             <h5>Expiration Date</h5>
-            <DropdownCalendar
-              date={date}
-              setDate={setDate}
-            />
-            <Section
-              section={section}
-              setSection={setSection}
-            />
+            <DropdownCalendar date={date} setDate={setDate} />
+            <Section section={section} setSection={setSection} />
             <DropdownVisibility
               visibility={visibility}
               setVisibility={setVisibility}
@@ -237,7 +168,10 @@ function PopupIdea(props) {
               />
               <div className="right-buttons">
                 <div className="convert-button">
-                  <ProceedButton text="Convert to Article" proceedAction={convertToArticle}/>
+                  <ProceedButton
+                    text="Convert to Article"
+                    proceedAction={convertToArticle}
+                  />
                 </div>
                 <SaveButton saveAction={updateIdeaInDB} />
               </div>

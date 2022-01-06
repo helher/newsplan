@@ -4,9 +4,12 @@ import Parse from "parse";
 // Styles
 import "./PopupArticle.css";
 
-// Functions 
-import {readJobList} from "../../../database/articleRole";
-import {deleteArticle} from "../../../database/REST";
+// Functions
+import { readJobList } from "../../../database/articleRole";
+import { deleteArticle } from "../../../database/REST";
+import { convertDateObjectToString } from "../popupConversions";
+import { convertDateStringToObject } from "../popupConversions";
+import { convertToPlain } from "../popupConversions";
 
 //components
 import TitleEdit from "../../title-edit/TitleEdit";
@@ -36,11 +39,11 @@ function PopupArticle(props) {
   const [selectedEmployee, setSelectedEmployee] = useState();
   const [ideaId, setIdeaId] = useState();
   const [ideaAuthor, setIdeaAuthor] = useState();
-  const [hasAssignedJobs, setHasAssignedJobs] = useState(false)
+  const [hasAssignedJobs, setHasAssignedJobs] = useState(false);
   const [assignedJob, setAssignedJob] = useState();
   const [jobListResult, setJobListResult] = useState();
   const [commentResult, setCommentResult] = useState();
-  
+
   useEffect(() => {
     props.ideaCardObject && setArticleStateInfoFromIdea();
   }, [props.articleId]);
@@ -50,27 +53,29 @@ function PopupArticle(props) {
   }, [props.articleCardObject]);
 
   useEffect(() => {
-      readJobList(props.articleId).then((jobList) => {
-        setJobListResult(jobList); 
-      });}, [assignedJob]);
-
+    readJobList(props.articleId).then((jobList) => {
+      setJobListResult(jobList);
+    });
+  }, [assignedJob]);
 
   async function setArticleStateInfoFromIdea() {
     console.log("setArticleInfoFromIdea started..", props.ideaCardObject);
 
-    const initialDeadline = props.date.toString().substring(4,15)
-    const initialLength = "0-100 words"
-    
+    const initialDeadline = props.date.toString().substring(4, 15);
+    const initialLength = "0-100 words";
+
     setTitle(props.ideaCardObject.title);
     setDescription(props.ideaCardObject.description);
     setSection(props.ideaCardObject.section);
     setIdeaId(props.ideaCardObject.id);
     setIdeaAuthor(props.ideaCardObject.author);
-    setDate(convertDateStringToObject(initialDeadline))
-    setLength(initialLength)
+    setDate(convertDateStringToObject(initialDeadline));
+    setLength(initialLength);
   }
 
   async function setArticleState() {
+    console.log("setArticleState started..", props.articleCardObject);
+
     setIdeaAuthor(props.articleCardObject.author);
     setTitle(props.articleCardObject.title);
     setDescription(props.articleCardObject.description);
@@ -79,77 +84,6 @@ function PopupArticle(props) {
     setLength(props.articleCardObject.length);
     setIdeaId(props.articleCardObject.ideaId);
     setIdeaAuthor(props.articleCardObject.ideaAuthor);
-  }
-
-  function convertDateObjectToString(date) {
-    let month = `${date.month}`;
-    const months = [
-      "",
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    let newMonth = months[month];
-    
-    let newDay = date.day
-
-    if (newDay < 10) {
-      newDay = 0 + JSON.stringify(date.day)
-    } 
-
-    const newDateString = JSON.stringify(
-      `${newMonth} ${newDay} ${date.year}`
-    );
-    const completeNewDateString = newDateString.substring(
-      1,
-      newDateString.length - 1
-    );
-
-    return completeNewDateString;
-  }
-
-  function convertDateStringToObject(date) {
-    const stringArr = date.split(" ");
-
-    const dateObject = {
-      day: stringArr[1],
-      month: stringArr[0],
-      year: stringArr[2],
-    };
-
-    let month = `${dateObject.month}`;
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    let newMonth = months.indexOf(month);
-
-    const newDateObject = {
-      day: parseInt(stringArr[1]),
-      month: newMonth + 1,
-      year: parseInt(stringArr[2]),
-    };
-
-    return newDateObject;
   }
 
   function clearPopup() {
@@ -186,10 +120,9 @@ function PopupArticle(props) {
   }
 
   async function handleDiscardAttempt() {
-
     try {
       await deleteArticle(props.articleId);
-      alert('Success! Article deleted with id: ' + props.articleId);
+      alert("Success! Article deleted with id: " + props.articleId);
       console.log("Success! Article deleted with id: " + props.articleId);
       props.setPopupArticle(false);
       clearPopup();
@@ -207,14 +140,7 @@ function PopupArticle(props) {
     clearPopup();
   }
 
-  // This code is from https://dev.to/sanchithasr/3-ways-to-convert-html-text-to-plain-text-52l8
-  function convertToPlain(description) {
-    var temporaryText = document.createElement("div");
-    temporaryText.innerHTML = description;
-    return temporaryText.textContent || temporaryText.innerText || "";
-  }
-
- /*  const updateJobList = async function () {
+  /*  const updateJobList = async function () {
     let query = new Parse.Query("ArticleRole");
     query.include("user");
     query.equalTo("articleId", props.articleId);
@@ -292,10 +218,7 @@ function PopupArticle(props) {
                 setAssignedJob={setAssignedJob}
                 setHasAssignedJobs={setHasAssignedJobs}
               />
-              {hasAssignedJobs && (
-                <JobList jobListResult={jobListResult} />
-              )}
-              
+              {hasAssignedJobs && <JobList jobListResult={jobListResult} />}
             </div>
             <CommentForm
               ideaId={props.ideaId}

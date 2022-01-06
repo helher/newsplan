@@ -4,6 +4,11 @@ import Parse from "parse";
 // Styles
 import "./../Popup.css";
 
+// functions
+import { convertDateObjectToString } from "../popupConversions";
+import { convertToPlain } from "../popupConversions";
+import { createIdea } from "../../../database/REST";
+
 //components
 import TitleEdit from "../../title-edit/TitleEdit";
 import SaveButton from "../../buttons/SaveButton/SaveButton";
@@ -38,49 +43,6 @@ function PopupIdeaNew(props) {
     setSection();
   }
 
-  // This code is from https://dev.to/sanchithasr/3-ways-to-convert-html-text-to-plain-text-52l8
-  function convertToPlain(description) {
-    var temporaryText = document.createElement("div");
-    temporaryText.innerHTML = description;
-    return temporaryText.textContent || temporaryText.innerText || "";
-  }
-
-  function convertDateObjectToString(date) {
-    let month = `${date.month}`;
-    const months = [
-      "",
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    let newMonth = months[month];
-    
-    let newDay = date.day
-
-    if (newDay < 10) {
-      newDay = 0 + JSON.stringify(date.day)
-    } 
-
-    const newDateString = JSON.stringify(
-      `${newMonth} ${newDay} ${date.year}`
-    );
-    const completeNewDateString = newDateString.substring(
-      1,
-      newDateString.length - 1
-    );
-
-    return completeNewDateString;
-  }
-
   function handlePopupIdeaNew() {
     props.setPopupNew(false);
     clearPopup();
@@ -101,6 +63,7 @@ function PopupIdeaNew(props) {
 
     try {
       let result = await newIdea.save();
+      alert("Idea created with ID: " + result.id);
       console.log("Idea created with ID: " + result.id);
       props.setPopupNew(false);
       clearPopup();

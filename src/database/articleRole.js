@@ -15,3 +15,4 @@ export async function readJobList(articleId) {
     return jobArray;
   } catch (error) {}
 }
+   

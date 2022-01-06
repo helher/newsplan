@@ -15,10 +15,11 @@ const TeamPlan = () => {
   return (
     <>
       <div className="teamplan">
-        <h1 className="teamplan-header">Under Construction</h1>
-        <div className="image-container-teamplan">
-          <img className="teamplan-image" scr={teamImage} alt="teamplan"/>
-        </div>
+          <img className="teamplan-img" src={teamImage} alt="teamplan"/>
+          <div className="teamplan-header">
+          <h1 >Under Construction</h1>
+          <p>This page is under construction, but feel free to explore the other pages</p>
+          </div>
       </div>
       <div className="footer-container">
         <div className="footerteamplan-btns">
@@ -32,3 +33,5 @@ const TeamPlan = () => {
 };
 
 export default TeamPlan;
+
+
