@@ -28,7 +28,6 @@ function ArticleColumn(props) {
         props.setArticleCardObject(card);
       }
 
-
   async function getArticleCard() {
     const articleObjects = Parse.Object.extend("Article");
     const query = new Parse.Query(articleObjects);
@@ -39,14 +38,12 @@ function ArticleColumn(props) {
 
     try {
       const articles = await query.find();
-
       let articleIdArr = articles.map((article) => article.id);
 
       for (let i = 0; i < articleIdArr.length; i++) {
         let articleId = articleIdArr[i];
         articleAndJob = articleAndJob.set(articleId, await readJobList(articleId))
       }
-
 
       const destructuredArticles = destructureArticles(articles);
       props.setColumn(destructuredArticles);
@@ -59,18 +56,15 @@ function ArticleColumn(props) {
   }
 
   function destructure(article) {
-
     getAssignedEmployees(article.id);
 
     let usernamesFromJobList = jobList.map((job) => job.attributes.user.attributes.username) 
     let usernamesFromJobListArr = []
     usernamesFromJobListArr = usernamesFromJobList.map(username => username)
-/*     console.log("usernamesFromJobListArr", usernamesFromJobListArr) */
 
     let userimagesFromJobList = jobList.map((job) => job.attributes.user.attributes.userimage)
     let userimagesFromJobListArr = []
     userimagesFromJobListArr = userimagesFromJobList.map(userimage => userimage.url())
-    console.log("userimagesFromJobListArr", userimagesFromJobListArr)
 
     let articleObject = {
       id: article.id,
@@ -95,7 +89,6 @@ function ArticleColumn(props) {
 
   async function getAssignedEmployees(id) {
     jobList = articleAndJob.get(id)
-/*     console.log("jobList", jobList); */
     return jobList
   }
 
@@ -117,9 +110,9 @@ function ArticleColumn(props) {
               <Label sectionName={card.section} />
             </div>
             <div className="assigned-people">
-              <p>{card.usernames}</p>
-              <img src={card.userimages} alt="userimage"></img>
-              {/* <img src={card.userimage.url()} alt="test" /> */}
+              {card.userimages.map((userimage) => (
+                <img src={userimage} alt="userimage"></img>
+              ))}
             </div>
             <div className="statusbar">
             <Statusbar status={card.status} />
