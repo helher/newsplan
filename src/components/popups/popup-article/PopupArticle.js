@@ -74,6 +74,8 @@ function PopupArticle(props) {
   }
 
   async function setArticleState() {
+    console.log("setArticleState started..", props.articleCardObject);
+
     setIdeaAuthor(props.articleCardObject.author);
     setTitle(props.articleCardObject.title);
     setDescription(props.articleCardObject.description);

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Parse from "parse";
-import Loui_Avatar from "./Loui_Avatar.png";
 
 // Styles
 import "./ArticleColumn.css";
@@ -47,7 +46,7 @@ function ArticleColumn(props) {
 
       const destructuredArticles = destructureArticles(articles);
       props.setColumn(destructuredArticles);
-/*       console.log("from readIdeas: ", props.column); */
+/*       console.log("from readArticles: ", props.column); */
       return true;
     } catch (error) {
       alert(`getArticleCard Error Message ${error.message}`);
@@ -66,7 +65,7 @@ function ArticleColumn(props) {
     let userimagesFromJobListArr = []
     userimagesFromJobListArr = userimagesFromJobList.map(userimage => userimage.url())
 
-    let articleObject = {
+    let articleCardObject = {
       id: article.id,
       title: article.get("title"),
       description: article.get("description"),
@@ -80,14 +79,14 @@ function ArticleColumn(props) {
       userimages: userimagesFromJobListArr
     }
 
-    return articleObject
+    return articleCardObject
   }
 
   function destructureArticles(article) {
     return article.map(destructure);
   }
 
-  async function getAssignedEmployees(id) {
+  function getAssignedEmployees(id) {
     jobList = articleAndJob.get(id)
     return jobList
   }
