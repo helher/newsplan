@@ -10,7 +10,7 @@ import Label from '../label/Label';
 function IdeaColumn(props) {
 
   function handleClickIdeaPopup(card) {
-    console.log("idea card clicked!")
+/*     console.log("idea card clicked!") */
     props.setPopup(true)
     props.setIdeaId(card.id)
     props.setIdeaCardObject(card)
@@ -33,10 +33,10 @@ function IdeaColumn(props) {
 
     try {
       const ideas = await query.find();
-      console.log("Parse Objects ideas: ", ideas);
+/*       console.log("Parse Objects ideas: ", ideas); */
       const destructuredIdeas = destructureIdeas(ideas);
       props.setCardIdeaTable(destructuredIdeas);
-      console.log("from getIdeaCard: ", props.cardIdeaTable);
+/*       console.log("from getIdeaCard: ", props.cardIdeaTable); */
       return true;
     } catch (error) {
       alert(`getIdeaCard Error Message ${error.message}`);
