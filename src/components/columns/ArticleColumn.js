@@ -10,16 +10,18 @@ import Statusbar from "../statusbar/Statusbar";
 import Label from "../label/Label";
 
 function ArticleColumn(props) {
-  function handleClickIdeaPopup(card) {
-    console.log("article card clicked!");
-    props.setPopupArticle(true);
-    props.setArticleId(card.id);
-    props.setArticleCardObject(card);
-  }
 
   useEffect(() => {
     getArticleCard();
   }, []);
+
+
+  function handleClickIdeaPopup(card) {
+    /*     console.log("article card clicked!"); */
+        props.setPopupArticle(true);
+        props.setArticleId(card.id);
+        props.setArticleCardObject(card);
+      }
 
   async function getArticleCard() {
     const articleObjects = Parse.Object.extend("Article");
@@ -30,10 +32,10 @@ function ArticleColumn(props) {
 
     try {
       const articles = await query.find();
-      console.log("Parse Objects: ", articles);
+/*       console.log("Parse Objects: ", articles); */
       const destructuredIdeas = destructureIdeas(articles);
       props.setColumn(destructuredIdeas);
-      console.log("from readIdeas: ", props.column);
+/*       console.log("from readIdeas: ", props.column); */
       return true;
     } catch (error) {
       alert(`getIdeaCard Error Message ${error.message}`);
