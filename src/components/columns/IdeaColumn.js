@@ -67,9 +67,8 @@ function IdeaColumn(props) {
     <>
     <h2 className="idea-column-title" >IDEAS</h2>
     <section className="idea-card-container">
-      {props.cardIdeaTable.map((card, index) => (
-        <div key={index}>
-        <div className="card-idea" onClick={() => handleClickIdeaPopup(card)}>
+      {props.cardIdeaTable.map((card) => (
+        <div key={card.id} className="card-idea" onClick={() => handleClickIdeaPopup(card)}>
           <h3>{card.title}</h3>
           <div className="card-id">
             <small>
@@ -84,7 +83,6 @@ function IdeaColumn(props) {
           <div className="assigned-people">
             <img src={card.userImage} />
           </div>
-        </div>
         </div>
       ))}
     </section>
