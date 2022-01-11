@@ -92,10 +92,11 @@ function ArticleColumn(props) {
   }
 
   return (
-    <div>
+    <div >
       <h2 className="article-column-title">{props.columnTitle}</h2>
-      <section className="article-card-container">
-        {props.column.map((card) => (
+      <section className="article-card-container" >
+        {props.column.map((card, index) => (
+          <div key={index} >
           <div className="card" onClick={() => handleClickIdeaPopup(card)}>
             <h3>{card.title}</h3>
             <div className="card-id">
@@ -109,13 +110,16 @@ function ArticleColumn(props) {
               <Label sectionName={card.section} />
             </div>
             <div className="assigned-people">
-              {card.userimages.map((userimage) => (
-                <img src={userimage} alt="userimage"></img>
+              {card.userimages.map((userimage, index) => (
+                <div key={index} >
+                  <img src={userimage} alt="userimage"></img>
+                  </div>
               ))}
             </div>
             <div className="statusbar">
             <Statusbar status={card.status} />
             </div>
+          </div>
           </div>
         ))}
       </section>

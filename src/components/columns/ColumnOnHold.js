@@ -94,7 +94,8 @@ function ColumnOnHold(props) {
     <div>
       <h2 className="article-column-title">ON HOLD</h2>
       <section className="article-card-container">
-        {props.columnOnHold.map((card) => (
+        {props.columnOnHold.map((card, index) => (
+          <div key={index} >
           <div className="card" onClick={() => handleClickIdeaPopup(card)}>
             <h3>{card.title}</h3>
             <div className="card-id">
@@ -106,13 +107,16 @@ function ColumnOnHold(props) {
               <Label sectionName={card.section} />
             </div>
             <div className="assigned-people">
-              {card.userimages.map((userimage) => (
+              {card.userimages.map((userimage, index) => (
+                <div key={index}>
                 <img src={userimage} alt="userimage"></img>
+                </div>
               ))}
             </div>
             <div className="statusbar">
             <Statusbar status={card.status} />
             </div>
+          </div>
           </div>
         ))}
       </section>

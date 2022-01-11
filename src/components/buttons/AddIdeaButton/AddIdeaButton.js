@@ -12,7 +12,7 @@ const AddIdeaButton = ({ text, setPopupNew }) => {
 
   return (
     <button className="addidea-iconbtn" onClick={handleClickPopup}>
-      <div class="button-text-white">
+      <div className="button-text-white">
         <IoIosAddCircleOutline className="addidea-icon" />
         {text}
       </div>

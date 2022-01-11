@@ -20,7 +20,7 @@ function BottomAvatar() {
           width: 70,
         }}
         alt="Profile image"
-        img
+        img="true"
         src={user.get("userimage").url()}
       />
     </div>
