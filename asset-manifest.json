@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/newsplan/static/css/main.e4d9824c.chunk.css",
-    "main.js": "/newsplan/static/js/main.6c6f4048.chunk.js",
-    "main.js.map": "/newsplan/static/js/main.6c6f4048.chunk.js.map",
+    "main.js": "/newsplan/static/js/main.d5779a04.chunk.js",
+    "main.js.map": "/newsplan/static/js/main.d5779a04.chunk.js.map",
     "runtime-main.js": "/newsplan/static/js/runtime-main.79015a7a.js",
     "runtime-main.js.map": "/newsplan/static/js/runtime-main.79015a7a.js.map",
-    "static/js/2.7a31563f.chunk.js": "/newsplan/static/js/2.7a31563f.chunk.js",
-    "static/js/2.7a31563f.chunk.js.map": "/newsplan/static/js/2.7a31563f.chunk.js.map",
+    "static/js/2.6de659ca.chunk.js": "/newsplan/static/js/2.6de659ca.chunk.js",
+    "static/js/2.6de659ca.chunk.js.map": "/newsplan/static/js/2.6de659ca.chunk.js.map",
     "index.html": "/newsplan/index.html",
     "static/css/main.e4d9824c.chunk.css.map": "/newsplan/static/css/main.e4d9824c.chunk.css.map",
-    "static/js/2.7a31563f.chunk.js.LICENSE.txt": "/newsplan/static/js/2.7a31563f.chunk.js.LICENSE.txt",
+    "static/js/2.6de659ca.chunk.js.LICENSE.txt": "/newsplan/static/js/2.6de659ca.chunk.js.LICENSE.txt",
     "static/media/Loui_Avatar.9fe7312d.png": "/newsplan/static/media/Loui_Avatar.9fe7312d.png",
     "static/media/login_image.c688701f.jpg": "/newsplan/static/media/login_image.c688701f.jpg",
     "static/media/teamplan_image.f6149097.jpg": "/newsplan/static/media/teamplan_image.f6149097.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.79015a7a.js",
-    "static/js/2.7a31563f.chunk.js",
+    "static/js/2.6de659ca.chunk.js",
     "static/css/main.e4d9824c.chunk.css",
-    "static/js/main.6c6f4048.chunk.js"
+    "static/js/main.d5779a04.chunk.js"
   ]
 }
