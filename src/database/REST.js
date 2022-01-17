@@ -3,8 +3,8 @@ export async function deleteArticle(articleId) {
     await fetch(`https://parseapi.back4app.com/classes/Article/${articleId}`, {
       method: "DELETE",
       headers: {
-        "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
-        "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
+        "X-Parse-Application-Id": "yLIQmZNi3deYCrVYD1bHBQ8RhsBGsZ7xyLXm0Agd",
+        "X-Parse-REST-API-Key": "spPufCMBCOntQpOTFsq1yvO0t7hgwbASt9ZRGFLm",
       },
     });
   } catch (error) {
@@ -17,8 +17,8 @@ export async function deleteIdea(ideaId) {
     await fetch(`https://parseapi.back4app.com/classes/Idea/${ideaId}`, {
       method: "DELETE",
       headers: {
-        "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
-        "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
+        "X-Parse-Application-Id": "yLIQmZNi3deYCrVYD1bHBQ8RhsBGsZ7xyLXm0Agd",
+        "X-Parse-REST-API-Key": "spPufCMBCOntQpOTFsq1yvO0t7hgwbASt9ZRGFLm",
       },
     });
   } catch (error) {
@@ -33,8 +33,8 @@ export async function updateIdea(ideaId, updateData) {
       {
         method: "PUT",
         headers: {
-          "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
-          "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
+          "X-Parse-Application-Id": "yLIQmZNi3deYCrVYD1bHBQ8RhsBGsZ7xyLXm0Agd",
+          "X-Parse-REST-API-Key": "spPufCMBCOntQpOTFsq1yvO0t7hgwbASt9ZRGFLm",
         },
         body: JSON.stringify(updateData),
       }
@@ -58,8 +58,8 @@ export async function getUser(userId) {
     await fetch(`https://parseapi.back4app.com/User/${userId}`, {
       method: "GET",
       headers: {
-        "X-Parse-Application-Id": "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
-        "X-Parse-REST-API-Key": "7ZrNafHsjRyJKG85atUxrfYQmvekiwT0W9yEr8DF",
+        "X-Parse-Application-Id": "yLIQmZNi3deYCrVYD1bHBQ8RhsBGsZ7xyLXm0Agd",
+        "X-Parse-REST-API-Key": "spPufCMBCOntQpOTFsq1yvO0t7hgwbASt9ZRGFLm",
       },
     });
   } catch (error) {
