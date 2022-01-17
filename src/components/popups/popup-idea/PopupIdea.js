@@ -104,13 +104,6 @@ function PopupIdea(props) {
       alert(error);
     }
 
-    try {
-      await newArticle.save()
-    }
-    catch(error) {
-       alert(error)
-   }
-
    const initialDeadline = props.date.toString().substring(4,15)
    const initialLength = "0-100 words"
 
