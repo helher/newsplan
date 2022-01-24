@@ -34,6 +34,8 @@ function ArticleColumn(props) {
     query.include("ArticleRole");
     query.equalTo("deadline", props.date.toString().substring(4, 15));
     query.notEqualTo("status", "onhold");
+    query.descending("createdAt");
+
 
     try {
       const articles = await query.find();
