@@ -33,6 +33,8 @@ function ColumnOnHold(props) {
     query.include("workload");
     query.include("ArticleRole");
     query.equalTo("status", "onhold");
+    query.descending("createdAt");
+
 
     try {
       const articles = await query.find();
