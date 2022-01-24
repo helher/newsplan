@@ -67,6 +67,8 @@ function Ideas() {
   async function fetchIdeas() {
     const query = new Parse.Query("Idea");
     query.include("user");
+    query.descending("createdAt");
+
     try {
       const ideas = await query.find();
       console.log("Parse Objects: ", ideas);
