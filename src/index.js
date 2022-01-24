@@ -7,8 +7,8 @@ import Parse from "parse";
 import "./index.css";
 
 Parse.initialize(
-  "prgwSUltp9nUB75hqh7iW21kwd4xqVfhzIsTIzZz",
-  "MdOxEqwSdGUH7WdyANx0klSOb1U07dUyHf0A1Qq2"
+  "yLIQmZNi3deYCrVYD1bHBQ8RhsBGsZ7xyLXm0Agd",
+  "ckDmenIaLlQnucqkjw97U4kFdNTambdxw4EwfMwc"
 );
 
 Parse.serverURL = "https://parseapi.back4app.com/";

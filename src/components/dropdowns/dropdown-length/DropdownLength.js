@@ -22,7 +22,9 @@ useEffect(() => {}, [readResults]);
 
 const readWorkload = async function () {
     let query = new Parse.Query("Length");
+    query.ascending("words")
     let lengthOption = await query.find();
+
 
     try {
         lengthOption.forEach((lengthOption) => {
