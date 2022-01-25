@@ -24,9 +24,9 @@ function PopupIdeaNew(props) {
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [date, setDate] = useState({
-    day: 1,
-    month: 1,
-    year: 2023,
+    day: 30,
+    month: 9,
+    year: 2022,
   });
   const [visibility, setVisibility] = useState();
   const [section, setSection] = useState();
@@ -35,9 +35,9 @@ function PopupIdeaNew(props) {
     setTitle("");
     setDescription("");
     setDate({
-      day: 1,
-      month: 1,
-      year: 2023
+      day: 30,
+      month: 9,
+      year: 2022
     });
     setVisibility("");
     setSection();
